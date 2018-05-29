@@ -1,0 +1,38 @@
+
+.goods-item-container{
+  width: 100%;
+  height: 250rpx;
+  padding: 10px;
+  background-color: #ccc;
+}
+.goods-item-left{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  width: 250rpx;
+}
+.goods-item-left image{
+  width: 250rpx;
+  height: 250rpx;
+}
+.goods-item-right{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: absolute; 
+    white-space:pre-wrap;   
+    overflow: hidden;
+    text-overflow:clip; 
+    height: 75px;
+}
+.goods-item-logo image{
+  width: 40rpx;
+  height: 40rpx;  
+  position: absolute;
+  margin-top: 5px;
+}
+.goods-item-title{
+  font-size: 12px;  
+  padding-left: 25px;
+  padding-top: 5px;
+}
