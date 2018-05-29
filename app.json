@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/usercenter/index",
     "pages/goodscircle/index",
-    "pages/goodsdetails/details"
+    "pages/goodsdetails/details",
+    "pages/welfare/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -12,5 +13,33 @@
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home_off.png",
+        "selectedIconPath": "images/home_on.png"
+      },
+      {
+        "pagePath": "pages/welfare/index",
+        "text": "福利社",
+        "iconPath": "images/welfare_off.png",
+        "selectedIconPath": "images/welfare_on.png"
+      },
+      {
+        "pagePath": "pages/goodscircle/index",
+        "text": "好券圈",
+        "iconPath": "images/cart_off.png",
+        "selectedIconPath": "images/cart_on.png"
+      },
+      {
+        "pagePath": "pages/usercenter/index",
+        "text": "个人中心",
+        "iconPath": "images/my_off.png",
+        "selectedIconPath": "images/my_on.png"
+      }
+    ]
   }
 }
