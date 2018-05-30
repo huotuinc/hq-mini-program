@@ -1,5 +1,8 @@
 <import src="../template/goods-item/goods-item-template.wxml" />
 <import src="../template/goods-item/goods-item-two-template.wxml" />
+<import src="../template/goods-item/trademark-template.wxml" />
+
+
 <!--pages/index/index.wxml-->
 <view class='home-top'>
   <view class='index_header'>
@@ -47,12 +50,13 @@
     </block>    
   </view>
 </view>
+
 <view class='home-goods-items'>
   <block wx:for="{{hotItems}}" wx:key="item">
     <template is="goodsItem" data="{{item}}" />
   </block>
 </view>
-
+<template is="trademarkGoods"></template>
 <view class='home-goods-item-two'>
   <block wx:for="{{goodsItems}}" wx:key="item">
     <template is="itemTwo" data="{{item}}" />
