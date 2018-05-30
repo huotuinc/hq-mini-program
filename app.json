@@ -16,33 +16,33 @@
   },
   "tabBar": {
       "backgroundColor": "#FFFFFF",
-      "selectedColor": "#000000",
-      "color": "#959595",
+      "selectedColor": "#ff373e",
+      "color": "#898989",
       "borderStyle": "black",
       "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/home_off.png",
-        "selectedIconPath": "images/home_on.png"
+        "iconPath": "images/25@3x-1.png",
+        "selectedIconPath": "images/25@3x-2.png"
       },
       {
         "pagePath": "pages/welfare/index",
         "text": "福利社",
-        "iconPath": "images/welfare_off.png",
-        "selectedIconPath": "images/welfare_on.png"
+        "iconPath": "images/25@3x-6.png",
+        "selectedIconPath": "images/25@3x-5.png"
       },
       {
         "pagePath": "pages/goodscircle/index",
         "text": "好券圈",
-        "iconPath": "images/cart_off.png",
-        "selectedIconPath": "images/cart_on.png"
+        "iconPath": "images/25@3x-4.png",
+        "selectedIconPath": "images/25@3x-3.png"
       },
       {
         "pagePath": "pages/usercenter/index",
         "text": "个人中心",
-        "iconPath": "images/my_off.png",
-        "selectedIconPath": "images/my_on.png"
+        "iconPath": "images/25@3x-8.png",
+        "selectedIconPath": "images/25@3x-7.png"
       }
     ]
   }
