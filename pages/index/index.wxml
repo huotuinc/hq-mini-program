@@ -1,5 +1,5 @@
 <import src="../template/goods-item/goods-item-template.wxml" />
-
+<import src="../template/goods-item/goods-item-two-template.wxml" />
 <!--pages/index/index.wxml-->
 <view class='home-top'>
   <view class='index_header'>
@@ -14,28 +14,31 @@
     <view class='header_right'>
       <icon class="icon iconfont icon-ico_shoucangjia-copy"></icon>
     </view>
-  </view>
-  
+  </view>  
   <view class='home-category' tag="类目">
-    <scroll-view class='home-category-scroll' scroll-x>
-      <text class='selected'>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
-      <text>热门</text>
+    <scroll-view class='home-category-scroll' scroll-into-view="item-{{scrollIntoView}}" scroll-x="true"  bindscroll="scroll" scroll-left="{{scrollLeft}}">
+    <block  wx:for="{{category}}" wx:key="item">
+      <text id="item-{{item.index}}" data-index='{{index}}' bindtap='clickCategory' data-category='{{item}}' class='category-title {{item.selected?"selected":""}}'>{{item.title}}</text>
+    </block>     
     </scroll-view>
   </view>
 </view>
 <view class='home-index'>
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="true"
+        autoplay="true" interval="3000" duration="0.5">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}">AA</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
 </view>
 <view class='home-goods-items'>
   <template is="goodsItem" />
+</view>
+
+<view class='home-goods-item-two'>
+<template is="itemTwo" />
 </view>
