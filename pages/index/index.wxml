@@ -7,7 +7,7 @@
       拼多多
       <icon class='icon iconfont icon-icon--'></icon>
     </view>
-    <view class='index_search'>
+    <view class='index_search' catchtap='searchShop'>
       <icon class="icon iconfont icon-sousuo"></icon>
       <text>搜优惠商品</text>
     </view>
@@ -16,7 +16,8 @@
     </view>
   </view>
   <view class='home-category' tag="类目">
-    <scroll-view class='home-category-scroll' scroll-into-view="item-{{scrollIntoView}}" scroll-x="true" bindscroll="scroll" scroll-left="{{scrollLeft}}">
+    <scroll-view class='home-category-scroll' scroll-into-view="item-{{scrollIntoView}}" scroll-x="true" bindscroll="scroll"
+      scroll-left="{{scrollLeft}}">
       <block wx:for="{{category}}" wx:key="item">
         <text id="item-{{item.index}}" data-index='{{index}}' bindtap='clickCategory' data-category='{{item}}' class='category-title {{item.selected?"selected":""}}'>{{item.title}}</text>
       </block>
@@ -38,35 +39,24 @@
   </view>
 
   <view class='goods-special-area'>
-    <view class='special-item'>
-      <view class='special-box'>
-        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
+    <block wx:for="{{specialItems}}"  wx:key="item">
+    <view class='special-box'>
+      <view class='box2'>
+        <image src='{{item.imgSrc}}'></image>     
       </view>
-    </view>
-    <view class='special-item'>
-      <view class='special-box'>
-        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
-      </view>
-    </view>
-    <view class='special-item'>
-      <view class='special-box'>
-        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
-      </view>
-    </view>
-    <view class='special-item'>
-      <view class='special-box'>
-        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
-      </view>
-    </view>      
+    </view>  
+    </block>    
   </view>
 </view>
-<view class='home-goods-items'>
+ <view class='home-goods-items'>
   <template is="goodsItem" />
-</view>
+</view> 
 
 <view class='home-goods-item-two'>
-  <block wx:for="{{goodsItems}}"  wx:key="item" >
-    <template is="itemTwo" data="{{item}}" />
-  </block>
+ <block wx:for="{{goodsItems}}" wx:key="item">
+  <template is="itemTwo" data="{{item}}" />
+</block>
 </view>
+
+<!-- </view> -->
 <view style='height:60px;'></view>

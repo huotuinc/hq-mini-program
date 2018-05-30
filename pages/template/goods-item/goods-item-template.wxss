@@ -1,20 +1,17 @@
 .goods-item-container {
-  width: 100%;
-  height: 300rpx;
+  width: 710rpx;
+  height: 260rpx;
   padding: 10px;
-  box-sizing: border-box;
 }
-
 .goods-item-left {
-  display: flex;
-  flex-direction: column;
-  float: left;
-  width: 240rpx;
+   float: left; 
 }
-
+.goods-item-container .icon-zuanshi{
+  margin-top: -25rpx;
+}
 .goods-item-left image {
   width: 240rpx;
-  height: 260rpx;
+  height: 240rpx;
 }
 
 .goods-item-right {
@@ -34,59 +31,64 @@
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
-  font-size: 14px;
+  font-size: 28rpx;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 
 .oldprice {
-  font-size: 42rpx;
+  font-size: 23rpx;
   text-decoration: line-through;
   color: #acacac;
 }
 
 .icon-heart, .icon-xin {
   float: right;
-  font-size: 46rpx;
+  font-size: 36rpx;
 }
 
 .icon-heart {
   color: #acacac;
 }
 
-.icon-xin{
+.icon-xin {
   color: #fe4c55;
 }
 
-.old-ticket_sales,.new-ticket_sales {
-  margin-top: 10rpx;
+.old-ticket_sales {
+  margin-top: 30rpx;
+}
+
+.new-ticket_sales {
+  margin-top: 20rpx;
+}
+
+.old-ticket_sales, .new-ticket_sales {
   display: flex;
   flex-direction: row;
-   justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .price_ticket {
-  width: 120rpx;
-  height: 40rpx;
-  font-size: 32rpx;
+  width: 76rpx;
+  height: 30rpx;
+  font-size: 20rpx;
   border: 1px solid #fe4c55;
   border-radius: 30rpx;
   text-align: center;
-   line-height: 40rpx; 
+  line-height: 30rpx;
   color: #fe4c55;
   font-weight: normal;
 }
 
 .sales_volume {
-  font-size: 36rpx;
+  font-size: 20rpx;
   color: #acacac;
-  margin-top: -2rpx;
 }
 
 .new-price_ticket {
-  margin-top: 4rpx;
-  font-size: 40rpx;
+  font-size: 26rpx;
   font-weight: bold;
 }
 
@@ -95,8 +97,10 @@
 }
 
 .share_make {
-  width: 200rpx;
-  font-size: 28rpx;
+  width: 180rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
   color: #fe4c55;
   border: 1px solid #fe4c55;
   background-color: #fef8f7;

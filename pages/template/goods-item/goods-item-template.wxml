@@ -1,6 +1,6 @@
 <template name="goodsItem">
   <view class='goods-item-container'>
-
+    <view class='item-box'></view>
     <view class='goods-item-left'>
       <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
     </view>
@@ -25,10 +25,13 @@
 
       <view class='new-ticket_sales'>
         <view class='new-price_ticket'>
-          券后<text class='price'>￥22.98</text>
+          券后
+          <text class='price'>￥22.98</text>
         </view>
         <view class='share_make'>
-          <text>分享赚</text><icon class='icon iconfont icon-zuanshi'></icon><text>2.98</text>
+          <text>分享赚</text>
+          <icon class='icon iconfont icon-zuanshi'></icon>
+          <text>2.98</text>
         </view>
       </view>
 

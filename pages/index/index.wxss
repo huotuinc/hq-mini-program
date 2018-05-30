@@ -1,6 +1,7 @@
 /* pages/index/index.wxss */
 @import '../template/goods-item/goods-item-template.wxss';
 @import '../template/goods-item/goods-item-two-template.wxss';
+
 .home-top{
   font-size: 12px;
 }
@@ -102,22 +103,19 @@ icon-sousuo{
    width: 100%;    
    display:box;
 }
-.home-goods-item-two .goods-item-two{
-     width: 50%;  
-     display: inline-block;      
-}
+
 .goods-special-area
 {
-  width: 100%;    
-  display:box;
-}
-.goods-special-area .special-items{
-  width: 50%;
-  display: inline-block;  
+  width: 100%;      
 }
 .goods-special-area .special-box{
-  padding: 10px;
+   width: 50%;
+   display: inline-block;   
 }
-.goods-special-area .special-box image{
+.goods-special-area .box2{
+  padding: 10px 5px 5px 5px;
+}
+.goods-special-area image{
   width: 100%;
+  height: 199rpx;
 }

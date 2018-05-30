@@ -26,8 +26,15 @@ Page({
     this.setData({
       category: indexData.categoryItems,
       goodsItems: indexData.goodsItems,
-      bannerItems: indexData.bannerItems
+      bannerItems: indexData.bannerItems,
+      specialItems: indexData.specialItems
     })
+  },
+
+  searchShop(e){
+    wx.navigateTo({
+      url: '../search/search'
+    });
   },
 
   /**

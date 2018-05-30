@@ -1,0 +1,16 @@
+@import "../search-list/search-list-template.wxss";
+
+.recently-search{
+  margin-left: 32rpx;
+  margin-top: 44rpx;
+  color: #BFBFBF;
+  font-size: 29rpx;
+}
+
+.recently-search icon{
+  font-size: 32rpx;
+}
+
+.recently-search text{
+  margin-left: 10rpx;
+}
