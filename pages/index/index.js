@@ -24,7 +24,8 @@ Page({
   onLoad: function (options) {
 
     this.setData({
-      category: indexData.categoryItems
+      category: indexData.categoryItems,
+      goodsItems: indexData.goodsItems
     })
   },
 

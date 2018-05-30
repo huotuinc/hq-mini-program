@@ -95,3 +95,12 @@ icon-sousuo{
   margin-top: 60rpx;
   position: relative;
 }
+
+.home-goods-item-two{
+   width: 100%;    
+   display:box;
+}
+.home-goods-item-two .goods-item-two{
+     width: 50%;  
+     display: inline-block;      
+}

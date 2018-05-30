@@ -1,2 +1,34 @@
 <template name="itemTwo">
+  <view class="goods-item-two">
+    <view class='item-box'>
+      <view class='goods-item-pic'>
+        <image src='{{item.imgSrc}}'></image>
+      </view>
+      <view class='goods-item-logo'>
+        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+      </view>
+      <view class='goods-item-tow-text'>
+        <text class='goods-item-two-title'>{{item.title}}</text>
+      </view>
+      <view class='goods-item-two-text1'>
+        <text class='goods-item-price'>￥{{item.goodsPrice}}</text>
+        <text class='goods-item-sales_volume'>销量{{item.salesVolume}}件</text>
+      </view>
+      <view class='goods-item-two-text2'>
+        券后
+        <text class='coupon-price'>￥{{item.finalPrice}}</text>
+        <icon class="icon iconfont icon-heart icon-shoucang-xin"></icon>
+      </view>
+      <view>
+        <view class='goods-item-coupon-text'>
+          {{item.couponPrice}}元券
+        </view>
+        <view class='goods-item-coupon-text zuanshi'>
+          分享赚
+          <icon class='icon iconfont icon-zuanshi'></icon>
+          {{item.earnMoney}}
+        </view>
+      </view>
+    </view>
+  </view>
 </template>

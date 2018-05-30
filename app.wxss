@@ -1,6 +1,7 @@
 @import 'common/font/iconfont.wxss';
-
 page{
    font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;   
    font-weight: normal;
 }
+
+

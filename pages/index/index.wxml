@@ -16,7 +16,8 @@
     </view>
   </view>
   <view class='home-category' tag="类目">
-    <scroll-view class='home-category-scroll' scroll-into-view="item-{{scrollIntoView}}" scroll-x="true" bindscroll="scroll" scroll-left="{{scrollLeft}}">
+    <scroll-view class='home-category-scroll' scroll-into-view="item-{{scrollIntoView}}" scroll-x="true" bindscroll="scroll"
+      scroll-left="{{scrollLeft}}">
       <block wx:for="{{category}}" wx:key="item">
         <text id="item-{{item.index}}" data-index='{{index}}' bindtap='clickCategory' data-category='{{item}}' class='category-title {{item.selected?"selected":""}}'>{{item.title}}</text>
       </block>
@@ -41,3 +42,8 @@
 <view class='home-goods-item-two'>
   <template is="itemTwo" />
 </view>
+<block wx:for="{{goodsItems}}" wx:key="item">
+  <template is="itemTwo" data="{{item}}" />
+</block>
+<!-- </view> -->
+<view style='height:60px;'></view>
