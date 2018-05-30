@@ -1,3 +1,7 @@
-text{
-  font-family:"Microsoft YaHei";
+@import 'common/font/iconfont.wxss';
+text {
+  font-family: 'Microsoft YaHei';
+}
+text {
+  font-family: 'Microsoft YaHei';
 }

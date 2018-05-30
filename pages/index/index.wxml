@@ -1,33 +1,36 @@
-<!--pages/index/index.wxml-->
 <import src="../template/goods-item/goods-item-template.wxml" />
 
+<!--pages/index/index.wxml-->
 <view class='home-top'>
-  <view class='home-search' tag="搜索">
-    <view class='home-search-left'>
-      <text>拼多多 </text><text> ∨</text>
-    </view>    
-      <view class='home-search-center'>
-        <text>搜优惠商品</text>
-      </view>    
-    <view class='home-search-right'>
-      <text>收藏</text>
+  <view class='index_header'>
+    <view class='header_left'>
+      拼多多
+      <icon class='icon iconfont icon-icon--'></icon>
+    </view>
+    <view class='index_search'>
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <text>搜优惠商品</text>
+    </view>
+    <view class='header_right'>
+      <icon class="icon iconfont icon-ico_shoucangjia-copy"></icon>
     </view>
   </view>
+  
   <view class='home-category' tag="类目">
     <scroll-view class='home-category-scroll' scroll-x>
-    <text class='selected'>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
-    <text>热门</text>
+      <text class='selected'>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
+      <text>热门</text>
     </scroll-view>
   </view>
 </view>
