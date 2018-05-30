@@ -1,5 +1,6 @@
 /* pages/index/index.wxss */
 @import '../template/goods-item/goods-item-template.wxss';
+@import '../template/goods-item/goods-item-two-template.wxss';
 .home-top{
   font-size: 12px;
 }
@@ -57,11 +58,26 @@
 
 .home-category-scroll {
   height: 80rpx;  
+  width: 100%;  
+   white-space: nowrap;
 }
-
-.home-category-scroll text {
-  margin: 5px;
+.category-title{
+  width: 50px;
+  text-align: center;
+  display: inline-block;
 }
 .home-category-scroll .selected{
   color: #000000;
+}
+
+.page-section-title{
+  padding: 0;
+}
+.swiper-item{
+  display: block;
+  height: 150px;
+}
+.page-section-title{
+  margin-top: 60rpx;
+  position: relative;
 }
