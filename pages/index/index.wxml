@@ -16,12 +16,21 @@
     </view>
   </view>
   <view class='home-category' tag="类目">
-    <scroll-view class='home-category-scroll' scroll-into-view="item-{{scrollIntoView}}" scroll-x="true" bindscroll="scroll"
+    <!-- <scroll-view class='home-category-scroll' scroll-into-view="item-{{scrollIntoView}}" scroll-x="true" bindscroll="scroll"
       scroll-left="{{scrollLeft}}">
       <block wx:for="{{category}}" wx:key="item">
-        <text id="item-{{item.index}}" data-index='{{index}}' bindtap='clickCategory' data-category='{{item}}' class='category-title {{item.selected?"selected":""}}'>{{item.title}}</text>
+        <text id="item-{{item.index}}" data-index='{{index}}' bindtap='clickCategory' data-category='{{item}}' class='category-title {{item.selected?"selected":""}}'>{{item.title}}</text>        
       </block>
+    </scroll-view> -->
+
+    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <block wx:for="{{category}}" wx:key="item">
+        <view class="tab-item {{currentTab==index?'active':''}}"  data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
+              </block>
     </scroll-view>
+
+
+    <!-- <view class='hr-line'></view> -->
   </view>
 </view>
 <view class='home-index'>
