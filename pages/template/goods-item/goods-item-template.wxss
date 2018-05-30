@@ -1,14 +1,14 @@
 .goods-item-container {
-  width: 100%;
+  width: 710rpx;
   height: 260rpx;
   padding: 10px;
-  box-sizing: border-box;
 }
-
 .goods-item-left {
    float: left; 
 }
-
+.goods-item-container .icon-zuanshi{
+  margin-top: -25rpx;
+}
 .goods-item-left image {
   width: 240rpx;
   height: 240rpx;
@@ -57,11 +57,11 @@
 }
 
 .old-ticket_sales {
-  margin-top: 20rpx;
+  margin-top: 30rpx;
 }
 
 .new-ticket_sales {
-  margin-top: 10rpx;
+  margin-top: 20rpx;
 }
 
 .old-ticket_sales, .new-ticket_sales {

@@ -37,15 +37,15 @@
     </swiper>
   </view>
 </view>
-<view class='home-goods-items'>
+ <view class='home-goods-items'>
   <template is="goodsItem" />
-</view>
+</view> 
 
 <view class='home-goods-item-two'>
-  <template is="itemTwo" />
-</view>
-<block wx:for="{{goodsItems}}" wx:key="item">
+ <block wx:for="{{goodsItems}}" wx:key="item">
   <template is="itemTwo" data="{{item}}" />
 </block>
+</view>
+
 <!-- </view> -->
 <view style='height:60px;'></view>
