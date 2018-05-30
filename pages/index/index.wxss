@@ -89,7 +89,10 @@ icon-sousuo{
 }
 .swiper-item{
   display: block;
-  height: 150px;
+  height: 350rpx;
+}
+.swiper-item image{
+  width: 100%;
 }
 .page-section-title{
   margin-top: 60rpx;

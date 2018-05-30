@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
+    bannerItems:[],
     scrollIntoView: 1,
     scrollLeft: 0,
     category: []
@@ -25,7 +25,8 @@ Page({
 
     this.setData({
       category: indexData.categoryItems,
-      goodsItems: indexData.goodsItems
+      goodsItems: indexData.goodsItems,
+      bannerItems: indexData.bannerItems
     })
   },
 
