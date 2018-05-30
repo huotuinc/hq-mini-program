@@ -62,24 +62,28 @@ icon-sousuo{
 
 
 .home-category {
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 88rpx;
+  line-height: 88rpx;
   display: flex;
   flex-direction: column;
   align-items: center;  
   color: #8b8b8b;
 }
 
-.home-category-scroll {
+/* .home-category-scroll {
   height: 80rpx;  
   width: 100%;  
    white-space: nowrap;
+   line-height: 88rpx;
+  box-sizing: border-box;
+ overflow: hidden;
+ background: #F7F7F7; font-size: 16px;  left: 0; z-index: 99; 
 }
 .category-title{
-  width: 50px;
+  width: 80rpx;  
   text-align: center;
   display: inline-block;
-}
+} */
 .home-category-scroll .selected{
   color: #000000;
 }
@@ -119,3 +123,16 @@ icon-sousuo{
   width: 100%;
   height: 199rpx;
 }
+
+
+
+ .tab-h{
+    height: 88rpx;width: 100%; box-sizing: border-box;overflow: hidden;line-height: 88rpx; white-space: nowrap; left: 0; z-index: 99;} 
+.tab-item{width: 100rpx;text-align: center;display: inline-block;}
+.tab-item.active{color: #000000;position: relative;}
+.tab-item.active:after{ content: "";display: block;height: 8rpx;
+width: 100rpx;
+background: #000000;
+position: absolute; 
+bottom: 0;
+border-radius: 16rpx;}

@@ -13,15 +13,34 @@ Page({
     scrollLeft: 0,
     category: [],
     remaimTime: '',
-    clock: ''
+    clock: '',
+    currentTab: 0, //预设当前项的值
+    scrollLeft: 0, //tab标题的滚动条位置
+    category: []
   },
-  clickCategory: function(e) {
-    var category = e.currentTarget.dataset.category
-    var index = e.currentTarget.dataset.index
-    this.setData({
-      scrollIntoView: category.index,
-      scrollLeft: category.index * 100 + 350
-    })
+  // 点击标题切换当前页时改变样式
+  swichNav: function(e) {
+    var cur = e.target.dataset.current
+    if (this.data.currentTab == cur) {
+      return false
+    } else {
+      this.setData({
+        currentTab: cur
+      })
+    }
+    this.checkCor()
+  },
+  //判断当前滚动超过一屏时，设置tab标题滚动条。
+  checkCor: function() {
+    if (this.data.currentTab > 3) {
+      this.setData({
+        scrollLeft: 300
+      })
+    } else {
+      this.setData({
+        scrollLeft: 0
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -51,19 +70,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    let stringTime = '2018-05-30 24:00:00';
-    let timestamp = Date.parse(stringTime);
-    let newTime = +new Date();
-    let remaimTime = timestamp - newTime;
-    console.log(newTime + "====" + remaimTime + "======" + timestamp);
+    let stringTime = '2018-05-30 24:00:00'
+    let timestamp = Date.parse(stringTime)
+    let newTime = +new Date()
+    let remaimTime = timestamp - newTime
+    console.log(newTime + '====' + remaimTime + '======' + timestamp)
     this.setData({
       remaimTime: remaimTime,
       clock: formatTime(remaimTime)
-    });
-    clearTimeOut();
+    })
+    clearTimeOut()
     if (this.data.remaimTime) {
-      countDown(this);
-    };
+      countDown(this)
+    }
   },
 
   /**
