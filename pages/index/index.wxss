@@ -42,3 +42,5 @@
   line-height: 80rpx;
   text-align: center;
 }
+/* pages/index/index.wxss */
+@import '../template/goods-item/goods-item-template.wxss';

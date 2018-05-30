@@ -1,1 +1,4 @@
- @import "common/font/iconfont.wxss" 
+@import 'common/font/iconfont.wxss';
+text {
+  font-family: 'Microsoft YaHei';
+}

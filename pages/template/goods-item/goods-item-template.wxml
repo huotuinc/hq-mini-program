@@ -1,0 +1,16 @@
+<template name="goodsItem">
+  <view class='goods-item-container'>
+    <view class='goods-item-left'>
+      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+    </view>
+    <view class='goods-item-right'>
+      <view class='goods-item-logo'>
+        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+      </view>
+      <text class='goods-item-title'>[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶</text>
+      <view>
+        <text>78</text>
+      </view>
+    </view>
+  </view>
+</template>

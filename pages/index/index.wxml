@@ -1,13 +1,16 @@
 <view class='index_header'>
-     <view class='header_left'>
-     拼多多
-     <icon class='icon iconfont icon-icon--'></icon>
-     </view> 
+    <view class='header_left'>
+        拼多多
+        <icon class='icon iconfont icon-icon--'></icon>
+    </view>
     <view class='index_search'>
         <icon class="weui-icon-search" type="search" size="14"></icon>
         <text>搜优惠商品</text>
     </view>
-     <view class='header_right'>
+    <view class='header_right'>
         <icon class="icon iconfont icon-ico_shoucangjia-copy"></icon>
-    </view> 
+    </view>
 </view>
+<!--pages/index/index.wxml-->
+<import src="../template/goods-item/goods-item-template.wxml" />
+<template is="goodsItem" />
