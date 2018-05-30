@@ -1,7 +1,6 @@
 @import 'common/font/iconfont.wxss';
-text {
-  font-family: 'Microsoft YaHei';
-}
-text {
-  font-family: 'Microsoft YaHei';
+
+page{
+   font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;   
+   font-weight: normal;
 }
