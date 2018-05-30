@@ -2,7 +2,7 @@
 <import src="../template/goods-item/goods-item-two-template.wxml" />
 <import src="../template/goods-item/trademark-template.wxml" />
 
-
+<view class='home-container'>
 <!--pages/index/index.wxml-->
 <view class='home-top'>
   <view class='index_header'>
@@ -19,17 +19,20 @@
     </view>
   </view>
   <view class='home-category' tag="类目">
-    <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <scroll-view scroll-x="true" class="tab-h" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
+    <view class='tab-item tab-item-none'></view>
     <block wx:for="{{category}}" wx:key="item">
-        <view class="tab-item {{currentTab==index?'active':''}}"  data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
+        <view class="tab-item {{currentTab==index?'active':''}}"  
+        data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
               </block>
     </scroll-view>
+    <icon class='icon iconfont icon-gengduocaidan-copy icon-more'></icon>
   </view>
 </view>
-<view class='home-index'>
-
+<view style='padding-top: 174rpx;'></view>
+<view class='home-index {{currentTab!=0?"home-index-display":""}}' >
   <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="0.5">
+    <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
       <block wx:for="{{bannerItems}}" wx:key="*this">
         <swiper-item>
           <view class="swiper-item">
@@ -43,7 +46,7 @@
   <view class='goods-special-area'>
     <block wx:for="{{specialItems}}"  wx:key="item">
     <view class='special-box'>
-      <view class='box2'>
+      <view class='box2 item{{index}}'>
         <image src='{{item.imgSrc}}'></image>     
       </view>
     </view>  
@@ -56,7 +59,13 @@
     <template is="goodsItem" data="{{item}}" />
   </block>
 </view>
+
 <template is="trademarkGoods"></template>
+
+<view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
+
+</view>
+
 <view class='home-goods-item-two'>
   <block wx:for="{{goodsItems}}" wx:key="item">
     <template is="itemTwo" data="{{item}}" />
@@ -64,4 +73,5 @@
 </view>
 
 <!-- </view> -->
-<view style='height:60px;'></view>
+<view style='height:40rpx;'></view>
+</view>

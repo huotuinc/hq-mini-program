@@ -15,24 +15,29 @@ Page({
   swichNav: function (e) {
     var cur = e.target.dataset.current;
     if (this.data.currentTab == cur) { return false; }
-    else {
-      this.setData({
-        currentTab: cur
-      })
-    }
-    this.checkCor();
+    this.checkCor(cur);
+    
   },
-  //判断当前滚动超过一屏时，设置tab标题滚动条。
-  checkCor: function () {
-    if (this.data.currentTab > 3) {
+  //设置tab标题滚动
+  checkCor: function (cur) {
+    if ((this.data.currentTab > 3 || cur>3) && this.data.currentTab<cur) {
       this.setData({
-        scrollLeft: 300
+        scrollLeft: cur * 50
       })
-    } else {
+    } else if (this.data.currentTab > cur && cur>3){
+        this.setData({
+          scrollLeft: this.data.scrollLeft - (this.data.scrollLeft-cur* 50)
+        })
+    }
+    else{
       this.setData({
         scrollLeft: 0
       })
     }
+
+    this.setData({
+      currentTab: cur
+    })
   },
   /**
    * 生命周期函数--监听页面加载

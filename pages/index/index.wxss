@@ -1,18 +1,24 @@
 /* pages/index/index.wxss */
 @import '../template/goods-item/goods-item-template.wxss';
 @import '../template/goods-item/goods-item-two-template.wxss';
-
-.home-top{
-  font-size: 12px;
-}
-.index_header {
+.home-top{  
   width: 100%;
-  height: 40px;
+  font-size: 12px;
+  position: fixed;
+  z-index: 500;
+}
+.home-index-display{
+  display: none;
+}
+.index_header {    
+  width: 100%;
+  height: 80rpx;
   position: relative;  
   padding-top: 8rpx;
+  background-color: #ffffff;
 }
 
-.index_search {
+.index_search {  
   height: 32px;
   margin-left: 140rpx;
   margin-right: 105rpx;
@@ -62,28 +68,15 @@ icon-sousuo{
 
 
 .home-category {
+  width: 100%;
   height: 88rpx;
   line-height: 88rpx;
   display: flex;
   flex-direction: column;
   align-items: center;  
   color: #8b8b8b;
+  background-color: #ffffff; 
 }
-
-/* .home-category-scroll {
-  height: 80rpx;  
-  width: 100%;  
-   white-space: nowrap;
-   line-height: 88rpx;
-  box-sizing: border-box;
- overflow: hidden;
- background: #F7F7F7; font-size: 16px;  left: 0; z-index: 99; 
-}
-.category-title{
-  width: 80rpx;  
-  text-align: center;
-  display: inline-block;
-} */
 .home-category-scroll .selected{
   color: #000000;
 }
@@ -116,18 +109,36 @@ icon-sousuo{
    width: 50%;
    display: inline-block;   
 }
-.goods-special-area .box2{
-  padding: 10px 5px 5px 5px;
+
+.goods-special-area .item0{  
+  padding: 24rpx 0rpx 24rpx 24rpx;
+}
+.goods-special-area .item1{  
+  padding: 24rpx 27rpx 24rpx 24rpx;
+}
+.goods-special-area .item2{
+  padding: 0 0 24rpx 27rpx;
+}
+.goods-special-area .item3{
+  padding: 0 27rpx 24rpx 24rpx;
 }
 .goods-special-area image{
   width: 100%;
   height: 199rpx;
 }
 
-
+.icon-more{
+  position: absolute;
+  right: 10rpx;
+  width: 41rpx;
+  height: 41rpx;
+  color: #000000;
+}
 
  .tab-h{
-    height: 88rpx;width: 100%; box-sizing: border-box;overflow: hidden;line-height: 88rpx; white-space: nowrap; left: 0; z-index: 99;} 
+    height: 88rpx;
+     margin-right: 80rpx;     
+     box-sizing: border-box;overflow: hidden;line-height: 88rpx; white-space: nowrap; left: 0; z-index: 99;} 
 .tab-item{width: 100rpx;text-align: center;display: inline-block;}
 .tab-item.active{color: #000000;position: relative;}
 .tab-item.active:after{ content: "";display: block;height: 8rpx;
@@ -136,3 +147,12 @@ background: #000000;
 position: absolute; 
 bottom: 0;
 border-radius: 16rpx;}
+.tab-item-none{width: 40rpx;}
+
+
+.category-two-show{
+  display: block;  
+}
+.category-two-display{
+  display: none;  
+}
