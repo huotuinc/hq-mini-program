@@ -1,14 +1,7 @@
 @import 'common/font/iconfont.wxss';
-text {
-  font-family: 'Microsoft YaHei';
-}
-
-
-.icon-shoucang-xin{
-  float: right;
-  color: #acacac;
-  font-size:36rpx; 
-  margin-right: 10px;
+page{
+   font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;   
+   font-weight: normal;
 }
 
 

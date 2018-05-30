@@ -1,22 +1,33 @@
 <template name="itemTwo">
   <view class="goods-item-two">
-    <view>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-    </view>
-    <view class='goods-item-logo'>
-      <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
-    </view>
-    <view class='goods-item-tow-text'>
-      <text class='goods-item-two-title'>[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶</text>
-    </view>
-    <view class='goods-item-two-text1'>
-      <text class='goods-item-price'>￥27.99</text>
-      <text class='goods-item-sales-count'>销量108件</text>
-    </view>
-    <view>
-      <icon class="icon iconfont icon-heart icon-shoucang-xin"></icon>
+    <view class='item-box'>
+      <view class='goods-item-pic'>
+        <image src='{{item.imgSrc}}'></image>
+      </view>
+      <view class='goods-item-logo'>
+        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+      </view>
+      <view class='goods-item-tow-text'>
+        <text class='goods-item-two-title'>{{item.title}}</text>
+      </view>
+      <view class='goods-item-two-text1'>
+        <text class='goods-item-price'>￥{{item.goodsPrice}}</text>
+        <text class='goods-item-sales_volume'>销量{{item.salesVolume}}件</text>
+      </view>
       <view class='goods-item-two-text2'>
-        <text class='goods-item-coupon-text'>4元券</text>
+        券后
+        <text class='coupon-price'>￥{{item.finalPrice}}</text>
+        <icon class="icon iconfont icon-heart icon-shoucang-xin"></icon>
+      </view>
+      <view>
+        <view class='goods-item-coupon-text'>
+          {{item.couponPrice}}元券
+        </view>
+        <view class='goods-item-coupon-text zuanshi'>
+          分享赚
+          <icon class='icon iconfont icon-zuanshi'></icon>
+          {{item.earnMoney}}
+        </view>
       </view>
     </view>
   </view>

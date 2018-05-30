@@ -1,16 +1,37 @@
 <template name="goodsItem">
   <view class='goods-item-container'>
+
     <view class='goods-item-left'>
       <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
     </view>
+
     <view class='goods-item-right'>
-      <view class='goods-item-logo'>
+
+      <view class='goods-item-title goods-item-logo'>
         <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+        [减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶
       </view>
-      <text class='goods-item-title'>[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶</text>
+
       <view>
-        <text>78</text>
+        <text class='oldprice'>￥78</text>
+        <!-- <icon class='icon iconfont icon-heart'></icon> -->
+        <icon class='icon iconfont icon-xin'></icon>
       </view>
+
+      <view class='old-ticket_sales'>
+        <view class='price_ticket'>4元券</view>
+        <view class='sales_volume'>销量108000件</view>
+      </view>
+
+      <view class='new-ticket_sales'>
+        <view class='new-price_ticket'>
+          券后<text class='price'>￥22.98</text>
+        </view>
+        <view class='share_make'>
+          <text>分享赚</text><icon class='icon iconfont icon-zuanshi'></icon><text>2.98</text>
+        </view>
+      </view>
+
     </view>
   </view>
 </template>

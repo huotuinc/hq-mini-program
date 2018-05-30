@@ -1,13 +1,10 @@
-.goods-item-two {
-  width: 50%;
-  margin: 10px;
-}
-
 .goods-item-two image {
-  width: 330rpx;
+  width: 100%;
   height: 330rpx;  
 }
-
+.item-box{
+  padding: 10px;
+}
 .goods-item-logo image {
   width: 30rpx;
   height: 30rpx;
@@ -17,20 +14,41 @@
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: clip;
-  height: 50px;
+  height: 40px;
 }
 .goods-item-two-text1
-{
-  margin-top: 10px;
+{  
+  height: 30rpx;
+  margin-top: 15rpx;
 }
-.goods-item-two-text2
+.icon-shoucang-xin{
+   float: right; 
+  color: #acacac;
+  font-size:46rpx;    
+  margin-top: -5rpx;
+}
+.goods-item-two-text2 text{
+  color: #000000;
+  font-size: 26rpx;    
+}
+.goods-item-two-text2{
+  margin-top: 30rpx; 
+ height: 50rpx;
+ font-size: 23rpx; 
+ line-height: 50rpx;
+}
+.goods-item-two-text2 .coupon-price{
+  color: #FE4C55;
+  font-size: 28rpx;  
+}
+.goods-item-two-text3
 {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
 }
 .goods-item-two-title {
-  font-size: 14px;
+  font-size: 28rpx;
   padding-left: 20px;
   margin-top: 0px;
   color: #434343;
@@ -42,17 +60,26 @@
   text-decoration:line-through;
 }
 .goods-item-coupon-text{  
-  padding: 0px 5px 2px 5px;
+  padding: 0px 5px 0px 5px; 
   height: 30rpx;  
+  line-height: 30rpx;
+  text-align: center;
   display: inline-block;
-  font-size: 10px;
+  font-size: 20rpx;
   color: #FE4C55;
   border: 1px solid #FE4C55;
   border-radius: 50px;  
 }
-.goods-item-sales-count{   
-   padding-top: 2px;
-   font-size: 10px;
+.zuanshi{
+  background-color: #FFF7F8;
+  margin-left: 10px;
+}
+.goods-item-coupon-text .icon-zuanshi{
+  margin-top: -30rpx;
+    font-size: 20rpx;
+}
+.goods-item-sales_volume{      
+   font-size: 20rpx;
    color: #acacac;
    float: right;
 
