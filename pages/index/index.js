@@ -26,7 +26,8 @@ Page({
     this.setData({
       category: indexData.categoryItems,
       goodsItems: indexData.goodsItems,
-      bannerItems: indexData.bannerItems
+      bannerItems: indexData.bannerItems,
+      hotItems: indexData.hotItems
     })
   },
 

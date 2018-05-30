@@ -1,37 +1,42 @@
 <template name="goodsItem">
   <view class='goods-item-container'>
-    <view class='item-box'></view>
     <view class='goods-item-left'>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+      <image src='{{ item.imgSrc }}'></image>
     </view>
 
     <view class='goods-item-right'>
 
       <view class='goods-item-title goods-item-logo'>
         <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
-        [减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶
+        <text>{{item.title}}</text>
       </view>
 
-      <view>
-        <text class='oldprice'>￥78</text>
-        <!-- <icon class='icon iconfont icon-heart'></icon> -->
-        <icon class='icon iconfont icon-xin'></icon>
+      <view class='old_shoucang'>
+        <text class='oldprice'>￥{{item.goodsPrice}}</text>
+        <block>
+          <view wx:if="{{item.isFav}}">
+            <icon class='icon iconfont icon-xin'></icon>
+          </view>
+          <view wx:else>
+            <icon class='icon iconfont icon-heart'></icon>
+          </view>
+        </block>
       </view>
 
       <view class='old-ticket_sales'>
-        <view class='price_ticket'>4元券</view>
-        <view class='sales_volume'>销量108000件</view>
+        <view class='price_ticket'> {{item.couponPrice}}元券</view>
+        <view class='sales_volume'>销量{{item.salesVolume}}件</view>
       </view>
 
       <view class='new-ticket_sales'>
         <view class='new-price_ticket'>
           券后
-          <text class='price'>￥22.98</text>
+          <text class='price'>￥{{item.finalPrice}}</text>
         </view>
         <view class='share_make'>
           <text>分享赚</text>
           <icon class='icon iconfont icon-zuanshi'></icon>
-          <text>2.98</text>
+          <text>{{item.earnMoney}}</text>
         </view>
       </view>
 

@@ -5,7 +5,8 @@
     "pages/goodscircle/index",
     "pages/goodsdetails/details",
     "pages/welfare/index",
-    "pages/search/search"    
+    "pages/search/search",
+    "pages/collectgoods/collectgoods"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
