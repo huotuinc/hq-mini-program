@@ -24,6 +24,7 @@
   </view>
 </view>
 <view class='home-index'>
+
   <view class="page-section page-section-spacing swiper">
     <swiper indicator-dots="true" autoplay="true" interval="3000" duration="0.5">
       <block wx:for="{{bannerItems}}" wx:key="*this">
@@ -34,6 +35,29 @@
         </swiper-item>
       </block>
     </swiper>
+  </view>
+
+  <view class='goods-special-area'>
+    <view class='special-item'>
+      <view class='special-box'>
+        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
+      </view>
+    </view>
+    <view class='special-item'>
+      <view class='special-box'>
+        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
+      </view>
+    </view>
+    <view class='special-item'>
+      <view class='special-box'>
+        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
+      </view>
+    </view>
+    <view class='special-item'>
+      <view class='special-box'>
+        <image src='https://cdn.pinduoduo.com/assets/img/pdd_special99_v1.jpg'></image>     
+      </view>
+    </view>      
   </view>
 </view>
 <view class='home-goods-items'>

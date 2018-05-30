@@ -106,3 +106,18 @@ icon-sousuo{
      width: 50%;  
      display: inline-block;      
 }
+.goods-special-area
+{
+  width: 100%;    
+  display:box;
+}
+.goods-special-area .special-items{
+  width: 50%;
+  display: inline-block;  
+}
+.goods-special-area .special-box{
+  padding: 10px;
+}
+.goods-special-area .special-box image{
+  width: 100%;
+}
