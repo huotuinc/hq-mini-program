@@ -12,7 +12,7 @@
 
 .index_search {
   height: 32px;
-  margin-left: 130rpx;
+  margin-left: 140rpx;
   margin-right: 105rpx;
   background-color: #f6f6f6;
   line-height: 32px;
@@ -20,9 +20,14 @@
   border-radius: 32rpx;
 }
 
+icon-sousuo{
+  color: #bfbfbf;
+}
+
 .index_search text {
   font-size: 14.5px;
   color: #bfbfbf;
+  margin-left: 4px;
 }
 
 .header_left {
@@ -33,6 +38,10 @@
   top: 0;  
   line-height: 40px;
   text-align: center;
+  font-size: 12px;
+}
+.icon-icon--{
+  position: absolute;
 }
 
 .header_right {
@@ -43,6 +52,10 @@
   right: 0;
   line-height: 40px;
   text-align: center;
+}
+
+.icon-ico_shoucangjia-copy{
+  font-size: 24px;
 }
 
 
