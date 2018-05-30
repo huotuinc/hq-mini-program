@@ -1,15 +1,60 @@
-.trademark-goods_title{
-  margin: 67rpx 0;
-  text-align: center;
-  font-size: 40rpx;
+
+.trademark-scroll{
+  padding-left: 27rpx;
+  box-sizing: border-box;
 }
 
-.trademark-goods_item{
-  width: 290rpx;
+.trademark-goods_item {
+  display: inline-block;
+  margin-right: 27rpx;
+  /* width: 290rpx; */
   height: 465rpx;
 }
 
-.trademark-image image{
+.trademark-image image {
   width: 290rpx;
   height: 290rpx;
+}
+
+.trademark-ticket_share {
+  display: flex;
+  flex-direction: row;
+  margin-top: 19rpx;
+}
+
+.trademark-price_ticket, .trademark-share_make {
+  height: 35rpx;
+  line-height: 35rpx;
+  font-size: 18rpx;
+  border: 1px solid #fe4c55;
+  border-radius: 35rpx;
+  text-align: center;
+  color: #fe4c55;
+}
+
+.trademark-price_ticket {
+  width: 80rpx;
+}
+
+.trademark-share_make {
+  margin-left: 7rpx;
+  width: 150rpx;
+  background-color: #fff7f8;
+}
+
+.trademark-share_make .icon-zuanshi {
+  margin-top: -35rpx;
+  font-size: 18rpx;
+}
+
+.trademark-title {
+  margin-top: 22rpx;
+  font-size: 28rpx;
+}
+
+.trademark-price {
+  margin-top: 17rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #fe4c55;
 }

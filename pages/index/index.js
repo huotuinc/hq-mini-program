@@ -1,5 +1,8 @@
 // pages/index/index.js
 const indexData = require('../../utils/mock/index.js')
+// const skillTime = require('../../utils/skillTime.js')
+//import { formatTime, countDown, clearTimeOut } from '../../utils/skillTime.js'
+
 Page({
   /**
    * 页面的初始数据
@@ -7,6 +10,10 @@ Page({
   data: {
     bannerItems: [],
     scrollIntoView: 1,
+    scrollLeft: 0,
+    category: [],
+    remaimTime: '',
+    clock: '',
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: []
@@ -66,7 +73,21 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function() {
+    // let stringTime = '2018-05-30 24:00:00'
+    // let timestamp = Date.parse(stringTime)
+    // let newTime = +new Date()
+    // let remaimTime = timestamp - newTime
+    // console.log(newTime + '====' + remaimTime + '======' + timestamp)
+    // this.setData({
+    //   remaimTime: remaimTime,
+    //   clock: formatTime(remaimTime)
+    // })
+    // clearTimeOut()
+    // if (this.data.remaimTime) {
+    //   countDown(this)
+    // }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

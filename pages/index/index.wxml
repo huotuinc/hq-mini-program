@@ -1,77 +1,100 @@
 <import src="../template/goods-item/goods-item-template.wxml" />
 <import src="../template/goods-item/goods-item-two-template.wxml" />
 <import src="../template/goods-item/trademark-template.wxml" />
+<view class='home-container'>  
+  <view class='home-top'>
+    <view class='index_header'>
+      <view class='header_left'>
+        拼多多
+        <icon class='icon iconfont icon-icon--'></icon>
+      </view>
+      <view class='index_search' catchtap='searchShop'>
+        <icon class="icon iconfont icon-sousuo"></icon>
+        <text>搜优惠商品</text>
+      </view>
+      <view class='header_right'>
+        <icon class="icon iconfont icon-ico_shoucangjia-copy"></icon>
+      </view>
+    </view>
+    <view class='home-category' tag="类目">
+      <scroll-view scroll-x="true" class="tab-h" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
+        <view class='tab-item tab-item-none'></view>
+        <block wx:for="{{category}}" wx:key="item">
+          <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
+        </block>
+      </scroll-view>
+      <icon class='icon iconfont icon-gengduocaidan-copy icon-more'></icon>
+    </view>
+  </view>
+  <view style='padding-top: 174rpx;'></view>
 
-<view class='home-container'>
-<!--pages/index/index.wxml-->
-<view class='home-top'>
-  <view class='index_header'>
-    <view class='header_left'>
-      拼多多
-      <icon class='icon iconfont icon-icon--'></icon>
+  <!--主题/广告等模块-->
+  <view class='home-index {{currentTab!=0?"home-index-display":""}}'>
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+        <block wx:for="{{bannerItems}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item">
+              <image src='{{item.imgSrc}}'></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
     </view>
-    <view class='index_search' catchtap='searchShop'>
-      <icon class="icon iconfont icon-sousuo"></icon>
-      <text>搜优惠商品</text>
-    </view>
-    <view class='header_right'>
-      <icon class="icon iconfont icon-ico_shoucangjia-copy"></icon>
-    </view>
-  </view>
-  <view class='home-category' tag="类目">
-    <scroll-view scroll-x="true" class="tab-h" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
-    <view class='tab-item tab-item-none'></view>
-    <block wx:for="{{category}}" wx:key="item">
-        <view class="tab-item {{currentTab==index?'active':''}}"  
-        data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
-              </block>
-    </scroll-view>
-    <icon class='icon iconfont icon-gengduocaidan-copy icon-more'></icon>
-  </view>
-</view>
-<view style='padding-top: 174rpx;'></view>
-<view class='home-index {{currentTab!=0?"home-index-display":""}}' >
-  <view class="page-section page-section-spacing swiper">
-    <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-      <block wx:for="{{bannerItems}}" wx:key="*this">
-        <swiper-item>
-          <view class="swiper-item">
+
+    <view class='goods-special-area'>
+
+      <block wx:for="{{specialItems}}" wx:key="item">
+        <view class='special-box'>
+          <view class='box2 item{{index}}'>
             <image src='{{item.imgSrc}}'></image>
           </view>
-        </swiper-item>
+        </view>
       </block>
-    </swiper>
-  </view>
+    </view>
 
-  <view class='goods-special-area'>
-    <block wx:for="{{specialItems}}"  wx:key="item">
-    <view class='special-box'>
-      <view class='box2 item{{index}}'>
-        <image src='{{item.imgSrc}}'></image>     
+
+    <view class='home-goods-items'>
+      <view class='goodsItem_title'>
+        限时购
+        <text>{{ clock.hs }}</text> :
+        <text>{{ clock.ms }}</text> :
+        <text>{{ clock.ss }}</text>
       </view>
-    </view>  
-    </block>    
+      <block wx:for="{{hotItems}}" wx:key="item">
+        <template is="goodsItem" data="{{item}}" />
+      </block>
+    </view>
+
+
+
+    <view>
+      <view class='trademark-goods_title'>
+        <text>品牌制造商直供</text>
+      </view>
+
+      <block>
+        <template is="trademarkGoods"></template>
+      </block>
+    </view>
+
+      <view class='trademark-goods_title'>
+        <text>新品首发</text>
+      </view>
   </view>
-</view>
 
-<view class='home-goods-items'>
-  <block wx:for="{{hotItems}}" wx:key="item">
-    <template is="goodsItem" data="{{item}}" />
-  </block>
-</view>
+ <!--二级类目容器start-->
+  <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
+    ddd
+  </view>
+<!--二级类目容器end-->
 
-<template is="trademarkGoods"></template>
+<!--商品列表-->
+  <view class='home-goods-item-two'>
+    <block wx:for="{{goodsItems}}" wx:key="item">
+      <template is="itemTwo" data="{{item}}" />
+    </block>
+  </view>
 
-<view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
-
-</view>
-
-<view class='home-goods-item-two'>
-  <block wx:for="{{goodsItems}}" wx:key="item">
-    <template is="itemTwo" data="{{item}}" />
-  </block>
-</view>
-
-<!-- </view> -->
-<view style='height:40rpx;'></view>
+  <view style='height:40rpx;'></view>
 </view>
