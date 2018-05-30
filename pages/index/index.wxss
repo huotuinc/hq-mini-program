@@ -1,2 +1,62 @@
 /* pages/index/index.wxss */
 @import '../template/goods-item/goods-item-template.wxss';
+
+.home-search {
+  height: 80rpx;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home-search text {
+  font-size: 18rpx;
+}
+
+.home-search-left {
+  color: #000;
+  width: 15%;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+  line-height: 64rpx;
+}
+
+.home-search-center {
+  background-color: #f6f6f6;
+  border-radius: 100px;
+  width: 70%;
+  height: 64rpx;
+  text-align: center;
+  display: inline-block;
+}
+
+.home-search-center text {
+  font-size: 29rpx;
+  color: #bfbfbf;
+}
+
+.home-search-right {
+  display: inline-block;
+  text-align: center;
+  width: 15%;
+}
+
+.home-category {
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+  color: #8b8b8b;
+}
+
+.home-category-scroll {
+  height: 80rpx;  
+}
+
+.home-category-scroll text {
+  margin: 5px;
+}
+.home-category-scroll .selected{
+  color: #000000;
+}

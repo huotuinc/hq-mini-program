@@ -1,3 +1,38 @@
 <!--pages/index/index.wxml-->
 <import src="../template/goods-item/goods-item-template.wxml" />
-<template is ="goodsItem" />
+
+<view class='home-top'>
+  <view class='home-search' tag="搜索">
+    <view class='home-search-left'>
+      <text>拼多多 </text><text> ∨</text>
+    </view>    
+      <view class='home-search-center'>
+        <text>搜优惠商品</text>
+      </view>    
+    <view class='home-search-right'>
+      <text>收藏</text>
+    </view>
+  </view>
+  <view class='home-category' tag="类目">
+    <scroll-view class='home-category-scroll' scroll-x>
+    <text class='selected'>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    <text>热门</text>
+    </scroll-view>
+  </view>
+</view>
+<view class='home-index'>
+</view>
+<view class='home-goods-items'>
+  <template is="goodsItem" />
+</view>
