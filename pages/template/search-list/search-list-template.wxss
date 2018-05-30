@@ -1,0 +1,14 @@
+.search-list {
+  margin-top: 36rpx;
+  overflow: hidden;
+}
+
+.search-list text {
+  float: left;
+  padding: 20rpx;
+  border-radius: 50rpx;
+  background-color: #f3f3f3;
+  color: #acacae;
+  font-size: 28rpx;
+  margin: 15rpx 20rpx 0;
+}

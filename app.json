@@ -4,7 +4,8 @@
     "pages/usercenter/index",
     "pages/goodscircle/index",
     "pages/goodsdetails/details",
-    "pages/welfare/index"
+    "pages/welfare/index",
+    "pages/search/search"    
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -15,11 +16,11 @@
     "enablePullDownRefresh": false
   },
   "tabBar": {
-      "backgroundColor": "#FFFFFF",
-      "selectedColor": "#ff373e",
-      "color": "#898989",
-      "borderStyle": "black",
-      "list": [
+    "backgroundColor": "#FFFFFF",
+    "selectedColor": "#ff373e",
+    "color": "#898989",
+    "borderStyle": "black",
+    "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
