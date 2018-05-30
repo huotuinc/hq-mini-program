@@ -1,3 +1,5 @@
+@import "trademark-template.wxss";
+
 .goods-item-container {
   width: 710rpx;
   height: 260rpx;
@@ -6,9 +8,7 @@
 .goods-item-left {
    float: left; 
 }
-.goods-item-container .icon-zuanshi{
-  margin-top: -25rpx;
-}
+
 .goods-item-left image {
   width: 240rpx;
   height: 240rpx;
@@ -36,7 +36,12 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
-
+.old_shoucang{
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .oldprice {
   font-size: 23rpx;
   text-decoration: line-through;
@@ -46,6 +51,7 @@
 .icon-heart, .icon-xin {
   float: right;
   font-size: 36rpx;
+  margin-top: -15rpx;
 }
 
 .icon-heart {
@@ -97,13 +103,18 @@
 }
 
 .share_make {
+  margin-top: -8rpx;
   width: 180rpx;
   height: 40rpx;
   line-height: 40rpx;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #fe4c55;
   border: 1px solid #fe4c55;
   background-color: #fef8f7;
   border-radius: 40rpx;
   text-align: center;
+}
+.share_make  .icon-zuanshi{
+  font-size: 26rpx;
+  margin-top: -30rpx;
 }

@@ -4,10 +4,8 @@
       <view class='goods-item-pic'>
         <image src='{{item.imgSrc}}'></image>
       </view>
-      <view class='goods-item-logo'>
-        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
-      </view>
       <view class='goods-item-tow-text'>
+        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
         <text class='goods-item-two-title'>{{item.title}}</text>
       </view>
       <view class='goods-item-two-text1'>

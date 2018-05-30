@@ -1,0 +1,15 @@
+.trademark-goods_title{
+  margin: 67rpx 0;
+  text-align: center;
+  font-size: 40rpx;
+}
+
+.trademark-goods_item{
+  width: 290rpx;
+  height: 465rpx;
+}
+
+.trademark-image image{
+  width: 290rpx;
+  height: 290rpx;
+}
