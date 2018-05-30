@@ -8,7 +8,7 @@
       <icon class='icon iconfont icon-icon--'></icon>
     </view>
     <view class='index_search'>
-      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <icon class="icon iconfont icon-sousuo"></icon>
       <text>搜优惠商品</text>
     </view>
     <view class='header_right'>
