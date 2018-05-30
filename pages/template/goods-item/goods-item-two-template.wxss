@@ -1,105 +1,90 @@
-.goods-item-two {
-  width: 50%;
-  display: inline-block;
+.goods-item-two{
+     width: 50%;  
+     display: inline-block;      
 }
-
 .goods-item-two image {
   width: 100%;
-  height: 330rpx;
+  height: 330rpx;  
 }
-
-.goods-item-two .item-box {
+.item-box{
   padding: 10px;
 }
-
-.goods-item-tow-text image {
+.goods-item-logo image {
   width: 30rpx;
   height: 30rpx;
-  vertical-align: middle;
+  position: absolute;
 }
-
-.goods-item-tow-text {
-  display: -webkit-box;
-  word-break: break-all;
-  text-overflow: ellipsis;
-  font-size: 28rpx;
+.goods-item-tow-text{
+  white-space: pre-wrap;
   overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  text-overflow: clip;
+  height: 40px;
 }
-
-.goods-item-two-text1 {
+.goods-item-two-text1
+{  
   height: 30rpx;
   margin-top: 15rpx;
 }
-
-.icon-shoucang-xin {
-  float: right;
+.icon-shoucang-xin{
+   float: right; 
   color: #acacac;
-  font-size: 46rpx;
+  font-size:46rpx;    
   margin-top: -5rpx;
 }
-
-.goods-item-two-text2 text {
-  color: #000;
-  font-size: 26rpx;
+.goods-item-two-text2 text{
+  color: #000000;
+  font-size: 26rpx;    
 }
-
-.goods-item-two-text2 {
-  margin-top: 30rpx;
-  height: 50rpx;
-  font-size: 23rpx;
-  line-height: 50rpx;
+.goods-item-two-text2{
+  margin-top: 30rpx; 
+ height: 50rpx;
+ font-size: 23rpx; 
+ line-height: 50rpx;
 }
-
-.goods-item-two-text2 .coupon-price {
-  color: #fe4c55;
-  font-size: 28rpx;
+.goods-item-two-text2 .coupon-price{
+  color: #FE4C55;
+  font-size: 28rpx;  
 }
-
-.goods-item-two-text3 {
+.goods-item-two-text3
+{
   display: flex;
   flex-direction: row;
   margin-top: 20px;
 }
-
 .goods-item-two-title {
   font-size: 28rpx;
+  padding-left: 20px;
   margin-top: 0px;
   color: #434343;
 }
-
-.goods-item-price {
+.goods-item-price{  
   color: #acacac;
   float: left;
-  font-size: 23rpx;
-  text-decoration: line-through;
+  font-size:23rpx;
+  text-decoration:line-through;
 }
-
-.goods-item-two .goods-item-coupon-text {
-  padding: 0px 5px 0px 5px;
-  height: 30rpx;
+.goods-item-coupon-text{  
+  padding: 0px 5px 0px 5px; 
+  height: 30rpx;  
   line-height: 30rpx;
   text-align: center;
   display: inline-block;
   font-size: 20rpx;
-  color: #fe4c55;
-  border: 1px solid #fe4c55;
-  border-radius: 50px;
+  color: #FE4C55;
+  border: 1px solid #FE4C55;
+  border-radius: 50px;  
 }
-
-.goods-item-two .zuanshi {
-  background-color: #fff7f8;
+.zuanshi{
+  background-color: #FFF7F8;
   margin-left: 10px;
 }
-
-.goods-item-two .goods-item-coupon-text .icon-zuanshi {
+.goods-item-coupon-text .icon-zuanshi{
   margin-top: -30rpx;
-  font-size: 20rpx;
+    font-size: 20rpx;
 }
+.goods-item-sales_volume{      
+   font-size: 20rpx;
+   color: #acacac;
+   float: right;
 
-.goods-item-two .goods-item-sales_volume {
-  font-size: 20rpx;
-  color: #acacac;
-  float: right;
 }

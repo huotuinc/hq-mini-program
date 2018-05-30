@@ -176,9 +176,36 @@ const bannerItems = [
   }
 ]
 
+const specialItems=[
+  {
+    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_global_haitao_v1.jpg",
+    link: "javascript:void(0)",
+    type: "goods-list",/**goods-details,goods-list,h5 */
+    goodsId: '202810284'
+  },
+  {
+    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_brand_sale_v1.jpg",
+    link: "javascript:void(0)",
+    type: "goods-list",/**goods-details,goods-list,h5 */
+    goodsId: '202810284'
+  },
+  {
+    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_super_spike_v1.jpg",
+    link: "javascript:void(0)",
+    type: "goods-list",/**goods-details,goods-list,h5 */
+    goodsId: '202810284'
+  }, {
+    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_fresh_fruit_v1.jpg",
+    link: "javascript:void(0)",
+    type: "goods-list",/**goods-details,goods-list,h5 */
+    goodsId: '202810284'
+  }
+]
+
 module.exports = {
   hotItems: hotItems,
   goodsItems: goodsItems,
   categoryItems: categoryItems,
-  bannerItems: bannerItems
+  bannerItems: bannerItems,
+  specialItems: specialItems
 };

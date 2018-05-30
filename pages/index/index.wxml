@@ -24,6 +24,7 @@
   </view>
 </view>
 <view class='home-index'>
+
   <view class="page-section page-section-spacing swiper">
     <swiper indicator-dots="true" autoplay="true" interval="3000" duration="0.5">
       <block wx:for="{{bannerItems}}" wx:key="*this">
@@ -34,6 +35,16 @@
         </swiper-item>
       </block>
     </swiper>
+  </view>
+
+  <view class='goods-special-area'>
+    <block wx:for="{{specialItems}}"  wx:key="item">
+    <view class='special-box'>
+      <view class='box2'>
+        <image src='{{item.imgSrc}}'></image>     
+      </view>
+    </view>  
+    </block>    
   </view>
 </view>
 <view class='home-goods-items'>
