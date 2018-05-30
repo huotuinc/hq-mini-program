@@ -9,21 +9,23 @@ Page({
    */
   data: {
     bannerItems: [],
-    scrollIntoView: 1,
-    scrollLeft: 0,
+    scrollIntoView: 1,    
     category: [],
     remaimTime: '',
     clock: '',
-    currentTab: 0, //预设当前项的值
+    currentTab:0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
-    category: []
+    category: [],
+    currentCategory:[]
   },
   // 点击标题切换当前页时改变样式
   swichNav: function (e) {
     var cur = e.target.dataset.current;
     if (this.data.currentTab == cur) { return false; }
     this.checkCor(cur);
-    
+    this.setData({
+      currentCategory: e.target.dataset.item.child
+    })
   },
   //设置tab标题滚动
   checkCor: function (cur) {
@@ -55,7 +57,8 @@ Page({
       goodsItems: indexData.goodsItems,
       bannerItems: indexData.bannerItems,
       hotItems: indexData.hotItems,
-      specialItems: indexData.specialItems
+      specialItems: indexData.specialItems,
+      currentCategory: indexData.categoryItems[this.data.currentTab].child
     })
   },
 

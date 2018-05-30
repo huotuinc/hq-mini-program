@@ -1,6 +1,7 @@
 <import src="../template/goods-item/goods-item-template.wxml" />
 <import src="../template/goods-item/goods-item-two-template.wxml" />
 <import src="../template/goods-item/trademark-template.wxml" />
+<import src="../template/category/category-two-template.wxml" />
 <view class='home-container'>  
   <view class='home-top'>
     <view class='index_header'>
@@ -20,7 +21,7 @@
       <scroll-view scroll-x="true" class="tab-h" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
         <view class='tab-item tab-item-none'></view>
         <block wx:for="{{category}}" wx:key="item">
-          <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
+          <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
         </block>
       </scroll-view>
       <icon class='icon iconfont icon-gengduocaidan-copy icon-more'></icon>
@@ -85,7 +86,9 @@
 
  <!--二级类目容器start-->
   <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
-    ddd
+    <block wx:for="{{currentCategory}}" wx:key="item">
+      <template is="categoryTwoTemplate" data="{{item}}" />
+    </block>
   </view>
 <!--二级类目容器end-->
 

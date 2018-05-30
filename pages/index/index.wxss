@@ -1,11 +1,13 @@
 /* pages/index/index.wxss */
 @import '../template/goods-item/goods-item-template.wxss';
 @import '../template/goods-item/goods-item-two-template.wxss';
+@import '../template/category/category-two-template.wxss';
 .home-top{  
   width: 100%;
   font-size: 12px;
   position: fixed;
   z-index: 500;
+  border-bottom: 1px solid #f6f6f6;
 }
 .home-index-display{
   display: none;
@@ -150,9 +152,16 @@ border-radius: 16rpx;}
 .tab-item-none{width: 40rpx;}
 
 
+.category-two{
+   width: 100%;    
+   display:box;
+   height: 390rpx;
+
+}
 .category-two-show{
   display: block;  
 }
 .category-two-display{
   display: none;  
 }
+
