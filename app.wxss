@@ -2,6 +2,13 @@
 text {
   font-family: 'Microsoft YaHei';
 }
-text {
-  font-family: 'Microsoft YaHei';
+
+
+.icon-shoucang-xin{
+  float: right;
+  color: #acacac;
+  font-size:36rpx; 
+  margin-right: 10px;
 }
+
+

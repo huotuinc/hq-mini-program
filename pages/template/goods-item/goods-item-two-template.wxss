@@ -1,0 +1,59 @@
+.goods-item-two {
+  width: 50%;
+  margin: 10px;
+}
+
+.goods-item-two image {
+  width: 330rpx;
+  height: 330rpx;  
+}
+
+.goods-item-logo image {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+}
+.goods-item-tow-text{
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: clip;
+  height: 50px;
+}
+.goods-item-two-text1
+{
+  margin-top: 10px;
+}
+.goods-item-two-text2
+{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.goods-item-two-title {
+  font-size: 14px;
+  padding-left: 20px;
+  margin-top: 0px;
+  color: #434343;
+}
+.goods-item-price{  
+  color: #acacac;
+  float: left;
+  font-size:23rpx;
+  text-decoration:line-through;
+}
+.goods-item-coupon-text{  
+  padding: 0px 5px 2px 5px;
+  height: 30rpx;  
+  display: inline-block;
+  font-size: 10px;
+  color: #FE4C55;
+  border: 1px solid #FE4C55;
+  border-radius: 50px;  
+}
+.goods-item-sales-count{   
+   padding-top: 2px;
+   font-size: 10px;
+   color: #acacac;
+   float: right;
+
+}

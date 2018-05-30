@@ -94,3 +94,8 @@ icon-sousuo{
   margin-top: 60rpx;
   position: relative;
 }
+
+.home-goods-item-two{
+    display: flex;
+  flex-direction: row;
+}

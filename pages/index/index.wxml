@@ -41,4 +41,7 @@
 
 <view class='home-goods-item-two'>
 <template is="itemTwo" />
+<template is="itemTwo" />
+<template is="itemTwo" />
 </view>
+<view style='height:60px;'></view>
