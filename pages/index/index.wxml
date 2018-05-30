@@ -41,22 +41,39 @@
   </view>
 
   <view class='goods-special-area'>
-    <block wx:for="{{specialItems}}"  wx:key="item">
-    <view class='special-box'>
-      <view class='box2'>
-        <image src='{{item.imgSrc}}'></image>     
+    <block wx:for="{{specialItems}}" wx:key="item">
+      <view class='special-box'>
+        <view class='box2'>
+          <image src='{{item.imgSrc}}'></image>
+        </view>
       </view>
-    </view>  
-    </block>    
+    </block>
   </view>
 </view>
 
 <view class='home-goods-items'>
+  <view class='goodsItem_title'>
+    限时购
+    <text>{{ clock.hs }}</text> :
+    <text>{{ clock.ms }}</text> :
+    <text>{{ clock.ss }}</text>
+  </view>
   <block wx:for="{{hotItems}}" wx:key="item">
     <template is="goodsItem" data="{{item}}" />
   </block>
 </view>
-<template is="trademarkGoods"></template>
+
+<view>
+  <view class='trademark-goods_title'>
+    <text>品牌制造商直供</text>
+  </view>
+
+  <block>
+    <template is="trademarkGoods"></template>
+  </block>
+</view>
+
+
 <view class='home-goods-item-two'>
   <block wx:for="{{goodsItems}}" wx:key="item">
     <template is="itemTwo" data="{{item}}" />
@@ -64,4 +81,4 @@
 </view>
 
 <!-- </view> -->
-<view style='height:60px;'></view>
+<view style='height:60px;'></view> 

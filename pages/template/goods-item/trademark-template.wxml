@@ -1,30 +1,97 @@
 <template name="trademarkGoods">
-  <view class='trademark-goods_title'>
-    <text>品牌制造商直供</text>
-  </view>
+  <view class='trademark-scroll'>
+    <scroll-view scroll-x="true" bindscroll="scroll" style='width:100%; white-space:nowrap;'>
+      <view class='trademark-goods_item'>
+        <view class='trademark-image'>
+          <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+        </view>
+        <view class='trademark-ticket_share'>
+          <view class='trademark-price_ticket'>
+            <!-- {{item.couponPrice}}元券 -->4元券
+          </view>
+          <view class='trademark-share_make'>
+            分享赚
+            <icon class='icon iconfont icon-zuanshi'></icon>
+            2.98
+            <!-- {{item.earnMoney}} -->
+          </view>
+        </view>
+        <view class='trademark-title'>
+          <text>清风 自然棉麻家居拖</text>
+        </view>
+        <view class='trademark-price'>
+          <text>￥22.98</text>
+        </view>
+      </view>
 
-  <scroll-view scroll-x="true">
-    <view class='trademark-goods_item'>
-      <view class='trademark-image'>
-        <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      </view>
-      <view>
-        <view class='goods-item-coupon-text'>
-          <!-- {{item.couponPrice}}元券 -->4元券
+      <view class='trademark-goods_item'>
+        <view class='trademark-image'>
+          <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
         </view>
-        <view class='goods-item-coupon-text zuanshi'>
-          分享赚
-          <icon class='icon iconfont icon-zuanshi'></icon>
-          2.98
-          <!-- {{item.earnMoney}} -->
+        <view class='trademark-ticket_share'>
+          <view class='trademark-price_ticket'>
+            <!-- {{item.couponPrice}}元券 -->4元券
+          </view>
+          <view class='trademark-share_make'>
+            分享赚
+            <icon class='icon iconfont icon-zuanshi'></icon>
+            2.98
+            <!-- {{item.earnMoney}} -->
+          </view>
+        </view>
+        <view class='trademark-title'>
+          <text>清风 自然棉麻家居拖</text>
+        </view>
+        <view class='trademark-price'>
+          <text>￥22.98</text>
         </view>
       </view>
-      <view>
-        <text>清风 自然棉麻家居拖</text>
+
+      <view class='trademark-goods_item'>
+        <view class='trademark-image'>
+          <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+        </view>
+        <view class='trademark-ticket_share'>
+          <view class='trademark-price_ticket'>
+            <!-- {{item.couponPrice}}元券 -->4元券
+          </view>
+          <view class='trademark-share_make'>
+            分享赚
+            <icon class='icon iconfont icon-zuanshi'></icon>
+            2.98
+            <!-- {{item.earnMoney}} -->
+          </view>
+        </view>
+        <view class='trademark-title'>
+          <text>清风 自然棉麻家居拖</text>
+        </view>
+        <view class='trademark-price'>
+          <text>￥22.98</text>
+        </view>
       </view>
-      <view>
-        <text>￥22.98</text>
+
+      <view class='trademark-goods_item'>
+        <view class='trademark-image'>
+          <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+        </view>
+        <view class='trademark-ticket_share'>
+          <view class='trademark-price_ticket'>
+            <!-- {{item.couponPrice}}元券 -->4元券
+          </view>
+          <view class='trademark-share_make'>
+            分享赚
+            <icon class='icon iconfont icon-zuanshi'></icon>
+            2.98
+            <!-- {{item.earnMoney}} -->
+          </view>
+        </view>
+        <view class='trademark-title'>
+          <text>清风 自然棉麻家居拖</text>
+        </view>
+        <view class='trademark-price'>
+          <text>￥22.98</text>
+        </view>
       </view>
-    </view>
-  </scroll-view>
+    </scroll-view>
+  </view>
 </template>
