@@ -13,7 +13,7 @@
         <icon class="icon iconfont icon-sousuo"></icon>
         <text>搜优惠商品</text>
       </view>
-      <view class='header_right'>
+      <view class='header_right' catchtap='_goCollectGoods'>
         <icon class="icon iconfont icon-ico_shoucangjia-copy"></icon>
       </view>
     </view>

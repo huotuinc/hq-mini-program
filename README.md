@@ -12,5 +12,8 @@ pages-------- 页面
    template-----------模板目录
    usercenter---------个人中心相关页面
    welfare------------福利社页面
+   myGroup----------我的团队
+   revenueCenter----收益中心
+   collectgoods------收藏夹
 utils--------- 脚本文件
 ```

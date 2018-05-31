@@ -14,46 +14,46 @@ Page({
     category: [],
     // remaimTime: '',
     // clock: '',
-    currentTab:0, //预设当前项的值
+    currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
-    currentCategory:[],
+    currentCategory: [],
     filterTap: 1
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function(e) {
+  swichNav: function (e) {
     var cur = e.currentTarget.dataset.current
     if (this.data.currentTab == cur) {
       return false
     }
     this.checkCor(cur)
     this.setData({
-      currentCategory: e.currentTarget.dataset.item.child,      
+      currentCategory: e.currentTarget.dataset.item.child,
       goodsItems: this.data.goodsItems,
-      filterTap:1
+      filterTap: 1
     })
   },
   //点击商品筛选事件
-  clickfilterTap:function(e){
-    var cur= e.currentTarget.dataset;
-    if(cur.type==4){
-    }    
+  clickfilterTap: function (e) {
+    var cur = e.currentTarget.dataset;
+    if (cur.type == 4) {
+    }
     this.setData({
       filterTap: cur.type
-    })    
+    })
   },
   //点击收藏
-  clickFavTab:function(e){
-    var item = e.currentTarget.dataset.item;    
-    var index = e.currentTarget.dataset.index;    
-    var _type = e.currentTarget.dataset.type;  
-    var _items=[]
-    if(_type=="goodsItems"){
+  clickFavTab: function (e) {
+    var item = e.currentTarget.dataset.item;
+    var index = e.currentTarget.dataset.index;
+    var _type = e.currentTarget.dataset.type;
+    var _items = []
+    if (_type == "goodsItems") {
       _items = this.data.goodsItems;
-      _items[index].isFav = !item.isFav;            
-      this.setData({      
+      _items[index].isFav = !item.isFav;
+      this.setData({
         goodsItems: _items
-      })   
+      })
     }
     if (_type == "hotItems") {
       _items = this.data.hotItems;
@@ -65,17 +65,17 @@ Page({
     //设置收藏
     collection(item.goodsId, !item.isFav);
     wx.showToast({
-      title: !item.isFav?"收藏成功":"取消收藏",
+      title: !item.isFav ? "收藏成功" : "取消收藏",
     })
   },
   //商品详情页面
-  goodsDetails:function(e){
+  goodsDetails: function (e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goods_id=' +e.currentTarget.dataset.goodsId
+      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
     })
   },
   //设置tab标题滚动
-  checkCor: function(cur) {
+  checkCor: function (cur) {
     if ((this.data.currentTab > 3 || cur > 3) && this.data.currentTab < cur) {
       this.setData({
         scrollLeft: cur * 50
@@ -94,10 +94,15 @@ Page({
       currentTab: cur
     })
   },
+  _goCollectGoods: function () {
+    wx.navigateTo({
+      url: '../collectgoods/collectgoods',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     this.setData({
       category: indexData.categoryItems,
       goodsItems: indexData.goodsItems,
@@ -117,41 +122,41 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function () { },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    var date = new Date();    
+  onShow: function () {
+    var date = new Date();
     date.setHours(24)
     date.setMinutes(0)
-    date.setSeconds(0)    
+    date.setSeconds(0)
     skillTime(date.toString(), this)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {},
+  onHide: function () { },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {},
+  onUnload: function () { },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {},
+  onPullDownRefresh: function () { },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {},
+  onReachBottom: function () { },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {}
+  onShareAppMessage: function () { }
 })
