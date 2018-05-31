@@ -12,9 +12,10 @@
   padding: 10px;
 }
 
-.goods-item-tow-text image {
+.goods-item-logo image {
   width: 30rpx;
   height: 30rpx;
+  vertical-align: middle;
 }
 
 .goods-item-tow-text {
@@ -32,11 +33,16 @@
   margin-top: 15rpx;
 }
 
-.icon-shoucang-xin {
+.goods-item-two .icon-heart, .goods-item-two .icon-xin {
   float: right;
-  color: #acacac;
-  font-size: 46rpx;
+  font-size: 36rpx;  
   margin-top: -5rpx;
+}
+.goods-item-two .icon-heart{
+ color: #acacac;
+}
+.goods-item-two .icon-xin{
+ color: #fe4c55;
 }
 
 .goods-item-two-text2 text {

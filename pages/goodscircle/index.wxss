@@ -1,4 +1,4 @@
-@import "../template/goodscircle/good-scircle-template.wxss";
+
 
 .goods-circle_header {
   width: 100%;

@@ -10,9 +10,9 @@
     </view>
   </block>
   <view class='categoryTwo-goods-filter'>
-    <view class='active' bindtap='clickfilterTap' data-type='1' data-msg='佣金'>佣金</view>
-    <view bindtap='clickfilterTap' data-type='2' data-msg='销量'>销量</view>
-    <view bindtap='clickfilterTap' data-type='3' data-msg='最新'>最新</view>
-    <view bindtap='clickfilterTap' data-type='4' data-sort='asc' data-msg='价格'>价格</view>
+    <view class='{{filterTap==1?"active":""}}' bindtap='clickfilterTap' data-type='1' data-msg='佣金'>佣金</view>
+    <view class='{{filterTap==2?"active":""}}' bindtap='clickfilterTap' data-type='2' data-msg='销量'>销量</view>
+    <view class='{{filterTap==3?"active":""}}' bindtap='clickfilterTap' data-type='3' data-msg='最新'>最新</view>
+    <view class='{{filterTap==4?"active":""}}' bindtap='clickfilterTap' data-type='4' data-sort='asc' data-msg='价格'>价格</view>
   </view>
 </template>
