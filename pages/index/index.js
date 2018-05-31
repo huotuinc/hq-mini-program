@@ -1,7 +1,7 @@
 // pages/index/index.js
 const indexData = require('../../utils/mock/index.js')
 // const skillTime = require('../../utils/skillTime.js')
-import { formatTime, countDown, clearTimeOut } from '../../utils/skillTime.js'
+import { skillTime } from '../../utils/skillTime.js'
 
 Page({
   /**
@@ -70,19 +70,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    let stringTime = '2018-05-30 24:00:00'
-    let timestamp = Date.parse(stringTime)
-    let newTime = +new Date()
-    let remaimTime = timestamp - newTime
-    console.log(newTime + '====' + remaimTime + '======' + timestamp)
-    this.setData({
-      remaimTime: remaimTime,
-      clock: formatTime(remaimTime)
-    })
-    clearTimeOut()
-    if (this.data.remaimTime) {
-      countDown(this)
-    }
+    let stringTime = '2018-05-31 12:00:00'
+    skillTime(stringTime,this);
   },
 
   /**
