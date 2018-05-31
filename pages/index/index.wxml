@@ -33,7 +33,7 @@
   <view class='home-index {{currentTab!=0?"home-index-display":""}}'>
     <view class="page-section page-section-spacing swiper">
       <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-        <block wx:for="{{bannerItems}}" wx:key="*this">
+        <block wx:for="{{bannerItems}}" wx:key="item">
           <swiper-item>
             <view class="swiper-item">
               <image src='{{item.imgSrc}}'></image>
@@ -85,10 +85,8 @@
   </view>
 
  <!--二级类目容器start-->
-  <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
-    <block wx:for="{{currentCategory}}" wx:key="item">
-      <template is="categoryTwoTemplate" data="{{item}}" />
-    </block>
+  <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>    
+      <template is="categoryTwoTemplate" data="{{currentCategory}}" />    
   </view>
 <!--二级类目容器end-->
 

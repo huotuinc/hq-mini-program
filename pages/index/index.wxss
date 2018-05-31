@@ -155,8 +155,6 @@ border-radius: 16rpx;}
 .category-two{
    width: 100%;    
    display:box;
-   height: 390rpx;
-
 }
 .category-two-show{
   display: block;  
