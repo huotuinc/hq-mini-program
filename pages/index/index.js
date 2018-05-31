@@ -13,7 +13,7 @@ Page({
     category: [],
     remaimTime: '',
     clock: '',
-    currentTab:0, //预设当前项的值
+    currentTab:2, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
     currentCategory:[]
@@ -24,7 +24,8 @@ Page({
     if (this.data.currentTab == cur) { return false; }
     this.checkCor(cur);
     this.setData({
-      currentCategory: e.target.dataset.item.child
+      currentCategory: e.target.dataset.item.child,
+      goodsItems: this.data.goodsItems
     })
   },
   //设置tab标题滚动

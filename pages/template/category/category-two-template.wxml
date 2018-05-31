@@ -1,10 +1,18 @@
 <template name="categoryTwoTemplate">
-  <view class='categoryTwo-container'>
-    <view class='categoryTwo-box'>
-      <view class='categoryTwo-item-pic'>
+  <block wx:for="{{currentCategory}}" wx:key="item">
+    <view class='categoryTwo-container'>
+      <view class='categoryTwo-box'>
+        <view class='categoryTwo-item-pic'>
           <image src='{{item.imgSrc}}'></image>
-      </view>      
+        </view>
+      </view>
+      <text class='categoryTwo-item-title'>{{item.title}}</text>
     </view>
-    <text class='categoryTwo-item-title'>{{item.title}}</text>
+  </block>
+  <view class='categoryTwo-goods-filter'>
+    <view class='active'>佣金</view>
+    <view>销量</view>
+    <view>最新</view>
+    <view>价格</view>
   </view>
 </template>

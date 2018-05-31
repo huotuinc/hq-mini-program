@@ -42,6 +42,7 @@
 .goods-item-two-text2 text {
   color: #000;
   font-size: 26rpx;
+  
 }
 
 .goods-item-two-text2 {
@@ -49,6 +50,7 @@
   height: 50rpx;
   font-size: 23rpx;
   line-height: 50rpx;
+  font-weight: bold;
 }
 
 .goods-item-two-text2 .coupon-price {
