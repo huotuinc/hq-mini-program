@@ -12,21 +12,53 @@
       <text class='goods-item-sales_volume'>销量108件</text>
     </view>
     <view class='goods-item-two-text2'>
-      券后
-      <text class='coupon-price'>￥{{item.finalPrice}}</text>
+      <icon class='icon iconfont icon-quanhoujia'></icon>
+      <text class='goods-final-price'>￥19.99</text>
+    </view>
+    <view class='coupon-box'>
+      <icon class='icon iconfont icon-quan'></icon>
+      <view class='coupon-info'>
+        <view class='coupon-left'>
+          <view class='coupon'>
+            <text>￥</text>
+            <view class='coupon-price'>5</view> 优惠券
+          </view>
+          <view class='time-limit'>使用期限：2018.05.15-2018.05.30</view>
+        </view>
+        <view class='get-coupon'>立即领取</view>
+      </view>
     </view>
   </view>
   <view class='separator1'></view>
+
+  <view class='goods-details-info'>
+    <view class='goods-intro'>
+      <view class='goods-intro-title'>商品描述</view>
+      <view> 商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述商品描述</view>
+    </view>
+    <view class='goods-details'>
+      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+    </view>
+  </view>
+  <view style='height:80rpx;'></view>
   <view class='bottom-bar'>
     <view class='item-bar collect'>
-          <icon bindtap='clickFavTab' class="icon iconfont icon-xin"></icon>
-          收藏
+      <icon bindtap='clickFavTab' class="icon iconfont icon-xin"></icon>
+      收藏
     </view>
-    <view class='item-bar buy'>
-      <text>立即购买</text>
-    </view>
-    <view class='item-bar share'>
-      <view>佣金：2.21</view>
+    <view class='item-bar-right'>
+      <view class='item-bar buy'>
+        <icon class='icon iconfont icon-goumai'></icon>
+        <text>立即购买</text>
+      </view>
+      <view class='item-bar share'>
+        <icon class='icon iconfont icon-xiazai10'></icon>
+        <text>佣金：2.21</text>
+      </view>
     </view>
   </view>
 </view>

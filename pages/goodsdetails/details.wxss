@@ -1,9 +1,7 @@
-/* pages/goodsdetails/details.wxss */
-
-.goods-details-main-pic image{
-  width: 100%;
-  height: 600rpx;
+.goods-details-main-pic image {
+  width: 100%;  
 }
+
 .goods-item-title {
   display: -webkit-box;
   word-break: break-all;
@@ -12,7 +10,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  margin: 30rpx;
+  margin: 33rpx 30rpx  30rpx 30rpx;
 }
 
 .goods-item-logo image {
@@ -22,67 +20,174 @@
   margin-right: 10rpx;
 }
 
-.goods-item-two-text1,.goods-item-two-text2{
-  height: 30rpx;  
-  margin: 20rpx;
+.goods-item-two-text1 {
+  height: 15rpx;  
+  margin: 30rpx 30rpx  33rpx 30rpx;
+  font-size: 21rpx;
 }
 
 .goods-item-price {
   color: #acacac;
   float: left;
-  font-size: 23rpx;
+
   text-decoration: line-through;
 }
+
 .goods-item-sales_volume {
   font-size: 20rpx;
   color: #acacac;
   float: right;
 }
-.goods-item-two-text2 {
-  margin-top: 30rpx;
-  height: 50rpx;
-  font-size: 23rpx;
+
+.goods-item-two-text2 {    
+  margin: 0 30rpx  33rpx 30rpx;
+  height: 30rpx;
+  font-size: 35rpx;
   line-height: 50rpx;
   font-weight: bold;
 }
+
 .goods-item-two-text2 text {
-  color: #000;
-  font-size: 26rpx;
-}
-.goods-item-two-text2 .coupon-price {
-  color: #fe4c55;
-  font-size: 28rpx;
-}
-.bottom-bar{
-  position: fixed;
-  bottom: 0;
-  height: 88rpx;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-.item-bar{
-  text-align: center;    
-}
-.item-bar.collect{
-  width: 20%;  
-  background-color: #FFFFFF;
-  font-size: 20rpx;
-  color: #000000;
-}
-.item-bar.buy{
-  width: 40%;  
-  background-color: #FF9F41;
-  
-}
-.item-bar.share{
-  width: 40%;  
-  background-color: #FF4B54;
-  line-height: 100%;  
+  color: #000;  
 }
 
-.icon-heart,.icon-xin {  
-  font-size: 40rpx;  
-  margin-top: 5rpx;
+.goods-item-two-text2 .goods-final-price {
+  color: #eb1620;  
+}
+.icon-quanhoujia{
+  font-size: 35rpx;    
+}
+.icon-quan{
+  margin-left: 30rpx;
+  margin-right: 30rpx;  
+  font-size: 172rpx;
+  color: #ff4b54;
+  position: absolute;
+}
+.coupon-info{
+  position: absolute;
+  height: 100%;
+  /* margin-top: -172rpx;
+
+  margin-right: 30rpx; */
+  width: 100%;
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+.coupon-info .coupon{
+   color: #ff4b54;   
+   display: inline-block;      
+   font-size: 30rpx;
+   font-weight: bold;
+}
+.coupon-info .coupon text{
+   font-size: 36rpx;
+}
+.coupon-price{
+  display: inline-block;
+  font-size: 87rpx;
+}
+.time-limit{
   display: block;
+  font-size: 22rpx;
+  color: #9f9f9f;
+}
+.coupon-left{
+   position: absolute; 
+   margin-left: 70rpx; 
+  margin-top: 20rpx;  
+}
+.get-coupon{  
+  
+  line-height: 180rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #ff4b54;     
+  width: 228rpx;
+  height: 180rpx;
+  position: absolute;
+  right: 30rpx;
+  
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.goods-intro {
+  margin: 30rpx;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  min-height: 100rpx;   
+  font-size: 23rpx;
+  padding:20rpx;
+}
+.goods-intro-title{
+  text-align: center; 
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;  
+}
+
+.goods-details image{
+  width: 100%;
+}
+
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  height: 99rpx;  
+  width: 100%;
+  z-index: 500;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.item-bar {
+  text-align: center;
+  height: 99rpx; 
+}
+
+.item-bar.collect {
+  width: 141rpx;
+  background-color: #fff;
+  font-size: 20rpx;
+  color: #000;
+}
+.item-bar-right{
+  width: 100%;
+  height: 99rpx;    
+  display: flex;
+  flex-direction: row;
+}
+.item-bar.buy {
+  background-color: #ff9f41;
+}
+
+.item-bar.share {
+  background-color: #ff4b54;
+}
+
+.item-bar.share, .item-bar.buy {
+  line-height: 100%;
+  width: 50%;
+  color: #fff;
+}
+.item-bar.buy text,.item-bar.share text{
+  display: inline-block;
+  line-height: 99rpx;
+  font-size: 30rpx;
+  margin-left: 5rpx;
+}
+.icon-heart, .icon-xin {
+  font-size: 37rpx;  
+  display: block;
+}
+.icon-xiazai10,.icon-goumai{
+  font-size: 30rpx;
+}
+.coupon-box{
+  position: relative;
+  height:200rpx;
 }
