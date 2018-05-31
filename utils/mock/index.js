@@ -87,67 +87,92 @@ const goodsItems = [
 const categoryItems = [
   {
     title: "热门",
-    index: 1,
+    categoryid: 1,
     selected: true,
     child: []
   },
   {
     title: "护肤",
-    index: 2,
+    categoryid: 2,
     selected: false,
     child: []
   },
   {
     title: "美食",
-    index: 3,
+    categoryid: 3,
     selected: false,
-    child: []
+    child: [
+      {
+        title: "休闲食品",
+        categoryid: 3,
+        selected: false,
+        imgSrc:"http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",        
+      },
+      {
+        title: "坚果果干",
+        categoryid: 3,
+        selected: false,
+        imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
+      },
+      {
+        title: "地方特产",
+        categoryid: 3,
+        selected: false,
+        imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
+      },
+      {
+        title: "糕点饼干",
+        categoryid: 3,
+        selected: false,
+        imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
+      }
+    ]
   },
   {
     title: "女装",
-    index: 4,
+    categoryid: 4,
     selected: false,
     child: []
   },
   {
     title: "美妆",
-    index: 5,
+    categoryid: 5,
     selected: false,
     child: []
   },
   {
     title: "百货",
-    index: 6,
+    categoryid: 6,
     selected: false,
     child: []
   },
   {
     title: "母婴",
-    index: 7,
+    categoryid: 7,
     selected: false,
     child: []
   },
   {
     title: "水果",
-    index: 8,
+    categoryid: 8,
     selected: false,
     child: []
   },
   {
     title: "电器",
-    index: 9,
+    categoryid: 9,
     selected: false,
     child: []
   },
   {
     title: "运动",
-    index: 10,
+    categoryid: 10,
     selected: false,
     child: []
   },
   {
     title: "手机",
-    index: 11,
+    categoryid: 11,
     selected: false,
     child: []
   }
