@@ -227,10 +227,34 @@ const specialItems=[
   }
 ]
 
+const goodscircleTitle = [
+  {
+    title: "爆款必发",
+    categoryid: 1,
+    selected: true,
+  },
+  {
+    title: "圈粉文案",
+    categoryid: 2,
+    selected: false,
+  },
+  {
+    title: "吃货必备",
+    categoryid: 3,
+    selected: false,
+  },
+  {
+    title: "清凉一夏",
+    categoryid: 4,
+    selected: false,
+  },
+]
+
 module.exports = {
   hotItems: hotItems,
   goodsItems: goodsItems,
   categoryItems: categoryItems,
   bannerItems: bannerItems,
-  specialItems: specialItems
+  specialItems: specialItems,
+  goodscircleTitle: goodscircleTitle
 };

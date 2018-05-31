@@ -61,9 +61,9 @@
     <view class='home-goods-items'>
       <view class='goodsItem_title'>
         限时购
-        <text>{{ clock.hs }}</text> :
-        <text>{{ clock.ms }}</text> :
-        <text>{{ clock.ss }}</text>
+        <text>{{ clock.hs?clock.hs:"00" }}</text> :
+        <text>{{ clock.ms?clock.ms:"00" }}</text> :
+        <text>{{ clock.ss?clock.ss:"00" }}</text>
       </view>
       <block wx:for="{{hotItems}}" wx:key="item">
         <template is="goodsItem" data="{{item,index}}" />

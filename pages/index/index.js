@@ -1,6 +1,6 @@
 // pages/index/index.js
 const indexData = require('../../utils/mock/index.js')
-// const skillTime = require('../../utils/skillTime.js')
+
 import { skillTime } from '../../utils/skillTime.js'
 import { collection } from '../../utils/common.js'
 

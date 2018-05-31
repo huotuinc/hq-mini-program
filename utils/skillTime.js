@@ -27,7 +27,6 @@ export function formatTime(time) {
   let ms = minutes > 9 ? minutes : "0" + minutes;
   let ss = seconds > 9 ? seconds : "0" + seconds;
 
-  // let skillTime = [{ds:ds},{ hs:hs}, {ms:ms}, {ss:ss}];
   let skillTime = {ds,hs,ms,ss}
   return skillTime;
 }
@@ -63,15 +62,16 @@ export function skillTime(newData,that){
   let timestamp = Date.parse(stringTime);
   let newTime = new Date();
   let remaimTime = Math.ceil((timestamp - newTime.getTime()) / 1000);
-  that.setData({
-    remaimTime: remaimTime,
-    clock: formatTime(remaimTime)
-  })
-  clearTimeOut();
-  
-  if (that.data.remaimTime > 0) {
+ 
+  if (remaimTime> 0) {
+    that.setData({
+      remaimTime: remaimTime,
+      clock: formatTime(remaimTime)
+    })
+    clearTimeOut();
     countDown(that);
   }else{
     clearTimeOut();
+    return
   }
 }
