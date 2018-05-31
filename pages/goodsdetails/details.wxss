@@ -1,1 +1,23 @@
 /* pages/goodsdetails/details.wxss */
+
+.goods-details-main-pic image{
+  width: 100%;
+  height: 600rpx;
+}
+.goods-item-title {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin: 30rpx;
+}
+
+.goods-item-logo image {
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}

@@ -1,2 +1,11 @@
-<!--pages/goodsdetails/details.wxml-->
-<text>pages/goodsdetails/details.wxml</text>
+<view>
+  <view class='goods-details-main-pic'>
+    <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+  </view>
+  <view class='goods-details-info-box'>
+      <view class='goods-item-title goods-item-logo'>
+        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+        <text>啊手动阀手动阀手动阀手动阀大阿斯顿发射点啊手动阀</text>
+      </view>
+  </view>
+</view>
