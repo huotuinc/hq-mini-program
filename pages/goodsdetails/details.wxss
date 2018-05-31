@@ -21,3 +21,68 @@
   vertical-align: middle;
   margin-right: 10rpx;
 }
+
+.goods-item-two-text1,.goods-item-two-text2{
+  height: 30rpx;  
+  margin: 20rpx;
+}
+
+.goods-item-price {
+  color: #acacac;
+  float: left;
+  font-size: 23rpx;
+  text-decoration: line-through;
+}
+.goods-item-sales_volume {
+  font-size: 20rpx;
+  color: #acacac;
+  float: right;
+}
+.goods-item-two-text2 {
+  margin-top: 30rpx;
+  height: 50rpx;
+  font-size: 23rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+}
+.goods-item-two-text2 text {
+  color: #000;
+  font-size: 26rpx;
+}
+.goods-item-two-text2 .coupon-price {
+  color: #fe4c55;
+  font-size: 28rpx;
+}
+.bottom-bar{
+  position: fixed;
+  bottom: 0;
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.item-bar{
+  text-align: center;    
+}
+.item-bar.collect{
+  width: 20%;  
+  background-color: #FFFFFF;
+  font-size: 20rpx;
+  color: #000000;
+}
+.item-bar.buy{
+  width: 40%;  
+  background-color: #FF9F41;
+  
+}
+.item-bar.share{
+  width: 40%;  
+  background-color: #FF4B54;
+  line-height: 100%;  
+}
+
+.icon-heart,.icon-xin {  
+  font-size: 40rpx;  
+  margin-top: 5rpx;
+  display: block;
+}
