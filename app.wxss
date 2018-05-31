@@ -10,3 +10,15 @@ page{
   height: 0;
   color: transparent;
 }
+.separator1{
+  width: 100%;
+  height: 20rpx;
+  background-color: #F2F2F2;
+}
+
+.icon-heart{
+ color: #acacac;
+}
+.icon-xin{
+ color: #fe4c55;
+}
