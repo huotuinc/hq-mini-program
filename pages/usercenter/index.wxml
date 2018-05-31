@@ -42,11 +42,11 @@
       <text>我的团队</text>
     </view>
     <view class='group-pro'>
-      <icon class='icon iconfont icon-zuanshi'></icon>
+      <icon class='icon iconfont icon-icon3'></icon>
       <text>团队收益</text>
     </view>
     <view class='diamond'>
-      <icon class='icon iconfont icon-zuanshi'></icon>
+      <icon class='icon iconfont icon-diamond'></icon>
       <text>我的钻石</text>
     </view>
   </view>
@@ -54,23 +54,27 @@
     <view class='invite'>
       <icon class='icon iconfont icon-yaoqingmatianchong'></icon>
       <text>邀请好友</text>
-      <icon class='icon iconfont icon-icon-- more'></icon>
+      <icon class='icon iconfont icon-right more'></icon>
     </view>
     <view class='collect'>
       <icon class='icon iconfont icon-ico_shoucangjia-copy'></icon>
       <text>收藏夹</text>
+      <icon class='icon iconfont icon-right more'></icon>
     </view>
     <view class='message'>
       <icon class='icon iconfont icon-icon_msg'></icon>
       <text>消息动态</text>
+      <icon class='icon iconfont icon-right more'></icon>
     </view>
     <view class='course'>
       <icon class='icon iconfont icon-jilumian'></icon>
       <text>使用教程</text>
+      <icon class='icon iconfont icon-right more'></icon>
     </view>
     <view class='service-help'>
       <icon class='icon iconfont icon-custom-service'></icon>
       <text>客服与帮助</text>
+      <icon class='icon iconfont icon-right more'></icon>
     </view>
   </view>
   <view style='height:80rpx;'></view>
