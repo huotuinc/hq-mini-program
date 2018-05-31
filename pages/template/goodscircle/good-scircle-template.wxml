@@ -24,7 +24,7 @@
         <text>已被转发24次</text>
       </view>
       <view class='cricle-con_share'>
-        <text>分享赚 | ￥2.4（基础￥1.78+奖励￥0.62）</text>
+        分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
       </view>
       <view class='cricle-con_foot'>
         <view class='sava-img'>
@@ -67,7 +67,7 @@
         <text>已被转发24次</text>
       </view>
       <view class='cricle-con_share'>
-        <text>分享赚 | ￥2.4（基础￥1.78+奖励￥0.62）</text>
+        分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
       </view>
       <view class='cricle-con_foot'>
         <view class='sava-img'>
@@ -110,7 +110,7 @@
         <text>已被转发24次</text>
       </view>
       <view class='cricle-con_share'>
-        <text>分享赚 | ￥2.4（基础￥1.78+奖励￥0.62）</text>
+        分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
       </view>
       <view class='cricle-con_foot'>
         <view class='sava-img'>
@@ -153,7 +153,7 @@
         <text>已被转发24次</text>
       </view>
       <view class='cricle-con_share'>
-        <text>分享赚 | ￥2.4（基础￥1.78+奖励￥0.62）</text>
+       分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
       </view>
       <view class='cricle-con_foot'>
         <view class='sava-img'>

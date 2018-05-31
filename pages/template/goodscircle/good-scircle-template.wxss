@@ -58,8 +58,12 @@
 .circle-con .cricle-con_share {
   margin-top: 20rpx;
   font-size: 21rpx;
-  color: #fa8a0e;
+  color: #ff5e61;
   margin-bottom: 18rpx;
+}
+.circle-con .cricle-con_share icon{
+  font-size: 21rpx;
+  margin-top: -20rpx;
 }
 
 .circle-con .cricle-con_foot {
