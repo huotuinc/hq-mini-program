@@ -27,7 +27,7 @@
       <text class='pro-price'>6.02</text>
       <text>今日预估</text>
     </view>
-    <view class='add-pro'>
+    <view class='add-pro' catchtap='_goRevenueCenter'>
       <text class='pro-price'>9.04</text>
       <text>累计收益</text>
     </view>
@@ -37,7 +37,7 @@
       <icon class='icon iconfont icon-dingdan'></icon>
       <text>推广订单</text>
     </view>
-    <view class='my-group'>
+    <view class='my-group' catchtap='_goMyGroup'>
       <icon class='icon iconfont icon-renshu'></icon>
       <text>我的团队</text>
     </view>
