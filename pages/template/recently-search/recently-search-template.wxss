@@ -5,12 +5,17 @@
   margin-top: 44rpx;
   color: #BFBFBF;
   font-size: 29rpx;
+  position: relative;
 }
 
 .recently-search icon{
   font-size: 32rpx;
 }
-
+.delet{
+  position: absolute;
+  right: 50rpx;
+  top: 0;
+}
 .recently-search text{
   margin-left: 10rpx;
 }

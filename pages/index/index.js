@@ -1,6 +1,6 @@
 // pages/index/index.js
 const indexData = require('../../utils/mock/index.js')
-// const skillTime = require('../../utils/skillTime.js')
+
 import { skillTime } from '../../utils/skillTime.js'
 
 Page({
@@ -78,7 +78,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    let stringTime = '2018-05-31 12:00:00'
+    let stringTime = '2018-05-31 18:00:00'
     skillTime(stringTime, this)
   },
 
