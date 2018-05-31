@@ -18,10 +18,15 @@ Page({
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
     currentCategory:[],
-    filterTap: 1
+    filterTap: 1,    
   },
   // 点击标题切换当前页时改变样式
   swichNav: function(e) {
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration:0
+    })
+    
     var cur = e.currentTarget.dataset.current
     if (this.data.currentTab == cur) {
       return false
@@ -97,7 +102,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function(options) {    
     this.setData({
       category: indexData.categoryItems,
       goodsItems: indexData.goodsItems,
@@ -117,7 +122,8 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function() {
+  },
 
   /**
    * 生命周期函数--监听页面显示

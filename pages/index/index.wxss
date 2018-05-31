@@ -99,7 +99,7 @@ icon-sousuo{
 }
 
 .home-goods-item-two{
-   width: 100%;    
+   width: 100%;      
    display:box;
 }
 
@@ -184,4 +184,3 @@ border-radius: 16rpx;}
   text-align: center;
   font-size: 41rpx;
 }
-
