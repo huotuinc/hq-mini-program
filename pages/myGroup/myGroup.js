@@ -1,4 +1,4 @@
-// pages/usercenter/index.js
+// pages/myGroup/myGroup.js
 Page({
 
   /**
@@ -7,16 +7,7 @@ Page({
   data: {
   
   },
-  _goMyGroup:function(){
-    wx.navigateTo({
-      url: '../myGroup/myGroup',
-    })
-  },
-  _goRevenueCenter:function(){
-    wx.navigateTo({
-      url: '../revenueCenter/revenueCenter',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

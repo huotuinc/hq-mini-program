@@ -6,7 +6,9 @@
     "pages/goodsdetails/details",
     "pages/welfare/index",
     "pages/search/search",
-    "pages/collectgoods/collectgoods"
+    "pages/collectgoods/collectgoods",
+    "pages/revenueCenter/revenueCenter",
+    "pages/myGroup/myGroup"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

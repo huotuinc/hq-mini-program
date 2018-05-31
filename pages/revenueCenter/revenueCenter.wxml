@@ -1,0 +1,42 @@
+<view class="revenue-center">
+    <view class='revenue-header'>
+      <text>累计收益（钻）</text>
+      <text class='revenue-money'>1.25</text>
+    </view>
+    <view class='revenue-menu'>
+      <view>
+        <text>今日预估（钻）</text>
+        <text>0.00</text>
+        <text class='singular'>预估5单</text>
+      </view>
+       <view>
+        <text>昨日预估（钻）</text>
+        <text>0.00</text>
+        <text class='singular'>预估5单</text>
+      </view>
+       <view>
+        <text>本周预估（钻）</text>
+        <text>0.00</text>
+        <text class='singular'>预估5单</text>
+      </view>
+       <view>
+        <text>上周预估（钻）</text>
+        <text>0.00</text>
+        <text class='singular'>预估5单</text>
+      </view>
+       <view>
+        <text>本月预估（钻）</text>
+        <text>0.00</text>
+        <text class='singular'>预估5单</text>
+      </view>
+       <view>
+        <text>上月预估（钻）</text>
+        <text>0.00</text>
+        <text class='singular'>预估5单</text>
+      </view>
+    </view>
+    <view class='revenue-chart_line'>
+    <text>近七天预估</text>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+    </view>
+</view>
