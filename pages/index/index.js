@@ -1,7 +1,7 @@
 // pages/index/index.js
 const indexData = require('../../utils/mock/index.js')
 // const skillTime = require('../../utils/skillTime.js')
-//import { formatTime, countDown, clearTimeOut } from '../../utils/skillTime.js'
+import { skillTime } from '../../utils/skillTime.js'
 
 Page({
   /**
@@ -9,37 +9,38 @@ Page({
    */
   data: {
     bannerItems: [],
-    scrollIntoView: 1,    
+    scrollIntoView: 1,
     category: [],
     remaimTime: '',
     clock: '',
-    currentTab:2, //预设当前项的值
+    currentTab:0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
-    currentCategory:[]
+    currentCategory: []
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function (e) {
-    var cur = e.target.dataset.current;
-    if (this.data.currentTab == cur) { return false; }
-    this.checkCor(cur);
+  swichNav: function(e) {
+    var cur = e.target.dataset.current
+    if (this.data.currentTab == cur) {
+      return false
+    }
+    this.checkCor(cur)
     this.setData({
       currentCategory: e.target.dataset.item.child,
       goodsItems: this.data.goodsItems
     })
   },
   //设置tab标题滚动
-  checkCor: function (cur) {
-    if ((this.data.currentTab > 3 || cur>3) && this.data.currentTab<cur) {
+  checkCor: function(cur) {
+    if ((this.data.currentTab > 3 || cur > 3) && this.data.currentTab < cur) {
       this.setData({
         scrollLeft: cur * 50
       })
-    } else if (this.data.currentTab > cur && cur>3){
-        this.setData({
-          scrollLeft: this.data.scrollLeft - (this.data.scrollLeft-cur* 50)
-        })
-    }
-    else{
+    } else if (this.data.currentTab > cur && cur > 3) {
+      this.setData({
+        scrollLeft: this.data.scrollLeft - (this.data.scrollLeft - cur * 50)
+      })
+    } else {
       this.setData({
         scrollLeft: 0
       })
@@ -78,19 +79,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    // let stringTime = '2018-05-30 24:00:00'
-    // let timestamp = Date.parse(stringTime)
-    // let newTime = +new Date()
-    // let remaimTime = timestamp - newTime
-    // console.log(newTime + '====' + remaimTime + '======' + timestamp)
-    // this.setData({
-    //   remaimTime: remaimTime,
-    //   clock: formatTime(remaimTime)
-    // })
-    // clearTimeOut()
-    // if (this.data.remaimTime) {
-    //   countDown(this)
-    // }
+    let stringTime = '2018-05-31 12:00:00'
+    skillTime(stringTime, this)
   },
 
   /**

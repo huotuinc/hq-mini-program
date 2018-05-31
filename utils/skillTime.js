@@ -1,3 +1,5 @@
+// 限时秒杀
+
 export function formatTime(time) {
   let seconds = 0;
   let minutes = 0;
@@ -54,4 +56,22 @@ export function countDown(that) {
 
 export function clearTimeOut() {
   clearTimeout(t)
+}
+
+export function skillTime(newData,that){
+  let stringTime = newData;
+  let timestamp = Date.parse(stringTime);
+  let newTime = new Date();
+  let remaimTime = Math.ceil((timestamp - newTime.getTime()) / 1000);
+  that.setData({
+    remaimTime: remaimTime,
+    clock: formatTime(remaimTime)
+  })
+  clearTimeOut();
+  
+  if (that.data.remaimTime > 0) {
+    countDown(that);
+  }else{
+    clearTimeOut();
+  }
 }
