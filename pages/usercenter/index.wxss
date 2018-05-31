@@ -1,1 +1,135 @@
-/* pages/usercenter/index.wxss */
+
+.user-header {
+  width: 100%;
+  height: 360rpx;
+  background-color: #f8f8f8;
+  border-bottom-left-radius: 360rpx;
+  border-bottom-right-radius: 360rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.user-logo image {
+  height: 110rpx;
+  width: 110rpx;
+  border-radius: 110rpx;
+  margin-top: 20rpx;
+}
+
+.user-title {
+  font-size: 31rpx;
+  margin-top: 25rpx;
+}
+
+.user-name {
+  font-size: 20rpx;
+  color: #5e5e5e;
+  margin-top: 20rpx;
+}
+
+.see-potence {
+  width: 115rpx;
+  height: 30rpx;
+  font-size: 18rpx;
+  color: #fff;
+  background-color: #000;
+  border-radius: 30rpx;
+  text-align: center;
+  line-height: 30rpx;
+  margin: 20rpx auto 0;
+}
+
+.user-content{
+  margin-top: 46rpx;
+  width: 100%;
+}
+
+.repulsion{
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  color: #5e5e5e;
+  margin-left: 160rpx;
+}
+.repulsion-son,.repulsion-grandson{
+  padding: 0 28rpx;
+  border-left: 1px solid #5e5e5e;
+}
+.repulsion-grandson{
+  border-right: 1px solid #5e5e5e;
+}
+.repulsion-son text{
+  color: #fc4d4f;
+}
+.repulsion-grandson text{
+  color:  #52abf8;
+}
+.prospect{
+  margin-top: 59rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 0 74rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.yesterday-pro,.today-pro,.add-pro{
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 28rpx;
+  color: #5e5e5e;
+}
+.pro-price{
+  font-size: 44rpx;
+  color: #000;
+  font-weight: bold;
+}
+.classification{
+  margin-top: 62rpx;
+  padding: 0 74rpx;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+.classification view{
+  width: 25%;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  font-size: 21rpx;
+  color: #767676;
+}
+.classification icon{
+  font-size: 50rpx;
+  color: #ff4b53;
+  margin-bottom: 18rpx;
+}
+.other{
+  margin-top: 74rpx;
+  padding: 0 65rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.other view {
+  position: relative;
+  height: 95rpx;
+  width: 100%;
+  line-height: 95rpx;
+  font-size: 24rpx;
+  color: #7f7f7f;
+ border-bottom: 1px solid #dcdcdc;
+}
+.other view text{
+  margin-left: 18rpx;
+}
+.other view icon{
+  font-size: 39rpx;
+}
+.other view .more{
+  position: absolute;
+  right: 20rpx;
+  top: 4rpx;
+}

@@ -11,8 +11,8 @@ Page({
     bannerItems: [],
     scrollIntoView: 1,
     category: [],
-    remaimTime: '',
-    clock: '',
+    // remaimTime: '',
+    // clock: '',
     currentTab:0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
@@ -73,7 +73,7 @@ Page({
       hotItems: indexData.hotItems,
       specialItems: indexData.specialItems,
       currentCategory: indexData.categoryItems[this.data.currentTab].child
-    })
+    });
   },
 
   searchShop(e) {
