@@ -2,6 +2,7 @@
 const indexData = require('../../utils/mock/index.js')
 // const skillTime = require('../../utils/skillTime.js')
 import { skillTime } from '../../utils/skillTime.js'
+import { collection } from '../../utils/common.js'
 
 Page({
   /**
@@ -16,7 +17,8 @@ Page({
     currentTab:0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
-    currentCategory: []
+    currentCategory:[],
+    filterTap: 1
   },
   // 点击标题切换当前页时改变样式
   swichNav: function(e) {
@@ -26,20 +28,50 @@ Page({
     }
     this.checkCor(cur)
     this.setData({
-      currentCategory: e.currentTarget.dataset.item.child,
-      goodsItems: this.data.goodsItems
+      currentCategory: e.currentTarget.dataset.item.child,      
+      goodsItems: this.data.goodsItems,
+      filterTap:1
     })
   },
   //点击商品筛选事件
   clickfilterTap:function(e){
     var cur= e.currentTarget.dataset;
     if(cur.type==4){
-
     }    
+    this.setData({
+      filterTap: cur.type
+    })    
+  },
+  //点击收藏
+  clickFavTab:function(e){
+    var item = e.currentTarget.dataset.item;    
+    var index = e.currentTarget.dataset.index;    
+    var _type = e.currentTarget.dataset.type;  
+    var _items=[]
+    if(_type=="goodsItems"){
+      _items = this.data.goodsItems;
+      _items[index].isFav = !item.isFav;            
+      this.setData({      
+        goodsItems: _items
+      })   
+    }
+    if (_type == "hotItems") {
+      _items = this.data.hotItems;
+      _items[index].isFav = !item.isFav;
+      this.setData({
+        hotItems: _items
+      })
+    }
+    //设置收藏
+    collection(item.goodsId, !item.isFav);
     wx.showToast({
-      title:"当前选择的是:"+ cur.msg,
-      icon:"none",     
-      mask:false 
+      title: !item.isFav?"收藏成功":"取消收藏",
+    })
+  },
+  //商品详情页面
+  goodsDetails:function(e){
+    wx.navigateTo({
+      url: '../goodsdetails/details?goods_id=' +e.currentTarget.dataset.goodsId
     })
   },
   //设置tab标题滚动
@@ -91,8 +123,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    let stringTime = '2018-05-31 12:00:00'
-    skillTime(stringTime, this)
+    var date = new Date();    
+    date.setHours(24)
+    date.setMinutes(0)
+    date.setSeconds(0)    
+    skillTime(date.toString(), this)
   },
 
   /**

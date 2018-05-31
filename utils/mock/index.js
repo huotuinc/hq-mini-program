@@ -34,7 +34,7 @@ const goodsItems = [
     salesVolume: 1800,/*销量价格*/
     couponPrice: 4,/*优惠券价格*/
     finalPrice: 23.99,/*最终价格*/
-    isFav: false,/*是否收藏*/
+    isFav: true,/*是否收藏*/
     earnMoney: 3.5,/*赚取额度*/
     goodsId: '1127878416' /*商品ID*/
   },
@@ -67,7 +67,7 @@ const goodsItems = [
     salesVolume: 1800,/*销量价格*/
     couponPrice: 3,/*优惠券价格*/
     finalPrice: 16.9,/*最终价格*/
-    isFav: false,/*是否收藏*/
+    isFav: true,/*是否收藏*/
     earnMoney: 6.76,/*赚取额度*/
     goodsId: '685092301' /*商品ID*/
   },
