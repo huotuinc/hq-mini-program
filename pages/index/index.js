@@ -20,14 +20,26 @@ Page({
   },
   // 点击标题切换当前页时改变样式
   swichNav: function(e) {
-    var cur = e.target.dataset.current
+    var cur = e.currentTarget.dataset.current
     if (this.data.currentTab == cur) {
       return false
     }
     this.checkCor(cur)
     this.setData({
-      currentCategory: e.target.dataset.item.child,
+      currentCategory: e.currentTarget.dataset.item.child,
       goodsItems: this.data.goodsItems
+    })
+  },
+  //点击商品筛选事件
+  clickfilterTap:function(e){
+    var cur= e.currentTarget.dataset;
+    if(cur.type==4){
+
+    }    
+    wx.showToast({
+      title:"当前选择的是:"+ cur.msg,
+      icon:"none",     
+      mask:false 
     })
   },
   //设置tab标题滚动
