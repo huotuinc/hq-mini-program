@@ -1,10 +1,9 @@
 {
   "pages": [
-    "pages/goodsdetails/details",
     "pages/index/index",
     "pages/usercenter/index",
     "pages/goodscircle/index",
-    
+    "pages/goodsdetails/details",
     "pages/welfare/index",
     "pages/search/search",
     "pages/collectgoods/collectgoods"
