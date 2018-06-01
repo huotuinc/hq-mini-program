@@ -1,4 +1,3 @@
-
 .user-header {
   width: 100%;
   height: 360rpx;
@@ -10,62 +9,96 @@
   text-align: center;
 }
 
-.user-logo image {
-  height: 110rpx;
-  width: 110rpx;
-  border-radius: 110rpx;
+.user-logo {
+  height: 119rpx;
+  width: 119rpx;
+  border: 2px solid #ebebeb;
+  border-radius: 115rpx;
+  margin: 0 auto;
+  text-align: center;
   margin-top: 20rpx;
 }
 
+.user-logo image {
+  height: 115rpx;
+  width: 115rpx;
+   border: 1px solid #ebebeb;
+  border-radius: 115rpx;
+  vertical-align: middle;
+}
+
+.user-logo .dengji {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  right: 42%;
+  top: 2%;
+  background-color: #fc9201;
+  border-radius: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.user-logo .icon-dengji {
+  font-size: 24rpx;
+  margin-top: -36rpx;
+}
+
 .user-title {
-  font-size: 31rpx;
+  font-size: 30rpx;
   margin-top: 25rpx;
 }
 
 .user-name {
-  font-size: 20rpx;
-  color: #5e5e5e;
+  font-size: 24rpx;
+  color: #646464;
   margin-top: 20rpx;
 }
 
 .see-potence {
-  width: 115rpx;
-  height: 30rpx;
+  width: 122rpx;
+  height: 37rpx;
   font-size: 18rpx;
   color: #fff;
   background-color: #000;
   border-radius: 30rpx;
   text-align: center;
-  line-height: 30rpx;
+  line-height: 37rpx;
   margin: 20rpx auto 0;
 }
 
-.user-content{
+.user-content {
   margin-top: 46rpx;
   width: 100%;
 }
 
-.repulsion{
+.repulsion {
   display: flex;
   flex-direction: row;
-  font-size: 24rpx;
-  color: #5e5e5e;
+  font-size: 25rpx;
+  color: #646464;
   margin-left: 160rpx;
 }
-.repulsion-son,.repulsion-grandson{
+
+.repulsion-son, .repulsion-grandson {
   padding: 0 28rpx;
-  border-left: 1px solid #5e5e5e;
+  border-left: 1px solid #646464;
 }
-.repulsion-grandson{
-  border-right: 1px solid #5e5e5e;
+
+.repulsion-grandson {
+  border-right: 1px solid #646464;
 }
-.repulsion-son text{
-  color: #fc4d4f;
+
+.repulsion-son text {
+  color: #ff4b53;
 }
-.repulsion-grandson text{
-  color:  #52abf8;
+
+.repulsion-grandson text {
+  color: #39aafe;
 }
-.prospect{
+
+.prospect {
   margin-top: 59rpx;
   display: flex;
   flex-direction: row;
@@ -73,63 +106,76 @@
   text-align: center;
   box-sizing: border-box;
 }
-.yesterday-pro,.today-pro,.add-pro{
+
+.yesterday-pro, .today-pro, .add-pro {
   width: 33.33%;
   display: flex;
   flex-direction: column;
   text-align: center;
   font-size: 28rpx;
-  color: #5e5e5e;
+  color: #646464;
 }
-.pro-price{
-  font-size: 44rpx;
+
+.pro-price {
+  font-size: 51rpx;
   color: #000;
   font-weight: bold;
 }
-.classification{
+
+.classification {
   margin-top: 62rpx;
   padding: 0 74rpx;
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
 }
-.classification view{
+
+.classification view {
   width: 25%;
-  text-align: center; 
+  text-align: center;
   display: flex;
   flex-direction: column;
   font-size: 21rpx;
-  color: #767676;
+  color: #4b4b4b;
 }
-.classification icon{
+
+.classification icon {
   font-size: 50rpx;
   color: #ff4b53;
-  margin-bottom: 18rpx;
+  margin-bottom: 21rpx;
 }
-.other{
+
+.other {
   margin-top: 74rpx;
-  padding: 0 65rpx;
   display: flex;
+  padding: 0 65rpx;
   flex-direction: column;
   box-sizing: border-box;
 }
+
 .other view {
   position: relative;
   height: 95rpx;
-  width: 100%;
+  margin-left: 42rpx;
   line-height: 95rpx;
   font-size: 24rpx;
   color: #7f7f7f;
- border-bottom: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
 }
-.other view text{
+
+.other view text {
   margin-left: 18rpx;
 }
-.other view icon{
+
+.other view .icon-left {
+  position: absolute;
+  left: -42rpx;
   font-size: 39rpx;
 }
-.other view .more{
+
+.other view .more {
   position: absolute;
+  font-size: 24rpx;
   right: 20rpx;
   top: 4rpx;
 }

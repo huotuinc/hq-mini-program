@@ -1,24 +1,51 @@
 @import 'common/font/iconfont.wxss';
-page{
-   font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;   
-   font-weight: normal;
+
+page {
+  font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;
+  font-weight: normal;
 }
 
 /**隐藏scroll-view滚动条*/
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
   width: 0;
   height: 0;
   color: transparent;
 }
 
-.separator1{
+.separator1 {
   width: 100%;
   height: 20rpx;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
-.icon-heart{
- color: #acacac;
+
+.icon-heart {
+  color: #acacac;
 }
-.icon-xin{
- color: #fe4c55;
+
+.icon-xin {
+  color: #fe4c55;
+}
+
+.icon-custom-service {
+  color: #98af20;
+}
+.icon-heart {
+  color: #acacac;
+}
+
+.icon-jilumian {
+  color: #18bcf6;
+}
+
+.icon-icon_msg {
+  color: #52abfa;
+}
+
+.icon-yaoqingmatianchong {
+  color: #3acd9e;
+}
+
+.icon-ico_shoucangjia-copy {
+  color: #feb928;
 }

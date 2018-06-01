@@ -67,13 +67,12 @@
 
 .direct-relation_item {
   padding: 30rpx;
-  height: 97rpx;
+  height: 67rpx;
   display: flex;
   flex-direction: row;
   border-bottom: 2rpx solid #ddd;
   font-size: 24rpx;
   color: #3d3d3d;
-  margin-top: 32rpx;
 }
 
 .item-msg {

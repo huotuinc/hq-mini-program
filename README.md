@@ -15,5 +15,6 @@ pages-------- 页面
    myGroup----------我的团队
    revenueCenter----收益中心
    collectgoods------收藏夹
+   feedback----------联系我们
 utils--------- 脚本文件
 ```

@@ -95,6 +95,7 @@ Page({
       currentTab: cur
     })
   },
+  // 跳转至收藏夹
   _goCollectGoods: function () {
     wx.navigateTo({
       url: '../collectgoods/collectgoods',
@@ -113,7 +114,7 @@ Page({
       currentCategory: indexData.categoryItems[this.data.currentTab].child
     });
   },
-
+  // 跳转至搜索页面
   searchShop(e) {
     wx.navigateTo({
       url: '../search/search'

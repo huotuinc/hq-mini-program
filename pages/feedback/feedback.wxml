@@ -1,0 +1,21 @@
+<view class="feedback">
+  <text class='feedback-title'>感谢您的使用</text>
+  <view class='feedback-con'>
+    <view class="page-section">
+      <view class="textarea-wrp">
+        <textarea auto-focus="true" style="height: 3em" placeholder='感谢您的使用及支持，您反馈的意见和问题将会帮助我们持续进步，谢谢！' />
+      </view>
+      <view class="feedback-phone">
+        <input maxlength="11" placeholder="您的联系方式" />
+      </view>
+       <view class="phone-size">
+        <input  placeholder="您的所用手机品牌及型号" />
+      </view>
+    </view>
+    <view class='submit'>
+      <view class='submit-btn'>提交</view>
+      <text class='submit-text'>若有其他需要了解的，可以联系****进行询问</text>
+    </view>
+  </view>
+  <view style='height:138rpx;'></view>
+</view>
