@@ -11,7 +11,6 @@
     "pages/usercenter/myGroup/myGroup",
     "pages/usercenter/feedback/feedback",
     "pages/order/order-list",
-    "pages/usercenter/balance/index",
     "pages/usercenter/exchange/exchange",
     "pages/usercenter/bindalipay/bindalipay",
     "pages/usercenter/inviteFriend/inviteFriend",
