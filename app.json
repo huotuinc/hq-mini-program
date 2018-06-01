@@ -9,7 +9,8 @@
     "pages/collectgoods/collectgoods",
     "pages/revenueCenter/revenueCenter",
     "pages/myGroup/myGroup",
-    "pages/feedback/feedback"
+    "pages/feedback/feedback",
+    "pages/order/order-list"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

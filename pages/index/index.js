@@ -1,4 +1,3 @@
-// pages/index/index.js
 const indexData = require('../../utils/mock/index.js')
 
 import { skillTime } from '../../utils/skillTime.js'
@@ -12,16 +11,18 @@ Page({
     bannerItems: [],
     scrollIntoView: 1,
     category: [],
-    // remaimTime: '',
-    // clock: '',
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
-    currentCategory: [],
-    filterTap: 1
+    currentCategory:[],
+    filterTap: 1,    
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function (e) {
+  swichNav: function(e) {
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration:0
+    })
     var cur = e.currentTarget.dataset.current
     if (this.data.currentTab == cur) {
       return false
@@ -103,7 +104,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {    
     this.setData({
       category: indexData.categoryItems,
       goodsItems: indexData.goodsItems,
@@ -123,12 +124,13 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () { },
+  onReady: function() {
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function () {    
     var date = new Date();
     date.setHours(24)
     date.setMinutes(0)

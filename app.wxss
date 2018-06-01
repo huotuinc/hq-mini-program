@@ -30,6 +30,9 @@ page {
 .icon-custom-service {
   color: #98af20;
 }
+.icon-heart {
+  color: #acacac;
+}
 
 .icon-jilumian {
   color: #18bcf6;
