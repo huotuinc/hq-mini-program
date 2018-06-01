@@ -1,18 +1,24 @@
-// pages/usercenter/newsFeed/newsFeed.js
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
-  
+    winHeight: 0,
+    currentTab: 0, //预设当前项的
+    scrollLeft: 0 //tab标题的滚动条位置
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        let h = res.windowHeight;
+        that.setData({
+          winHeight: h-50
+        })
+      },
+    })
   },
 
   /**
