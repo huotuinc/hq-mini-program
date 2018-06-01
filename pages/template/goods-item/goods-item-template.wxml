@@ -1,12 +1,12 @@
 
 <template name="goodsItem">
-  <view class='goods-item-container'>
-    <view class='goods-item-left' bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+  <view class='goods-item-container' bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+    <view class='goods-item-left' >
       <image src='{{ item.imgSrc }}'></image>
     </view>
 
     <view class='goods-item-right'>
-      <view class='goods-item-title goods-item-logo' bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+      <view class='goods-item-title goods-item-logo'>
         <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
         <text>{{item.title}}</text>
       </view>
@@ -14,10 +14,10 @@
       <view class='old_shoucang'>
         <text class='oldprice'>￥{{item.goodsPrice}}</text>
         <block>
-        <icon bindtap='clickFavTab' data-item='{{item}}' data-type='hotItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
+        <icon catchtap='clickFavTab' data-item='{{item}}' data-type='hotItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
         </block>
       </view>
-      <view  bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+      <view>
         <view class='old-ticket_sales'>
           <view class='price_ticket'> {{item.couponPrice}}元券</view>
           <view class='sales_volume'>销量{{item.salesVolume}}件</view>

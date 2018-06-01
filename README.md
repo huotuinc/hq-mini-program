@@ -16,5 +16,6 @@ pages-------- 页面
    revenueCenter----收益中心
    collectgoods------收藏夹
    feedback----------联系我们
+   order-------------推广订单
 utils--------- 脚本文件
 ```

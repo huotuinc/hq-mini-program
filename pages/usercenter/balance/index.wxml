@@ -1,0 +1,27 @@
+<view class='balance-header'>
+  <view class='view-red'>可兑换 ( 钻 )
+    <text>0.00</text>
+  </view>
+  <view class='view-white'>
+    <view>兑换</view>
+  </view>
+</view>
+<view class='balance-header-white'>
+  <view>
+    <icon class='icon iconfont icon-zuanshi'></icon>
+  </view>
+  <view>兑换待到账</view>
+  <text>0.00</text>
+</view>
+<view class='separator1'></view>
+<view class='balance-items'>
+  <block wx:for="{{[1,2,3]}}" wx:key="{{item}}">
+    <view class="item">
+      <view class='item-left'>
+        <view class='item-left-title'>申请兑换</view>
+        <view class='item-left-time'>2018.05.30 12:00:00</view>
+      </view>
+      <view class='item-money'>-10</view>
+    </view>
+  </block>
+</view>

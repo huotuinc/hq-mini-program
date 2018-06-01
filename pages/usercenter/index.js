@@ -40,6 +40,11 @@ Page({
       url: '../order/order-list'
     })
   },
+  _goMyBalance:function(){
+    wx.navigateTo({
+      url: 'balance/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
