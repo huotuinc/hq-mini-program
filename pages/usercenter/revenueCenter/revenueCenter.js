@@ -1,4 +1,4 @@
-var wxCharts = require('../../utils/wxcharts-min.js');
+var wxCharts = require('../../../utils/wxcharts-min.js');
 var app = getApp();
 var lineChart = null;
 Page({
@@ -12,7 +12,6 @@ Page({
   touchHandler: function (e) {
     console.log(lineChart.getCurrentDataIndex(e));
     lineChart.showToolTip(e, {
-      // background: '#7cb5ec',
       format: function (item, category) {
         return category + ' ' + item.name + ':' + item.data
       }

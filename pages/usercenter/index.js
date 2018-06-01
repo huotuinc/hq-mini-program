@@ -14,13 +14,13 @@ Page({
   // 跳转至我的团队
   _goMyGroup: function() {
     wx.navigateTo({
-      url: '../myGroup/myGroup'
+      url: 'myGroup/myGroup'
     })
   },
   // 跳转至收益中心
   _goRevenueCenter: function() {
     wx.navigateTo({
-      url: '../revenueCenter/revenueCenter'
+      url: 'revenueCenter/revenueCenter'
     })
   },
 
@@ -32,7 +32,7 @@ Page({
   },
   _goFeedback: function() {
     wx.navigateTo({
-      url: '../feedback/feedback'
+      url: 'feedback/feedback'
     })
   },
   _goMyOrderList: function() {
@@ -40,7 +40,13 @@ Page({
       url: '../order/order-list'
     })
   },
-  _goMyBalance:function(){
+
+  _goInviteFriend: function() {
+    wx.navigateTo({
+      url: 'inviteFriend/inviteFriend'
+    })
+  },
+  _goMyBalance: function() {
     wx.navigateTo({
       url: 'balance/index'
     })

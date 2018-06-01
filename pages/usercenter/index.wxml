@@ -52,7 +52,7 @@
     </view>
   </view>
   <view class='other'>
-    <view class='invite'>
+    <view class='invite' catchtap='_goInviteFriend'>
       <icon class='icon iconfont icon-yaoqingmatianchong icon-left'></icon>
       <text>邀请好友</text>
       <icon class='icon iconfont icon-right more'></icon>

@@ -1,5 +1,5 @@
 {
-  "pages": [        
+  "pages": [
     "pages/index/index",
     "pages/usercenter/index",
     "pages/goodscircle/index",
@@ -7,13 +7,14 @@
     "pages/welfare/index",
     "pages/search/search",
     "pages/collectgoods/collectgoods",
-    "pages/revenueCenter/revenueCenter",
-    "pages/myGroup/myGroup",
-    "pages/feedback/feedback",
+    "pages/usercenter/revenueCenter/revenueCenter",
+    "pages/usercenter/myGroup/myGroup",
+    "pages/usercenter/feedback/feedback",
     "pages/order/order-list",
     "pages/usercenter/balance/index",
     "pages/usercenter/exchange/exchange",
-    "pages/usercenter/bindalipay/bindalipay"    
+    "pages/usercenter/bindalipay/bindalipay",
+    "pages/usercenter/inviteFriend/inviteFriend"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
