@@ -10,7 +10,8 @@
     "pages/revenueCenter/revenueCenter",
     "pages/myGroup/myGroup",
     "pages/feedback/feedback",
-    "pages/order/order-list"
+    "pages/order/order-list",
+    "pages/inviteFriend/inviteFriend"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

@@ -40,6 +40,11 @@ Page({
       url: '../order/order-list'
     })
   },
+  _goInviteFriend:function(){
+    wx.navigateTo({
+      url: '../inviteFriend/inviteFriend'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
