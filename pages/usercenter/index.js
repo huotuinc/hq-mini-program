@@ -51,9 +51,15 @@ Page({
       url: 'balance/index'
     })
   },
-  _goNewsFeed:function(){
+
+  _goNewsFeed: function() {
     wx.navigateTo({
-      url: 'newsFeed/newsFeed',
+      url: 'newsFeed/newsFeed'
+    })
+  },
+  _goSetting: function() {
+    wx.navigateTo({
+      url: '../setting/setting'
     })
   },
   /**

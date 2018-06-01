@@ -1,0 +1,101 @@
+page {
+  background-color: #F1F2F4;
+}
+
+.icon-zhifubao {
+  font-size: 62rpx;
+  color: #53a1f6;
+}
+
+.icon-right {
+  font-size: 24rpx;
+  color: #b1b1b1;
+}
+
+.exchange-top {
+  position: relative;
+  height: 129rpx;
+  line-height: 129rpx;
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+}
+
+.exchange-top-left-title {
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+
+.exchange-top-right {
+  position: absolute;
+  right: 30rpx;
+}
+
+.exchange-top-account {
+  color: #b1b1b1;
+  font-size: 28rpx;
+  position: absolute;
+  right: 80rpx;
+}
+
+.exchange-body {
+  position: relative;
+  margin-top: 20rpx;
+  background-color: #fff;
+  height: 333rpx;
+}
+
+.exchange-body {
+  padding: 0 30rpx;
+  font-weight: bold;
+}
+
+.exchange-body-title {
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #b1b1b1;
+  font-size: 28rpx;
+}
+
+.exchange-body-money {
+  position: relative;
+  height: 138rpx;
+  line-height: 138rpx;
+  font-size: 37rpx;
+  color: #666666;
+}
+.exchange-body-money .symbol{
+  font-size: 40rpx;
+}
+.exchange-body-money input{
+  position: absolute;    
+  display: inline-block;
+  top: 45rpx;    
+}
+
+.exchange-body-line{
+  border-bottom: 1px solid #e1e1e1;
+}
+.exchange-body-last{
+  height: 99rpx;
+  line-height: 99rpx;
+  color: #b1b1b1;
+  font-size: 28rpx;
+}
+.exchange-body-last text:last-child{
+  position: absolute;
+  right: 30rpx;
+  color: #39aafe;
+}
+.exchange-buttom{
+  margin: 59rpx 30rpx 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;  
+  border-radius: 15rpx;
+  background-color: #EA1720;
+  font-size: 30rpx;
+  color: #ffffff;
+}

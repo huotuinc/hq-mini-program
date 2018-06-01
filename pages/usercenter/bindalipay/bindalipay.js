@@ -1,3 +1,4 @@
+// pages/usercenter/bindalipay/bindalipay.js
 Page({
 
   /**
@@ -6,11 +7,7 @@ Page({
   data: {
   
   },
-  _goExchange: function () {
-    wx.navigateTo({
-      url: '../exchange/exchange'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
