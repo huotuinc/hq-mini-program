@@ -51,6 +51,11 @@ Page({
       url: 'balance/index'
     })
   },
+  _goSetting:function(){
+    wx.navigateTo({
+      url: '../setting/setting'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

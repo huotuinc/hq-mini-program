@@ -1,0 +1,35 @@
+page{
+  background-color: #F1F2F4;
+}
+.setting-item{
+  height: 87rpx;
+  line-height: 87rpx;  
+  background-color: #ffffff;
+  font-size: 30rpx;
+  color: #acacae;
+  font-weight: bold;  
+  padding: 0 30rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+.setting-box{
+  border-top: 1px solid #E1e1e1;
+}
+
+.setting-right{
+ color: #8b8b8b;
+ display: inline-block;
+ position: absolute;
+ right: 30rpx;
+}
+
+.logout-buttom{
+  margin: 59rpx 30rpx 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;  
+  border-radius: 15rpx;
+  background-color: #000000;
+  font-size: 30rpx;
+  color: #ffffff;
+}

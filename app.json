@@ -14,7 +14,8 @@
     "pages/usercenter/balance/index",
     "pages/usercenter/exchange/exchange",
     "pages/usercenter/bindalipay/bindalipay",
-    "pages/usercenter/inviteFriend/inviteFriend"
+    "pages/usercenter/inviteFriend/inviteFriend",
+    "pages/setting/setting"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

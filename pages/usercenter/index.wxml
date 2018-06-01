@@ -77,6 +77,11 @@
       <text>客服与帮助</text>
       <icon class='icon iconfont icon-right more'></icon>
     </view>
+    <view class='service-setting' catchtap='_goSetting'>
+      <icon class='icon iconfont  icon-shezhi icon-left'></icon>
+      <text>设置</text>
+      <icon class='icon iconfont icon-right more'></icon>
+    </view>    
   </view>
   <view style='height:80rpx;'></view>
 </view>
