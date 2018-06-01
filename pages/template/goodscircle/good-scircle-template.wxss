@@ -1,5 +1,5 @@
 .goods-circle_con {
-  background-color: #f2f2f2;
+  background-color: #fff;
   padding: 24rpx 28rpx 0 45rpx;
   margin-bottom: 20rpx;
   display: flex;

@@ -1,0 +1,24 @@
+<view class="news-feed">
+  <view class='news-feed_header'>
+    <view>业务通知</view>
+    <view>系统通知</view>
+  </view>
+
+  <view class='feed-content'>
+    <view class='content_con'>
+      <view class='feed-con_title'>
+        <view class='con_logo'>
+          <icon class='icon iconfont icon-liwu1'></icon>
+        </view>
+        <view class='con-size_time'>
+          <text class='feed-size'>系统通知</text>
+          <text class='feed-time'>2018-05-29 16:09</text>
+        </view>
+      </view>
+      <view class='feed-con_img'></view>
+      <view class='feed-con_text'>
+        <text>【好券推手更新版本了】在个人中心设置看版本号，“安卓新版1.2.3，苹果新版1.2.0”安卓手机，打开APP直接点击上级，苹果手机，卸载原APP，去AppStore搜索好券推手下载。</text>
+      </view>
+    </view>
+  </view>
+</view>

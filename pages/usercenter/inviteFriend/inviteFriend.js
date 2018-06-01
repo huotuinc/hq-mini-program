@@ -96,10 +96,10 @@ Page({
       success: function (res) {
         let w = res.windowWidth, h = res.windowHeight;
         let allWidth = that.data.swiperList.length * (w * 0.7);
-        console.log(w)
+        let cacl =h * (750 / w) -231;
         that.setData({
           winWidth: w,
-          winHeight: h,
+          winHeight: cacl,
           itemWidth: w * 0.7,
           allWidth: allWidth
         })

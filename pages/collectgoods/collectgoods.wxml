@@ -1,2 +1,11 @@
-<!--pages/collectgoods/collectgoods.wxml-->
-<text>我的收藏夹</text>
+<import src="../template/goods-item/goods-item-template.wxml" />
+
+<view>
+  <block wx:for="{{hotItems}}" wx:key="item">
+    <template is="goodsItem" data="{{item,index}}" />
+  </block>
+</view>
+
+<view>
+
+</view>

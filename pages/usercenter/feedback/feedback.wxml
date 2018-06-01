@@ -1,4 +1,4 @@
-<view class="feedback">
+<view class="feedback" style="height:{{winHeight}}rpx">
   <text class='feedback-title'>感谢您的使用</text>
   <view class='feedback-con'>
     <view class="page-section">
@@ -17,5 +17,4 @@
       <text class='submit-text'>若有其他需要了解的，可以联系****进行询问</text>
     </view>
   </view>
-  <view style='height:138rpx;'></view>
 </view>

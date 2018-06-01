@@ -51,6 +51,11 @@ Page({
       url: 'balance/index'
     })
   },
+  _goNewsFeed:function(){
+    wx.navigateTo({
+      url: 'newsFeed/newsFeed',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

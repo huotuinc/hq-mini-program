@@ -1,24 +1,18 @@
-import { windowHeight } from '../../../utils/common.js'
-
+// pages/usercenter/newsFeed/newsFeed.js
 Page({
 
   /**
-   * 页面的初始数据 
+   * 页面的初始数据
    */
   data: {
-    winHeight:windowHeight()
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getSystemInfo({
-      success: function (res) {
-        let w = res.windowWidth, h = res.windowHeight;
-        console.log(h)       
-      },
-    })
+  
   },
 
   /**

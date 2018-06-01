@@ -12,7 +12,8 @@
     "pages/usercenter/feedback/feedback",
     "pages/order/order-list",
     "pages/usercenter/inviteFriend/inviteFriend",
-    "pages/usercenter/balance/index"
+    "pages/usercenter/balance/index",
+    "pages/usercenter/newsFeed/newsFeed"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
