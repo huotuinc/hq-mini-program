@@ -1,5 +1,5 @@
 {
-  "pages": [    
+  "pages": [        
     "pages/index/index",
     "pages/usercenter/index",
     "pages/goodscircle/index",
@@ -11,7 +11,9 @@
     "pages/myGroup/myGroup",
     "pages/feedback/feedback",
     "pages/order/order-list",
-    "pages/usercenter/balance/index"    
+    "pages/usercenter/balance/index",
+    "pages/usercenter/exchange/exchange",
+    "pages/usercenter/bindalipay/bindalipay"    
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

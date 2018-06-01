@@ -1,0 +1,24 @@
+<view class='exchange-top' bindtap='_goBindAlipay'>
+  <view class='exchange-top-left'>
+    <icon class='icon iconfont icon-zhifubao'></icon>
+  </view>
+  <view class='exchange-top-left-title'>支付宝</view>
+  <view class='exchange-top-account'>兑换到支付宝</view>
+  <view class='exchange-top-right'>
+    <icon class='icon iconfont icon-right'></icon>
+  </view>
+</view>
+<view class='exchange-body'>
+  <view class='exchange-body-title'>兑换钻</view>
+  <view class='exchange-body-money'>
+    <text class='symbol'>￥</text>
+    <input value='' type='digit' cursor-spacing="5"></input>
+  </view>
+  <view class='exchange-body-line'></view>
+  <view class='exchange-body-last'>
+    可兑换钻
+    <text>0.00</text>
+    <text>全部兑换</text>
+  </view>
+</view>
+<view class='exchange-buttom'>兑换</view>

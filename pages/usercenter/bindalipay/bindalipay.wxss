@@ -1,0 +1,46 @@
+page{
+  background-color: #F1F2F4;
+}
+
+.bind-account-container{
+  height: 214rpx;
+  background-color: #ffffff;
+  padding: 0 30rpx;
+  border-top: 1px solid #E1e1e1;
+}
+.bind-name,.bind-account{
+  height: 107rpx;
+  line-height: 107rpx;
+  display: flex;
+  flex-direction: row;  
+  position: relative;  
+}
+.bind-name{
+
+  border-bottom: 1px solid #E1e1e1;
+}
+.bind-desc{
+  font-size: 28rpx;
+  color: #888888;
+  width: 150rpx;
+  font-weight: bold;
+}
+.bind-input input{
+    height: 107rpx;
+  line-height: 107rpx;
+}
+.bind-input,.bind-input-placeholder{
+  font-size: 28rpx;
+  color: #c8c7cc;
+}
+
+.exchange-buttom{
+  margin: 59rpx 30rpx 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;  
+  border-radius: 15rpx;
+  background-color: #EA1720;
+  font-size: 30rpx;
+  color: #ffffff;
+}

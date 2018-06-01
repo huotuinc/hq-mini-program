@@ -3,7 +3,7 @@
     <text>0.00</text>
   </view>
   <view class='view-white'>
-    <view>兑换</view>
+    <view bindtap='_goExchange'>兑换</view>
   </view>
 </view>
 <view class='balance-header-white'>

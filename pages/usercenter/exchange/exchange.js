@@ -1,3 +1,4 @@
+// pages/usercenter/exchange/exchange.js
 Page({
 
   /**
@@ -6,9 +7,9 @@ Page({
   data: {
   
   },
-  _goExchange: function () {
+  _goBindAlipay: function () {
     wx.navigateTo({
-      url: '../exchange/exchange'
+      url: '../bindalipay/bindalipay'
     })
   },
   /**
