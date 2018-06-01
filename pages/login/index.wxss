@@ -1,0 +1,50 @@
+.login-title {
+  font-size: 20rpx;
+  color: #000;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: none;
+}
+
+.login-form {
+  padding: 0 50rpx;
+  font-size: 32rpx;
+}
+
+.form-item {
+  position: relative;
+  border-bottom: 1px solid #e1e1e1;
+  height: 117rpx;
+  line-height: 117rpx;
+}
+
+.form-item input {
+  height: 117rpx;
+  line-height: 117rpx;
+  color: #000;
+  display: inline-block;
+  width: 100%;
+}
+
+.form-item, .form-item-placeholder {
+  font-size: 28rpx;
+  color: #c8c7cc;
+}
+.form-verifycode{
+  position: absolute;
+  right: 0;
+  font-size: 28rpx;
+  color: #39aafe;
+}
+
+
+.login-buttom{
+  margin: 59rpx 59rpx 20rpx 59rpx;
+  height: 89rpx;
+  line-height: 89rpx;
+  text-align: center;  
+  border-radius: 50rpx;
+  background-color: #EA1720;
+  font-size: 30rpx;
+  color: #ffffff;
+}

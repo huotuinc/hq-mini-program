@@ -1,0 +1,19 @@
+<view class='login-title'>
+
+  检测到当前为关联好券联盟账号
+</view>
+
+<view class='login-form'>
+  <view class='form-item'>
+    <input placeholder='请输入手机号' type='number' placeholder-class='form-item-placeholder'></input>
+  </view>
+  <view class='form-item'>
+    <input placeholder='请输入邀请码' type='number'  placeholder-class='form-item-placeholder'></input>
+    <text class='form-verifycode'>获取验证码</text>
+  </view>
+  <view class='form-item'>
+    <input placeholder='请输入短信验证码' type='number'  placeholder-class='form-item-placeholder'></input>
+  </view>
+</view>
+
+<view class='login-buttom'>登录</view>
