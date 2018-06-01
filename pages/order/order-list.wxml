@@ -1,10 +1,10 @@
 <view class='top-container'>
   <view class='header'>
     <view class='header-left'>拼多多订单</view>
-    <view class='header-right'>不限</view>
+    <view class='header-right'>不限<icon class='icon iconfont icon-xia' style='transform:rotate(360%)'></icon></view>
   </view>
   <view class='order-status-tab'>
-    <block wx:for="{{['全部','预估','收货','失效','到账']}}" wx:key="{{item}}">
+    <block wx:for="{{orderStatus}}" wx:key="{{item}}">
       <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
     </block>
   </view>
@@ -12,10 +12,10 @@
 <view class='separator2'></view>
 <view class='order-list-container'>
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
-    <block wx:for="{{['全部','预估','收货','失效','到账']}}" wx:key="{{it}}">
+    <block wx:for="{{orderStatus}}" wx:key="{{it}}">
       <swiper-item>
-        <scroll-view scroll-y="true" style='height:100%;'  class='{{currentTab==index?"":"order-item-none"}}' scroll-with-animation="true">
-          <block wx:for="{{[1,2,3,4]}}" wx:key="{{item}}">
+        <scroll-view scroll-y="true" style='height:100%;'  class='{{orders[index].length>0?"":"order-item-none"}}' scroll-with-animation="true">
+          <block wx:for="{{orders[index]}}" wx:key="{{item}}">
             <view class='order-item'>
               <view class='item-info-1'>
                 <view class='left'>订单号：213645461321321321</view>

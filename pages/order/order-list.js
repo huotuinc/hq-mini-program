@@ -1,4 +1,5 @@
 import { windowHeight } from '../../utils/common.js'
+const order = require('../../utils/mock/order.js')
 Page({
 
   /**
@@ -6,7 +7,15 @@ Page({
    */
   data: {
     currentTab:0,
-    winHeight: windowHeight()
+    winHeight: windowHeight(),
+    orderStatus:["全部","预估","收货","失效","到账"],
+    orders:{
+      0: [],
+      1: order.list,
+      2: order.list,
+      3: order.list,
+      4: order.list,
+    }
   },
   swichNav: function (e) {
     var cur = e.target.dataset.current

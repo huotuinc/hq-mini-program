@@ -20,7 +20,7 @@ export function windowHeight() {
       var clientHeight = res.windowHeight,
         clientWidth = res.windowWidth,
         rpxR = 750 / clientWidth;
-      windowHeight = clientHeight * rpxR - 100;
+      windowHeight = clientHeight * rpxR;
     }
   })
   return windowHeight;
