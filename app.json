@@ -8,7 +8,8 @@
     "pages/search/search",
     "pages/collectgoods/collectgoods",
     "pages/revenueCenter/revenueCenter",
-    "pages/myGroup/myGroup"
+    "pages/myGroup/myGroup",
+    "pages/feedback/feedback"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

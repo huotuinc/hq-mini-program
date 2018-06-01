@@ -27,7 +27,6 @@
 
 .icon-jilumian:before {
   content: '\e647';
-  color: #18bcf6;
 }
 
 .icon-icon3:before {
@@ -40,7 +39,6 @@
 
 .icon-custom-service:before {
   content: '\e616';
-  color: #98af20;
 }
 
 .icon-3:before {
@@ -97,7 +95,6 @@
 
 .icon-icon_msg:before {
   content: '\e604';
-  color: #52abfa;
 }
 
 .icon-Community:before {
@@ -138,7 +135,6 @@
 
 .icon-yaoqingmatianchong:before {
   content: '\e637';
-  color: #3acd9e;
 }
 
 .icon-right:before {
@@ -203,7 +199,6 @@
 
 .icon-ico_shoucangjia-copy:before {
   content: '\e72a';
-  color: #feb928;
 }
 
 .icon-gengduocaidan-copy:before {

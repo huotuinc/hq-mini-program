@@ -1,0 +1,63 @@
+.feedback {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.feedback-title {
+  display: block;
+  line-height: 140rpx;
+  margin-left: 67rpx;
+  font-size: 40rpx;
+}
+
+.feedback-con {
+  width: 670rpx;
+  margin: 0 auto;
+  height: 929rpx;
+  background-color: #fff;
+  border-radius: 25rpx;
+  padding: 31rpx 27rpx 94rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.textarea-wrp,
+.feedback-phone,
+.phone-size {
+  width: 100%;
+  background-color: #f2f2f2;
+  font-size: 24rpx;
+  color: #9f9f9f;
+  padding: 21rpx;
+  box-sizing: border-box;
+  margin-bottom: 36rpx;
+}
+
+.textarea-wrp {
+  height: 228rpx;
+}
+.phone-size {
+  margin-bottom: 160rpx;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 90rpx;
+  font-size: 30rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  background-color: #ff4b54;
+  border-radius: 90rpx;
+  margin-bottom: 72rpx;
+}
+.submit-text {
+  display: block;
+  width: 100%;
+  font-size: 22rpx;
+  color: #b9b9b9;
+  text-decoration: underline;
+  white-space: nowrap;
+  text-align: center;
+}
