@@ -1,26 +1,28 @@
-// pages/usercenter/index.js
+import { windowHeight } from '../../utils/common.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    currentTab:0,
+    winHeight: windowHeight()
   },
-  _goMyGroup:function(){
-    wx.navigateTo({
-      url: '../myGroup/myGroup',
+  swichNav: function (e) {
+    var cur = e.target.dataset.current
+    console.log(e);
+    if (this.data.currentTab == cur) {
+      return false
+    }
+    this.setData({
+      currentTab: cur
     })
   },
-  _goRevenueCenter:function(){
-    wx.navigateTo({
-      url: '../revenueCenter/revenueCenter',
-    })
-  },
-  _goMyOrderList:function(){
-    wx.navigateTo({
-      url: '../order/order-list',
-    })
+  // 滚动切换标签样式
+  switchTab: function (e) {
+    this.setData({
+      currentTab: e.detail.current
+    });    
   },
   /**
    * 生命周期函数--监听页面加载

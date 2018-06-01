@@ -33,7 +33,7 @@
     </view>
   </view>
   <view class='classification'>
-    <view class='order'>
+    <view class='order' bindtap='_goMyOrderList'>
       <icon class='icon iconfont icon-dingdan'></icon>
       <text>推广订单</text>
     </view>

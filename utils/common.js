@@ -17,8 +17,10 @@ export function windowHeight() {
   var windowHeight = 0;
   wx.getSystemInfo({
     success: function (res) {
-      console.log(res.windowHeight);
-      windowHeight = res.windowHeight;
+      var clientHeight = res.windowHeight,
+        clientWidth = res.windowWidth,
+        rpxR = 750 / clientWidth;
+      windowHeight = clientHeight * rpxR - 100;
     }
   })
   return windowHeight;
