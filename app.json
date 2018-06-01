@@ -11,12 +11,13 @@
     "pages/usercenter/myGroup/myGroup",
     "pages/usercenter/feedback/feedback",
     "pages/order/order-list",
-    "pages/usercenter/balance/index",
     "pages/usercenter/exchange/exchange",
     "pages/usercenter/bindalipay/bindalipay",
     "pages/usercenter/inviteFriend/inviteFriend",
     "pages/setting/setting",
-    "pages/login/index"
+    "pages/login/index",
+    "pages/usercenter/balance/index",
+    "pages/usercenter/newsFeed/newsFeed"    
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

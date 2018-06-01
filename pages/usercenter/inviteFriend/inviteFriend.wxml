@@ -1,10 +1,10 @@
 <view class="invite-friends">
-  <view class='invite-swiper'>
+  <view class='invite-swiper' style='width: {{winWidth}}px;height: {{winHeight}}rpx;'>
 
     <view class='show_swiper_list' bindtouchstart='swiperTouchstart' bindtouchmove='swiperTouchmove' bindtouchend='swiperTouchend' style='width: {{allWidth}}px;position: relative;left: {{(winWidth-itemWidth)/2}}px;'>
 
       <block wx:for="{{swiperList}}">
-        <view class='swiper_item' data-curid="{{curIndex}}" data-index='{{index}}' animation="{{curIndex == index? animationToLarge : animationToSmall}}" style='width: {{itemWidth}}px;height: {{itemWidth*1.6}}px;transform: scale({{curIndex == index ? 1 : scale}});'>
+        <view class='swiper_item' data-curid="{{curIndex}}" data-index='{{index}}' animation="{{curIndex == index? animationToLarge : animationToSmall}}" style='width: {{itemWidth}}px;height: {{winHeight-131}}rpx;transform: scale({{curIndex == index ? 1 : scale}});'>
 
           {{item}}
 
@@ -14,7 +14,7 @@
     </view>
 
   </view>
-
+ 
   <view class='invite-code'>
     我的专属邀请码： 2278073
   </view>

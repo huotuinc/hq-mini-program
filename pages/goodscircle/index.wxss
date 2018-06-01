@@ -40,3 +40,7 @@
 .category-two-display{
   display: none;  
 }
+
+.tab-content{
+  background-color: #f2f2f2;
+}

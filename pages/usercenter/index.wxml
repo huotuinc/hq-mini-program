@@ -62,7 +62,7 @@
       <text>收藏夹</text>
       <icon class='icon iconfont icon-right more'></icon>
     </view>
-    <view class='message'>
+    <view class='message' catchtap='_goNewsFeed'>
       <icon class='icon iconfont icon-icon_msg icon-left'></icon>
       <text>消息动态</text>
       <icon class='icon iconfont icon-right more'></icon>

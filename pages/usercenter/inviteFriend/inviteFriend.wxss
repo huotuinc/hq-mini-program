@@ -1,6 +1,5 @@
 .invite-swiper {
   width: 100%;
-  height: 974rpx;
   padding: 58rpx 0 73rpx;
   background-color: #f2f2f2;
   border-top: 2rpx solid #a9a9a9;
@@ -31,7 +30,7 @@
 }
 
 .invite-footer {
-  height: 98rpx;
+  height: 96rpx;
   width: 100%;
   font-size: 30rpx;
   line-height: 98rpx;
