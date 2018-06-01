@@ -1,4 +1,4 @@
-var wxCharts = require('../../utils/wxcharts-min.js');
+var wxCharts = require('../../../utils/wxcharts-min.js');
 var app = getApp();
 var lineChart = null;
 Page({

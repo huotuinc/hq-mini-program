@@ -17,5 +17,6 @@ pages-------- 页面
    collectgoods------收藏夹
    feedback----------联系我们
    order-------------推广订单
+   inviteFriend------邀请好友
 utils--------- 脚本文件
 ```
