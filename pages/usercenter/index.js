@@ -40,9 +40,15 @@ Page({
       url: '../order/order-list'
     })
   },
-  _goInviteFriend:function(){
+
+  _goInviteFriend: function() {
     wx.navigateTo({
       url: '../inviteFriend/inviteFriend'
+    })
+  },
+  _goMyBalance: function() {
+    wx.navigateTo({
+      url: 'balance/index'
     })
   },
   /**

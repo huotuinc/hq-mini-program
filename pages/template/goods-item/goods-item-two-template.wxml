@@ -1,7 +1,7 @@
 <template name="itemTwo">
-  <view class="goods-item-two">
+  <view class="goods-item-two"  bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
     <view class='item-box'>
-      <view bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+      <view>
         <view class='goods-item-pic'>
           <image src='{{item.imgSrc}}'></image>
         </view>
@@ -17,9 +17,9 @@
       <view class='goods-item-two-text2'>
         券后
         <text class='coupon-price'>￥{{item.finalPrice}}</text>
-        <icon bindtap='clickFavTab' data-item='{{item}}' data-type='goodsItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
+        <icon catchtap='clickFavTab' data-item='{{item}}' data-type='goodsItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
       </view>
-      <view bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+      <view>
         <view class='goods-item-coupon-text'>
           {{item.couponPrice}}元券
         </view>

@@ -34,7 +34,7 @@
     </view>
   </view>
   <view class='classification'>
-    <view class='order' bindtap='_goMyOrderList'>
+    <view class='order' catchtap='_goMyOrderList'>
       <icon class='icon iconfont icon-dingdan'></icon>
       <text>推广订单</text>
     </view>
@@ -46,7 +46,7 @@
       <icon class='icon iconfont icon-icon3'></icon>
       <text>团队收益</text>
     </view>
-    <view class='diamond'>
+    <view class='diamond' catchtap='_goMyBalance'>
       <icon class='icon iconfont icon-diamond'></icon>
       <text>我的钻石</text>
     </view>
