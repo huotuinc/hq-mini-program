@@ -1,13 +1,15 @@
 <import src="../template/hot-search/hot-search-template.wxml" />
 <import src="../template/recently-search/recently-search-template.wxml" />
 
-<view class="search_header">
-  <icon class='icon iconfont icon-sousuo'></icon>
-  <input type='text' placeholder='输入商品名称'></input>
-  <text class='cancel'>取消</text>
-</view>
-<view class='line-between'></view>
+<template name="searchList">
+  <view class="search_header">
+    <icon class='icon iconfont icon-sousuo'></icon>
+    <input type='text' placeholder='输入商品名称'></input>
+    <text class='cancel' catchtap='cancelSearch'>取消</text>
+  </view>
+  <view class='line-between'></view>
 
-<template is="recentlySearch"></template>
+  <template is="recentlySearch"></template>
 
-<template is="hotSearch"></template>
+  <template is="hotSearch"></template>
+</template>

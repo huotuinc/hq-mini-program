@@ -3,7 +3,36 @@ Page({
   data: {
     winHeight: 0,
     currentTab: 0, //预设当前项的
-    scrollLeft: 0 //tab标题的滚动条位置
+    scrollLeft: 0, //tab标题的滚动条位置
+    category:[
+      {
+        title: "业务通知",
+        categoryid: 1,
+        selected: true,
+      },
+      {
+        title: "系统通知",
+        categoryid: 2,
+        selected: false,
+      }
+    ]
+  },
+  swichNav: function (e) {
+    var cur = e.target.dataset.current
+    console.log(e);
+    if (this.data.currentTab == cur) {
+      return false
+    }
+    this.setData({
+      currentTab: e.target.dataset.item.categoryid - 1
+    })
+  },
+  // 滚动切换标签样式
+  switchTab: function (e) {
+    this.setData({
+      currentTab: e.detail.current
+    });
+    // this.checkCor();
   },
 
   /**

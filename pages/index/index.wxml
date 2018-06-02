@@ -2,7 +2,16 @@
 <import src="../template/goods-item/goods-item-two-template.wxml" />
 <import src="../template/goods-item/trademark-template.wxml" />
 <import src="../template/category/category-two-template.wxml" />
-<view class='home-container' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+<import src="../template/hot-search/hot-search-template.wxml" />
+<import src="../template/recently-search/recently-search-template.wxml" />
+<import src="../search/search.wxml" />
+
+
+ <view wx:if="{{search}}">
+  <template is="searchList"></template>
+</view> 
+
+<view wx:else class='home-container' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
   <view class='home-top'>
     <view class='index_header'>
       <view class='header_left'>
