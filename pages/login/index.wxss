@@ -1,9 +1,9 @@
 .login-title {
-  font-size: 20rpx;
+  font-size: 56rpx;
   color: #000;
-  height: 80rpx;
-  line-height: 80rpx;
-  display: none;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 50rpx;
 }
 
 .login-form {
@@ -24,27 +24,50 @@
   color: #000;
   display: inline-block;
   width: 100%;
+  font-size: 32rpx;
+  text-indent: 0rpx;
 }
 
 .form-item, .form-item-placeholder {
-  font-size: 28rpx;
-  color: #c8c7cc;
+  font-size: 36rpx;
+  color: #adadad;
 }
-.form-verifycode{
+
+.form-verifycode {
   position: absolute;
   right: 0;
   font-size: 28rpx;
   color: #39aafe;
 }
 
-
-.login-buttom{
+.login-buttom {
   margin: 59rpx 59rpx 20rpx 59rpx;
   height: 89rpx;
   line-height: 89rpx;
-  text-align: center;  
+  text-align: center;
   border-radius: 50rpx;
-  background-color: #EA1720;
-  font-size: 30rpx;
-  color: #ffffff;
+  background-color: #ff4c52;
+  font-size: 32rpx;
+  color: #fff;
+}
+
+.login-protocol {
+  margin-top: 60rpx;
+  font-size: 23rpx;
+  color: #adadad;
+  text-align: center;
+}
+
+.login-protocol text {
+  color: #39aafe;
+}
+
+.login-protocol icon {
+  color: #2183d1;
+  font-size: 34rpx;
+}
+
+.login-protocol view {
+  height: 60rpx;
+  line-height: 60rpx;
 }
