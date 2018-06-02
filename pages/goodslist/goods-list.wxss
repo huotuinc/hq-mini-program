@@ -7,10 +7,4 @@
 }
 .separator{
 height: 85rpx;  
-line-height: 85rpx;
-width: 100%;
-background-color: #EEEEEE;
-font-size: 28rpx;
-color: #838383;
-text-align: center;
 }

@@ -34,7 +34,7 @@
         </block>
         <view class='tab-item tab-item-none'></view>
       </scroll-view>
-      <view class='icon-more-box'>
+      <view class='icon-more-box' catchtap='showAllCategory'>
         <icon class='icon iconfont icon-gengduocaidan-copy icon-more'></icon>
       </view>
     </view>
@@ -111,4 +111,18 @@
     </view>
   </view>
   <view style='height:40rpx;'></view>
+
+
+  <view wx:if="{{mask}}" class='category-more'>
+    <view class='category-more-title'>全部分类</view>
+    <view class='category-more-b'>
+    <block wx:for="{{category}}" wx:key="item">
+    <view class='category-more-box'>
+      <view class="category-more-item" data-item="{{item}}" bindtap="_goGoodsList">{{item.title}}</view>
+      </view>
+    </block>
+    </view>
+  </view>
+
+  <view  wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
 </view>

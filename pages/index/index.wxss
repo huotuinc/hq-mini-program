@@ -221,3 +221,36 @@ icon-sousuo {
   text-align: center;
   font-size: 41rpx;
 }
+
+.category-more{
+  position: fixed;
+  top: 80rpx;
+  width: 100%;
+  z-index: 501;    
+  background-color: #ffffff;
+    color: #8b8b8b;
+    
+}
+.category-more-b{
+  padding: 20rpx 0;
+}
+.category-more .category-more-box{
+  width: 25%;
+  display: inline-block; 
+  text-align: center;
+  font-size: 30rpx;  
+}
+.category-more-item{    
+  height: 50rpx;
+  line-height: 50rpx;
+  margin: 10rpx;
+  border: 1rpx solid #cccccc; 
+  border-radius: 15rpx;
+}
+.category-more-title{
+  text-align: center;
+  font-size: 32rpx;  
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px solid #cccccc;
+}

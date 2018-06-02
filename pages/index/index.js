@@ -1,7 +1,7 @@
 const indexData = require('../../utils/mock/index.js')
 
 import { skillTime } from '../../utils/skillTime.js'
-import { collection } from '../../utils/common.js'
+import { collection, windowHeight } from '../../utils/common.js'
 
 Page({
   /**
@@ -16,7 +16,9 @@ Page({
     category: [],
     currentCategory:[],
     filterTap: 1, 
-    search:false 
+    search:false ,
+    mask:false,
+    windowHeight: windowHeight()
   },
   // 点击标题切换当前页时改变样式
   swichNav: function(e) {
@@ -158,15 +160,50 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () { },
+  onPullDownRefresh: function () { 
+    wx.stopPullDownRefresh();
+  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () { },
+  onReachBottom: function () {
+    var _goodsItems = this.data.goodsItems;
+    this.setData({
+      goodsItems: _goodsItems.concat(indexData.goodsItems)
+    })
+   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () { }
+  onShareAppMessage: function () { },
+  /**
+   * 商品列表
+   */
+  _goGoodsList:function(e){
+    var _item= e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '../goodslist/goods-list?categoryid=' + _item.categoryid +"&categoryTitle="+_item.title,
+    })
+    this.setData({
+      mask: false
+    })
+  },
+  /**
+   * 
+   */
+  maskTouchStart:function(e){
+    this.setData({
+      mask:false
+    })
+  },
+  /**
+   * 显示所有类目
+   */
+  showAllCategory:function(){
+    this.setData({
+      mask: true
+    })
+  }
 })

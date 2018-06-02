@@ -6,9 +6,11 @@ Page({
    */
   data: {
     filterTap: 1,
-    goodsItems: []
+    goodsItems: [],
+    categoryTitle: '',
+    categoryid: 0
   },
-  clickfilterTap: function(e){
+  clickfilterTap: function (e) {
     var cur = e.currentTarget.dataset;
     if (cur.type == 4) {
     }
@@ -20,8 +22,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     this.setData({
-      goodsItems: indexData.goodsItems
+      goodsItems: indexData.goodsItems,
+      categoryid: options.categoryid || 0,
+      categoryTitle: options.categoryTitle || '商品列表'
+    })
+    wx.setNavigationBarTitle({
+      title: this.data.categoryTitle,
     })
   },
 
@@ -57,10 +65,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-      wx.stopPullDownRefresh();
-      this.setData({
-        goodsItems: indexData.goodsItems
-      })
+    this.setData({
+      goodsItems: indexData.goodsItems
+    })
+    wx.stopPullDownRefresh();
   },
 
   /**
