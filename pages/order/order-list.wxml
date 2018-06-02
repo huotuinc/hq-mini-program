@@ -14,33 +14,32 @@
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
     <block wx:for="{{orderStatus}}" wx:key="{{it}}">
       <swiper-item>
-        <scroll-view scroll-y="true" style='height:100%;'  class='{{orders[index].length>0?"":"order-item-none"}}' scroll-with-animation="true">
+        <scroll-view bindscrolltolower="onReachBottom" scroll-y="true" style='height:100%;' class='{{orders[index].length>0?"":"order-item-none"}}'>
           <block wx:for="{{orders[index]}}" wx:key="{{item}}">
             <view class='order-item'>
               <view class='item-info-1'>
-                <view class='left'>订单号：213645461321321321</view>
-                <view class='right'>2018-06-01下单</view>
+                <view class='left'>订单号：{{item.orderId}}</view>
+                <view class='right'>{{item.orderCreateTime}}下单</view>
               </view>
 
               <view class='item-info-2'>
                 <view class='left'>
-                  <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+                  <image src='{{item.imgSrc}}'></image>
                 </view>
-                <view class='right'>大打发手动阀手动阀手动阀阿法撒旦发射点发射点发</view>
+                <view class='right'>{{item.goodsName}}</view>
               </view>
               <view class='separator3'></view>
               <view class='item-info-3'>
-                <view>2018-06-01 已成团</view>
-                <view>消费￥19.90
+                <view>{{item.orderGroupCuccessTime}} 已成团</view>
+                <view>消费￥{{item.orderAmount}}
                   <view class='right'>佣金
-                    <icon class='icon iconfont icon-zuanshi'></icon>1.25</view>
+                    <icon class='icon iconfont icon-zuanshi'></icon>{{item.promotionAmount}}</view>
                 </view>
               </view>
             </view>
-          </block>
+          </block>          
         </scroll-view>
       </swiper-item>
     </block>
-  </swiper>
-
+  </swiper>  
 </view>

@@ -10,7 +10,7 @@ Page({
     winHeight: windowHeight(),
     orderStatus:["全部","预估","收货","失效","到账"],
     orders:{
-      0: [],
+      0: order.list,
       1: order.list,
       2: order.list,
       3: order.list,
@@ -72,14 +72,18 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    console.log('circle 下一页');
+    var _orders= this.data.orders;
+    _orders[this.data.currentTab]= _orders[this.data.currentTab].concat(order.list)    
+    this.setData({
+      orders: _orders
+    })
   },
 
   /**
