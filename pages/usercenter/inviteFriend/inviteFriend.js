@@ -107,7 +107,7 @@ Page({
     })
     this.animation = wx.createAnimation({
       transformOrigin: "50% 50%",
-      duration: 500,
+      duration: 1000,
       timingFunction: "ease-out",
       delay: 0
     })

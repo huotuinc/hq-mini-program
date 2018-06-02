@@ -1,7 +1,4 @@
 .news-feed_header {
-  position: fixed;
-  top: 0;
-  left: 0;
   height: 100rpx;
   width: 100%;
   font-size: 33rpx;
@@ -12,7 +9,8 @@
   flex-direction: row;
 }
 
-.news-feed_header view {
+.news-feed_header .tab-item {
+  display: inline-block;
   width: 50%;
 }
 
@@ -37,7 +35,6 @@
 .feed-content {
   width: 100%;
   padding: 28rpx;
-  padding-top: 128rpx;
   background-color: #f2f2f2;
   box-sizing: border-box;
 }
