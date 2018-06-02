@@ -11,7 +11,7 @@
   <template is="searchList"></template>
 </view> 
 
-<view wx:else class='home-container' bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd'>
+<view wx:else class='home-container'>
   <view class='home-top'>
     <view class='index_header'>
       <view class='header_left'>
@@ -48,7 +48,7 @@
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
               <view class="swiper-item">
-                <image src='{{item.imgSrc}}'></image>
+                <image lazy-load='true' src='{{item.pictureUrl}}'></image>
               </view>
             </swiper-item>
           </block>

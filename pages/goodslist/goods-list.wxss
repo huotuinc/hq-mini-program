@@ -1,0 +1,16 @@
+@import '../template/goods-item/goods-item-template.wxss';
+
+.category-goods-filter{
+  position: fixed;
+  top: 0;
+  
+}
+.separator{
+height: 85rpx;  
+line-height: 85rpx;
+width: 100%;
+background-color: #EEEEEE;
+font-size: 28rpx;
+color: #838383;
+text-align: center;
+}

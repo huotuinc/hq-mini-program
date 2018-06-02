@@ -87,43 +87,36 @@ const goodsItems = [
 const categoryItems = [
   {
     title: "热门",
-    categoryid: 1,
-    selected: true,
+    categoryid: 1,    
     child: []
   },
   {
     title: "护肤",
     categoryid: 2,
-    selected: false,
     child: []
   },
   {
     title: "美食",
     categoryid: 3,
-    selected: false,
     child: [
       {
         title: "休闲食品",
         categoryid: 3,
-        selected: false,
         imgSrc:"http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",        
       },
       {
         title: "坚果果干",
         categoryid: 3,
-        selected: false,
         imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
       },
       {
         title: "地方特产",
         categoryid: 3,
-        selected: false,
         imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
       },
       {
         title: "糕点饼干",
         categoryid: 3,
-        selected: false,
         imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
       }
     ]
@@ -131,49 +124,41 @@ const categoryItems = [
   {
     title: "女装",
     categoryid: 4,
-    selected: false,
     child: []
   },
   {
     title: "美妆",
     categoryid: 5,
-    selected: false,
     child: []
   },
   {
     title: "百货",
     categoryid: 6,
-    selected: false,
     child: []
   },
   {
     title: "母婴",
     categoryid: 7,
-    selected: false,
     child: []
   },
   {
     title: "水果",
     categoryid: 8,
-    selected: false,
     child: []
   },
   {
     title: "电器",
     categoryid: 9,
-    selected: false,
     child: []
   },
   {
     title: "运动",
     categoryid: 10,
-    selected: false,
     child: []
   },
   {
     title: "手机",
     categoryid: 11,
-    selected: false,
     child: []
   }
 
@@ -182,22 +167,19 @@ const categoryItems = [
 
 const bannerItems = [
   {
-    imgSrc: "http://t00img.yangkeduo.com/t08img/images/2018-05-30/b05e45e46e357b6021cfaeae9780d44f.jpeg",
-    link: "javascript:void(0)",
-    type: "goods-list",/**goods-details,goods-list,h5 */
-    goodsId: '202810284'
+    pictureUrl: "http://t00img.yangkeduo.com/t08img/images/2018-05-30/b05e45e46e357b6021cfaeae9780d44f.jpeg",
+    linkdata: "javascript:void(0)",    
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
-    imgSrc: "http://t00img.yangkeduo.com/t11img/images/2018-05-29/ce9c66dcbb5e1cf1f906a81db4379519.jpeg",
-    link: "javascript:void(0)",
-    type: "goods-list",/**goods-details,goods-list,h5 */
-    goodsId: '202810284'
+    pictureUrl: "http://t00img.yangkeduo.com/t11img/images/2018-05-29/ce9c66dcbb5e1cf1f906a81db4379519.jpeg",
+    linkdata: "javascript:void(0)",
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
-    imgSrc: "http://t00img.yangkeduo.com/t08img/images/2018-05-29/349088138d0a2d79f5977e34166d8ed9.jpeg",
-    link: "javascript:void(0)",
-    type: "goods-list",/**goods-details,goods-list,h5 */
-    goodsId: '202810284'
+    pictureUrl: "http://t00img.yangkeduo.com/t08img/images/2018-05-30/b05e45e46e357b6021cfaeae9780d44f.jpeg",
+    linkdata: "javascript:void(0)",
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   }
 ]
 

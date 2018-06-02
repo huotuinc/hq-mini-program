@@ -1,5 +1,5 @@
 {
-  "pages": [
+  "pages": [    
     "pages/index/index",
     "pages/usercenter/index",
     "pages/goodscircle/index",
@@ -17,7 +17,8 @@
     "pages/setting/setting",
     "pages/login/index",
     "pages/usercenter/balance/index",
-    "pages/usercenter/newsFeed/newsFeed"    
+    "pages/usercenter/newsFeed/newsFeed",
+    "pages/goodslist/goods-list"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

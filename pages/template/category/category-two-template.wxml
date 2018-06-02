@@ -9,7 +9,7 @@
       <text class='categoryTwo-item-title'>{{item.title}}</text>
     </view>
   </block>
-  <view class='categoryTwo-goods-filter'>
+  <view class='category-goods-filter'>
     <view class='{{filterTap==1?"active":""}}' bindtap='clickfilterTap' data-type='1' data-msg='佣金'>佣金</view>
     <view class='{{filterTap==2?"active":""}}' bindtap='clickfilterTap' data-type='2' data-msg='销量'>销量</view>
     <view class='{{filterTap==3?"active":""}}' bindtap='clickfilterTap' data-type='3' data-msg='最新'>最新</view>
