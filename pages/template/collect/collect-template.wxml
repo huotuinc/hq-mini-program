@@ -1,6 +1,9 @@
 <template name="goodsItem">
   <view class='goods-item-container' bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
     <view class='goods-item-left'>
+      <view class='select-icon' catchtap='isChecked'>
+        <icon class="icon iconfont icon-ico2"></icon>
+      </view>
       <image lazy-load="true" src='{{ item.imgSrc }}'></image>
     </view>
 
@@ -12,9 +15,6 @@
 
       <view class='old_shoucang'>
         <text class='oldprice'>￥{{item.goodsPrice}}</text>
-        <block>
-          <icon catchtap='clickFavTab' data-item='{{item}}' data-type='hotItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
-        </block>
       </view>
       <view>
         <view class='old-ticket_sales'>

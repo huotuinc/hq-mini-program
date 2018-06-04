@@ -1,11 +1,19 @@
-<import src="../template/goods-item/goods-item-template.wxml" />
+<import src="../template/collect/collect-template.wxml" />
 
-<view>
+<view class='collect-con' style='height:{{winHeight}}px'>
   <block wx:for="{{hotItems}}" wx:key="item">
     <template is="goodsItem" data="{{item,index}}" />
   </block>
+  <view style='height:92rpx;'></view>
 </view>
 
-<view>
-
+<view class='collect-footer '>
+  <view class='select-footer_icon'>
+    <icon class='icon iconfont icon-ico2'></icon>
+    <text>已选 (0)</text>
+  </view>
+  <view class='footer-operate'>
+    <text  class='footer-del'>批量删除</text>
+    <text class='footer-share'>立即分享</text>
+  </view>
 </view>

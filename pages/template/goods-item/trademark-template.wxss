@@ -1,5 +1,4 @@
-
-.trademark-scroll{
+.trademark-scroll {
   padding-left: 27rpx;
   box-sizing: border-box;
 }
@@ -7,7 +6,7 @@
 .trademark-goods_item {
   display: inline-block;
   margin-right: 27rpx;
-  /* width: 290rpx; */
+  width: 290rpx;
   height: 465rpx;
 }
 
@@ -50,6 +49,12 @@
 .trademark-title {
   margin-top: 22rpx;
   font-size: 28rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .trademark-price {

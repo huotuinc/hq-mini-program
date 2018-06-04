@@ -26,6 +26,7 @@ App({
       success: function (res) {
         self.globalData.osVersion = res.system;
         self.globalData.mobileType = res.model;
+        console.log(res)
       },
     })
 
@@ -33,7 +34,6 @@ App({
       success: function (res) {
         console.log(config);
         //todo:  
-
       }
     })
   },

@@ -117,10 +117,13 @@
         <view class='trademark-goods_title'>
           <text>品牌制造商直供</text>
         </view>
-
-        <block>
-          <template is="trademarkGoods"></template>
-        </block>
+        <view class='trademark-scroll'>
+          <scroll-view scroll-x="true" bindscroll="scroll" style='width:100%; white-space:nowrap;'>
+            <block wx:for="{{goodsItems}}" wx:key="item">
+              <template is="trademarkGoods" data="{{item,index}}"></template>
+            </block>
+          </scroll-view>
+        </view>
       </view>
 
       <view class='trademark-goods_title'>

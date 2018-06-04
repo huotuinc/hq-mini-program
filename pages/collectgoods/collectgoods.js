@@ -1,12 +1,16 @@
 const indexData = require('../../utils/mock/index.js')
 Page({
   data: {
-
+    
   },
   onLoad: function (options) {
     this.setData({
-      hotItems: indexData.hotItems,
+      hotItems: indexData.collectItems
     });
+  },
+
+  isChecked:function(e){
+    // console.log(e)
   },
 
   onReady: function () {

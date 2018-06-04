@@ -1,1 +1,47 @@
-@import '../template/goods-item/goods-item-template.wxss';
+@import '../template/collect/collect-template.wxss';
+
+.collect-con {
+  background-color: #f2f2f2;
+}
+
+.collect-footer {
+  position: fixed;
+  bottom: 0;
+  height: 92rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  line-height: 92rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.collect-footer view {
+  width: 50%;
+}
+
+.select-footer_icon {
+  padding-left: 30rpx;
+  text-align: left;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.select-footer_icon .icon {
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+
+.footer-operate text {
+  display: inline-block;
+  width: 50%;
+  color: #fff;
+}
+
+.footer-del {
+  background-color: #fe4d52;
+}
+
+.footer-share {
+  background-color: #888;
+}
