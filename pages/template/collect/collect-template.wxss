@@ -29,7 +29,7 @@
 .goods-item-left {
   display: flex;
   flex-direction: row;
-   float: left; 
+  float: left;
 }
 
 .select-icon {
@@ -43,7 +43,10 @@
   font-size: 40rpx;
   margin-top: -40rpx;
 }
-.select-icon .icon-xuanzhong{
+
+.select-icon .icon-xuanzhong {
+  font-size: 40rpx;
+  margin-top: -40rpx;
   color: #fe4d52;
 }
 

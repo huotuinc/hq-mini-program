@@ -1,7 +1,7 @@
 const indexData = require('../../utils/mock/index.js')
 Page({
   data: {
-    
+    checked: false
   },
   onLoad: function (options) {
     this.setData({
@@ -9,8 +9,25 @@ Page({
     });
   },
 
-  isChecked:function(e){
-    // console.log(e)
+  clickFavTab: function (e) {
+    var item = e.currentTarget.dataset.item
+    var index = e.currentTarget.dataset.index
+    var _type = e.currentTarget.dataset.type
+    var _items = []
+    if (_type == 'goodsItems') {
+      _items = this.data.goodsItems
+      _items[index].isFav = !item.isFav
+      this.setData({
+        goodsItems: _items,
+      })
+    }
+    if (_type == 'hotItems') {
+      _items = this.data.hotItems
+      _items[index].isFav = !item.isFav
+      this.setData({
+        hotItems: _items
+      })
+    }
   },
 
   onReady: function () {

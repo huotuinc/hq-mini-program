@@ -1,8 +1,10 @@
 <template name="goodsItem">
   <view class='goods-item-container' bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
     <view class='goods-item-left'>
-      <view class='select-icon' catchtap='isChecked'>
-        <icon class="icon iconfont icon-ico2"></icon>
+      <view class='select-icon'>
+        <block>
+          <icon catchtap='clickFavTab' data-item='{{item}}' data-type='hotItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-ico2':'icon-xuanzhong'}}"></icon>
+        </block>
       </view>
       <image lazy-load="true" src='{{ item.imgSrc }}'></image>
     </view>

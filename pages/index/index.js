@@ -140,9 +140,9 @@ Page({
       key: 'historyList',
       data: that.data.historyList
     })
-    wx.navigateTo({
-      url: ''
-    })
+    // wx.navigateTo({
+    //   url: ''
+    // })
   },
 
   clearHistory: function(e) {
