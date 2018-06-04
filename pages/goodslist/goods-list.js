@@ -1,4 +1,5 @@
 const indexData = require('../../utils/mock/index.js')
+import { collection, windowHeight } from '../../utils/common.js'
 Page({
 
   /**
@@ -16,6 +17,27 @@ Page({
     }
     this.setData({
       filterTap: cur.type
+    })
+  },
+  //点击收藏
+  clickFavTab: function (e) {
+    var item = e.currentTarget.dataset.item;
+    var index = e.currentTarget.dataset.index;    
+    var _items = this.data.goodsItems;
+    _items[index].isFav = !item.isFav;
+    this.setData({
+      goodsItems: _items
+    })
+    //设置收藏
+    collection(item.goodsId, !item.isFav);
+    wx.showToast({
+      title: !item.isFav ? "收藏成功" : "取消收藏",
+    })
+  },
+  //商品详情页面
+  goodsDetails: function (e) {
+    wx.navigateTo({
+      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
     })
   },
   /**

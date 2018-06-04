@@ -24,8 +24,7 @@
             <view class='coupon-price'>5</view> 优惠券
           </view>
           <view class='time-limit'>使用期限：2018.05.15-2018.05.30</view>
-        </view>
-        <!-- <view class='get-coupon'>立即领取</view> -->
+        </view>        
       </view>
     </view>
   </view>
