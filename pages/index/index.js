@@ -1,7 +1,11 @@
 const indexData = require('../../utils/mock/index.js')
 import { skillTime } from '../../utils/skillTime.js'
 import { collection, windowHeight } from '../../utils/common.js'
-const app = getApp()
+
+import config from '../../config.js'
+import home from '../../utils/request/home.js'
+const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
@@ -15,12 +19,17 @@ Page({
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
     currentCategory: [],
+    hotItems: [],
+    goodsItems: [],
+    specialItems: [],
     filterTap: 1,
     search: false,
+    mask: false,
+    windowHeight: windowHeight(),
     historyList: []
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function(e) {
+  swichNav: function (e) {
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 0
@@ -159,27 +168,61 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+
+  onLoad: function (options) {
+    var self = this;
+    if (app.globalData.mock) {
+      this.setData({
+        category: indexData.categoryItems,
+        goodsItems: indexData.goodsItems,
+        bannerItems: indexData.bannerItems,
+        hotItems: indexData.hotItems,
+        specialItems: indexData.specialItems,
+        currentCategory: indexData.categoryItems[this.data.currentTab].child
+      });
+    }
     this.setData({
-      category: indexData.categoryItems,
-      goodsItems: indexData.goodsItems,
-      bannerItems: indexData.bannerItems,
-      hotItems: indexData.hotItems,
-      specialItems: indexData.specialItems,
-      currentCategory: indexData.categoryItems[this.data.currentTab].child
+      loading: true
+    })
+    home.homeRecommend(function(code,res){
+      if(code){
+        self.setData({          
+          bannerItems: res.bannerItems,          
+          specialItems: res.specialItems
+        });
+      }
+      else{
+        self.setData({
+          loading:false
+        })
+      }
+    })
+  },
+  // search搜索
+  searchShop(e) {
+    // console.log(e)
+    this.setData({
+      search: true
+    })
+  },
+  cancelSearch: function (e) {
+    this.setData({
+      search: false
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+
+  onReady: function () {
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    var date = new Date()
+  onShow: function () {
+    var date = new Date();
     date.setHours(24)
     date.setMinutes(0)
     date.setSeconds(0)
@@ -209,15 +252,56 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {},
+
+  onPullDownRefresh: function () {
+    wx.stopPullDownRefresh();
+  },
+
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {},
+
+  onReachBottom: function () {
+    var _goodsItems = this.data.goodsItems;
+    this.setData({
+      goodsItems: _goodsItems.concat(indexData.goodsItems)
+    })
+  },
 
   /**
    * 用户点击右上角分享
    */
+
+  onShareAppMessage: function () { },
+  /**
+   * 商品列表
+   */
+  _goGoodsList: function (e) {
+    var _item = e.currentTarget.dataset.item;
+    wx.navigateTo({
+      url: '../goodslist/goods-list?categoryid=' + _item.categoryid + "&categoryTitle=" + _item.title,
+    })
+    this.setData({
+      mask: false
+    })
+  },
+  /**
+   * 
+   */
+  maskTouchStart: function (e) {
+    this.setData({
+      mask: false
+    })
+  },
+  /**
+   * 显示所有类目
+   */
+  showAllCategory: function () {
+    this.setData({
+      mask: true
+    })
+  },
   onShareAppMessage: function() {}
+
 })

@@ -92,7 +92,7 @@
         <block wx:for="{{specialItems}}" wx:key="item">
           <view class='special-box'>
             <view class='box2 item{{index}}'>
-              <image src='{{item.imgSrc}}'></image>
+              <image src='{{item.pictureUrl}}'></image>
             </view>
           </view>
         </block>
