@@ -1,10 +1,11 @@
 const indexData = require('../../utils/mock/index.js')
-
 import { skillTime } from '../../utils/skillTime.js'
 import { collection, windowHeight } from '../../utils/common.js'
+
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
 const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
@@ -24,7 +25,8 @@ Page({
     filterTap: 1,
     search: false,
     mask: false,
-    windowHeight: windowHeight()
+    windowHeight: windowHeight(),
+    historyList: []
   },
   // 点击标题切换当前页时改变样式
   swichNav: function (e) {
@@ -44,8 +46,8 @@ Page({
     })
   },
   //点击商品筛选事件
-  clickfilterTap: function (e) {
-    var cur = e.currentTarget.dataset;
+  clickfilterTap: function(e) {
+    var cur = e.currentTarget.dataset
     if (cur.type == 4) {
     }
     this.setData({
@@ -53,39 +55,39 @@ Page({
     })
   },
   //点击收藏
-  clickFavTab: function (e) {
-    var item = e.currentTarget.dataset.item;
-    var index = e.currentTarget.dataset.index;
-    var _type = e.currentTarget.dataset.type;
+  clickFavTab: function(e) {
+    var item = e.currentTarget.dataset.item
+    var index = e.currentTarget.dataset.index
+    var _type = e.currentTarget.dataset.type
     var _items = []
-    if (_type == "goodsItems") {
-      _items = this.data.goodsItems;
-      _items[index].isFav = !item.isFav;
+    if (_type == 'goodsItems') {
+      _items = this.data.goodsItems
+      _items[index].isFav = !item.isFav
       this.setData({
         goodsItems: _items
       })
     }
-    if (_type == "hotItems") {
-      _items = this.data.hotItems;
-      _items[index].isFav = !item.isFav;
+    if (_type == 'hotItems') {
+      _items = this.data.hotItems
+      _items[index].isFav = !item.isFav
       this.setData({
         hotItems: _items
       })
     }
     //设置收藏
-    collection(item.goodsId, !item.isFav);
+    collection(item.goodsId, !item.isFav)
     wx.showToast({
-      title: !item.isFav ? "收藏成功" : "取消收藏",
+      title: !item.isFav ? '收藏成功' : '取消收藏'
     })
   },
   //商品详情页面
-  goodsDetails: function (e) {
+  goodsDetails: function(e) {
     wx.navigateTo({
       url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
     })
   },
   //设置tab标题滚动
-  checkCor: function (cur) {
+  checkCor: function(cur) {
     if ((this.data.currentTab > 3 || cur > 3) && this.data.currentTab < cur) {
       this.setData({
         scrollLeft: cur * 50
@@ -105,14 +107,68 @@ Page({
     })
   },
   // 跳转至收藏夹
-  _goCollectGoods: function () {
+  _goCollectGoods: function() {
     wx.navigateTo({
-      url: '../collectgoods/collectgoods',
+      url: '../collectgoods/collectgoods'
     })
+  },
+  // search搜索
+  searchShop(e) {
+    // console.log(e)
+    this.setData({
+      search: true
+    })
+  },
+  cancelSearch: function(e) {
+    this.setData({
+      search: false
+    })
+  },
+  bindSearchInput: function(e) {
+    this.setData({
+      inputSearch: e.detail.value
+    })
+  },
+
+  confirmSearch: function(e) {
+    let searchList = []
+    var that = this
+    searchList.push(this.data.inputSearch)
+    this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
+    console.log(this.data.historyList)
+    wx.setStorage({
+      key: 'historyList',
+      data: that.data.historyList
+    })
+    wx.navigateTo({
+      url: ''
+    })
+  },
+
+  clearHistory: function(e) {
+    var that = this
+    wx.removeStorage({
+      key: 'historyList',
+      success: function(res) {
+        that.setData({
+          showHistory: false,
+          historyList: []
+        })
+        wx.showToast({
+          title: '清除成功',
+          icon: 'success'
+        })
+      }
+    })
+  },
+
+  startSearch: function(e) {
+    console.log(e.target.dataset.con)
   },
   /**
    * 生命周期函数--监听页面加载
    */
+
   onLoad: function (options) {
     var self = this;
     if (app.globalData.mock) {
@@ -158,6 +214,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
+
   onReady: function () {
   },
 
@@ -170,28 +227,41 @@ Page({
     date.setMinutes(0)
     date.setSeconds(0)
     skillTime(date.toString(), this)
+    var that = this
+    wx.getStorage({
+      key: 'historyList',
+      success: function(res) {
+        that.setData({
+          historyList: res.data,
+          showHistory: true
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () { },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () { },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
+
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
   },
 
+
   /**
    * 页面上拉触底事件的处理函数
    */
+
   onReachBottom: function () {
     var _goodsItems = this.data.goodsItems;
     this.setData({
@@ -202,6 +272,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
+
   onShareAppMessage: function () { },
   /**
    * 商品列表
@@ -230,5 +301,7 @@ Page({
     this.setData({
       mask: true
     })
-  }
+  },
+  onShareAppMessage: function() {}
+
 })

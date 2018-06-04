@@ -4,12 +4,27 @@
 <template name="searchList">
   <view class="search_header">
     <icon class='icon iconfont icon-sousuo'></icon>
-    <input type='text' placeholder='输入商品名称'></input>
+    <input type='text' placeholder='输入商品名称' bindconfirm="confirmSearch" bindinput="bindSearchInput"></input>
     <text class='cancel' catchtap='cancelSearch'>取消</text>
   </view>
   <view class='line-between'></view>
 
-  <template is="recentlySearch"></template>
+  <view>
+    <view class='recently-search'>
+      <view>
+        <icon class='icon iconfont icon-shijian-tianchong'></icon>
+        <text>最近搜索</text>
+      </view>
+      <view class='delet'>
+        <icon class='icon iconfont icon-shanchu'></icon>
+      </view>
+    </view>
+    <view class='search-list'>
+      <block wx:for="{{historyList}}" wx:key="item">
+        <text>{{item}}</text>
+      </block>
+    </view>
+  </view>
 
   <template is="hotSearch"></template>
 </template>
