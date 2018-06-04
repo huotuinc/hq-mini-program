@@ -5,6 +5,7 @@
 <import src="../template/hot-search/hot-search-template.wxml" />
 <import src="../template/recently-search/recently-search-template.wxml" />
 <import src="../search/search.wxml" />
+<import src="../template/loading/loading.wxml" />
 
 
  <view wx:if="{{search}}">
@@ -124,5 +125,6 @@
     </view>
   </view>
 
-  <view  wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
+  <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
 </view>
+<template is="loading" wx:if="{{loading}}"/>

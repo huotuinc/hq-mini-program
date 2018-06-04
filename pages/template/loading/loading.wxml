@@ -1,0 +1,7 @@
+<template name="loading">
+<view class='loading_mask'>
+  <view class='card'>
+    <view class='dots-loader'>Loading...</view>
+  </view>
+</view>
+</template>

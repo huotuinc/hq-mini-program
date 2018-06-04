@@ -254,3 +254,16 @@ icon-sousuo {
   line-height: 70rpx;
   border-bottom: 1px solid #cccccc;
 }
+.mask{
+  z-index: 200; 
+  filter:alpha(opacity=50); 
+  -moz-opacity:0.5; 
+  -khtml-opacity: 0.5; 
+  opacity: 0.2;    
+  height: 900rpx;
+  background-color: #000000; 
+  position: fixed;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+}

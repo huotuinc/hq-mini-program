@@ -5,7 +5,7 @@
   </view>
   <text class='user-title'>超级推手  初级</text>
   <text class='user-name'>150****8256</text>
-  <view class='see-potence'>查看特权</view>
+  <view class='see-potence' catchtap='_goWelfare'>查看特权</view>
 </view>
 
 <view class='user-content'>

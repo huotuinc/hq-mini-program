@@ -2,12 +2,13 @@ const indexData = require('../../utils/mock/index.js')
 
 import { skillTime } from '../../utils/skillTime.js'
 import { collection, windowHeight } from '../../utils/common.js'
-
+const app=getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    loading:false,
     bannerItems: [],
     scrollIntoView: 1,
     category: [],

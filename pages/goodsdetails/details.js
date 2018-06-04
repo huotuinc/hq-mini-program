@@ -5,14 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    item:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      item:{
+        title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+        imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+        goodsPrice: 27.99,/*商品价格*/
+        salesVolume: 1800,/*销量价格*/
+        couponPrice: 4,/*优惠券价格*/
+        finalPrice: 23.99,/*最终价格*/
+        isFav: true,/*是否收藏*/
+        earnMoney: 3.5,/*赚取额度*/
+        goodsId: '1127878416' /*商品ID*/,
+        goodsIntro:"华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶"
+      }
+    })
   },
 
   /**

@@ -6,10 +6,10 @@ page{
   line-height: 87rpx;  
   background-color: #ffffff;
   font-size: 30rpx;
-  color: #acacae;
-  font-weight: bold;  
+  color: #393939;
+  
   padding: 0 30rpx;
-  margin-bottom: 20rpx;
+  margin-top: 20rpx;
   position: relative;
 }
 .setting-box{
@@ -24,7 +24,7 @@ page{
 }
 
 .logout-buttom{
-  margin: 59rpx 30rpx 0 30rpx;
+  margin: 90rpx 30rpx 0 30rpx;
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;  

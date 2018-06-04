@@ -1,7 +1,11 @@
 <view class='top-container'>
   <view class='header'>
     <view class='header-left'>拼多多订单</view>
-    <view class='header-right'>不限<icon class='icon iconfont icon-xia' style='transform:rotate(360%)'></icon></view>
+    <picker mode="date" value="{{date}}" fields="month" bindchange="bindDateChange" bindcancel="bindDateCancel">
+      <view class='header-right'>{{date}}
+        <icon class='icon iconfont icon-xia-copy'></icon>
+      </view>
+    </picker>
   </view>
   <view class='order-status-tab'>
     <block wx:for="{{orderStatus}}" wx:key="{{item}}">
@@ -37,9 +41,9 @@
                 </view>
               </view>
             </view>
-          </block>          
+          </block>
         </scroll-view>
       </swiper-item>
     </block>
-  </swiper>  
+  </swiper>
 </view>

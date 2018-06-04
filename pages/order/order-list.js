@@ -15,7 +15,8 @@ Page({
       2: order.list,
       3: order.list,
       4: order.list,
-    }
+    },
+    date:"不限"
   },
   swichNav: function (e) {
     var cur = e.target.dataset.current
@@ -32,6 +33,20 @@ Page({
     this.setData({
       currentTab: e.detail.current
     });    
+  },
+  //value 改变时触发 change 事件，event.detail = {value: value}
+  bindDateChange:function(e){
+    this.setData({
+      date: e.detail.value
+    })
+  },
+  /**
+   * 取消选择时触发
+   */
+  bindDateCancel:function(){
+    this.setData({
+      date: '不限'
+    })
   },
   /**
    * 生命周期函数--监听页面加载
