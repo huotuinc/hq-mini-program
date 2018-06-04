@@ -4,6 +4,8 @@
 <import src="../template/category/category-two-template.wxml" />
 <import src="../template/hot-search/hot-search-template.wxml" />
 <import src="../template/recently-search/recently-search-template.wxml" />
+<import src="../template/loading/loading.wxml" />
+
 
 <view wx:if="{{search}}">
   <view class="search_header">
@@ -155,4 +157,7 @@
   </view>
 
   <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
+
 </view>
+
+<template is="loading" wx:if="{{loading}}" />

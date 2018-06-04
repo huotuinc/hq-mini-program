@@ -1,7 +1,8 @@
 /**
  * 公共js
  */
-
+import config from '../config.js'
+const app =getApp();
 /**
  * 设置收藏
  * @param goodsId 商品ID
@@ -10,6 +11,16 @@
 export function collection(goodsId, remove) {
   if (typeof remove == undefined || remove == null) {
     remove = false;
+  }
+  if(remove){
+    app.post(config.favoriteUrl, { goodsid:goodsId},function(res){
+        
+    })
+  }  
+  else{
+    app.post(config.favoriteUrl, { ids: goodsId.toString() }, function (res) {
+
+    })
   }
 }
 

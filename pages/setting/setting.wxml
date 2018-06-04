@@ -1,12 +1,19 @@
 <view class='setting-box'>
-<view class='setting-item'>
-  版本号
-  <view class='setting-right'>V1.0.0</view>
-</view>
-<view class='setting-item'>
-  当前账号
-  <view class='setting-right'>152******25</view>
-</view>
-
-<view class='logout-buttom'>退出账号</view>
+  <view class='setting-item'>
+    清除缓存
+    <view class='setting-right'>552M</view>
+  </view>
+  <view class='setting-item'>
+    版本号
+    <view class='setting-right'>V1.0.0</view>
+  </view>
+  <view class='setting-item'>
+    当前账号
+    <view class='setting-right'>152******25</view>
+  </view>
+  <view class='setting-item'>
+    我的上级
+    <view class='setting-right'>152******25</view>
+  </view>
+  <view class='logout-buttom'>退出账号</view>
 </view>
