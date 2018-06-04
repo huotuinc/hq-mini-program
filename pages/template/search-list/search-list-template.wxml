@@ -1,9 +1,5 @@
 <template name="searchList">
-    <view class='search-list'>
-      <text>凉鞋拖鞋男</text>
-      <text>人字拖男学生</text>
-      <text>鞋子男凉鞋</text>
-      <text>青年凉鞋男夏</text>
-      <text>伞</text>
-    </view>
+  <view class='search-list'>
+    <text>{{item}}</text>
+  </view>
 </template>

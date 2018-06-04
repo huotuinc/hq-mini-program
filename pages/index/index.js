@@ -1,7 +1,7 @@
 const indexData = require('../../utils/mock/index.js')
 
 import { skillTime } from '../../utils/skillTime.js'
-import { collection, windowHeight } from '../../utils/common.js'
+import { collection } from '../../utils/common.js'
 
 Page({
   /**
@@ -14,17 +14,16 @@ Page({
     currentTab: 0, //预设当前项的值
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
-    currentCategory:[],
-    filterTap: 1, 
-    search:false ,
-    mask:false,
-    windowHeight: windowHeight()
+    currentCategory: [],
+    filterTap: 1,
+    search: false,
+    historyList: []
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function(e) {
+  swichNav: function (e) {
     wx.pageScrollTo({
       scrollTop: 0,
-      duration:0
+      duration: 0
     })
     var cur = e.currentTarget.dataset.current
     if (this.data.currentTab == cur) {
@@ -104,10 +103,63 @@ Page({
       url: '../collectgoods/collectgoods',
     })
   },
+  // search搜索
+  searchShop(e) {
+    // console.log(e)
+    this.setData({
+      search: true
+    })
+  },
+  cancelSearch: function (e) {
+    this.setData({
+      search: false
+    })
+  },
+  bindSearchInput: function (e) {
+    this.setData({
+      inputSearch: e.detail.value
+    })
+  },
+
+  confirmSearch: function (e) {
+    let searchList = []
+    var that = this
+    searchList.push(this.data.inputSearch)
+    this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
+    console.log(this.data.historyList)
+    wx.setStorage({
+      key: "historyList",
+      data: that.data.historyList
+    })
+    wx.navigateTo({
+      url: '',
+    })
+  },
+
+  clearHistory: function (e) {
+    var that = this
+    wx.removeStorage({
+      key: 'historyList',
+      success: function (res) {
+        that.setData({
+          showHistory: false,
+          historyList: []
+        })
+        wx.showToast({
+          title: '清除成功',
+          icon: "success"
+        })
+      },
+    })
+  },
+
+  startSearch:function(e){
+    console.log(e.target.dataset.con)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {    
+  onLoad: function (options) {
     this.setData({
       category: indexData.categoryItems,
       goodsItems: indexData.goodsItems,
@@ -117,34 +169,32 @@ Page({
       currentCategory: indexData.categoryItems[this.data.currentTab].child
     });
   },
-  // search搜索
-  searchShop(e) {
-    // console.log(e)
-    this.setData({
-      search:true
-    })
-  },
-  cancelSearch:function(e){
-    this.setData({
-      search: false
-    })
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {    
-    var date = new Date();
+  onShow: function () {
+    var date = new Date()
     date.setHours(24)
     date.setMinutes(0)
     date.setSeconds(0)
     skillTime(date.toString(), this)
+    var that = this
+    wx.getStorage({
+      key: 'historyList',
+      success: function (res) {
+        that.setData({
+          historyList: res.data,
+          showHistory: true
+        })
+      },
+    })
   },
 
   /**
@@ -160,50 +210,15 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () { 
-    wx.stopPullDownRefresh();
-  },
+  onPullDownRefresh: function () { },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    var _goodsItems = this.data.goodsItems;
-    this.setData({
-      goodsItems: _goodsItems.concat(indexData.goodsItems)
-    })
-   },
+  onReachBottom: function () { },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () { },
-  /**
-   * 商品列表
-   */
-  _goGoodsList:function(e){
-    var _item= e.currentTarget.dataset.item;
-    wx.navigateTo({
-      url: '../goodslist/goods-list?categoryid=' + _item.categoryid +"&categoryTitle="+_item.title,
-    })
-    this.setData({
-      mask: false
-    })
-  },
-  /**
-   * 
-   */
-  maskTouchStart:function(e){
-    this.setData({
-      mask:false
-    })
-  },
-  /**
-   * 显示所有类目
-   */
-  showAllCategory:function(){
-    this.setData({
-      mask: true
-    })
-  }
+  onShareAppMessage: function () { }
 })
