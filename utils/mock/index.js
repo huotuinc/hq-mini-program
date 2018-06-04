@@ -185,27 +185,23 @@ const bannerItems = [
 
 const specialItems=[
   {
-    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_global_haitao_v1.jpg",
-    link: "javascript:void(0)",
-    type: "goods-list",/**goods-details,goods-list,h5 */
-    goodsId: '202810284'
+    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_global_haitao_v1.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
-    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_brand_sale_v1.jpg",
-    link: "javascript:void(0)",
-    type: "goods-list",/**goods-details,goods-list,h5 */
-    goodsId: '202810284'
+    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_brand_sale_v1.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
-  {
-    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_super_spike_v1.jpg",
-    link: "javascript:void(0)",
-    type: "goods-list",/**goods-details,goods-list,h5 */
-    goodsId: '202810284'
-  }, {
-    imgSrc: "https://cdn.pinduoduo.com/assets/img/pdd_fresh_fruit_v1.jpg",
-    link: "javascript:void(0)",
-    type: "goods-list",/**goods-details,goods-list,h5 */
-    goodsId: '202810284'
+  {    
+    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_super_spike_v1.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
+  }, {    
+    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_fresh_fruit_v1.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   }
 ]
 

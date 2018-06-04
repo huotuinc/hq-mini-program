@@ -5,10 +5,12 @@ App({
    * 全局变量数据
    */
   globalData: {
+    mock:true,
     client_id: "",
     client_secret: "",
     app_secret: "4165a8d240b29af3f41818d10599d0d1",
     hasLogin: false,
+    loading:false,
     unionid: null,
     mobileType: '',
     hwid: '',
@@ -65,7 +67,7 @@ App({
     */
   sign: function (obj) {
     let signParams = obj || {}
-    delete signParams['sign']    
+    delete signParams['sign']
     //userToken加入签名
     signParams.userToken = this.globalData.userToken
     // 过滤空值
@@ -74,7 +76,7 @@ App({
         delete signParams[param]
       }
     }
-    const newParams = JSON.parse(JSON.stringify(signParams))    
+    const newParams = JSON.parse(JSON.stringify(signParams))
     //移除userToken
     delete signParams['userToken'];
     return md5(this.raw(newParams) + this.globalData.app_secret)
@@ -102,16 +104,19 @@ App({
     return str
   },
   /**
-   * post 请求
+   * 网络请求
+   *   
    */
-  post: function (url, data, callback) {
-    data = data || {}
+  request: function (options) {
+    options = options || {}
+    options.url = options.url || ''
+    options.data = options.data || {}    
     var self = this;
-    data.timestamp = +new Date()
-    data.sign = self.sign(data);
+    options.data.timestamp = +new Date()
+    options.data.sign = self.sign(options.data);
     const requestTask = wx.request({
-      url: url,
-      data: data,
+      url: options.url,
+      data: options.data,
       header: {
         appVersion: "1.0.0",
         hwid: self.globalData.hwid,
@@ -121,13 +126,15 @@ App({
         userId: self.globalData.userId,
         userToken: self.globalData.userToken
       },
-      method: 'post',
-      success: function (res) {
-        callback(res)
+      method: options.method || 'post',
+      success: function (res) {        
+        if (typeof options.success == 'function')
+          options.success(res);
       },
       fail: function (err) {
-        console.log('接口异常：' + url, err)
-        callback(err)
+        console.log('接口异常：' + options.url, err)
+        if (typeof options.fail == 'function')
+          options.fail(err)
       }
     })
     return requestTask;
