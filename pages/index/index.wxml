@@ -37,7 +37,7 @@
     <text>热门搜索</text>
   </view>
   <view class='search-list'>
-    <block wx:for="" wx:key="item">
+    <block wx:for="{{keys}}" wx:key="item">
       <text>{{item}}</text>
     </block>
   </view>

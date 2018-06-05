@@ -21,7 +21,17 @@ var config={
   //删除收藏
   favoriteDeleteUrl: `${host}/user/favoriteDelete`,
   //我的收藏
-  favoriteListUrl: `${host}/user/favoriteList`
+  favoriteListUrl: `${host}/user/favoriteList`,
+  //热门搜索关键字
+  hotsearchkeyworld: `${host}/goods/hotsearchkeyworld`,
+  //商品详情
+  goodsDetails: `${host}/goods/details`,
+  //我的团队
+  myTeams:`${host}/user/myTeams`,
+  //我的收益
+  myProfit: `${host}/user/myProfit`,
+  //意见反馈
+  saveFeedBack: `${host }/user/saveFeedBack`
 }
 
 module.exports = config

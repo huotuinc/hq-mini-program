@@ -83,7 +83,7 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsid
     })
   },
   //设置tab标题滚动
@@ -197,20 +197,15 @@ Page({
         })
       }
     })
-  },
-  // search搜索
-  searchShop(e) {
-    // console.log(e)
-    this.setData({
-      search: true
+    
+    home.hotSearchKeyWorld(function(code,res){
+      if(code){
+        self.setData({
+          keys:res.keys
+        })
+      }
     })
   },
-  cancelSearch: function (e) {
-    this.setData({
-      search: false
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

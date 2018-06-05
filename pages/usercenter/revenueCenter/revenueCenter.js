@@ -7,7 +7,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    myprice: {
+      "count": 1236,//总累计收益
+      "today": 6,//今日预估
+      "yesterday": 2,//昨日预估
+      "week": 25,//本周预估
+      "lastWeek": 56,//上周预估
+      "month": 211,//本月预估
+      "lastMonth": 688,//上月预估
+      "trends": [//走势
+        {
+          "date": "05/26",//日期
+          "value": "1.25",//当日预估钻
+        },
+        {
+          "date": "05/27",//日期
+          "value": "1.25",//当日预估钻
+        },
+        {
+          "date": "05/28",//日期
+          "value": "1.25",//当日预估钻
+        },
+        {
+          "date": "05/29",//日期
+          "value": "1.25",//当日预估钻
+        },
+        {
+          "date": "05/30",//日期
+          "value": "1.25",//当日预估钻
+        },
+        {
+          "date": "05/31",//日期
+          "value": "1.25",//当日预估钻
+        },
+        {
+          "date": "06/01",//日期
+          "value": "1.25",//当日预估钻
+        }
+      ]
+    }
   },
   touchHandler: function (e) {
     console.log(lineChart.getCurrentDataIndex(e));
@@ -21,11 +59,9 @@ Page({
   createSimulationData: function () {
     var categories = [];
     var data = [];
-    var newTime = new Date();
-    var month = newTime.getMonth()+1;
-    var day = newTime.getDate();
-    for (var i = 0; i < 7; i++) {
-      categories.push(month+"/"+(day-i));
+    var day = this.data.myprice.trends
+    for (var i = 0; i < day.length; i++) {
+      categories.push(day[i].date);
     }
     return {
       categories: categories,
@@ -53,9 +89,9 @@ Page({
       animation: true,
       series: [{
         name: '本周期',
-        data: [1,0,0,2,2,2,0],
+        data: [1, 0, 0, 2, 2, 2, 0],
         format: function (val, name) {
-          return val.toFixed(2) ;
+          return val.toFixed(2);
         }
       }, {
         name: '上周期',

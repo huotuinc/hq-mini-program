@@ -3,25 +3,19 @@
 
 <view class='recommend'>
   <view class='recommend-type'>
-    <text>推荐类型</text>
+    <text>团队等级</text>
     <text>总数</text>
     <text>今日</text>
     <text>本月</text>
   </view>
   <view class='recommend-director'>
-    <text>推荐总监</text>
+    <text>一级团队</text>
     <text>0</text>
     <text>0</text>
     <text>0</text>
-  </view>
-  <view class='recommend-son'>
-    <text>直属推手</text>
-    <text>2</text>
-    <text>0</text>
-    <text>2</text>
   </view>
   <view class='recommend-grandson'>
-    <text>直属推手下级</text>
+    <text>二级团队</text>
     <text>1</text>
     <text>0</text>
     <text>1</text>
@@ -29,7 +23,7 @@
 </view>
 
 <view class='direct-relation'>
-  <text class='direct-relation-title'>直属推手</text>
+  <text class='direct-relation-title'>一级团队</text>
   <view class='direct-relation_item'>
       <view class='item-msg'>
         <view class='item-msg_logo'>

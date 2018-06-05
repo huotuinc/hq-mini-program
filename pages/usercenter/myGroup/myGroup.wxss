@@ -12,7 +12,7 @@
 }
 
 .recommend {
-  height: 312rpx;
+  height: 244rpx;
   width: 100%;
   display: flex;
   flex-direction: column;

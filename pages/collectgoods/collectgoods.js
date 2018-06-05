@@ -36,7 +36,7 @@ Page({
       })
     }
   },
-  
+
   // 全选全部选
   checkedAll: function (e) {
     var _items = this.data.hotItems
@@ -64,6 +64,12 @@ Page({
         checkedTitle: '已选（0）'
       })
     }
+  },
+
+  goodsDetails: function (e) {
+    wx.navigateTo({
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId
+    })
   },
 
   onReady: function () {
