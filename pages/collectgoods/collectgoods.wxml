@@ -9,8 +9,8 @@
 
 <view class='collect-footer '>
   <view class='select-footer_icon'>
-    <icon class='icon iconfont icon-ico2'></icon>
-    <text>已选 (0)</text>
+    <icon class="icon iconfont {{!checked?'icon-ico2':'icon-xuanzhong'}}" catchtap='checkedAll'></icon>
+    <text>{{ checkedTitle }}</text>
   </view>
   <view class='footer-operate'>
     <text  class='footer-del'>批量删除</text>
