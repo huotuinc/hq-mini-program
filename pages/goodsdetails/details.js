@@ -1,7 +1,4 @@
-import config from '../../config.js'
-import goodsdetails from '../../utils/request/goodsdetails.js'
-const app = getApp();
-
+// pages/goodsdetails/details.js
 Page({
 
   /**
@@ -27,22 +24,6 @@ Page({
         earnMoney: 3.5,/*赚取额度*/
         goodsId: '1127878416' /*商品ID*/,
         goodsIntro:"华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶"
-      }
-    })
-    var self = this
-    var data = {
-      goodsid: options.goodsid
-    }
-    goodsdetails.goodsDetails(data,function(code,res){
-      if (code) {
-        self.setData({
-          item:res.data
-        });
-      }
-      else {
-        self.setData({
-          loading: false
-        })
       }
     })
   },

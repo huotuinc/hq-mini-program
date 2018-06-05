@@ -83,7 +83,7 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsid
+      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
     })
   },
   //设置tab标题滚动
@@ -131,18 +131,20 @@ Page({
   },
 
   confirmSearch: function(e) {
-    let searchList = []
+    let searchList = this.data.historyList;
     var that = this
-    searchList.push(this.data.inputSearch)
-    this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
+    searchList.push(this.data.inputSearch)    
+    that.setData({
+      historyList: searchList
+    })
     console.log(this.data.historyList)
     wx.setStorage({
       key: 'historyList',
       data: that.data.historyList
     })
-    // wx.navigateTo({
-    //   url: ''
-    // })
+    wx.navigateTo({
+      url: '../goodslist/goods-list?categoryTitle=搜索结果&keyworld=' + this.data.inputSearch
+    })
   },
 
   clearHistory: function(e) {
@@ -197,15 +199,20 @@ Page({
         })
       }
     })
-    
-    home.hotSearchKeyWorld(function(code,res){
-      if(code){
-        self.setData({
-          keys:res.keys
-        })
-      }
+  },
+  // search搜索
+  searchShop(e) {
+    // console.log(e)
+    this.setData({
+      search: true
     })
   },
+  cancelSearch: function (e) {
+    this.setData({
+      search: false
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
