@@ -2,15 +2,14 @@
 <import src="../template/goods-item/goods-item-two-template.wxml" />
 <import src="../template/goods-item/trademark-template.wxml" />
 <import src="../template/category/category-two-template.wxml" />
-<import src="../template/hot-search/hot-search-template.wxml" />
-<import src="../template/recently-search/recently-search-template.wxml" />
 <import src="../template/loading/loading.wxml" />
 
 
 <view wx:if="{{search}}">
   <view class="search_header">
     <icon class='icon iconfont icon-sousuo'></icon>
-    <input type='text' placeholder='输入商品名称' bindconfirm="confirmSearch" bindinput="bindSearchInput"></input>
+    <input type='text' placeholder='输入商品名称' bindconfirm="confirmSearch" bindinput="bindSearchInput" value='{{inputSearch}}'></input>
+    <icon class='icon iconfont icon-x' catchtap='clearInput'></icon>
     <text class='cancel' catchtap='cancelSearch'>取消</text>
   </view>
   <view class='line-between'></view>
@@ -37,7 +36,7 @@
     <text>热门搜索</text>
   </view>
   <view class='search-list'>
-    <block wx:for="" wx:key="item">
+    <block wx:for="{{hotsearchkeyworld}}" wx:key="item">
       <text>{{item}}</text>
     </block>
   </view>
@@ -117,9 +116,14 @@
         <view class='trademark-goods_title'>
           <text>品牌制造商直供</text>
         </view>
-
         <block>
-          <template is="trademarkGoods"></template>
+          <view class='trademark-scroll'>
+            <scroll-view scroll-x="true" bindscroll="scroll" style='width:100%; white-space:nowrap;'>
+              <block wx:for="{{goodsItems}}" wx:key="item">
+                <template is="trademarkGoods" data="{{item,index}}"></template>
+              </block>
+            </scroll-view>
+          </view>
         </block>
       </view>
 

@@ -44,7 +44,7 @@
   margin-top: -40rpx;
 }
 
-.select-icon .icon-xuanzhong {
+.select-icon .icon-guanbi {
   font-size: 40rpx;
   margin-top: -40rpx;
   color: #fe4d52;

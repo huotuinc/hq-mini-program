@@ -26,6 +26,18 @@
   font-size: 16px;
 }
 
+.search_header .icon-x{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 160rpx;
+  top: 4rpx;
+  font-size: 16px;
+  z-index: 10;
+  text-align: center;
+}
+
 .cancel{
   width: 126rpx;
   height: 40px;

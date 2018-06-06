@@ -31,7 +31,7 @@
   font-size: 30rpx;
   margin-right: 10rpx;
 }
-.select-footer_icon .icon-xuanzhong{
+.select-footer_icon .icon-guanbi{
   color: #fe4d52;
 }
 .footer-operate text {
