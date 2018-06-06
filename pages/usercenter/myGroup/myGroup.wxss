@@ -70,6 +70,7 @@
   height: 67rpx;
   display: flex;
   flex-direction: row;
+  justify-content:space-between;
   border-bottom: 2rpx solid #ddd;
   font-size: 24rpx;
   color: #3d3d3d;
@@ -91,10 +92,6 @@
   display: flex;
   flex-direction: column;
   line-height: 40rpx;
-}
-
-.invitation-contribute {
-  margin-left: 250rpx;
 }
 
 .item-msg_time {
