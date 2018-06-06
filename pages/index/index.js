@@ -46,7 +46,7 @@ Page({
     })
   },
   //点击商品筛选事件
-  clickfilterTap: function(e) {
+  clickfilterTap: function (e) {
     var cur = e.currentTarget.dataset
     if (cur.type == 4) {
     }
@@ -55,7 +55,7 @@ Page({
     })
   },
   //点击收藏
-  clickFavTab: function(e) {
+  clickFavTab: function (e) {
     var item = e.currentTarget.dataset.item
     var index = e.currentTarget.dataset.index
     var _type = e.currentTarget.dataset.type
@@ -81,13 +81,13 @@ Page({
     })
   },
   //商品详情页面
-  goodsDetails: function(e) {
+  goodsDetails: function (e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId
     })
   },
   //设置tab标题滚动
-  checkCor: function(cur) {
+  checkCor: function (cur) {
     if ((this.data.currentTab > 3 || cur > 3) && this.data.currentTab < cur) {
       this.setData({
         scrollLeft: cur * 50
@@ -107,37 +107,39 @@ Page({
     })
   },
   // 跳转至收藏夹
-  _goCollectGoods: function() {
+  _goCollectGoods: function () {
     wx.navigateTo({
       url: '../collectgoods/collectgoods'
     })
   },
   // search搜索
   searchShop(e) {
-    // console.log(e)
     this.setData({
       search: true
     })
   },
-  cancelSearch: function(e) {
+  cancelSearch: function (e) {
     this.setData({
       search: false
     })
   },
-  bindSearchInput: function(e) {
+  clearInput: function (e) {
+    this.setData({
+      inputSearch: ''
+    })
+  },
+  bindSearchInput: function (e) {
     this.setData({
       inputSearch: e.detail.value
     })
   },
 
-  confirmSearch: function(e) {
-    let searchList = this.data.historyList;
+  confirmSearch: function (e) {
+    let searchList = []
     var that = this
-    searchList.push(this.data.inputSearch)    
-    that.setData({
-      historyList: searchList
-    })
-    console.log(this.data.historyList)
+    searchList.push(this.data.inputSearch)
+    //对搜索记录得去重并且按搜索先后顺序进行排序
+    this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
     wx.setStorage({
       key: 'historyList',
       data: that.data.historyList
@@ -147,11 +149,11 @@ Page({
     })
   },
 
-  clearHistory: function(e) {
+  clearHistory: function (e) {
     var that = this
     wx.removeStorage({
       key: 'historyList',
-      success: function(res) {
+      success: function (res) {
         that.setData({
           showHistory: false,
           historyList: []
@@ -164,8 +166,11 @@ Page({
     })
   },
 
-  startSearch: function(e) {
-    console.log(e.target.dataset.con)
+  startSearch: function (e) {
+    // console.log(e.target.dataset.con)
+    wx.navigateTo({
+      url: '../goodslist/goods-list?categoryTitle=搜索结果&keyworld=' + e.target.dataset.con
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -186,33 +191,29 @@ Page({
     this.setData({
       loading: true
     })
-    home.homeRecommend(function(code,res){
-      if(code){
-        self.setData({          
-          bannerItems: res.bannerItems,          
+    home.homeRecommend(function (code, res) {
+      if (code) {
+        self.setData({
+          bannerItems: res.bannerItems,
           specialItems: res.specialItems
         });
       }
-      else{
+      else {
         self.setData({
-          loading:false
+          loading: false
+        })
+      }
+    })
+
+    //热搜关键字
+    home.hotSearchKeyWorld(function (code, res) {
+      if (code) {
+        self.setData({
+          hotsearchkeyworld: res.keys
         })
       }
     })
   },
-  // search搜索
-  searchShop(e) {
-    // console.log(e)
-    this.setData({
-      search: true
-    })
-  },
-  cancelSearch: function (e) {
-    this.setData({
-      search: false
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -232,7 +233,7 @@ Page({
     var that = this
     wx.getStorage({
       key: 'historyList',
-      success: function(res) {
+      success: function (res) {
         that.setData({
           historyList: res.data,
           showHistory: true
@@ -244,12 +245,12 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {},
+  onHide: function () { },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {},
+  onUnload: function () { },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -304,6 +305,6 @@ Page({
       mask: true
     })
   },
-  onShareAppMessage: function() {}
+  onShareAppMessage: function () { }
 
 })

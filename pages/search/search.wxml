@@ -5,6 +5,7 @@
   <view class="search_header">
     <icon class='icon iconfont icon-sousuo'></icon>
     <input type='text' placeholder='输入商品名称' bindconfirm="confirmSearch" bindinput="bindSearchInput"></input>
+    <icon class='icon iconfont icon-sousuo'></icon>
     <text class='cancel' catchtap='cancelSearch'>取消</text>
   </view>
   <view class='line-between'></view>

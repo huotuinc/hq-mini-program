@@ -22,6 +22,8 @@ var config={
   favoriteDeleteUrl: `${host}/user/favoriteDelete`,
   //我的收藏
   favoriteListUrl: `${host}/user/favoriteList`,
+  //搜索商品
+  searchGoods: `${host}/goods/search`,
   //热门搜索关键字
   hotsearchkeyworld: `${host}/goods/hotsearchkeyworld`,
   //商品详情

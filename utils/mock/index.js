@@ -87,7 +87,7 @@ const goodsItems = [
 const categoryItems = [
   {
     title: "热门",
-    categoryid: 1,    
+    categoryid: 1,
     child: []
   },
   {
@@ -102,7 +102,7 @@ const categoryItems = [
       {
         title: "休闲食品",
         categoryid: 3,
-        imgSrc:"http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",        
+        imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
       },
       {
         title: "坚果果干",
@@ -168,7 +168,7 @@ const categoryItems = [
 const bannerItems = [
   {
     pictureUrl: "http://t00img.yangkeduo.com/t08img/images/2018-05-30/b05e45e46e357b6021cfaeae9780d44f.jpeg",
-    linkdata: "javascript:void(0)",    
+    linkdata: "javascript:void(0)",
     linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
@@ -183,7 +183,7 @@ const bannerItems = [
   }
 ]
 
-const specialItems=[
+const specialItems = [
   {
     pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_global_haitao_v1.jpg",
     linkdata: "javascript:void(0)",
@@ -194,11 +194,11 @@ const specialItems=[
     linkdata: "javascript:void(0)",
     linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
-  {    
+  {
     pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_super_spike_v1.jpg",
     linkdata: "javascript:void(0)",
     linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
-  }, {    
+  }, {
     pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_fresh_fruit_v1.jpg",
     linkdata: "javascript:void(0)",
     linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
@@ -228,11 +228,48 @@ const goodscircleTitle = [
   },
 ]
 
+const collectItems = [
+  {
+    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  },
+  {
+    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  },
+  {
+    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  }
+]
+
 module.exports = {
   hotItems: hotItems,
   goodsItems: goodsItems,
   categoryItems: categoryItems,
   bannerItems: bannerItems,
   specialItems: specialItems,
-  goodscircleTitle: goodscircleTitle
+  goodscircleTitle: goodscircleTitle,
+  collectItems: collectItems
 };
