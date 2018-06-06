@@ -71,7 +71,6 @@ icon-sousuo {
 
 .icon-ico_shoucangjia-copy {
   font-size: 48rpx;
-  color: #000;
 }
 
 .home-category {

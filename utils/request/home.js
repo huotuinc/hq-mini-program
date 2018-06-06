@@ -1,5 +1,5 @@
 import config from '../../config.js'
-const app = getApp(); 
+const app = getApp();
 
 
 
@@ -33,7 +33,7 @@ var homeRecommend = function (callback) {
         })
       }
     },
-    fail: function (error) {
+    fail: function (error) {      
       callback(false, error)
     }
   })
@@ -52,7 +52,7 @@ var goodsList = function (data, callback) {
           goodsItems: res.data.goods_list
         })
       }
-      else {
+      else{
         wx.showToast({
           title: res.msg
         })
@@ -63,24 +63,9 @@ var goodsList = function (data, callback) {
     }
   })
 }
-//热门搜索关键字
-var hotSearchKeyWorld = function (callback) {
-  app.request({
-    url: config.hotsearchkeyworld,
-    success:function(res){
-      callback(true,{
-        keys:res.data.keys
-      })
-    },
-    fail:function(error){
-      callback(false,error)
-    }
-  })
-}
 
 
 module.exports = {
   homeRecommend: homeRecommend,
-  goodsList: goodsList,
-  hotSearchKeyWorld: hotSearchKeyWorld
+  goodsList: goodsList
 };

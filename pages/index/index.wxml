@@ -37,7 +37,7 @@
     <text>热门搜索</text>
   </view>
   <view class='search-list'>
-    <block wx:for="{{keys}}" wx:key="item">
+    <block wx:for="" wx:key="item">
       <text>{{item}}</text>
     </block>
   </view>
@@ -117,13 +117,10 @@
         <view class='trademark-goods_title'>
           <text>品牌制造商直供</text>
         </view>
-        <view class='trademark-scroll'>
-          <scroll-view scroll-x="true" bindscroll="scroll" style='width:100%; white-space:nowrap;'>
-            <block wx:for="{{goodsItems}}" wx:key="item">
-              <template is="trademarkGoods" data="{{item,index}}"></template>
-            </block>
-          </scroll-view>
-        </view>
+
+        <block>
+          <template is="trademarkGoods"></template>
+        </block>
       </view>
 
       <view class='trademark-goods_title'>
