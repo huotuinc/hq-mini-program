@@ -1,5 +1,7 @@
 @import '../template/collect/collect-template.wxss';
-
+page{
+  background-color: #f2f2f2;
+}
 .collect-con {
   background-color: #f2f2f2;
 }

@@ -150,7 +150,10 @@
 
 
   <view wx:if="{{mask}}" class='category-more'>
-    <view class='category-more-title'>全部分类</view>
+    <view class='category-more-title'>
+      <text>全部分类</text>
+      <icon class='icon iconfont icon-x' style='float:right;margin-right:50rpx;' catchtap='hideAllCategory'></icon>
+    </view>
     <view class='category-more-b'>
       <block wx:for="{{category}}" wx:key="item">
         <view class='category-more-box'>

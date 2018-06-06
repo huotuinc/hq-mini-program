@@ -47,31 +47,8 @@ var myProfit = function (data, callback) {
   })
 }
 
-//意见反馈
-var saveFeedBack = function (data){
-  app.request({
-    url: config.saveFeedBack,
-    data:data,
-    success: function (res) {
-      if (res.code == 200) {
-        wx.showToast({
-          title: "操作成功",
-          icon:success
-        })
-      }
-      else {
-        wx.showToast({
-          title: res.msg
-        })
-      }
-    },
-    fail: function (error) {
-    }
-  })
-}
 
 module.exports = {
   myTeams: myTeams,
-  myProfit: myProfit,
-  saveFeedBack: saveFeedBack
+  myProfit: myProfit
 }

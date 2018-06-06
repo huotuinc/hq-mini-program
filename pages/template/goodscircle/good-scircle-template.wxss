@@ -34,8 +34,13 @@
 }
 
 .circle-con .circle-con_con text {
-  display: block;
-  height: 48rpx;
+   display: block; 
+   width: 200rpx;
+  /* height: 48rpx; */
+  white-space: pre-wrap;
+}
+.circle-con .cricle-con_img{
+  margin-top: 10rpx;
 }
 
 .circle-con .cricle-con_img image {

@@ -1,30 +1,24 @@
 <template name="goodsScircle">
-  <view class='goods-circle_con'>
+  <view class='goods-circle_con' data-id='{{item.goodsId}}'>
     <view class='logo'>
-      <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+      <image src='{{item.head}}'></image>
     </view>
     <view class='circle-con'>
-      <view class='circle-con_title'>好券推手素材号</view>
+      <view class='circle-con_title'>{{item.name}}</view>
       <view class='circle-con_con'>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
+        <text>{{item.content}}</text>
       </view>
       <view class='cricle-con_img'>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
+           <block wx:for="{{item.pictures}}" wx:for-item="pictures"> 
+            <image src='{{pictures.img}}'></image>  
+         </block>   
       </view>
       <view class='cricle-con_release'>
-        <text>21分钟前</text>
-        <text>已被转发24次</text>
+        <text>{{item.time}}</text>
+        <text>已被转发{{item.turnAmount}}次</text>
       </view>
       <view class='cricle-con_share'>
-        分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
+        分享赚  <icon class='icon iconfont icon-zuanshi'></icon> {{item.reward}}
       </view>
       <view class='cricle-con_foot'>
         <view class='sava-img'>
@@ -32,136 +26,7 @@
           <text>保存图片</text>
         </view>
         <view class='parting-line'></view>
-        <view class='m-share'>
-          <icon class='icon iconfont icon-xiazai10'></icon>
-          <text>一键分享</text>
-        </view>
-
-      </view>
-    </view>
-
-  </view>
-
-  <view class='goods-circle_con'>
-    <view class='logo'>
-      <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
-    </view>
-    <view class='circle-con'>
-      <view class='circle-con_title'>好券推手素材号</view>
-      <view class='circle-con_con'>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-      </view>
-      <view class='cricle-con_img'>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-      </view>
-      <view class='cricle-con_release'>
-        <text>21分钟前</text>
-        <text>已被转发24次</text>
-      </view>
-      <view class='cricle-con_share'>
-        分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
-      </view>
-      <view class='cricle-con_foot'>
-        <view class='sava-img'>
-          <icon class='icon iconfont icon-xiazai'></icon>
-          <text>保存图片</text>
-        </view>
-        <view class='parting-line'></view>
-        <view class='m-share'>
-          <icon class='icon iconfont icon-xiazai10'></icon>
-          <text>一键分享</text>
-        </view>
-
-      </view>
-    </view>
-
-  </view>
-
-  <view class='goods-circle_con'>
-    <view class='logo'>
-      <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
-    </view>
-    <view class='circle-con'>
-      <view class='circle-con_title'>好券推手素材号</view>
-      <view class='circle-con_con'>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-      </view>
-      <view class='cricle-con_img'>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-      </view>
-      <view class='cricle-con_release'>
-        <text>21分钟前</text>
-        <text>已被转发24次</text>
-      </view>
-      <view class='cricle-con_share'>
-        分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
-      </view>
-      <view class='cricle-con_foot'>
-        <view class='sava-img'>
-          <icon class='icon iconfont icon-xiazai'></icon>
-          <text>保存图片</text>
-        </view>
-        <view class='parting-line'></view>
-        <view class='m-share'>
-          <icon class='icon iconfont icon-xiazai10'></icon>
-          <text>一键分享</text>
-        </view>
-
-      </view>
-    </view>
-
-  </view>
-
-  <view class='goods-circle_con'>
-    <view class='logo'>
-      <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
-    </view>
-    <view class='circle-con'>
-      <view class='circle-con_title'>好券推手素材号</view>
-      <view class='circle-con_con'>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-        <text>商家亏本做促销啦！</text>
-      </view>
-      <view class='cricle-con_img'>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-      </view>
-      <view class='cricle-con_release'>
-        <text>21分钟前</text>
-        <text>已被转发24次</text>
-      </view>
-      <view class='cricle-con_share'>
-       分享赚  <icon class='icon iconfont icon-zuanshi'></icon> 2.4
-      </view>
-      <view class='cricle-con_foot'>
-        <view class='sava-img'>
-          <icon class='icon iconfont icon-xiazai'></icon>
-          <text>保存图片</text>
-        </view>
-        <view class='parting-line'></view>
-        <view class='m-share'>
+        <view class='m-share' data-linkUrl="{{item.linkUrl}}">
           <icon class='icon iconfont icon-xiazai10'></icon>
           <text>一键分享</text>
         </view>

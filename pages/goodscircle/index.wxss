@@ -1,5 +1,8 @@
 @import "../template/goodscircle/good-scircle-template.wxss";
 
+page{
+  background-color: #f2f2f2;
+}
 .goods-circle_header {
   width: 100%;
   height: 80rpx;

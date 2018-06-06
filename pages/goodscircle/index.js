@@ -1,4 +1,4 @@
-const indexData = require('../../utils/mock/index.js')
+const goodsCircle = require('../../utils/mock/goodscircle.js')
 var app = getApp();
 Page({
 
@@ -14,6 +14,7 @@ Page({
 
   swichNav: function (e) {
     var cur = e.target.dataset.current
+    var that = this
     console.log(e);
     if (this.data.currentTab == cur) {
       return false
@@ -34,7 +35,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      category: indexData.goodscircleTitle
+      category: goodsCircle.goodscircleTitle,
+      goodsArticle: goodsCircle.goodsArticle
     });
 
     var that = this;
@@ -44,7 +46,7 @@ Page({
         var clientHeight = res.windowHeight,
           clientWidth = res.windowWidth,
           rpxR = 750 / clientWidth;
-        var calc = clientHeight * rpxR-80;
+        var calc = clientHeight * rpxR - 80;
         console.log(calc)
         that.setData({
           winHeight: calc
@@ -52,7 +54,6 @@ Page({
       },
       // footerTap: app.footerTap
     });
-
   },
 
   /**

@@ -1,10 +1,9 @@
 <import src="../template/collect/collect-template.wxml" />
 
-<view class='collect-con' style='height:{{winHeight}}px'>
+<view class='collect-con' style='padding-top:6rpx;padding-bottom:92rpx;'>
   <block wx:for="{{hotItems}}" wx:key="item">
     <template is="goodsItem" data="{{item,index}}" />
   </block>
-  <view style='height:92rpx;'></view>
 </view>
 
 <view class='collect-footer '>

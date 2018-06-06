@@ -305,6 +305,11 @@ Page({
       mask: true
     })
   },
+  hideAllCategory:function(){
+    this.setData({
+      mask: false
+    })
+  },
   onShareAppMessage: function () { }
 
 })

@@ -205,30 +205,52 @@ const specialItems = [
   }
 ]
 
-const goodscircleTitle = [
-  {
-    title: "爆款必发",
-    categoryid: 1,
-    selected: true,
-  },
-  {
-    title: "圈粉文案",
-    categoryid: 2,
-    selected: false,
-  },
-  {
-    title: "吃货必备",
-    categoryid: 3,
-    selected: false,
-  },
-  {
-    title: "清凉一夏",
-    categoryid: 4,
-    selected: false,
-  },
-]
 
 const collectItems = [
+  {
+    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  },
+  {
+    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  },
+  {
+    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  },
+  {
+    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
+    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  },
   {
     title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
     imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
@@ -270,6 +292,5 @@ module.exports = {
   categoryItems: categoryItems,
   bannerItems: bannerItems,
   specialItems: specialItems,
-  goodscircleTitle: goodscircleTitle,
   collectItems: collectItems
 };
