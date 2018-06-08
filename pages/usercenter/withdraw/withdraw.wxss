@@ -1,0 +1,57 @@
+page{
+  background-color: #f2f2f2;
+}
+
+.withdraw{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.withdraw view{
+  height: 90rpx;
+  font-size: 28rpx;
+  color: #000;
+  line-height: 90rpx;
+  margin-bottom: 2rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.withdraw .withdraw_num{
+  color: #ff3c00;
+}
+
+.withdraw_num::after {
+  content: " ";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  margin-left: 20rpx;
+  margin-top: -2rpx;
+}
+
+.btn{
+  margin-top: 50rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.btn view{
+  background-color: #ff3c00;
+  width: 100%;
+  height: 80rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 10rpx;
+}

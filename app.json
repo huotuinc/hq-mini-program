@@ -10,7 +10,10 @@
     "pages/order/order-list",
     "pages/setting/setting",
     "pages/login/index",
-    "pages/goodslist/goods-list"
+    "pages/goodslist/goods-list",
+    "pages/usercenter/newsFeed/newsFeed",
+    "pages/usercenter/withdraw/withdraw",
+    "pages/usercenter/balance/balance"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

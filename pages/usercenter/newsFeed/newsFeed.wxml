@@ -1,0 +1,80 @@
+<view class="news-feed">
+  <view class='news-feed_header' scroll-left="{{scrollLeft}}">
+    <scroll-view scroll-x="true">
+      <block wx:for="{{category}}" wx:key="item">
+        <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+<view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}px">
+    <swiper-item wx:for="{{[0,1]}}">
+      <scroll-view scroll-y="true" style='height:100%;'>
+        <view class='feed-content'>
+          <view class='content_con'>
+            <view class='feed-con_title'>
+              <view class='con_logo'>
+                <icon class='icon iconfont icon-liwu1'></icon>
+              </view>
+              <view class='con-size_time'>
+                <text class='feed-size'>系统通知</text>
+                <text class='feed-time'>2018-05-29 16:09</text>
+              </view>
+            </view>
+            <view class='feed-con_img'></view>
+            <view class='feed-con_text'>
+              <text>【好券推手更新版本了】在个人中心设置看版本号，“安卓新版1.2.3，苹果新版1.2.0”安卓手机，打开APP直接点击上级，苹果手机，卸载原APP，去AppStore搜索好券推手下载。</text>
+            </view>
+          </view>
+          <view class='content_con'>
+            <view class='feed-con_title'>
+              <view class='con_logo'>
+                <icon class='icon iconfont icon-liwu1'></icon>
+              </view>
+              <view class='con-size_time'>
+                <text class='feed-size'>系统通知</text>
+                <text class='feed-time'>2018-05-29 16:09</text>
+              </view>
+            </view>
+            <view class='feed-con_img'></view>
+            <view class='feed-con_text'>
+              <text>【好券推手更新版本了】在个人中心设置看版本号，“安卓新版1.2.3，苹果新版1.2.0”安卓手机，打开APP直接点击上级，苹果手机，卸载原APP，去AppStore搜索好券推手下载。</text>
+            </view>
+          </view>
+          <view class='content_con'>
+            <view class='feed-con_title'>
+              <view class='con_logo'>
+                <icon class='icon iconfont icon-liwu1'></icon>
+              </view>
+              <view class='con-size_time'>
+                <text class='feed-size'>系统通知</text>
+                <text class='feed-time'>2018-05-29 16:09</text>
+              </view>
+            </view>
+            <view class='feed-con_img'></view>
+            <view class='feed-con_text'>
+              <text>【好券推手更新版本了】在个人中心设置看版本号，“安卓新版1.2.3，苹果新版1.2.0”安卓手机，打开APP直接点击上级，苹果手机，卸载原APP，去AppStore搜索好券推手下载。</text>
+            </view>
+          </view>
+          <view class='content_con'>
+            <view class='feed-con_title'>
+              <view class='con_logo'>
+                <icon class='icon iconfont icon-liwu1'></icon>
+              </view>
+              <view class='con-size_time'>
+                <text class='feed-size'>系统通知</text>
+                <text class='feed-time'>2018-05-29 16:09</text>
+              </view>
+            </view>
+            <view class='feed-con_img'></view>
+            <view class='feed-con_text'>
+              <text>【好券推手更新版本了】在个人中心设置看版本号，“安卓新版1.2.3，苹果新版1.2.0”安卓手机，打开APP直接点击上级，苹果手机，卸载原APP，去AppStore搜索好券推手下载。</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

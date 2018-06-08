@@ -1,5 +1,5 @@
 <view class="user-header">
-  <text class='setting'>设置</text>
+  <text class='setting' catchtap='_goSetting'>设置</text>
   <view class='userinfo'>
     <image src='' class='userimg'></image>
     <text class='username'>星期八</text>
@@ -10,7 +10,7 @@
 <view class='my-order'>
   <view class='my-order_title'>
     <text>我的订单</text>
-    <text class='allOrder'>查看全部订单</text>
+    <text class='allOrder'  catchtap='_goOrder'>查看全部订单</text>
   </view>
   <view class='my-order_classify'>
     <view>
@@ -39,10 +39,10 @@
 <view class='my-purse'>
   <view class='my-order_title'>
     <text>我的钱包</text>
-    <text class='allOrder'>提现</text>
+    <text class='allOrder' catchtap="_goWithdraw">提现</text>
   </view>
   <view class='my-purse_classify'>
-    <view>
+    <view catchtap='_goBalance'>
       <text class='purse_num'>0.00</text>
       <text>账户余额</text>
     </view>
@@ -61,17 +61,16 @@
   </view>
 </view>
 
-
 <view class='my-common'>
  <view class='my-order_title'>
     <text>常用功能</text>
   </view>
   <view class='my-common_classify'>
-    <view>
+    <view catchtap='_goNewsFeed'>
       <icon class='icon iconfont .icon-xiaoxizhongxin'></icon>
       <text>消息中心</text>
     </view>
-    <view>
+    <view catchtap='_goCollectGoods'>
       <icon class='icon iconfont icon-wodeshoucang'></icon>
       <text>我的收藏</text>
     </view>
