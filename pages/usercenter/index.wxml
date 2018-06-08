@@ -1,87 +1,84 @@
-<view class='user-header'>
-  <view class='user-logo'>
-    <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
-    <view class='dengji'> <icon class='icon iconfont icon-dengji'></icon></view>
+<view class="user-header">
+  <text class='setting'>设置</text>
+  <view class='userinfo'>
+    <image src='' class='userimg'></image>
+    <text class='username'>星期八</text>
+    <text class='usersize'>粉丝</text>
   </view>
-  <text class='user-title'>超级推手  初级</text>
-  <text class='user-name'>150****8256</text>
-  <view class='see-potence' catchtap='_goWelfare'>查看特权</view>
 </view>
 
-<view class='user-content'>
-  <view class='repulsion'>
-    <view class='repulsion-son'>
-      直属推手
-      <text>1</text>
+<view class='my-order'>
+  <view class='my-order_title'>
+    <text>我的订单</text>
+    <text class='allOrder'>查看全部订单</text>
+  </view>
+  <view class='my-order_classify'>
+    <view>
+      <icon class='icon iconfont icon-daifukuan'></icon>
+      <text>待付款</text>
     </view>
-    <view class='repulsion-grandson'>
-      直属推手下级
-      <text>3</text>
+    <view>
+      <icon class='icon iconfont icon-daifahuo'></icon>
+      <text>代发货</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-daishouhuo'></icon>
+      <text>待收货</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-tubiaolunkuo-'></icon>
+      <text>待付款</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-shouhou'></icon>
+      <text>售后</text>
     </view>
   </view>
-  <view class='prospect'  catchtap='_goRevenueCenter'>
-    <view class='yesterday-pro'>
-      <text class='pro-price'>3.02</text>
-      <text>昨日预估</text>
+</view>
+
+<view class='my-purse'>
+  <view class='my-order_title'>
+    <text>我的钱包</text>
+    <text class='allOrder'>提现</text>
+  </view>
+  <view class='my-purse_classify'>
+    <view>
+      <text class='purse_num'>0.00</text>
+      <text>账户余额</text>
     </view>
-    <view class='today-pro'>
-      <text class='pro-price'>6.02</text>
-      <text>今日预估</text>
+    <view>
+     <text class='purse_num'>354</text>
+      <text>可用积分</text>
     </view>
-    <view class='add-pro'>
-      <text class='pro-price'>9.04</text>
-      <text>累计收益</text>
+    <view>
+      <text class='purse_num'>0.00</text>
+      <text>待定积分</text>
+    </view>
+    <view>
+      <text class='purse_num'>0.00</text>
+      <text>小金库</text>
     </view>
   </view>
-  <view class='classification'>
-    <view class='order' catchtap='_goMyOrderList'>
-      <icon class='icon iconfont icon-dingdan'></icon>
-      <text>推广订单</text>
-    </view>
-    <view class='my-group' catchtap='_goMyGroup'>
-      <icon class='icon iconfont icon-renshu'></icon>
-      <text>我的团队</text>
-    </view>
-    <view class='group-pro'  catchtap='_goRevenueCenter'>
-      <icon class='icon iconfont icon-icon3'></icon>
-      <text>团队收益</text>
-    </view>
-    <view class='diamond' catchtap='_goMyBalance'>
-      <icon class='icon iconfont icon-diamond'></icon>
-      <text>我的钻石</text>
-    </view>
+</view>
+
+
+<view class='my-common'>
+ <view class='my-order_title'>
+    <text>常用功能</text>
   </view>
-  <view class='other'>
-    <view class='invite' catchtap='_goInviteFriend'>
-      <icon class='icon iconfont icon-yaoqingmatianchong icon-left'></icon>
-      <text>邀请好友</text>
-      <icon class='icon iconfont icon-right more'></icon>
+  <view class='my-common_classify'>
+    <view>
+      <icon class='icon iconfont .icon-xiaoxizhongxin'></icon>
+      <text>消息中心</text>
     </view>
-    <view class='collect'  catchtap='_goCollectGoods'>
-      <icon class='icon iconfont icon-ico_shoucangjia-copy icon-left'></icon>
-      <text>收藏夹</text>
-      <icon class='icon iconfont icon-right more'></icon>
+    <view>
+      <icon class='icon iconfont icon-wodeshoucang'></icon>
+      <text>我的收藏</text>
     </view>
-    <view class='message' catchtap='_goNewsFeed'>
-      <icon class='icon iconfont icon-icon_msg icon-left'></icon>
-      <text>消息动态</text>
-      <icon class='icon iconfont icon-right more'></icon>
+    <view>
+      <icon class='icon iconfont icon-hongbao'></icon>
+      <text>红包优惠券</text>
     </view>
-    <view class='course'>
-      <icon class='icon iconfont icon-jilumian icon-left'></icon>
-      <text>使用教程</text>
-      <icon class='icon iconfont icon-right more'></icon>
-    </view>
-    <view class='service-help' catchtap='_goFeedback'>
-      <icon class='icon iconfont icon-custom-service icon-left'></icon>
-      <text>客服与帮助</text>
-      <icon class='icon iconfont icon-right more'></icon>
-    </view>
-    <view class='service-setting' catchtap='_goSetting'>
-      <icon class='icon iconfont  icon-shezhi icon-left'></icon>
-      <text>设置</text>
-      <icon class='icon iconfont icon-right more'></icon>
-    </view>    
+    <view></view>
   </view>
-  <view style='height:80rpx;'></view>
 </view>

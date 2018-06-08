@@ -1,179 +1,148 @@
+page {
+  background-color: #f2f2f2;
+}
+
 .user-header {
   width: 100%;
-  height: 360rpx;
-  background-color: #f8f8f8;
+  height: 300rpx;
+  background-color: yellowgreen;
+}
+
+.user-header .setting {
+  position: absolute;
+  color: #fff;
+  font-size: 24rpx;
+  left: 20rpx;
+  top: 3%;
+}
+
+.user-header .userinfo {
+  position: absolute;
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%);
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.user-logo {
-  height: 119rpx;
-  width: 119rpx;
-  border: 2px solid #ebebeb;
-  border-radius: 115rpx;
+.user-header .userimg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  background-color: skyblue;
+}
+
+.user-header .username {
+  margin-top: 10rpx;
+  color: #fff;
+  font-size: 26rpx;
+}
+
+.user-header .usersize {
+  display: block;
+  width: 50rpx;
+  height: 30rpx;
+  background-color: yellow;
+  border-radius: 5rpx;
+  font-size: 24rpx;
+  color: #000;
+  line-height: 30rpx;
+  text-align: center;
   margin: 0 auto;
-  text-align: center;
+  margin-top: 30rpx;
+}
+
+.my-order, .my-purse, .my-common {
   margin-top: 20rpx;
-}
-
-.user-logo image {
-  height: 115rpx;
-  width: 115rpx;
-   border: 1px solid #ebebeb;
-  border-radius: 115rpx;
-  vertical-align: middle;
-}
-
-.user-logo .dengji {
-  width: 36rpx;
-  height: 36rpx;
-  position: absolute;
-  right: 42%;
-  top: 2%;
-  background-color: #fc9201;
-  border-radius: 36rpx;
-  line-height: 36rpx;
-  text-align: center;
-  color: #fff;
-}
-
-.user-logo .icon-dengji {
-  font-size: 24rpx;
-  margin-top: -36rpx;
-}
-
-.user-title {
-  font-size: 30rpx;
-  margin-top: 25rpx;
-}
-
-.user-name {
-  font-size: 24rpx;
-  color: #646464;
-  margin-top: 20rpx;
-}
-
-.see-potence {
-  width: 122rpx;
-  height: 37rpx;
-  font-size: 18rpx;
-  color: #fff;
-  background-color: #000;
-  border-radius: 30rpx;
-  text-align: center;
-  line-height: 37rpx;
-  margin: 20rpx auto 0;
-}
-
-.user-content {
-  margin-top: 46rpx;
   width: 100%;
 }
 
-.repulsion {
+.my-order_title {
+  width: 100%;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
-  font-size: 25rpx;
-  color: #646464;
-  margin-left: 160rpx;
-}
-
-.repulsion-son, .repulsion-grandson {
-  padding: 0 28rpx;
-  border-left: 1px solid #646464;
-}
-
-.repulsion-grandson {
-  border-right: 1px solid #646464;
-}
-
-.repulsion-son text {
-  color: #ff4b53;
-}
-
-.repulsion-grandson text {
-  color: #39aafe;
-}
-
-.prospect {
-  margin-top: 59rpx;
-  display: flex;
-  flex-direction: row;
-  padding: 0 74rpx;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.yesterday-pro, .today-pro, .add-pro {
-  width: 33.33%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  justify-content: space-between;
+  padding: 24rpx 36rpx;
   font-size: 28rpx;
-  color: #646464;
-}
-
-.pro-price {
-  font-size: 51rpx;
   color: #000;
-  font-weight: bold;
+  box-sizing: border-box;
+  margin-bottom: 2rpx;
 }
 
-.classification {
-  margin-top: 62rpx;
-  padding: 0 74rpx;
+.allOrder {
+  color: #c8c8cd;
+}
+
+.allOrder::after {
+  content: " ";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  margin-left: 6rpx;
+  margin-top: -2rpx;
+}
+
+.my-order .my-order_classify, .my-purse .my-purse_classify,
+.my-common .my-common_classify {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  box-sizing: border-box;
+  justify-content: space-between;
 }
 
-.classification view {
-  width: 25%;
-  text-align: center;
+.my-order .my-order_classify view {
+  width: 20%;
   display: flex;
   flex-direction: column;
+  padding: 17rpx 30rpx;
+  margin-right: 2rpx;
+  box-sizing: border-box;
+  background-color: #fff;
   font-size: 21rpx;
-  color: #4b4b4b;
+  text-align: center;
+  color: #66667d;
 }
 
-.classification icon {
-  font-size: 50rpx;
-  color: #ff4b53;
-  margin-bottom: 21rpx;
+.my-order .my-order_classify .icon {
+  font-size: 40rpx;
+  color: #ff7449;
 }
 
-.other {
-  margin-top: 74rpx;
+.my-purse .my-purse_classify view, .my-common .my-common_classify view {
+  width: 25%;
   display: flex;
-  padding: 0 65rpx;
   flex-direction: column;
+  font-size: 24rpx;
+  color: #66667d;
+  text-align: center;
+  padding: 18rpx 36rpx;
+  margin-right: 2rpx;
+  background-color: #fff;
   box-sizing: border-box;
+  white-space: nowrap;
 }
 
-.other view {
-  position: relative;
-  height: 95rpx;
-  margin-left: 42rpx;
-  line-height: 95rpx;
-  font-size: 24rpx;
-  color: #7f7f7f;
-  border-bottom: 1px solid #dcdcdc;
+.my-purse .my-purse_classify .purse_num {
+  font-size: 36rpx;
+  color: #ff3d00;
+  margin-bottom: 20rpx;
 }
 
-.other view text {
-  margin-left: 18rpx;
+.my-common .my-common_classify .icon {
+  font-size: 50rpx;
+  color: #858686;
+  margin-bottom: 8rpx;
 }
 
-.other view .icon-left {
-  position: absolute;
-  left: -42rpx;
-  font-size: 39rpx;
-}
-
-.other view .more {
-  position: absolute;
-  font-size: 24rpx;
-  right: 20rpx;
-  top: 4rpx;
+.my-order .my-order_classify view:last-child,
+.my-purse .my-purse_classify view:last-child,
+.my-common .my-common_classify view:last-child {
+  margin-right: 0;
 }

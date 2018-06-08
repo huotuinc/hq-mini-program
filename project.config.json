@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.8",
+	"libVersion": "2.0.9",
 	"appid": "wx461ef1c099dc8738",
 	"projectname": "hq-mini-program",
 	"condition": {
