@@ -54,10 +54,6 @@
       <text class='purse_num'>0.00</text>
       <text>待定积分</text>
     </view>
-    <view catchtap='zhifu'>
-      <text class='purse_num'>0.00</text>
-      <text>小金库</text>
-    </view>
   </view>
 </view>
 

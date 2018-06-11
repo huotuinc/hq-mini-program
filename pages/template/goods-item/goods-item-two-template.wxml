@@ -5,8 +5,7 @@
         <view class='goods-item-pic'>
           <image src='{{item.imgSrc}}'></image>
         </view>
-        <view class='goods-item-tow-text goods-item-logo'>
-          <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+        <view class='goods-item-tow-text'>
           <text class='goods-item-two-title'>{{item.title}}</text>
         </view>
         <view class='goods-item-two-text1'>
@@ -15,20 +14,16 @@
         </view>
       </view>
       <view class='goods-item-two-text2'>
-        券后
         <text class='coupon-price'>￥{{item.finalPrice}}</text>
         <icon catchtap='clickFavTab' data-item='{{item}}' data-type='goodsItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
       </view>
-      <view>
+
+       <view>
         <view class='goods-item-coupon-text'>
-          {{item.couponPrice}}元券
+          购买送
         </view>
-        <view class='goods-item-coupon-text zuanshi'>
-          分享赚
-          <icon class='icon iconfont icon-zuanshi'></icon>
-          {{item.earnMoney}}
-        </view>
-      </view>
+       <text class='goods-item_integral'> 2积分</text>
+      </view> 
     </view>
   </view>
 </template>

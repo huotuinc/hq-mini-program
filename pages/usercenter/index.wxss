@@ -128,6 +128,10 @@ page {
   white-space: nowrap;
 }
 
+.my-purse .my-purse_classify view{
+  width: 33.333%;
+}
+
 .my-purse .my-purse_classify .purse_num {
   font-size: 36rpx;
   color: #ff3d00;

@@ -2,7 +2,7 @@
 
 .goodsItem_title,
 .trademark-goods_title {
-  margin: 67rpx 0;
+  margin: 30rpx 0;
   text-align: center;
   font-size: 40rpx;
   color: 33rpx;

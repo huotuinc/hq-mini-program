@@ -45,11 +45,6 @@ Page({
       url: './integral/integral?currenttab='+e.currentTarget.dataset.integral,
     })
   },
-  zhifu:function(e){
-  wx.navigateTo({
-    url: '../submitOrder/submitOrder',
-  })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

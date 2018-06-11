@@ -12,12 +12,6 @@
   padding: 10px;
 }
 
-.goods-item-logo image {
-  width: 30rpx;
-  height: 30rpx;
-  vertical-align: middle;
-}
-
 .goods-item-tow-text {
   display: -webkit-box;
   word-break: break-all;
@@ -85,26 +79,19 @@
 
 .goods-item-coupon-text {
   padding: 0px 5px 0px 5px;
-  height: 30rpx;
-  line-height: 30rpx;
+  height: 35rpx;
+  line-height: 35rpx;
   text-align: center;
   display: inline-block;
-  font-size: 20rpx;
-  color: #fe4c55;
-  border: 1px solid #fe4c55;
-  border-radius: 50px;
+  font-size: 22rpx;
+  background-color: #fe4c55;
+  color: #fff;
+  border-radius: 6rpx;
 }
-
-.zuanshi {
-  background-color: #fff7f8;
-  margin-left: 10px;
+.goods-item_integral{
+  font-size: 24rpx;
+  color: #666;
 }
-
-.goods-item-coupon-text .icon-zuanshi {
-  margin-top: -30rpx;
-  font-size: 20rpx;
-}
-
 .goods-item-sales_volume {
   font-size: 20rpx;
   color: #acacac;

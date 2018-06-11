@@ -12,15 +12,11 @@
     <text class='withdraw_num'>0</text>
   </view>
    <view>
-    <text>小金库</text>
-    <text class='withdraw_num'>￥1000000</text>
-  </view>
-   <view>
     <text>优惠券</text>
     <text class='withdraw_num'>0张</text>
   </view>
 </view>
 
 <view class='btn'>
-  <view class='btn-pay'>小金库充值</view>
+  <view class='btn-pay'>提现</view>
 </view>
