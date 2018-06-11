@@ -58,7 +58,7 @@
       </view>
     </view>
 
-    <view class='home-category' tag="类目">
+    <view class='home-category' tag="类目" style='display:none; height:0;'>
       <scroll-view scroll-x="true" class="tab-h" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
         <block wx:for="{{category}}" wx:key="item">
           <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
@@ -70,7 +70,7 @@
       </view>
     </view>
   </view>
-  <view style='padding-top: 174rpx;'></view>
+   <view style='padding-top: 90rpx;'></view> 
   <view class='home-body'>
     <!--主题/广告等模块-->
     <view class='home-index {{currentTab!=0?"home-index-display":""}}'>
@@ -97,7 +97,6 @@
         </block>
       </view>
 
-
       <view class='home-goods-items'>
         <view class='goodsItem_title'>
           限时购
@@ -109,8 +108,6 @@
           <template is="goodsItem" data="{{item,index}}" />
         </block>
       </view>
-
-
 
       <view>
         <view class='trademark-goods_title'>

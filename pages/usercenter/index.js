@@ -12,8 +12,9 @@ Page({
     })
   },
   _goOrder:function(e){
+    var cur = e.currentTarget.dataset.currenttab ? e.currentTarget.dataset.currenttab:0
     wx.navigateTo({
-      url: '../order/order-list',
+      url: '../order/order-list?currenttab=' + cur,
     })
   },
   _goNewsFeed:function(e){

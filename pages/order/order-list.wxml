@@ -7,43 +7,41 @@
       </view>
     </picker>
   </view>
+
   <view class='order-status-tab'>
     <block wx:for="{{orderStatus}}" wx:key="{{item}}">
       <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
     </block>
   </view>
 </view>
-<view class='separator2'></view>
-<view class='order-list-container'>
-  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}rpx">
-    <block wx:for="{{orderStatus}}" wx:key="{{it}}">
-      <swiper-item>
-        <scroll-view bindscrolltolower="onReachBottom" scroll-y="true" style='height:100%;' class='{{orders[index].length>0?"":"order-item-none"}}'>
-          <block wx:for="{{orders[index]}}" wx:key="{{item}}">
-            <view class='order-item'>
-              <view class='item-info-1'>
-                <view class='left'>订单号：{{item.orderId}}</view>
-                <view class='right'>{{item.orderCreateTime}}下单</view>
-              </view>
 
-              <view class='item-info-2'>
-                <view class='left'>
-                  <image src='{{item.imgSrc}}'></image>
-                </view>
-                <view class='right'>{{item.goodsName}}</view>
-              </view>
-              <view class='separator3'></view>
-              <view class='item-info-3'>
-                <view>{{item.orderGroupCuccessTime}} 已成团</view>
-                <view>消费￥{{item.orderAmount}}
-                  <view class='right'>佣金
-                    <icon class='icon iconfont icon-zuanshi'></icon>{{item.promotionAmount}}</view>
-                </view>
-              </view>
+<view class='separator2'></view>
+
+<view class='order-list-container'>
+  <block wx:for="{{orderStatus}}" wx:key="{{it}}">
+    <block wx:for="{{orders[index]}}" wx:key="{{item}}">
+      <view bindscrolltolower="onReachBottom" >
+        <view class='order-item'>
+          <view class='item-info-1'>
+            <view class='left'>订单号：{{item.orderId}}</view>
+            <view class='right'>{{item.orderCreateTime}}下单</view>
+          </view>
+          <view class='item-info-2'>
+            <view class='left'>
+              <image src='{{item.imgSrc}}'></image>
             </view>
-          </block>
-        </scroll-view>
-      </swiper-item>
+            <view class='right'>{{item.goodsName}}</view>
+          </view>
+          <view class='separator3'></view>
+          <view class='item-info-3'>
+            <view>{{item.orderGroupCuccessTime}} 已成团</view>
+            <view>消费￥{{item.orderAmount}}
+              <view class='right'>佣金
+                <icon class='icon iconfont icon-zuanshi'></icon>{{item.promotionAmount}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
     </block>
-  </swiper>
+  </block>
 </view>

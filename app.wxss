@@ -31,9 +31,6 @@ page {
 .icon-custom-service {
   color: #98af20;
 }
-.icon-heart {
-  color: #acacac;
-}
 
 .icon-jilumian {
   color: #18bcf6;
@@ -45,10 +42,6 @@ page {
 
 .icon-yaoqingmatianchong {
   color: #3acd9e;
-}
-
-.icon-ico_shoucangjia-copy {
-  color: #feb928;
 }
 
 .category-goods-filter{

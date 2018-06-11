@@ -13,25 +13,21 @@
     <text class='allOrder'  catchtap='_goOrder'>查看全部订单</text>
   </view>
   <view class='my-order_classify'>
-    <view>
+    <view data-currentTab='1' catchtap='_goOrder'>
       <icon class='icon iconfont icon-daifukuan'></icon>
       <text>待付款</text>
     </view>
-    <view>
+    <view data-currentTab='2' catchtap='_goOrder'>
       <icon class='icon iconfont icon-daifahuo'></icon>
       <text>代发货</text>
     </view>
-    <view>
+    <view data-currentTab='3' catchtap='_goOrder'>
       <icon class='icon iconfont icon-daishouhuo'></icon>
       <text>待收货</text>
     </view>
-    <view>
+    <view data-currentTab='4' catchtap='_goOrder'>
       <icon class='icon iconfont icon-tubiaolunkuo-'></icon>
-      <text>待付款</text>
-    </view>
-    <view>
-      <icon class='icon iconfont icon-shouhou'></icon>
-      <text>售后</text>
+      <text>已收货</text>
     </view>
   </view>
 </view>
@@ -78,6 +74,9 @@
       <icon class='icon iconfont icon-hongbao'></icon>
       <text>红包优惠券</text>
     </view>
-    <view></view>
+    <view>
+      <icon class='icon iconfont icon-shouhou'></icon>
+      <text>售后</text>
+    </view>
   </view>
 </view>

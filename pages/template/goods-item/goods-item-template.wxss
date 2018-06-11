@@ -44,6 +44,7 @@
 .goods-item-logo image {
   width: 30rpx;
   height: 30rpx;
+  margin-right: 10rpx;
   vertical-align: middle;
 }
 
