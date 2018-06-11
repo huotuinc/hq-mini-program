@@ -10,7 +10,7 @@
 <view class='my-order'>
   <view class='my-order_title'>
     <text>我的订单</text>
-    <text class='allOrder'  catchtap='_goOrder'>查看全部订单</text>
+    <text class='allOrder' catchtap='_goOrder'>查看全部订单</text>
   </view>
   <view class='my-order_classify'>
     <view data-currentTab='1' catchtap='_goOrder'>
@@ -29,6 +29,10 @@
       <icon class='icon iconfont icon-tubiaolunkuo-'></icon>
       <text>已收货</text>
     </view>
+    <view>
+      <icon class='icon iconfont icon-shouhou'></icon>
+      <text>售后</text>
+    </view>
   </view>
 </view>
 
@@ -42,11 +46,11 @@
       <text class='purse_num'>0.00</text>
       <text>账户余额</text>
     </view>
-    <view>
-     <text class='purse_num'>354</text>
+    <view data-integral='0' catchtap='_goIntegral'>
+      <text class='purse_num'>354</text>
       <text>可用积分</text>
     </view>
-    <view>
+    <view data-integral='1' catchtap='_goIntegral'>
       <text class='purse_num'>0.00</text>
       <text>待定积分</text>
     </view>
@@ -58,7 +62,7 @@
 </view>
 
 <view class='my-common'>
- <view class='my-order_title'>
+  <view class='my-order_title'>
     <text>常用功能</text>
   </view>
   <view class='my-common_classify'>
@@ -73,10 +77,6 @@
     <view>
       <icon class='icon iconfont icon-hongbao'></icon>
       <text>红包优惠券</text>
-    </view>
-    <view>
-      <icon class='icon iconfont icon-shouhou'></icon>
-      <text>售后</text>
     </view>
   </view>
 </view>

@@ -1,0 +1,48 @@
+<view class="news-feed">
+  <view class='news-feed_header' scroll-left="{{scrollLeft}}">
+    <scroll-view scroll-x="true">
+      <block wx:for="{{category}}" wx:key="item">
+        <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+<view>
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}px">
+    <swiper-item wx:for="{{[0,1]}}" wx:key="item">
+      <scroll-view scroll-y="true" style='height:100%;'>
+        <view class='balance' wx:if="{{index == 0}}">
+          <view class='balance-header'>
+            <text>总收入：</text>
+            <text class='income'>354分</text>
+            <text> / </text>
+            <text>总支出：</text>
+            <text class='expense'>0.0分</text>
+          </view>
+        </view>
+
+        <view class='balance-con'>
+          <view class='item'>
+            <view class='item-left'>
+              <text class='income'>34</text>
+            </view>
+            <view class='item-right'>
+              <text>签到</text>
+              <text class='time'>时间：2018-06-08 17：04：05</text>
+            </view>
+          </view>
+          <view class='item'>
+            <view class='item-left'>
+              <text class='expense'>+300</text>
+            </view>
+            <view class='item-right'>
+              <text>会员注册送积分</text>
+              <text class='time'>时间：2018-03-28 17：04：05</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

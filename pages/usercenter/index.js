@@ -38,6 +38,11 @@ Page({
       url: '../collectgoods/collectgoods',
     })
   },
+  _goIntegral:function(e){
+    wx.navigateTo({
+      url: './integral/integral?currenttab='+e.currentTarget.dataset.integral,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

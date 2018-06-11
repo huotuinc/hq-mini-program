@@ -1,4 +1,3 @@
-
 @import '../template/goods-item/goods-item-template.wxss';
 @import '../template/goods-item/goods-item-two-template.wxss';
 @import '../template/category/category-two-template.wxss';
@@ -99,11 +98,12 @@
 
 .swiper-item image {
   width: 100%;
+  height:100%;
 }
 
 .page-section-title {
-  margin-top: 60rpx;
-  position: relative;
+   margin-top: 60rpx;
+  position: relative; 
 }
 
 .home-goods-item-two {
@@ -222,46 +222,50 @@
   font-size: 41rpx;
 }
 
-.category-more{
+.category-more {
   position: fixed;
   top: 80rpx;
   width: 100%;
-  z-index: 501;    
-  background-color: #ffffff;
-    color: #8b8b8b;
-    
+  z-index: 501;
+  background-color: #fff;
+  color: #8b8b8b;
 }
-.category-more-b{
+
+.category-more-b {
   padding: 20rpx 0;
 }
-.category-more .category-more-box{
+
+.category-more .category-more-box {
   width: 25%;
-  display: inline-block; 
+  display: inline-block;
   text-align: center;
-  font-size: 30rpx;  
+  font-size: 30rpx;
 }
-.category-more-item{    
+
+.category-more-item {
   height: 50rpx;
   line-height: 50rpx;
   margin: 10rpx;
-  border: 1rpx solid #cccccc; 
+  border: 1rpx solid #ccc;
   border-radius: 15rpx;
 }
-.category-more-title{
+
+.category-more-title {
   text-align: center;
-  font-size: 32rpx;  
+  font-size: 32rpx;
   height: 70rpx;
   line-height: 70rpx;
-  border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid #ccc;
 }
-.mask{
-  z-index: 200; 
-  filter:alpha(opacity=50); 
-  -moz-opacity:0.5; 
-  -khtml-opacity: 0.5; 
-  opacity: 0.2;    
+
+.mask {
+  z-index: 200;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.2;
   height: 900rpx;
-  background-color: #000000; 
+  background-color: #000;
   position: fixed;
   width: 100%;
   top: 0;

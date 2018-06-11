@@ -70,12 +70,12 @@
       </view>
     </view>
   </view>
-   <view style='padding-top: 90rpx;'></view> 
+  <view style='padding-top: 90rpx;'></view>
   <view class='home-body'>
     <!--主题/广告等模块-->
     <view class='home-index {{currentTab!=0?"home-index-display":""}}'>
       <view class="page-section page-section-spacing swiper">
-        <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+        <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style='height:350rpx;'>
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
               <view class="swiper-item">

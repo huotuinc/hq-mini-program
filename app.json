@@ -13,7 +13,8 @@
     "pages/goodslist/goods-list",
     "pages/usercenter/newsFeed/newsFeed",
     "pages/usercenter/withdraw/withdraw",
-    "pages/usercenter/balance/balance"
+    "pages/usercenter/balance/balance",
+    "pages/usercenter/integral/integral"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
