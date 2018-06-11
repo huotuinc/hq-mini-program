@@ -54,11 +54,23 @@
       <text class='purse_num'>0.00</text>
       <text>待定积分</text>
     </view>
-    <view>
+    <view catchtap='zhifu'>
       <text class='purse_num'>0.00</text>
       <text>小金库</text>
     </view>
   </view>
+</view>
+
+<view style='margin-top:20rpx; '>
+  <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <block wx:for="{{bannerItems}}" wx:key="{{item}}">
+      <swiper-item>
+        <view class="swiper-item">
+          <image lazy-load='true' src='{{item.pictureUrl}}' style='width:100%'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
 
 <view class='my-common'>

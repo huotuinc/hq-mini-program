@@ -1,5 +1,5 @@
 {
-  "pages": [    
+  "pages": [
     "pages/index/index",
     "pages/usercenter/index",
     "pages/goodscircle/index",
@@ -14,12 +14,13 @@
     "pages/usercenter/newsFeed/newsFeed",
     "pages/usercenter/withdraw/withdraw",
     "pages/usercenter/balance/balance",
-    "pages/usercenter/integral/integral"
+    "pages/usercenter/integral/integral",
+    "pages/submitOrder/submitOrder"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "好券联盟",
+    "navigationBarTitleText": "觅方",
     "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "enablePullDownRefresh": false
