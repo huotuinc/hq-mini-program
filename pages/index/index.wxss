@@ -2,6 +2,9 @@
 @import '../template/goods-item/goods-item-two-template.wxss';
 @import '../template/category/category-two-template.wxss';
 @import '../search/search.wxss';
+page{
+  background-color: #fff;
+}
 
 .home-top {
   width: 100%;

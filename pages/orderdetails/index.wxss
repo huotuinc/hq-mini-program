@@ -1,0 +1,209 @@
+.consignee-information {
+  position: relative;
+  width: 100%;
+  height: 194rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  color: #999;
+  border-top: 1px solid #cecece;
+  box-sizing: border-box;
+}
+
+.goods-information, .pay-way {
+  margin-top: 30rpx;
+  background-color: #fff;
+}
+
+.shop_name {
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 32rpx;
+  padding-left: 30rpx;
+  border-bottom: 1px solid #cac9cf;
+}
+
+.my-order_con {
+  background-color: #fafafa;
+  padding: 30rpx;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.my-order_con image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 30rpx;
+}
+
+.goods_title {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.title_con {
+  width: 75%;
+}
+
+.title_con text {
+  white-space: pre-wrap;
+}
+
+.price_num {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.goods-other {
+  margin-left: 30rpx;
+}
+
+.goods-other view {
+  height: 83rpx;
+  line-height: 83rpx;
+  font-size: 32rpx;
+  border-top: 1px solid #cac9cf;
+  padding-right: 30rpx;
+  position: relative;
+}
+
+.consignee-information::after, .feedback::after {
+  content: " ";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c7cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  position: absolute;
+  right: 30rpx;
+  top: 45%;
+}
+
+.pay-way>view {
+  margin-left: 30rpx;
+  font-size: 36rpx;
+}
+
+.pay-way_wx {
+  height: 136rpx;
+  padding: 25rpx 0 27rpx;
+  border-bottom: 1px solid #cac9cf;
+  box-sizing: border-box;
+}
+
+.pay-way_wx text {
+  display: block;
+  width: 174rpx;
+  height: 76rpx;
+  text-align: center;
+  line-height: 76rpx;
+}
+
+.pay-way_other {
+  height: 196rpx;
+  padding-top: 17rpx;
+  box-sizing: border-box;
+}
+
+.yes_no text {
+  display: inline-block;
+  width: 84rpx;
+  height: 76rpx;
+  line-height: 76rpx;
+  text-align: center;
+  margin-right: 24rpx;
+  margin-top: 27rpx;
+}
+
+.active {
+  border: 4rpx solid #fe8301;
+}
+
+.discounts-title {
+  padding: 26rpx 0 16rpx 30rpx;
+  font-size: 32rpx;
+  color: #888;
+  border-bottom: 1px solid #cac9cf;
+}
+
+.discounts-con {
+  background-color: #fff;
+  border-bottom: 1px solid #cac9cf;
+}
+
+.discounts-con>view {
+  height: 85rpx;
+  font-size: 32rpx;
+  color: #000;
+  line-height: 85rpx;
+  margin-left: 30rpx;
+  border-top: 1px solid #cac9cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.discounts-con view:first-child {
+  border-top: none;
+}
+
+.discounts-con .right text:first-child{
+  margin-right: 23rpx;
+}
+
+.discounts-con .right .icon-xuanzhong{
+  color: #09BA07;
+}
+
+.discounts-con .after_all::after{
+content: " ";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c7cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  margin-top: -3rpx;
+}
+
+.submit {
+  width: 100%;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #303032;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 20rpx 0 30rpx;
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 90rpx;
+  box-sizing: border-box;
+}
+
+.sub_btn {
+  display: block;
+  width: 172rpx;
+  height: 64rpx;
+  text-align: center;
+  line-height: 64rpx;
+  background-color: #e41436;
+  border-radius: 10rpx;
+  margin-top: 14rpx;
+}

@@ -22,7 +22,7 @@
               <text>{{item.userName}}</text>
               <text class='allOrder'>待发货</text>
             </view>
-            <view class='my-order_con'>
+            <view class='my-order_con' catchtap='_goGoodsDetails'>
               <view>
                 <image src='{{item.imgSrc}}'></image>
               </view>
@@ -32,7 +32,7 @@
                 </view>
                 <view class='price_num'>
                   <text>￥{{item.orderAmount}}</text>
-                  <text class='num'>x1</text>
+                  <text style='color: #999;'>x1</text>
                 </view>
               </view>
             </view>

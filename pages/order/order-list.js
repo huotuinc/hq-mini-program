@@ -35,12 +35,9 @@ Page({
       date: e.detail.value
     })
   },
-  /**
-   * 取消选择时触发
-   */
-  bindDateCancel: function () {
-    this.setData({
-      date: '不限'
+  _goGoodsDetails:function(e){
+    wx.navigateTo({
+      url: '../orderdetails/index',
     })
   },
   /**

@@ -15,7 +15,8 @@
     "pages/usercenter/balance/balance",
     "pages/usercenter/integral/integral",
     "pages/submitOrder/submitOrder",
-    "pages/service/index"
+    "pages/service/index",
+    "pages/orderdetails/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

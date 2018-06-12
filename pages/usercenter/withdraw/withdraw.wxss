@@ -1,6 +1,3 @@
-page{
-  background-color: #f2f2f2;
-}
 
 .withdraw{
   width: 100%;
@@ -39,13 +36,24 @@ page{
   margin-top: -2rpx;
 }
 
-.btn view{
+.btn-recharge,.btn-pay{
   margin: 90rpx 30rpx 0 30rpx;
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;  
   border-radius: 15rpx;
-  background-color: #000000;
   font-size: 30rpx;
+}
+
+.btn-recharge{
+ background-color: #E41436;
   color: #ffffff;
+  margin-top: 50rpx;
+}
+
+.btn-pay{
+  margin-top: 20rpx;
+  color: #000;
+  background-color: #fff;
+  border:1px solid #D9D9D9;
 }

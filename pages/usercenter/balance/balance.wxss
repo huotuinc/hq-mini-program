@@ -1,6 +1,4 @@
-page{
-  background-color: #f2f2f2;
-}
+
 .balance{
   width: 100%;
 }

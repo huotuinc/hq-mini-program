@@ -1,4 +1,5 @@
 @import "../balance/balance.wxss";
+
 .balance{
   border-top: 2rpx solid #f2f2f2;
   border-bottom: 2rpx solid #f2f2f2;
