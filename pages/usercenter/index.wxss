@@ -1,16 +1,18 @@
 page {
-  background-color: #f2f2f2;
+  background-color: #f0eff5;
 }
 
 .user-header {
   width: 100%;
   height: 300rpx;
+  background-image: url('http://img.hexun.com/2011-07-20/131594415.jpg');
+  background-size: cover;
 }
 
 .user-header .setting {
   position: absolute;
   color: #fff;
-  font-size: 24rpx;
+  font-size: 28rpx;
   left: 20rpx;
   top: 3%;
 }
@@ -52,6 +54,17 @@ page {
   margin-top: 30rpx;
 }
 
+.user-integral {
+  margin-top: 20rpx;
+  padding: 24rpx 36rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+}
+
+.user-integral_num {
+  color: #e41436;
+}
+
 .my-order, .my-purse, .my-common {
   margin-top: 20rpx;
   width: 100%;
@@ -67,25 +80,7 @@ page {
   font-size: 28rpx;
   color: #000;
   box-sizing: border-box;
-  border-bottom: 2rpx solid #f2f2f2;
-}
-
-.allOrder {
-  color: #c8c8cd;
-}
-
-.allOrder::after {
-  content: " ";
-  display: inline-block;
-  height: 12rpx;
-  width: 12rpx;
-  border-width: 4rpx 4rpx 0 0;
-  border-color: #c8c8cd;
-  border-style: solid;
-  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
-  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
-  margin-left: 6rpx;
-  margin-top: -2rpx;
+  border-bottom: 2rpx solid #f0eff5;
 }
 
 .my-order .my-order_classify, .my-purse .my-purse_classify,
@@ -106,12 +101,12 @@ page {
   background-color: #fff;
   font-size: 21rpx;
   text-align: center;
-  color: #66667d;
+  color: #666;
 }
 
 .my-order .my-order_classify .icon {
   font-size: 40rpx;
-  color: #ff7449;
+  color: #666;
 }
 
 .my-purse .my-purse_classify view, .my-common .my-common_classify view {
@@ -119,7 +114,7 @@ page {
   display: flex;
   flex-direction: column;
   font-size: 24rpx;
-  color: #66667d;
+  color: #666;
   text-align: center;
   padding: 18rpx 36rpx;
   margin-right: 2rpx;
@@ -128,13 +123,9 @@ page {
   white-space: nowrap;
 }
 
-.my-purse .my-purse_classify view{
-  width: 33.333%;
-}
-
 .my-purse .my-purse_classify .purse_num {
   font-size: 36rpx;
-  color: #ff3d00;
+  color: #e41436;
   margin-bottom: 20rpx;
 }
 
@@ -144,13 +135,13 @@ page {
 
 .my-common .my-common_classify view {
   margin-right: 0;
-  border-right: 2rpx solid #f2f2f2;
-  border-bottom: 2rpx solid #f2f2f2;
+  border-right: 2rpx solid #f0eff5;
+  border-bottom: 2rpx solid #f0eff5;
 }
 
 .my-common .my-common_classify .icon {
   font-size: 50rpx;
-  color: #858686;
+  color: #666;
   margin-bottom: 8rpx;
 }
 

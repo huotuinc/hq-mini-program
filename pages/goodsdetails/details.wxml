@@ -3,8 +3,7 @@
     <image src='{{item.imgSrc}}'></image>
   </view>
   <view class='goods-details-info-box'>
-    <view class='goods-item-title goods-item-logo'>
-      <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+    <view class='goods-item-title'>
       <text>啊手动阀手动阀手动阀手动阀大阿斯顿发射点啊手动阀</text>
     </view>
     <view class='goods-item-two-text1'>
@@ -15,7 +14,7 @@
       <icon class='icon iconfont icon-quanhoujia'></icon>
       <text class='goods-final-price'>￥19.99</text>
     </view>
-    <view class='coupon-box'>
+    <!-- <view class='coupon-box'>
       <icon class='icon iconfont icon-quan'></icon>
       <view class='coupon-info'>
         <view class='coupon-left'>
@@ -26,7 +25,7 @@
           <view class='time-limit'>使用期限：2018.05.15-2018.05.30</view>
         </view>          
       </view>
-    </view>
+    </view> -->
   </view>
   <view class='separator1'></view>
 
@@ -49,14 +48,16 @@
       <icon bindtap='clickFavTab' class="icon iconfont icon-xin"></icon>
       收藏
     </view>
+     <view class='item-bar collect'>
+       <icon class='icon iconfont icon-goumai'></icon>
+      购物车
+    </view>
     <view class='item-bar-right'>
       <view class='item-bar buy'>
-        <icon class='icon iconfont icon-goumai'></icon>
-        <text>立即购买</text>
+        <text>加入购物车</text>
       </view>
       <view class='item-bar share'>
-        <icon class='icon iconfont icon-xiazai10'></icon>
-        <text>佣金：2.21</text>
+        <text>立即购买</text>
       </view>
     </view>
   </view>

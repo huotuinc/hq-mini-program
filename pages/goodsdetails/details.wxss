@@ -13,13 +13,6 @@
   margin: 33rpx 30rpx 30rpx 30rpx;
 }
 
-.goods-item-logo image {
-  width: 30rpx;
-  height: 30rpx;
-  vertical-align: middle;
-  margin-right: 10rpx;
-}
-
 .goods-item-two-text1 {
   height: 15rpx;
   margin: 30rpx 30rpx 33rpx 30rpx;
@@ -133,6 +126,7 @@
 .item-bar {
   text-align: center;
   height: 99rpx;
+  border-right: 2rpx solid #f2f2f2;
 }
 
 .item-bar.collect {
@@ -170,13 +164,9 @@
   margin-left: 5rpx;
 }
 
-.icon-heart, .icon-xin {
+.icon-heart, .icon-xin ,.icon-goumai{
   font-size: 37rpx;
   display: block;
-}
-
-.icon-xiazai10, .icon-goumai {
-  font-size: 30rpx;
 }
 
 .coupon-box {

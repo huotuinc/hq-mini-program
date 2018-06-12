@@ -63,3 +63,21 @@ page {
 .category-goods-filter view.active{
   color: #FE4355;
 }
+
+.allOrder {
+  color: #CAC9CF;
+}
+
+.allOrder::after {
+  content: " ";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #CAC9CF;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  margin-left: 6rpx;
+  margin-top: -2rpx;
+}

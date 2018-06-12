@@ -2,20 +2,20 @@
   "pages": [
     "pages/index/index",
     "pages/usercenter/index",
-    "pages/goodscircle/index",
+    "pages/shop/index",
     "pages/goodsdetails/details",
-    "pages/welfare/index",
+    "pages/classify/classification",
     "pages/search/search",
     "pages/collectgoods/collectgoods",
     "pages/order/order-list",
     "pages/setting/setting",
-    "pages/login/index",
     "pages/goodslist/goods-list",
     "pages/usercenter/newsFeed/newsFeed",
     "pages/usercenter/withdraw/withdraw",
     "pages/usercenter/balance/balance",
     "pages/usercenter/integral/integral",
-    "pages/submitOrder/submitOrder"
+    "pages/submitOrder/submitOrder",
+    "pages/service/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -27,33 +27,39 @@
   },
   "tabBar": {
     "backgroundColor": "#FFFFFF",
-    "selectedColor": "#ff373e",
+    "selectedColor": "#E41436",
     "color": "#898989",
     "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/25@3x-1.png",
-        "selectedIconPath": "images/25@3x-2.png"
+        "iconPath": "images/a-2.png",
+        "selectedIconPath": "images/a.png"
       },
       {
-        "pagePath": "pages/welfare/index",
-        "text": "福利社",
-        "iconPath": "images/25@3x-6.png",
-        "selectedIconPath": "images/25@3x-5.png"
+        "pagePath": "pages/classify/classification",
+        "text": "分类",
+        "iconPath": "images/c-2.png",
+        "selectedIconPath": "images/c.png"
       },
       {
-        "pagePath": "pages/goodscircle/index",
-        "text": "好券圈",
-        "iconPath": "images/25@3x-4.png",
-        "selectedIconPath": "images/25@3x-3.png"
+        "pagePath": "pages/shop/index",
+        "text": "购物车",
+        "iconPath": "images/b-2.png",
+        "selectedIconPath": "images/b.png"
+      },
+      {
+        "pagePath": "pages/service/index",
+        "text": "客服",
+        "iconPath": "images/e-2.png",
+        "selectedIconPath": "images/e.png"
       },
       {
         "pagePath": "pages/usercenter/index",
         "text": "个人中心",
-        "iconPath": "images/25@3x-8.png",
-        "selectedIconPath": "images/25@3x-7.png"
+        "iconPath": "images/d-2.png",
+        "selectedIconPath": "images/d.png"
       }
     ]
   }
