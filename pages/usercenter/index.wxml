@@ -8,7 +8,7 @@
 </view>
 
 <view class='user-integral'>
-  <icon class='icon iconfont icon-x'></icon>
+  <icon class='icon iconfont icon-jifen' style='margin-right:10rpx;'></icon>
   <text>近30天积分：</text>
   <text class='user-integral_num'>0</text>
 </view>
@@ -20,7 +20,7 @@
   </view>
   <view class='my-order_classify'>
     <view data-currentTab='1' catchtap='_goOrder'>
-      <icon class='icon iconfont icon-daifukuan'></icon>
+      <icon class='icon iconfont icon-wallet_icon'></icon>
       <text>待付款</text>
     </view>
     <view data-currentTab='2' catchtap='_goOrder'>
@@ -32,11 +32,11 @@
       <text>待收货</text>
     </view>
     <view data-currentTab='4' catchtap='_goOrder'>
-      <icon class='icon iconfont icon-tubiaolunkuo-'></icon>
+      <icon class='icon iconfont icon-yisouhuo'></icon>
       <text>已收货</text>
     </view>
     <view>
-      <icon class='icon iconfont icon-shouhou'></icon>
+      <icon class='icon iconfont icon-navicon-wsgwjcsz'></icon>
       <text>售后</text>
     </view>
   </view>

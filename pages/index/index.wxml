@@ -46,7 +46,7 @@
   <view class='home-top'>
     <view class='index_header'>
       <view class='header_left'>
-        觅方
+        <icon class='icon iconfont icon-tubiaozhizuomoban1' style='font-size:80rpx;'></icon>
       </view>
       <view class='index_search' catchtap='searchShop'>
         <icon class="icon iconfont icon-sousuo"></icon>

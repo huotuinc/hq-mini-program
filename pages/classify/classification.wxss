@@ -1,1 +1,89 @@
-/* pages/classify/classification.wxss */
+.classify {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.classify-left {
+  width: 180rpx;
+  border-top: 1px solid #f0eff5;
+}
+
+.classify-left view {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+  border-bottom: 1px solid #f0eff5;
+  background-color: #fff;
+}
+
+.classify-left .item {
+  position: relative;
+}
+
+.classify-left .active {
+  background-color: #f2f2f2;
+}
+
+.classify-left .item.active:after {
+  content: "";
+  display: block;
+  height: 90rpx;
+  width: 8rpx;
+  background: red;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 8rpx;
+}
+
+.classify-right {
+  flex: 1;
+  width: 100%;
+}
+
+.goods-classify {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #333;
+  font-size: 26rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.goods-logo {
+  padding-left: 10rpx;
+  padding-bottom: 10rpx;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  display: flex;
+  flex: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.goods-classify_item {
+  padding: 5rpx;
+  width: 180rpx;
+  height: 240rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 10rpx;
+  margin-bottom: 15rpx;
+}
+.goods-classify_item:nth-child(3n){
+  margin-right: 0;
+}
+.goods-classify_item image {
+  width: 170rpx;
+  height: 180rpx;
+  margin-bottom: 10rpx;
+}

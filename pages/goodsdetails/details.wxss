@@ -58,41 +58,6 @@
   color: #ff4b54;
   position: absolute;
 }
-
-.coupon-info {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
-.coupon-info .coupon {
-  color: #ff4b54;
-  display: inline-block;
-  font-size: 30rpx;
-  font-weight: bold;
-}
-
-.coupon-info .coupon text {
-  font-size: 36rpx;
-}
-
-.coupon-price {
-  display: inline-block;
-  font-size: 87rpx;
-}
-
-.time-limit {
-  display: block;
-  font-size: 22rpx;
-  color: #9f9f9f;
-}
-
-.coupon-left {
-  position: absolute;
-  margin-left: 70rpx;
-  margin-top: 20rpx;
-}
-
 .goods-intro {
   margin: 30rpx;
   background-color: #f2f2f2;
@@ -134,6 +99,8 @@
   background-color: #fff;
   font-size: 20rpx;
   color: #000;
+  padding-top: 10rpx;
+  box-sizing: border-box;
 }
 
 .item-bar-right {
@@ -144,17 +111,18 @@
 }
 
 .item-bar.buy {
-  background-color: #ff9f41;
+  background-color: #ccc;
+  color: #000;
 }
 
 .item-bar.share {
-  background-color: #ff4b54;
+  background-color: #E41436;
+   color: #fff;
 }
 
 .item-bar.share, .item-bar.buy {
   line-height: 100%;
   width: 50%;
-  color: #fff;
 }
 
 .item-bar.buy text, .item-bar.share text {
@@ -164,12 +132,7 @@
   margin-left: 5rpx;
 }
 
-.icon-heart, .icon-xin ,.icon-goumai{
+.icon-kefu, .icon-shouye ,.icon-goumai{
   font-size: 37rpx;
   display: block;
-}
-
-.coupon-box {
-  position: relative;
-  height: 200rpx;
 }

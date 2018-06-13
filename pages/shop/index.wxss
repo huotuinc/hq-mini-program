@@ -1,1 +1,31 @@
-/* pages/shop/index.wxss */
+.no-shopping{
+  width: 100%;
+  padding-top: 70rpx; 
+}
+
+.shopping-cart{
+   /* margin: 0 auto;  */
+  width: 100%;
+  height: 300rpx;
+  text-align: center;
+  padding: 50rpx;
+  box-sizing: border-box;
+  color: #ccc;
+}
+
+.shopping-cart .icon{
+  font-size: 120rpx;
+}
+.shopping-cart .text{
+  font-size: 32rpx;
+  margin-top: 10rpx;
+}
+
+.go-around{
+  width: 100%;
+  text-align: center;
+  color: #999;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
+}

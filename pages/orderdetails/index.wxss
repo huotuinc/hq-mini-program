@@ -270,7 +270,7 @@
   font-size: 24rpx;
   line-height: 42rpx;
   text-align: center;
-  border: 1px solid #F0EFF5;
+  border: 1px solid #EBEBEB;
   border-radius: 8rpx;
   margin-right: 10rpx;
 }

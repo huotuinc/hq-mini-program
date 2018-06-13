@@ -4,7 +4,7 @@
   </view>
   <view class='goods-details-info-box'>
     <view class='goods-item-title'>
-      <text>啊手动阀手动阀手动阀手动阀大阿斯顿发射点啊手动阀</text>
+      <text>啊手动阀手动阀手动阀手动阀大阿斯顿发射点啊手动阀是啊啊撒旦阿斯顿哎说是阿斯顿</text>
     </view>
     <view class='goods-item-two-text1'>
       <text class='goods-item-price'>￥23.99</text>
@@ -14,19 +14,8 @@
       <icon class='icon iconfont icon-quanhoujia'></icon>
       <text class='goods-final-price'>￥19.99</text>
     </view>
-    <!-- <view class='coupon-box'>
-      <icon class='icon iconfont icon-quan'></icon>
-      <view class='coupon-info'>
-        <view class='coupon-left'>
-          <view class='coupon'>
-            <text>￥</text>
-            <view class='coupon-price'>5</view> 优惠券
-          </view>
-          <view class='time-limit'>使用期限：2018.05.15-2018.05.30</view>
-        </view>          
-      </view>
-    </view> -->
   </view>
+
   <view class='separator1'></view>
 
   <view class='goods-details-info'>
@@ -42,11 +31,15 @@
       <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
     </view>
   </view>
-  <view style='height:80rpx;'></view>
+  <view style='height:100rpx;'></view>
   <view class='bottom-bar'>
     <view class='item-bar collect'>
-      <icon bindtap='clickFavTab' class="icon iconfont icon-xin"></icon>
-      收藏
+      <icon bindtap='clickFavTab' class="icon iconfont icon-kefu"></icon>
+      客服
+    </view>
+    <view class='item-bar collect'>
+       <icon class='icon iconfont icon-shouye'></icon>
+      首页
     </view>
      <view class='item-bar collect'>
        <icon class='icon iconfont icon-goumai'></icon>
