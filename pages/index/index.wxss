@@ -274,3 +274,10 @@ page{
   top: 0;
   overflow: hidden;
 }
+
+.body-view{
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666;
+}

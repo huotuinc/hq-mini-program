@@ -3,6 +3,5 @@
     <icon class='icon iconfont icon-03'></icon>
     <view class='text'>您的购物车空空如也</view>
   </view>
-
   <view class='go-around'>去逛逛</view>
 </view>

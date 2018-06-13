@@ -4,7 +4,7 @@
       <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
     </block>
   </view>
-</view>
+</view> 
 
 <view class='separator2'></view>
 

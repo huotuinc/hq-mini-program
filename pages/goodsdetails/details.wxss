@@ -58,6 +58,7 @@
   color: #ff4b54;
   position: absolute;
 }
+
 .goods-intro {
   margin: 30rpx;
   background-color: #f2f2f2;
@@ -91,7 +92,7 @@
 .item-bar {
   text-align: center;
   height: 99rpx;
-  border-right: 2rpx solid #f2f2f2;
+  border-right: 2rpx solid #F0EFF5;
 }
 
 .item-bar.collect {
@@ -110,14 +111,18 @@
   flex-direction: row;
 }
 
+.item-bar-right .item-bar {
+  border-right: none;
+}
+
 .item-bar.buy {
   background-color: #ccc;
   color: #000;
 }
 
 .item-bar.share {
-  background-color: #E41436;
-   color: #fff;
+  background-color: #e41436;
+  color: #fff;
 }
 
 .item-bar.share, .item-bar.buy {
@@ -132,7 +137,7 @@
   margin-left: 5rpx;
 }
 
-.icon-kefu, .icon-shouye ,.icon-goumai{
+.icon-kefu, .icon-shouye, .icon-goumai {
   font-size: 37rpx;
   display: block;
 }

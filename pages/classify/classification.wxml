@@ -1,11 +1,15 @@
 <view class='classify'>
   <view class="classify-left">
-    <view class='item'>户外服装</view>
+    <!-- <view class='item'>户外服装</view>
     <view class='item active'>户外服装</view>
     <view class='item'>户外服装</view>
     <view class='item'>户外服装</view>
     <view class='item'>户外服装</view>
-    <view class='item'>户外服装</view>
+    <view class='item'>户外服装</view> -->
+
+    <block wx:for="{{classifList}}" wx:key="item">
+      <view class="item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
+    </block>
   </view>
 
   <view class='classify-right'>

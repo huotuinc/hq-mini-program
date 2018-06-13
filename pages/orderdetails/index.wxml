@@ -1,105 +1,107 @@
-<!-- <view class="consignee-information">
-  <text>收货人：XX</text>
-  <text>联系方式：1500000000</text>
-  <text>收获地址：</text>
-  <text>杭州市滨江区阡陌路22号智慧e谷B幢4楼</text>
+<view wx:if="{{!success}}">
+  <view class="consignee-information">
+    <text>收货人：XX</text>
+    <text>联系方式：1500000000</text>
+    <text>收获地址：</text>
+    <text>杭州市滨江区阡陌路22号智慧e谷B幢4楼</text>
+  </view>
+
+  <view class='goods-information'>
+    <view class='shop_name'>供应商名称/自营名称</view>
+    <view class='my-order_con' catchtap='_goGoodsDetails'>
+      <view>
+        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
+      </view>
+      <view class='goods_title'>
+        <view class='title_con'>
+          <text>自由物体组合体</text>
+        </view>
+        <view class='price_num'>
+          <text style='font-weight: 800;'>￥200000</text>
+          <text style='color: #999;'>x1</text>
+        </view>
+      </view>
+    </view>
+    <view class='goods-other'>
+      <view>
+        <text>配送方式</text>
+        <text style='color:#C8C7CD;float:right;'>快递(费用:￥0元)</text>
+      </view>
+      <view class='feedback'>备注留言</view>
+      <view>
+        <text>应付金额</text>
+        <text style='color:#E41436;float:right;'>￥1320.00</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='pay-way'>
+    <view class='pay-way_wx'>
+      <text class='active'>微信支付</text>
+    </view>
+    <view class='pay-way_other'>
+      <text>是否找人代付</text>
+      <view class='yes_no'>
+        <text class='active'>是</text>
+        <text>否</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='discounts'>
+    <view class='discounts-title'>优惠</view>
+    <view class='discounts-con'>
+      <view>
+        <view class='left'>
+          <text>积分 </text>
+          <text style='color:#E41436;'>2000积分</text>
+        </view>
+        <view class='right'>
+          <text>-￥20.00</text>
+          <icon class='icon iconfont icon-xuanzhong'></icon>
+        </view>
+      </view>
+      <view>
+        <view class='left'>
+          <text>余额 </text>
+          <text style='color:#E41436;'>2000积分</text>
+        </view>
+        <view class='right'>
+          <text>-￥20.00</text>
+          <icon class='icon iconfont icon-xuanzhong'></icon>
+        </view>
+      </view>
+      <view>
+        <view class='left'>
+          <text>优惠券 </text>
+          <text style='color:#E41436;'>0张</text>
+        </view>
+        <view class='right' bindtap="actionSheetTap">
+          <text>选择/无可用</text>
+          <text class='after_all'></text>
+        </view>
+      </view>
+      <view>
+        <view class='left'>
+          <text>开发票 </text>
+        </view>
+        <view class='right'>
+          <text style='color:#c8c7cd;'>无</text>
+          <text class='after_all'></text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style='height:130rpx;'></view>
+  <view class='submit'>
+    <text>应付金额：￥2.00</text>
+    <text class='sub_btn'>提交订单</text>
+  </view>
 </view>
 
-<view class='goods-information'>
-  <view class='shop_name'>供应商名称/自营名称</view>
-  <view class='my-order_con' catchtap='_goGoodsDetails'>
-    <view>
-      <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-    </view>
-    <view class='goods_title'>
-      <view class='title_con'>
-        <text>自由物体组合体</text>
-      </view>
-      <view class='price_num'>
-        <text style='font-weight: 800;'>￥200000</text>
-        <text style='color: #999;'>x1</text>
-      </view>
-    </view>
-  </view>
-  <view class='goods-other'>
-    <view>
-      <text>配送方式</text>
-      <text style='color:#C8C7CD;float:right;'>快递(费用:￥0元)</text>
-    </view>
-    <view class='feedback'>备注留言</view>
-    <view>
-      <text>应付金额</text>
-      <text style='color:#E41436;float:right;'>￥1320.00</text>
-    </view>
-  </view>
-</view>
 
-<view class='pay-way'>
-  <view class='pay-way_wx'>
-    <text class='active'>微信支付</text>
-  </view>
-  <view class='pay-way_other'>
-    <text>是否找人代付</text>
-    <view class='yes_no'>
-      <text class='active'>是</text>
-      <text>否</text>
-    </view>
-  </view>
-</view>
-
-<view class='discounts'>
-  <view class='discounts-title'>优惠</view>
-  <view class='discounts-con'>
-    <view>
-      <view class='left'>
-        <text>积分 </text>
-        <text style='color:#E41436;'>2000积分</text>
-      </view>
-      <view class='right'>
-        <text>-￥20.00</text>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-      </view>
-    </view>
-    <view>
-      <view class='left'>
-        <text>余额 </text>
-        <text style='color:#E41436;'>2000积分</text>
-      </view>
-      <view class='right'>
-        <text>-￥20.00</text>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-      </view>
-    </view>
-    <view>
-      <view class='left'>
-        <text>优惠券 </text>
-        <text style='color:#E41436;'>0张</text>
-      </view>
-      <view class='right'>
-        <text>选择/无可用</text>
-        <text class='after_all'></text>
-      </view>
-    </view>
-    <view>
-      <view class='left'>
-        <text>开发票 </text>
-      </view>
-      <view class='right'>
-        <text style='color:#c8c7cd;'>无</text>
-        <text class='after_all'></text>
-      </view>
-    </view>
-  </view>
-</view>
-
-<view style='height:130rpx;'></view>
-<view class='submit'>
-  <text>应付金额：￥2.00</text>
-  <text class='sub_btn'>提交订单</text>
-</view> -->
-
-
-<view class='trade-successfully'>
+<view class='trade-successfully' wx:else>
   <view class='success-header'>
     <view class='success-title'>交易成功</view>
     <view>订单号：32478329473829</view>

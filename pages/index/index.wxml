@@ -142,9 +142,7 @@
       </block>
     </view>
   </view>
-  <view style='height:40rpx;'></view>
-
-
+  
   <view wx:if="{{mask}}" class='category-more'>
     <view class='category-more-title'>
       <text>全部分类</text>
@@ -162,5 +160,8 @@
   <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
 
 </view>
-
+<view class="body-view" wx:if="{{hidden}}">
+    {{loadingTitle}}
+</view>
 <template is="loading" wx:if="{{loading}}" />
+<view style='height:40rpx;'></view>

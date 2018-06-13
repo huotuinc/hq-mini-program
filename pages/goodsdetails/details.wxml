@@ -13,7 +13,7 @@
     <view class='goods-item-two-text2'>
       <icon class='icon iconfont icon-quanhoujia'></icon>
       <text class='goods-final-price'>￥19.99</text>
-    </view>
+    </view> 
   </view>
 
   <view class='separator1'></view>

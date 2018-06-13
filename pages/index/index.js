@@ -26,7 +26,9 @@ Page({
     search: false,
     mask: false,
     windowHeight: windowHeight(),
-    historyList: []
+    historyList: [],
+    loadingTitle:"加载中...",
+    hidden:false
   },
   // 点击标题切换当前页时改变样式
   swichNav: function (e) {
@@ -262,14 +264,26 @@ Page({
 
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 页面上拉触底事件的处理函数 
    */
 
   onReachBottom: function () {
-    var _goodsItems = this.data.goodsItems;
     this.setData({
-      goodsItems: _goodsItems.concat(indexData.goodsItems)
-    })
+      hidden:true
+    }) 
+    var _goodsItems = this.data.goodsItems;
+    if (_goodsItems.concat(indexData.goodsItems) >_goodsItems){
+      this.setData({
+        hidden: false,
+        goodsItems: _goodsItems.concat(indexData.goodsItems)
+      })
+    }else{
+      this.setData({
+        hidden: false,
+        loadingTitle:"没有更多"
+      })
+    }
+   
   },
 
   /**
