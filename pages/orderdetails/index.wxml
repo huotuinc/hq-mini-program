@@ -1,4 +1,4 @@
-<view class="consignee-information">
+<!-- <view class="consignee-information">
   <text>收货人：XX</text>
   <text>联系方式：1500000000</text>
   <text>收获地址：</text>
@@ -96,4 +96,157 @@
 <view class='submit'>
   <text>应付金额：￥2.00</text>
   <text class='sub_btn'>提交订单</text>
+</view> -->
+
+
+<view class='trade-successfully'>
+  <view class='success-header'>
+    <view class='success-title'>交易成功</view>
+    <view>订单号：32478329473829</view>
+    <view>
+      <text>下单时间：2016-10-10 10:00:00</text>
+      <text style='float:right'>【订单状态】</text>
+    </view>
+  </view>
+
+  <view class='addressee'>
+    <view>
+      <text>收货人：星期八</text>
+      <text style='float:right;'>15000000000</text>
+    </view>
+    <view>
+      <view>收获地址：</view>
+      <view>杭州市滨江区阡陌路22号智慧e谷B幢4楼</view>
+    </view>
+  </view>
+
+  <view class='goods-information'>
+    <view class='shop_name'>
+      <text>供应商名称/自营名称</text>
+      <text class='allOrder' style='float:right;margin-right:30rpx;'></text>
+    </view>
+    <view class='my-order_con' catchtap='_goGoodsDetails'>
+      <view>
+        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
+      </view>
+      <view class='goods_other' style='width:100%;'>
+        <view class='goods_title'>
+          <view class='title_con'>
+            <text>自由物体组合体自由物体组合体自由物体组合体自由物体组合体</text>
+          </view>
+          <view class='price_num'>
+            <text style='font-weight: 800;'>￥200000</text>
+            <text style='color: #999;'>x1</text>
+          </view>
+        </view>
+        <view class='comment '>
+          <text>评价</text>
+          <text>售后</text>
+        </view>
+      </view>
+    </view>
+    <view class='my-order_con' catchtap='_goGoodsDetails'>
+      <view>
+        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
+      </view>
+      <view class='goods_other' style='width:100%;'>
+        <view class='goods_title'>
+          <view class='title_con'>
+            <text>自由物体组合体自由物体组合体自由物体组合体自由物体组合体</text>
+          </view>
+          <view class='price_num'>
+            <text style='font-weight: 800;'>￥200000</text>
+            <text style='color: #999;'>x1</text>
+          </view>
+        </view>
+        <view class='comment '>
+          <text>评价</text>
+          <text>售后</text>
+        </view>
+      </view>
+    </view>
+    <view class='my-order_con' catchtap='_goGoodsDetails'>
+      <view>
+        <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
+      </view>
+      <view class='goods_other' style='width:100%;'>
+        <view class='goods_title'>
+          <view class='title_con'>
+            <text>自由物体组合体自由物体组合体自由物体组合体自由物体组合体</text>
+          </view>
+          <view class='price_num'>
+            <text style='font-weight: 800;'>￥200000</text>
+            <text style='color: #999;'>x1</text>
+          </view>
+        </view>
+        <view class='comment '>
+          <text>评价</text>
+          <text>售后</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='ramark'>
+    备注留言
+  </view>
+
+  <view class='payroll-working'>
+    <view class='payroll-title'>支付明细</view>
+    <view class='discounts-con'>
+      <view>
+        <view class='left'>
+          <text>合计</text>
+        </view>
+        <view class='right'>
+          <text>￥2000.00</text>
+        </view>
+      </view>
+      <view>
+        <view class='left'>
+          <text>抵用积分</text>
+        </view>
+        <view class='right'>
+          <text>-￥20.00</text>
+        </view>
+      </view>
+      <view>
+        <view class='left'>
+          <text>余额支付</text>
+        </view>
+        <view class='right'>
+          <text>-￥20.00</text>
+        </view>
+      </view>
+      <view>
+        <view class='left'>
+          <text>线上支付</text>
+        </view>
+        <view class='right'>
+          <text>￥20.00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='contact-service'>联系客服</view>
+
+  <view class='logistics'>
+    <view class='logistics-title'>物流信息</view>
+    <view class='logistics-odd'>顺丰快递运单号 ：32432432432</view>
+    <view class='logistics-item'>
+      <view>
+        <view>杭州站客运中心 已发货</view>
+        <view>2016-10-10 22:44:00</view>
+      </view>
+      <view>
+        <view>商家正在通知快递公司揽件</view>
+        <view>2016-10-10 22:44:00</view>
+      </view>
+      <view>
+        <view>商家正在通知快递公司揽件</view>
+        <view>2016-10-10 22:44:00</view>
+      </view>
+    </view>
+  </view>
 </view>

@@ -22,7 +22,7 @@
   line-height: 76rpx;
   font-size: 32rpx;
   padding-left: 30rpx;
-  border-bottom: 1px solid #cac9cf;
+  border-bottom: 1px solid #F0EFF5;
 }
 
 .my-order_con {
@@ -53,6 +53,12 @@
 
 .title_con text {
   white-space: pre-wrap;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .price_num {
@@ -69,7 +75,7 @@
   height: 83rpx;
   line-height: 83rpx;
   font-size: 32rpx;
-  border-top: 1px solid #cac9cf;
+  border-top: 1px solid #F0EFF5;
   padding-right: 30rpx;
   position: relative;
 }
@@ -97,7 +103,7 @@
 .pay-way_wx {
   height: 136rpx;
   padding: 25rpx 0 27rpx;
-  border-bottom: 1px solid #cac9cf;
+  border-bottom: 1px solid #F0EFF5;
   box-sizing: border-box;
 }
 
@@ -133,12 +139,12 @@
   padding: 26rpx 0 16rpx 30rpx;
   font-size: 32rpx;
   color: #888;
-  border-bottom: 1px solid #cac9cf;
+  border-bottom: 1px solid #F0EFF5;
 }
 
 .discounts-con {
   background-color: #fff;
-  border-bottom: 1px solid #cac9cf;
+  border-bottom: 1px solid #F0EFF5;
 }
 
 .discounts-con>view {
@@ -147,7 +153,7 @@
   color: #000;
   line-height: 85rpx;
   margin-left: 30rpx;
-  border-top: 1px solid #cac9cf;
+  border-top: 1px solid #F0EFF5;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -159,16 +165,16 @@
   border-top: none;
 }
 
-.discounts-con .right text:first-child{
+.discounts-con .right text:first-child {
   margin-right: 23rpx;
 }
 
-.discounts-con .right .icon-xuanzhong{
-  color: #09BA07;
+.discounts-con .right .icon-xuanzhong {
+  color: #09ba07;
 }
 
-.discounts-con .after_all::after{
-content: " ";
+.discounts-con .after_all::after {
+  content: " ";
   display: inline-block;
   height: 12rpx;
   width: 12rpx;
@@ -206,4 +212,139 @@ content: " ";
   background-color: #e41436;
   border-radius: 10rpx;
   margin-top: 14rpx;
+}
+
+.trade-successfully{
+  padding-bottom: 20rpx;
+}
+
+.success-header {
+  width: 100%;
+  height: 165rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #e41436;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.success-title {
+  font-size: 32rpx;
+}
+
+.addressee {
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-top: 1px solid #F0EFF5;
+  border-bottom: 1px solid #F0EFF5;
+  font-size: 30rpx;
+}
+
+.addressee>view {
+  margin-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.addressee>view:first-child {
+  border-bottom: 1px solid #F0EFF5;
+  height: 86rpx;
+  line-height: 86rpx;
+  box-sizing: border-box;
+}
+
+.addressee>view:last-child {
+  /* height: 116rpx; */
+  padding: 29rpx 0 27rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.comment {
+  float: right;
+}
+
+.comment text {
+  display: inline-block;
+  width: 94rpx;
+  height: 42rpx;
+  font-size: 24rpx;
+  line-height: 42rpx;
+  text-align: center;
+  border: 1px solid #F0EFF5;
+  border-radius: 8rpx;
+  margin-right: 10rpx;
+}
+
+.trade-successfully .goods-information{
+  background-color: #fafafa;
+}
+
+.trade-successfully .shop_name{
+  background-color: #fff;
+}
+
+.trade-successfully .my-order_con {
+  padding-left: 0;
+  margin-left: 30rpx;
+  border-bottom: 1px solid #F0EFF5;
+}
+
+.trade-successfully .my-order_con:last-child {
+  border-bottom: none;
+}
+
+.ramark {
+  width: 100%;
+  height: 83rpx;
+  font-size: 32rpx;
+  line-height: 83rpx;
+  margin-top: 20rpx;  
+  background-color: #fff;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.payroll-title,.logistics-title{
+  font-size: 32rpx;
+  color: #888;
+  border-bottom: 1px solid #F0EFF5; 
+  padding: 32rpx 0 17rpx 30rpx; 
+}
+
+.contact-service{
+  margin-top: 20rpx;
+  width: 100%;
+  height: 79rpx;
+  line-height: 79rpx;
+  text-align: center;
+  font-size: 32rpx;
+  background-color: #FFF9E7;
+  border-top: 1px solid #F0EFF5;
+  border-bottom: 1px solid #F0EFF5;
+}
+
+.logistics-title{
+  padding: 37rpx 0 30rpx 30rpx;
+}
+
+.logistics-item,.logistics-odd{
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #888;
+}
+.logistics-odd{
+  background-color:#fff;
+  padding-left: 30rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+}
+
+.logistics-item>view{
+  margin-left: 30rpx;
+  border-top: 1px solid #F0EFF5;
+  padding: 33rpx 0;
+}
+
+.logistics-item>view:first-child{
+  color: #019EFB;
 }

@@ -6,35 +6,11 @@
   background-color: #fff;
 }
 
-.header {
-  height: 71rpx;
-  line-height: 71rpx;
-  border-bottom: 1px solid #e7e7e7;
-  display: flex;
-  flex-direction: row;
-}
-
-.header-left, .header-right {
-  position: absolute;
-  font-size: 25rpx;
-  color: #4b4b4b;
-}
-
-.header-left {
-  float: left;
-  left: 30rpx;
-}
-
-.header-right {
-  float: right;
-  right: 30rpx;
-}
-
 .order-status-tab {
   height: 80rpx;
   line-height: 80rpx;
   width: 100%;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #F0EFF5;
 }
 
 .order-status-tab .tab-item {
@@ -68,7 +44,7 @@
 
 .separator3 {
   height: 37rpx;
-  border-bottom: 1px solid #d1d0d5;
+  border-bottom: 1px solid #F0EFF5;
   margin: 0 0 0 25rpx;
 }
 
@@ -96,7 +72,7 @@
 }
 
 .item-info-2 {
-  border: 1px solid #e8e8e8;
+  border: 1px solid #F0EFF5;
   display: flex;
   flex-direction: column;
 }
@@ -110,7 +86,7 @@
   font-size: 28rpx;
   color: #000;
   box-sizing: border-box;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #F0EFF5;
 }
 
 .my-order_con {
