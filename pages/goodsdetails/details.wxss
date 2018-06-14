@@ -1,78 +1,88 @@
+.goods-details-main-pic {
+  background-color: #fff;
+}
+
 .goods-details-main-pic image {
   width: 100%;
+}
+
+.goods-details-info-box {
+  background-color: #fff;
 }
 
 .goods-item-title {
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
-  font-size: 28rpx;
+  font-size: 32rpx;
+  font-weight: 800;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  margin: 33rpx 30rpx 30rpx 30rpx;
+  padding: 33rpx 30rpx 10rpx;
+}
+
+.send-specification {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #e41436;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  padding: 0rpx 30rpx 10rpx;
+}
+
+.product-trademark {
+  font-size: 28rpx;
+  font-weight: 600;
+  padding: 0rpx 30rpx 10rpx;
+}
+
+.product-trademark text {
+  display: inline-block;
+  padding: 10rpx;
+  border: 1px solid #cbcbcb;
+  border-radius: 8rpx;
 }
 
 .goods-item-two-text1 {
-  height: 15rpx;
-  margin: 30rpx 30rpx 33rpx 30rpx;
-  font-size: 21rpx;
+  margin: 0rpx 30rpx;
+  padding-top: 30rpx;
+  font-size: 28rpx;
+  color: #acacac;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #f0eff5;
+}
+
+.goods-item-two-text1 text {
+  margin-bottom: 20rpx;
 }
 
 .goods-item-price {
-  color: #acacac;
-  float: left;
   text-decoration: line-through;
 }
 
-.goods-item-sales_volume {
-  font-size: 20rpx;
-  color: #acacac;
-  float: right;
-}
-
 .goods-item-two-text2 {
-  margin: 0 30rpx 50rpx 30rpx;
-  height: 30rpx;
-  font-size: 35rpx;
-  line-height: 50rpx;
-  font-weight: bold;
+  padding: 0 30rpx;
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #e41436;
 }
 
-.goods-item-two-text2 text {
-  color: #000;
+.select-size {
+  padding: 32rpx 50rpx 32rpx 30rpx;
+  font-size: 32rpx;
 }
 
-.goods-item-two-text2 .goods-final-price {
-  color: #eb1620;
-}
-
-.icon-quanhoujia {
-  font-size: 35rpx;
-}
-
-.icon-quan {
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  font-size: 175rpx;
-  color: #ff4b54;
-  position: absolute;
-}
-
-.goods-intro {
-  margin: 30rpx;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-  min-height: 100rpx;
-  font-size: 23rpx;
-  padding: 20rpx;
-}
-
-.goods-intro-title {
-  text-align: center;
-  height: 80rpx;
-  line-height: 80rpx;
-  font-size: 28rpx;
+.promotion {
+  margin: 20rpx 0;
+  padding: 30rpx 30rpx 18rpx;
+  font-size: 24rpx;
+  background-color: #fff;
 }
 
 .goods-details image {
@@ -92,7 +102,7 @@
 .item-bar {
   text-align: center;
   height: 99rpx;
-  border-right: 2rpx solid #F0EFF5;
+  border-right: 2rpx solid #f0eff5;
 }
 
 .item-bar.collect {
