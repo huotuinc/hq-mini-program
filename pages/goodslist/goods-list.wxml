@@ -4,17 +4,63 @@
 <view>
   <template is="search-header" />
   <view class='category-goods-filter'>
-    <view class='{{filterTap==1?"active":""}}' bindtap='clickfilterTap' data-type='1' data-msg='销量'>销量</view>
-    <view class='{{filterTap==2?"active":""}}' bindtap='clickfilterTap' data-type='2' data-msg='最新'>最新</view>
-    <view class='{{filterTap==3?"active":""}}' bindtap='clickfilterTap' data-type='3' data-sort='asc' data-msg='价格'>价格</view>
+    <view class='filter-item {{filterTap==1 ?"active":""}}' bindtap='clickfilterTap' data-type='1' data-order='{{order}}' data-msg='新品'>
+      新品
+      <view class='filter-icon'>
+        <icon class='{{filterTap==1 & order==1?"active":""}} icon iconfont icon-xia'></icon>
+        <icon class='{{filterTap==1 & order==2?"active":""}} icon iconfont icon-xia-copy'></icon>
+      </view>
+    </view>
+    <view class='{{filterTap==2?"active":""}}' bindtap='clickfilterTap' data-type='2' data-msg='销量'>
+      销量
+      <icon class='icon iconfont icon-xiajiang' style='font-size:24rpx;'></icon>
+    </view>
+    <view class='filter-item {{filterTap==3?"active":""}}' bindtap='clickfilterTap' data-type='3' data-sort='asc' data-order='{{order}}' data-msg='价格'>
+      价格
+      <view class='filter-icon'>
+        <icon class='{{filterTap==3 & order==1?"active":""}} icon iconfont icon-xia'></icon>
+        <icon class='{{filterTap==3 & order==2?"active":""}} icon iconfont icon-xia-copy'></icon>
+      </view>
+    </view>
     <view class='{{filterTap==4?"active":""}}' bindtap='clickfilterTap' data-type='4' data-msg='最新'>综合</view>
-    <view data-type='5' data-msg='筛选'>筛选</view>
+    <view data-type='5' data-msg='筛选' bindtap="powerDrawer" data-statu="{{statu}}">筛选</view>
   </view>
 </view>
-<view class='separator'>
-</view>
+<view class='separator'></view>
 <view>
   <block wx:for="{{goodsItems}}" wx:key="item">
     <template is="itemTwo" data="{{item,index}}" />
   </block>
-</view> 
+</view>
+
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+
+<view class='filtrate'  wx:if="{{showModalStatus}}">
+  <view class='filtrate-header'>
+    <view class="tab-item {{currentTab==0?'active':''}}" data-index='0' bindtap="swichNav">品牌</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-index='1' bindtap="swichNav">分类</view>
+    <view class="tab-item {{currentTab==2?'active':''}}" data-index='2' bindtap="swichNav">热点</view>
+  </view>
+  <view class='filtrate-select'>
+    <view>
+      <icon class='icon iconfont icon-ico2'></icon>
+      <text>kurui</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-ico2'></icon>
+      <text>ku</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-xuanzhong'></icon>
+      <text>11111</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-xuanzhong'></icon>
+      <text>2222</text>
+    </view>
+  </view>
+
+  <view class='filtrate-btn'>
+    <text>确认</text>
+  </view>
+</view>

@@ -2,8 +2,8 @@
   width: 100%;
   font-size: 24rpx;
   position: fixed;
-  z-index: 500;
   border-bottom: 1px solid #f6f6f6;
+  z-index: 1001;
 }
 
 .home-index-display {
@@ -29,12 +29,12 @@
 }
 
 .icon-sousuo {
-  color: #bfbfbf;
+  color: #666;
 }
 
 .index_search text {
   font-size: 14.5px;
-  color: #bfbfbf;
+  color: #666;
   margin-left: 4px;
 }
 

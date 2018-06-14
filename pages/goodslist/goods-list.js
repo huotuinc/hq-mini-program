@@ -1,5 +1,8 @@
 const indexData = require('../../utils/mock/index.js')
-import { collection, windowHeight } from '../../utils/common.js'
+import {
+  collection,
+  windowHeight
+} from '../../utils/common.js'
 Page({
 
   /**
@@ -7,22 +10,33 @@ Page({
    */
   data: {
     filterTap: 1,
+    order: 2,
     goodsItems: [],
     categoryTitle: '',
-    categoryid: 0
+    currentTab: 0,
+    showModalStatus: false,
+    categoryid: 0,
+    statu: "open"
   },
-  clickfilterTap: function (e) {
-    var cur = e.currentTarget.dataset;
-    if (cur.type == 4) {
+  clickfilterTap: function(e) {
+    var cur = e.currentTarget.dataset.type;
+    var orderId = e.currentTarget.dataset.order
+    if (orderId == 2 && cur == this.data.filterTap) {
+      this.setData({
+        order: 1,
+        filterTap: cur
+      })
+    } else {
+      this.setData({
+        order: 2,
+        filterTap: cur
+      })
     }
-    this.setData({
-      filterTap: cur.type
-    })
   },
   //点击收藏
-  clickFavTab: function (e) {
+  clickFavTab: function(e) {
     var item = e.currentTarget.dataset.item;
-    var index = e.currentTarget.dataset.index;    
+    var index = e.currentTarget.dataset.index;
     var _items = this.data.goodsItems;
     _items[index].isFav = !item.isFav;
     this.setData({
@@ -35,7 +49,7 @@ Page({
     })
   },
   //商品详情页面
-  goodsDetails: function (e) {
+  goodsDetails: function(e) {
     wx.navigateTo({
       url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
     })
@@ -43,7 +57,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(options);
     this.setData({
       goodsItems: indexData.goodsItems,
@@ -54,39 +68,69 @@ Page({
       title: this.data.categoryTitle,
     })
   },
+  powerDrawer: function(e) {
+    var currentStatu = e.currentTarget.dataset.statu;
+    if (currentStatu == "open") {
+      this.setData({
+        statu: "close",
+        showModalStatus: true
+      })
+    } else {
+      this.setData({
+        statu: "open",
+        showModalStatus: false
+      })
+    }
+
+    if (currentStatu == "close") {
+      this.setData({
+        showModalStatus: false
+      });
+    }
+  },
+
+  swichNav: function(e) {
+    var cur = e.target.dataset.index
+    if (this.data.currentTab == cur) {
+      return false
+    }
+    this.setData({
+      currentTab: cur
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     this.setData({
       goodsItems: indexData.goodsItems
     })
@@ -96,7 +140,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     var _goodsItems = this.data.goodsItems;
     this.setData({
       goodsItems: _goodsItems.concat(indexData.goodsItems)
@@ -106,7 +150,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

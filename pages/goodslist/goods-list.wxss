@@ -1,19 +1,41 @@
 @import '../template/goods-item/goods-item-two-template.wxss';
 @import '../template/search/search-template.wxss';
 
-page{
+page {
   background-color: #fff;
 }
 
-.category-goods-filter{
-  width: 100%;
-  height: 85rpx;
-  background-color: #F0EFF5;
+.filter-item {
   display: flex;
-  flex-direction: row;  
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
 }
 
-.category-goods-filter view{
+.filter-item .filter-icon icon {
+  position: absolute;
+  font-size: 20rpx;
+  left: 55%;
+}
+
+.filter-item .filter-icon .icon-xia {
+  bottom: 5%;
+}
+
+.filter-item .filter-icon .icon-xia-copy {
+  top: 10%;
+}
+
+.category-goods-filter {
+  width: 100%;
+  height: 85rpx;
+  background-color: #f0eff5;
+  display: flex;
+  flex-direction: row;
+  z-index: 1001;
+}
+
+.category-goods-filter view {
   width: 25%;
   height: 85rpx;
   line-height: 85rpx;
@@ -22,14 +44,117 @@ page{
   color: #000;
 }
 
-.category-goods-filter view.active{
-  color: #E41436;
+.filter-item .filter-icon .icon.active, .category-goods-filter view.active {
+  color: #e41436;
 }
 
-.category-goods-filter{
-   position: fixed; 
-   top: 90rpx; 
+.category-goods-filter {
+  position: fixed;
+  top: 90rpx;
 }
-.separator{
-height: 175rpx;  
+
+.separator {
+  height: 175rpx;
+}
+
+/*mask*/  
+.drawer_screen {  
+  width: 100%;  
+   height: 100%;   
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1000;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+} 
+
+.filtrate {
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  position: fixed;
+  top: 175rpx;
+  padding-bottom:50rpx; 
+}
+
+.filtrate-header {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  border-bottom: 1px solid #f0eff5;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.filtrate-header .tab-item {
+  width: 33%;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+}
+
+.filtrate-header .tab-item.active {
+  color: #e41436;
+  position: relative;
+}
+
+.filtrate-header .tab-item.active:after {
+  content: "";
+  display: block;
+  height: 8rpx;
+  width: 100rpx;
+  background: #e41436;
+  position: absolute;
+  transform: translate(60%);
+  bottom: 0;
+  border-radius: 16rpx;
+}
+
+.filtrate-select {
+  padding: 0 20rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+  color: #666;
+  box-sizing: border-box;
+}
+
+.filtrate-select view {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #f0eff5;
+}
+
+.filtrate-select view .icon {
+  vertical-align: middle;
+  font-size: 28rpx;
+  margin-right: 10rpx;
+}
+
+.filtrate-select view .icon-xuanzhong {
+  color: #e41436;
+}
+
+.filtrate-btn {
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+.filtrate-btn text {
+  display: block;
+  color: #000;
+  background-color: #f0eff5;
+  font-size: 32rpx;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  border-radius: 15rpx;
 }

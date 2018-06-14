@@ -1,7 +1,7 @@
 import { windowHeight } from '../../utils/common.js'
 const order = require('../../utils/mock/order.js')
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
