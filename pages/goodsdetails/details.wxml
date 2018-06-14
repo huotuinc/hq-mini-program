@@ -20,19 +20,19 @@
       <text class='goods-item-price'>￥23.99</text>
       <text class='goods-item-sales_volume'>总销量：4905</text>
     </view>
-    <view class='select-size'>
+    <view class='select-size' bindtap="powerDrawer" data-statu="open">
       <text>请选择规格</text>
       <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text>
     </view>
   </view>
 
   <view class='promotion'>
-      <text style='color:#acacac;margin-right:18rpx;'>促销</text>
-      <!-- <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text> -->
-      <text style='padding:2rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
-      <text>觅方66节下单就返3-8元随机无门槛优惠券</text>
-       <text class='allOrder' style='float:right;'></text>
-    </view>
+    <text style='color:#acacac;margin-right:18rpx;'>促销</text>
+    <!-- <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text> -->
+    <text style='padding:2rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
+    <text>觅方66节下单就返3-8元随机无门槛优惠券</text>
+    <text class='allOrder' style='float:right;'></text>
+  </view>
 
   <view class='separator1'></view>
 
@@ -45,6 +45,7 @@
       <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
     </view>
   </view>
+
   <view style='height:100rpx;'></view>
   <view class='bottom-bar'>
     <view class='item-bar collect'>
@@ -67,5 +68,63 @@
         <text>立即购买</text>
       </view>
     </view>
+  </view>
+</view>
+
+<!-- 选择规格的底部弹出内容 -->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+  <!--drawer content-->
+  <view class="drawer_content">
+    <view class='size-header'>
+      <view class='goods-image'>
+        <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+      </view>
+      <view class='price-repertory_select'>
+        <view style='color:#e41436'>￥39</view>
+        <view>库存：78件</view>
+        <view>已选择：s 宝蓝迷彩</view>
+      </view>
+    </view>
+
+    <view class='buy-select'>
+      <view class='select-title'>
+        <text>尺码</text>
+      </view>
+      <view class='select_size'>
+        <text class='active'>S</text>
+        <text>M</text>
+        <text>L</text>
+        <text>XL</text>
+      </view>
+    </view>
+    <view class='buy-select'>
+      <view class='select-title'>
+        <text>颜色分类</text>
+      </view>
+      <view class='select_size'>
+        <text class='active'>宝蓝迷彩</text>
+        <text>藏青迷彩</text>
+        <text>深灰迷彩</text>
+        <text>瑰红</text>
+        <text>浅灰迷彩</text>
+        <text>紫色迷彩</text>
+      </view>
+    </view>
+
+    <view class='buy_num'>
+      <view class='buy-num_title'>
+        <text>购买数量</text>
+      </view>
+      <view class='add_minus'>
+        <text>-</text>
+        <text>1</text>
+        <text>+</text>
+      </view>
+    </view>
+
+    <view class='submit'>立即购买</view>
   </view>
 </view>
