@@ -1,35 +1,42 @@
 page{
-  background-color: #F1F2F4;
-}
-.setting-item{
-  height: 87rpx;
-  line-height: 87rpx;  
-  background-color: #ffffff;
-  font-size: 30rpx;
-  color: #393939;
-  
-  padding: 0 30rpx;
-  margin-top: 20rpx;
-  position: relative;
-}
-.setting-box{
-  border-top: 1px solid #E1e1e1;
+  font-size: 28rpx;
 }
 
-.setting-right{
- color: #8b8b8b;
- display: inline-block;
- position: absolute;
- right: 30rpx;
-}
-
-.logout-buttom{
-  margin: 90rpx 30rpx 0 30rpx;
+.setting-header{
   height: 80rpx;
+  width: 100%;
+  padding: 0 30rpx;
   line-height: 80rpx;
-  text-align: center;  
-  border-radius: 15rpx;
-  background-color: #000000;
-  font-size: 30rpx;
-  color: #ffffff;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-top: 1px solid #f2f2f2;
+}
+
+.class_title{
+  display: block;
+  width: 100%;
+  color: #acacac;
+  padding:17rpx 0rpx 17rpx 30rpx;
+  border-bottom: 1px solid #f2f2f2;
+  box-sizing: border-box; 
+}
+
+.information{
+  border-bottom: 1px solid #f2f2f2;
+  background-color: #fff;
+}
+
+.information view{
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-left: 30rpx;
+  padding-right: 30rpx;
+  border-bottom:1px solid #f2f2f2; 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.information view:last-child{
+  border-bottom: none;
 }

@@ -47,7 +47,7 @@
 .select-icon .icon-guanbi {
   font-size: 40rpx;
   margin-top: -40rpx;
-  color: #fe4d52;
+  color: #E41436;
 }
 
 .goods-item-left image {
@@ -62,18 +62,12 @@
   box-sizing: border-box;
 }
 
-.goods-item-logo image {
-  width: 30rpx;
-  height: 30rpx;
-  margin-right: 10rpx;
-  vertical-align: middle;
-}
 
 .goods-item-title {
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
-  font-size: 28rpx;
+  font-size: 30rpx;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -87,79 +81,31 @@
 }
 
 .oldprice {
-  font-size: 23rpx;
+  margin-top: 10rpx;
+  font-size: 28rpx;
   text-decoration: line-through;
   color: #acacac;
 }
 
-.icon-heart, .icon-xin {
-  float: right;
-  font-size: 36rpx;
-  margin-top: -15rpx;
-}
-
-.icon-heart {
-  color: #acacac;
-}
-
-.icon-xin {
-  color: #fe4c55;
-}
 
 .old-ticket_sales {
-  margin-top: 30rpx;
+  margin-top: 10rpx;
 }
 
 .new-ticket_sales {
   margin-top: 20rpx;
 }
 
-.old-ticket_sales, .new-ticket_sales {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.price_ticket {
-  width: 76rpx;
-  height: 30rpx;
-  font-size: 20rpx;
-  border: 1px solid #fe4c55;
-  border-radius: 30rpx;
-  text-align: center;
-  line-height: 30rpx;
-  color: #fe4c55;
-  font-weight: normal;
-}
-
 .sales_volume {
-  font-size: 20rpx;
+  font-size: 26rpx;
   color: #acacac;
 }
 
 .new-price_ticket {
-  font-size: 26rpx;
+  font-size: 32rpx;
   font-weight: bold;
 }
 
 .new-price_ticket .price {
-  color: #fe4c55;
-}
-
-.share_make {
-  margin-top: -8rpx;
-  width: 180rpx;
-  height: 40rpx;
-  line-height: 40rpx;
-  font-size: 26rpx;
-  color: #fe4c55;
-  border: 1px solid #fe4c55;
-  background-color: #fef8f7;
-  border-radius: 40rpx;
-  text-align: center;
-}
-
-.share_make  .icon-zuanshi {
-  font-size: 26rpx;
-  margin-top: -30rpx;
+  color: #E41436;
 }

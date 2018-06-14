@@ -1,19 +1,61 @@
-<view class='setting-box'>
-  <view class='setting-item'>
-    清除缓存
-    <view class='setting-right'>552M</view>
-  </view>
-  <view class='setting-item'>
-    版本号
-    <view class='setting-right'>V1.0.0</view>
-  </view>
-  <view class='setting-item'>
-    当前账号
-    <view class='setting-right'>152******25</view>
-  </view>
-  <view class='setting-item'>
-    我的上级
-    <view class='setting-right'>152******25</view>
-  </view>
-  <view class='logout-buttom'>退出账号</view>
+<view class="setting-header">
+  <text>当前安全等级</text>
 </view>
+
+<text class='class_title'>基础信息</text>
+<view class='information'>
+  <view>
+    <text>姓名</text>
+    <text class='allOrder'>去完善</text>
+  </view>
+  <view>
+    <text>性别</text>
+    <text class='allOrder'>未知</text>
+  </view>
+  <view>
+    <text>生日</text>
+    <text class='allOrder'></text>
+  </view>
+  <view>
+    <text>身份证</text>
+    <text class='allOrder'></text>
+  </view>
+  <view>
+    <text>绑定手机</text>
+    <text class='allOrder'>未绑定</text>
+  </view>
+  <view>
+    <text>微信号</text>
+    <text class='allOrder'></text>
+  </view>
+  <view>
+    <text>城市</text>
+    <text class='allOrder'></text>
+  </view>
+</view>
+
+<text class='class_title'>提升安全</text>
+<view class='information'>
+  <view>
+    <text>支付密码</text>
+    <text class='allOrder'>未设置密码</text>
+  </view>
+  <view>
+    <text>开启支付密码</text>
+    <text class='allOrder'>未知</text>
+  </view>
+</view>
+
+<text class='class_title'>更多</text>
+<view class='information'>
+  <view>
+    <text>收货地址</text>
+    <text class='allOrder'></text>
+  </view>
+  <view>
+    <text>清除缓存</text>
+    <text class='allOrder'></text>
+  </view>
+</view>
+
+<view style='height:20rpx;'></view>

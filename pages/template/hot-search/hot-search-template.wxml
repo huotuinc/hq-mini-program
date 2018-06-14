@@ -1,9 +1,0 @@
-<import src="../search-list/search-list-template.wxml" />
-
-<template name="hotSearch">
-  <view class='hot-search'>
-    <icon class='icon iconfont icon-hot'></icon>
-    <text>热门搜索</text>
-  </view>
-  <template is="searchList"></template>
-</template>

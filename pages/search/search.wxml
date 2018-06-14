@@ -1,14 +1,12 @@
-<import src="../template/hot-search/hot-search-template.wxml" />
-<import src="../template/recently-search/recently-search-template.wxml" />
-
-<template name="searchList">
+<view>
   <view class="search_header">
     <icon class='icon iconfont icon-sousuo'></icon>
-    <input type='text' placeholder='输入商品名称' bindconfirm="confirmSearch" bindinput="bindSearchInput"></input>
-    <icon class='icon iconfont icon-sousuo'></icon>
+    <input type='text' placeholder='输入商品名称' bindconfirm="confirmSearch" bindinput="bindSearchInput" value='{{inputSearch}}'></input>
+    <icon class='icon iconfont icon-x' catchtap='clearInput'></icon>
     <text class='cancel' catchtap='cancelSearch'>取消</text>
   </view>
-  <view class='line-between'></view>
+
+  <view class='line_view'></view>
 
   <view>
     <view class='recently-search'>
@@ -17,15 +15,25 @@
         <text>最近搜索</text>
       </view>
       <view class='delet'>
-        <icon class='icon iconfont icon-shanchu'></icon>
+        <icon class='icon iconfont icon-shanchu' catchtap='clearHistory'></icon>
       </view>
     </view>
     <view class='search-list'>
-      <block wx:for="{{historyList}}" wx:key="item">
-        <text>{{item}}</text>
+      <block wx:if="{{showHistory}}" wx:for="{{historyList}}" wx:key="item">
+        <text catchtap='startSearch' data-con='{{item}}'>{{item}}</text>
       </block>
     </view>
   </view>
 
-  <template is="hotSearch"></template>
-</template>
+  <view>
+    <view class='hot-search'>
+      <icon class='icon iconfont icon-hot'></icon>
+      <text>热门搜索</text>
+    </view>
+    <view class='search-list'>
+      <block wx:for="{{hotsearchkeyworld}}" wx:key="item">
+        <text>{{item}}</text>
+      </block>
+    </view>
+  </view>
+</view>

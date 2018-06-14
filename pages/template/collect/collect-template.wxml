@@ -10,8 +10,7 @@
     </view>
 
     <view class='goods-item-right'>
-      <view class='goods-item-title goods-item-logo'>
-        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+      <view class='goods-item-title'>
         <text>{{item.title}}</text>
       </view>
 
@@ -20,22 +19,15 @@
       </view>
       <view>
         <view class='old-ticket_sales'>
-          <view class='price_ticket'> {{item.couponPrice}}元券</view>
           <view class='sales_volume'>销量{{item.salesVolume}}件</view>
         </view>
 
         <view class='new-ticket_sales'>
           <view class='new-price_ticket'>
-            券后
             <text class='price'>￥{{item.finalPrice}}</text>
           </view>
-          <view class='share_make'>
-            <text>分享赚</text>
-            <icon class='icon iconfont icon-zuanshi'></icon>
-            <text>{{item.earnMoney}}</text>
-          </view>
         </view>
-      </view>
+      </view> 
     </view>
   </view>
 </template>

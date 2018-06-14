@@ -1,44 +1,48 @@
-@import "../template/hot-search/hot-search-template.wxss";
-@import "../template/recently-search/recently-search-template.wxss";
-
-.search_header{
+.search_header {
+  margin-top: 10rpx;
   width: 100%;
   height: 40px;
-  color: #BFBFBF;
+  color: #acacac;
   font-size: 16px;
-  padding-left: 24rpx;
+  padding-left: 30rpx;
   padding-right: 128rpx;
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
 
-.search_header input{
-  height: 100%;
+.search_header input {
+  height: 40px;
   padding-left: 60rpx;
   box-sizing: border-box;
-  background-color: #f6f6f6;
-  border-radius: 16rpx;
+  background-color: #fff;
+  border-radius: 40rpx;
+  line-height: 40rpx;
+  position: relative;
 }
 
-.search_header .icon-sousuo{
+.search_header .icon-sousuo {
   position: absolute;
-  left: 40rpx;
-  top: 4rpx;
-  font-size: 16px;
+  left: 50rpx;
+  top: 16rpx;
+  font-size: 18px;
+  z-index: 10;
+  vertical-align: middle;
 }
 
-.search_header .icon-x{
+.search_header .icon-x {
   display: inline-block;
   width: 40px;
   height: 40px;
   position: absolute;
   right: 160rpx;
-  top: 4rpx;
-  font-size: 16px;
+  top: 14rpx;
+  font-size: 18px;
   z-index: 10;
   text-align: center;
+  vertical-align: middle;
 }
 
-.cancel{
+.cancel {
+  margin-top: 10rpx;
   width: 126rpx;
   height: 40px;
   position: absolute;
@@ -47,12 +51,64 @@
   text-align: center;
   font-size: 16px;
   color: #000;
-  line-height: 40px;
+  line-height: 45px;
 }
 
-.line-between{
+.line_view{
   width: 100%;
-  height: 1px;
-  background-color: #d2d2d2;
   margin-top: 10rpx;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.search-list {
+  margin-top: 36rpx;
+  overflow: hidden;
+}
+
+.search-list text {
+  display: inline-block;
+  padding: 20rpx;
+  border-radius: 50rpx;
+  background-color: #fff;
+  color: #acacae;
+  font-size: 28rpx;
+  margin: 15rpx 20rpx 0;
+  min-width: 50rpx;
+  text-align: center;
+}
+
+.hot-search {
+  margin-left: 32rpx;
+  margin-top: 44rpx;
+  color: #bfbfbf;
+  font-size: 29rpx;
+}
+
+.hot-search icon {
+  font-size: 32rpx;
+}
+
+.hot-search text {
+  margin-left: 10rpx;
+}
+
+.recently-search{
+  margin-left: 32rpx;
+  margin-top: 44rpx;
+  color: #BFBFBF;
+  font-size: 29rpx;
+  position: relative;
+}
+
+.recently-search icon{
+  font-size: 32rpx;
+}
+.delet{
+  position: absolute;
+  right: 50rpx;
+  top: 0;
+}
+.recently-search text{
+  margin-left: 10rpx;
 }

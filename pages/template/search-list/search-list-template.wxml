@@ -1,5 +1,0 @@
-<template name="searchList">
-  <view class='search-list'>
-    <text>{{item}}</text>
-  </view>
-</template>

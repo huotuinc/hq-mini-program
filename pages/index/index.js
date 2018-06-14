@@ -19,14 +19,11 @@ Page({
     scrollLeft: 0, //tab标题的滚动条位置
     category: [],
     currentCategory: [],
-    hotItems: [],
     goodsItems: [],
     specialItems: [],
     filterTap: 1,
-    search: false,
     mask: false,
     windowHeight: windowHeight(),
-    historyList: [],
     loadingTitle:"加载中...",
     hidden:false
   },
@@ -116,63 +113,9 @@ Page({
   },
   // search搜索
   searchShop(e) {
-    this.setData({
-      search: true
-    })
-  },
-  cancelSearch: function (e) {
-    this.setData({
-      search: false
-    })
-  },
-  clearInput: function (e) {
-    this.setData({
-      inputSearch: ''
-    })
-  },
-  bindSearchInput: function (e) {
-    this.setData({
-      inputSearch: e.detail.value
-    })
-  },
-
-  confirmSearch: function (e) {
-    let searchList = []
-    var that = this
-    searchList.push(this.data.inputSearch)
-    //对搜索记录得去重并且按搜索先后顺序进行排序
-    this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
-    wx.setStorage({
-      key: 'historyList',
-      data: that.data.historyList
-    })
-    wx.navigateTo({
-      url: '../goodslist/goods-list?categoryTitle=搜索结果&keyworld=' + this.data.inputSearch
-    })
-  },
-
-  clearHistory: function (e) {
-    var that = this
-    wx.removeStorage({
-      key: 'historyList',
-      success: function (res) {
-        that.setData({
-          showHistory: false,
-          historyList: []
-        })
-        wx.showToast({
-          title: '清除成功',
-          icon: 'success'
-        })
-      }
-    })
-  },
-
-  startSearch: function (e) {
-    // console.log(e.target.dataset.con)
-    wx.navigateTo({
-      url: '../goodslist/goods-list?categoryTitle=搜索结果&keyworld=' + e.target.dataset.con
-    })
+  wx.navigateTo({
+    url: '../search/search',
+  })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -206,15 +149,6 @@ Page({
         })
       }
     })
-
-    //热搜关键字
-    home.hotSearchKeyWorld(function (code, res) {
-      if (code) {
-        self.setData({
-          hotsearchkeyworld: res.keys
-        })
-      }
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -233,15 +167,6 @@ Page({
     date.setSeconds(0)
     skillTime(date.toString(), this)
     var that = this
-    wx.getStorage({
-      key: 'historyList',
-      success: function (res) {
-        that.setData({
-          historyList: res.data,
-          showHistory: true
-        })
-      }
-    })
   },
 
   /**
