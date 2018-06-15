@@ -10,7 +10,7 @@ Page({
    */
   data: {
     filterTap: 1,
-    order: 2,
+    order: 2, 
     goodsItems: [],
     categoryTitle: '',
     currentTab: 0,
@@ -51,7 +51,7 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId
+      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId +'&categoryTitle=埃阿斯嘉'
     })
   },
   /**

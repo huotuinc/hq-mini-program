@@ -1,22 +1,35 @@
 # hq-mini-program
-好券小程序
 
+觅方小程序
 
 # 目录结构说明
+
 ```
+common ------ 公共样式等
 images-------图片
 pages-------- 页面
-   goodscircle--------好券圈相关页面
-   goodsdetails-------商品详情页面
-   index--------------首页相关页面
-   template-----------模板目录
-   usercenter---------个人中心相关页面
-   welfare------------福利社页面
-   myGroup----------我的团队
-   revenueCenter----收益中心
-   collectgoods------收藏夹
-   feedback----------联系我们
-   order-------------推广订单
-   inviteFriend------邀请好友
+    template ------ 页面通用模板文件夹
+    "pages/index/index" ------------------------  首页
+    "pages/usercenter/index" -------------------  个人中心
+    "pages/shop/index"  ------------------------  购物车
+    "pages/goodsdetails/details" ---------------  商品详情
+    "pages/classify/classification" ------------  商品分类
+    "pages/search/search" ----------------------  搜索
+    "pages/collectgoods/collectgoods" ----------  收藏夹
+    "pages/order/order-list" -------------------  订单中心
+    "pages/setting/setting"  -------------------  设置
+    "pages/goodslist/goods-list" ---------------  商品列表
+    "pages/usercenter/newsFeed/newsFeed" -------  消息动态
+    "pages/usercenter/withdraw/withdraw" -------  我的钱包
+    "pages/usercenter/balance/balance" ---------  账户余额
+    "pages/usercenter/integral/integral" -------  积分列表
+    "pages/submitOrder/submitOrder" ------------  提交订单
+    "pages/service/index" ----------------------  客服中心
+    "pages/orderdetails/index" -----------------  订单详情
+    "pages/kiting/index" -----------------------  我要提现
+    "pages/record/index" -----------------------  提现记录
+    "pages/account/index" ----------------------  提现账户
+    "pages/modification/index" -----------------  新增/修改提现账户
+
 utils--------- 脚本文件
 ```

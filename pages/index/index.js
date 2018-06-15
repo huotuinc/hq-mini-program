@@ -82,7 +82,7 @@ Page({
   //商品详情页面
   goodsDetails: function (e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId +'&categoryTitle=阿拉斯加'
     })
   },
   //设置tab标题滚动

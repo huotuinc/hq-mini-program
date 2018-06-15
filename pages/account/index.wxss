@@ -93,3 +93,15 @@
 .model_content>view:last-child {
   border: none;
 }
+
+.add_account {
+  margin: 90rpx 30rpx 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 15rpx;
+  font-size: 30rpx;
+  background-color: #FFF;
+  color: #000;
+  margin-top: 50rpx;
+}

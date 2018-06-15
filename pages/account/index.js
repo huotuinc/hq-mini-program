@@ -19,7 +19,7 @@ Page({
   },
   _goModification:function(e){
     wx.navigateTo({
-      url: '../modification/index',
+      url: '../modification/index?categoryTitle=' + e.currentTarget.dataset.categorytitle
     })
     this.hideModal()
   },
