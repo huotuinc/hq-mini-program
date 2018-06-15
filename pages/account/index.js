@@ -1,23 +1,22 @@
-// pages/kiting/index.js
+// pages/account/inex.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    showModal: false
   },
-  _goRecord:function(e){
-    wx.navigateTo({
-      url: '../record/index',
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+  _showCompile:function(e){
+    this.setData({
+      showModal:true
     })
   },
-  _goAccount:function(e){
-    wx.navigateTo({
-      url: '../account/index',
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */

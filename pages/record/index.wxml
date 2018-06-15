@@ -1,2 +1,24 @@
-<!--pages/record/index.wxml-->
-<text>pages/record/index.wxml</text>
+<view class="record">
+  <view class='record-item'>
+    <view class='item-left'>
+      <text class='money_name'>50元</text>
+      <text>已发放</text>
+    </view>
+    <view class='item-right'>
+      <text class='money_name'>星期八</text>
+      <text>支付宝(183****1627)</text>
+      <text>申请日期：2018年1月2日</text>
+    </view>
+  </view>
+   <view class='record-item'>
+    <view class='item-left'>
+      <text class='money_name'>50元</text>
+      <text class='item-status'>未通过</text>
+    </view>
+    <view class='item-right'>
+      <text class='money_name'>星期八</text>
+      <text>支付宝(183****1627)</text>
+      <text>申请日期：2018年1月2日</text>
+    </view>
+  </view>
+</view>

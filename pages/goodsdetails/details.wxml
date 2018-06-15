@@ -72,10 +72,10 @@
 </view>
 
 <!-- 选择规格的底部弹出内容 -->
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_screen" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{showModalStatus}}"></view>
 <!--content-->
 <!--使用animation属性指定需要执行的动画-->
-<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}" catchtouchmove="true">
   <!--drawer content-->
   <view class="drawer_content">
     <view class='size-header'>

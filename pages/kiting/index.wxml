@@ -1,4 +1,4 @@
-<view class='kiting-information'>
+<view class='kiting-information' catchtap='_goAccount'>
   <view>小明</view>
   <view>1506547894@gmail.com</view>
 </view>

@@ -1,17 +1,19 @@
-page{
+page {
   background-color: #fff;
 }
+
 .kiting-information {
   border-top: 1px solid #f2f2f2;
   width: 100%;
   padding: 30rpx;
   font-size: 32rpx;
   box-sizing: border-box;
+  position: relative;
 }
 
 .kiting-information view:last-child {
   margin-top: 10rpx;
-  color: #8b8b8b;
+  color: #666;
   font-size: 30rpx;
 }
 
@@ -19,7 +21,7 @@ page{
   width: 100%;
   margin-top: 10rpx;
   font-size: 32rpx;
-  color: #8b8b8b;
+  color: #666;
   position: relative;
 }
 
@@ -67,7 +69,8 @@ page{
   flex-direction: row;
   justify-content: space-between;
 }
-.kiting_other{
+
+.kiting_other {
   font-size: 32rpx;
 }
 
@@ -78,13 +81,30 @@ page{
   text-decoration: underline;
 }
 
-.state{
+.state {
   margin-top: 40rpx;
   padding: 0 30rpx;
 }
-.state>view{
+
+.state>view {
   margin-bottom: 10rpx;
 }
-.state text{
-  line-height: 1.6; 
+
+.state text {
+  line-height: 1.6;
+}
+
+.kiting-information::after {
+  content: " ";
+  display: inline-block;
+  height: 12rpx;
+  width: 12rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #c8c7cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
+  position: absolute;
+  right: 30rpx;
+  top: 45%;
 }

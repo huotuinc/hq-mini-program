@@ -33,9 +33,9 @@
   </block>
 </view>
 
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" catchtouchmove="true" wx:if="{{showModalStatus}}"></view>
 
-<view class='filtrate'  wx:if="{{showModalStatus}}">
+<view class='filtrate'  wx:if="{{showModalStatus}}" catchtouchmove="true">
   <view class='filtrate-header'>
     <view class="tab-item {{currentTab==0?'active':''}}" data-index='0' bindtap="swichNav">品牌</view>
     <view class="tab-item {{currentTab==1?'active':''}}" data-index='1' bindtap="swichNav">分类</view>

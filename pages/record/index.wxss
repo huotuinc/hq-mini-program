@@ -1,1 +1,46 @@
-/* pages/record/index.wxss */
+page {
+  background-color: #fff;
+}
+
+.record {
+  border-top: 1px solid #f0eff5;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.record-item {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0eff5;
+  padding: 26rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.money_name {
+  font-size: 32rpx;
+  color: #000;
+  font-weight: 800;
+}
+
+.item-left, .item-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-left {
+  padding-top: 20rpx;
+}
+
+.item-right {
+  text-align: right;
+}
+
+.item-left text, .item-right text {
+  line-height: 1.6;
+}
+
+.item-status{
+  color: #e41436;
+}
