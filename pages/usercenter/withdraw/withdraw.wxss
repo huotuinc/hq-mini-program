@@ -19,7 +19,7 @@
 }
 
 .withdraw .withdraw_num{
-  color: #ff3c00;
+  color: #E41436;
 }
 
 .withdraw_num::after {
@@ -34,26 +34,4 @@
   transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
   margin-left: 20rpx;
   margin-top: -2rpx;
-}
-
-.btn-recharge,.btn-pay{
-  margin: 90rpx 30rpx 0 30rpx;
-  height: 80rpx;
-  line-height: 80rpx;
-  text-align: center;  
-  border-radius: 15rpx;
-  font-size: 30rpx;
-}
-
-.btn-recharge{
- background-color: #E41436;
-  color: #ffffff;
-  margin-top: 50rpx;
-}
-
-.btn-pay{
-  margin-top: 20rpx;
-  color: #000;
-  background-color: #fff;
-  border:1px solid #D9D9D9;
 }

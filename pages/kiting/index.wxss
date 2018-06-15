@@ -1,0 +1,90 @@
+page{
+  background-color: #fff;
+}
+.kiting-information {
+  border-top: 1px solid #f2f2f2;
+  width: 100%;
+  padding: 30rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+
+.kiting-information view:last-child {
+  margin-top: 10rpx;
+  color: #8b8b8b;
+  font-size: 30rpx;
+}
+
+.operate {
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  color: #8b8b8b;
+  position: relative;
+}
+
+.operate_title {
+  padding-top: 40rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.kit-money {
+  position: relative;
+  margin: 12rpx 30rpx 0;
+  padding: 31rpx 0;
+  height: 90rpx;
+  color: #000;
+  border-bottom: 1px solid #f0eff5;
+}
+
+.kit-money .icon {
+  position: absolute;
+  display: block;
+  height: 90rpx;
+  width: 30rpx;
+  line-height: 90rpx;
+  top: 31rpx;
+  left: 0rpx;
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.kit-money input {
+  display: block;
+  height: 90rpx;
+  width: 100%;
+  line-height: 90rpx;
+  padding-left: 40rpx;
+  font-size: 42rpx;
+  font-weight: 800;
+  box-sizing: border-box;
+}
+
+.operate_other {
+  padding: 37rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.kiting_other{
+  font-size: 32rpx;
+}
+
+.watch_record {
+  margin-top: 36rpx;
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.state{
+  margin-top: 40rpx;
+  padding: 0 30rpx;
+}
+.state>view{
+  margin-bottom: 10rpx;
+}
+.state text{
+  line-height: 1.6; 
+}

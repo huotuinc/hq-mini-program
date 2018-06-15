@@ -1,4 +1,4 @@
-// pages/usercenter/withdraw/withdraw.js
+// pages/kiting/index.js
 Page({
 
   /**
@@ -7,16 +7,12 @@ Page({
   data: {
   
   },
-  _goBalance: function () {
+  _goRecord:function(e){
     wx.navigateTo({
-      url: '../balance/balance',
+      url: '../record/index',
     })
   },
-  _goKitting:function(e){
-    wx.navigateTo({
-      url: '../../kiting/index',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

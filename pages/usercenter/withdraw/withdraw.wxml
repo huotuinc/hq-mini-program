@@ -1,29 +1,22 @@
 <view class="withdraw">
   <view catchtap='_goBalance'>
-    <text>账户余额</text>
-    <text class='withdraw_num'>￥0.00</text>
+    <text>觅豆</text>
+    <text class='withdraw_num'>0</text>
   </view>
   <view>
-    <text>可用积分</text>
+    <text>余额</text>
     <text class='withdraw_num'>10000000000</text>
   </view>
   <view>
-    <text>待定积分</text>
+    <text>待结算</text>
     <text class='withdraw_num'>0</text>
   </view>
   <view>
     <text>优惠券</text>
     <text class='withdraw_num'>0张</text>
   </view>
-  <view>
-    <text>小金库</text>
-    <text class='withdraw_num'>0</text>
-  </view>
 </view>
 
-<view class='btn-recharge'>
-  小金库充值
-</view>
-<view class='btn-pay'>
+<view class='btn-recharge' catchtap='_goKitting'>
   提现
 </view>

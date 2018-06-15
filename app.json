@@ -16,7 +16,9 @@
     "pages/usercenter/integral/integral",
     "pages/submitOrder/submitOrder",
     "pages/service/index",
-    "pages/orderdetails/index"
+    "pages/orderdetails/index",
+    "pages/kiting/index",
+    "pages/record/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

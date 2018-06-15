@@ -1,5 +1,6 @@
 @import 'common/font/iconfont.wxss';
 @import 'common/loading.wxss';
+@import 'common/weui.wxss';
 
 page {
   font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;
@@ -61,4 +62,16 @@ page {
   transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
   margin-left: 6rpx;
   margin-top: -2rpx;
+}
+
+.btn-recharge {
+  margin: 90rpx 30rpx 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 15rpx;
+  font-size: 30rpx;
+  background-color: #e41436;
+  color: #fff;
+  margin-top: 50rpx;
 }

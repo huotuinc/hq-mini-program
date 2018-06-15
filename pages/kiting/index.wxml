@@ -1,0 +1,33 @@
+<view class='kiting-information'>
+  <view>小明</view>
+  <view>1506547894@gmail.com</view>
+</view>
+<view style='height:10rpx;background-color:#F0EFF5;'></view>
+<view class='operate'>
+  <view class='operate_title'>余额</view>
+  <view class='kit-money'>
+    <icon class='icon iconfont icon-money'></icon>
+    <input value='33.00' type='number'></input>
+  </view>
+  <view class='operate_other'>
+    <text>可提额度：0.00</text>
+    <text style='color:#5f9ce5;'>全部提现</text>
+  </view>
+</view>
+
+<view style='height:10rpx;background-color:#F0EFF5;'></view>
+
+<view class='kiting_other'>
+  <view class='btn-recharge'>
+    提现
+  </view>
+
+  <view class='watch_record' catchtap='_goRecord'>查看提现记录</view>
+
+  <view class='state'>
+    <view style=' font-weight:600;'>提现说明:</view>
+    <view>
+      <text>1、说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明</text>
+    </view>
+  </view>
+</view>

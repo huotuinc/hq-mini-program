@@ -4,50 +4,96 @@
 
 <text class='class_title'>基础信息</text>
 <view class='information'>
-  <view>
-    <text>姓名</text>
-    <text class='allOrder'>去完善</text>
+  <view class="weui-cells weui-cells_after-title" catchtap='_prefect'>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class='weui-input allOrder {{name==="去完善" ? "sizeColor" : ""}}'>{{name}}</view>
+      </view>
+    </view>
   </view>
-  <view>
-    <text>性别</text>
-    <text class='allOrder'>未知</text>
+  <view class="weui-cells weui-cells_after-title" catchtap='_showGender'>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">性别</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input allOrder">{{ gender}}</view>
+      </view>
+    </view>
   </view>
-  <view>
-    <text>生日</text>
-    <text class='allOrder'></text>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">生日</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker mode="date" value="{{date}}" start="1900-01-01" end="2099-01-01" bindchange="bindDateChange">
+          <view class="weui-input allOrder">{{date}}</view>
+        </picker>
+      </view>
+    </view>
   </view>
-  <view>
-    <text>身份证</text>
-    <text class='allOrder'></text>
+  <view class="weui-cells weui-cells_after-title" catchtap='_idCard'>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">身份证</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input allOrder">{{idCard}}</view>
+      </view>
+    </view>
   </view>
-  <view>
-    <text>绑定手机</text>
-    <text class='allOrder'>未绑定</text>
+  <view class="weui-cells weui-cells_after-title" catchtap='_mobilePhone'>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">绑定手机</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class='weui-input allOrder {{iphoneNum==="未绑定" ? "sizeColor" : ""}}'>{{iphoneNum}}</view>
+      </view>
+    </view>
   </view>
-  <view>
-    <text>微信号</text>
-    <text class='allOrder'></text>
+  <view class="weui-cells weui-cells_after-title" catchtap='_wxNumber'>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">微信号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-input allOrder">{{wxNum}}</view>
+      </view>
+    </view>
   </view>
-  <view>
-    <text>城市</text>
-    <text class='allOrder'></text>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">城市</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker mode="region" value="{{city}}" bindchange="bindRegionChange">
+          <view class="weui-input allOrder">{{city}}</view>
+        </picker>
+      </view>
+    </view>
   </view>
 </view>
 
 <text class='class_title'>提升安全</text>
-<view class='information'>
+<view class='information other'>
   <view>
     <text>支付密码</text>
-    <text class='allOrder'>未设置密码</text>
+    <text class='allOrder' style='color:#E41436'>未设置密码</text>
   </view>
   <view>
     <text>开启支付密码</text>
-    <text class='allOrder'>未知</text>
+    <switch checked="true" />
   </view>
 </view>
 
 <text class='class_title'>更多</text>
-<view class='information'>
+<view class='information other'>
   <view>
     <text>收货地址</text>
     <text class='allOrder'></text>
@@ -59,3 +105,35 @@
 </view>
 
 <view style='height:20rpx;'></view>
+
+
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal || showGender}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-content">
+    <view class="modal-input">
+      <input type="text" auto-focus bindinput="inputChange" class="input" placeholder="{{placeholder}}"></input>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+  </view>
+</view>
+
+
+<view class="modal-dialog" wx:if="{{showGender}}">
+  <view class="modal-content">
+    <view class="page-section page-section-gap">
+      <radio-group name="radio">
+        <label>
+          <radio value="radio1" checked data-gender='1' catchtap='selectGender'/>男</label>
+        <label>
+          <radio value="radio2" data-gender='2' catchtap='selectGender'/>女</label>
+      </radio-group>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="cancelGender" data-status="cancelGender">取消</view>
+    <view class="btn-confirm" bindtap="confirmGender" data-status="confirmGender">确定</view>
+  </view>
+</view>
