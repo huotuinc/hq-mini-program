@@ -29,7 +29,7 @@
 
 <view class='model_content' wx:if="{{showModal}}">
   <view style='color:#666;'>编辑</view>
-  <view>修改提现账号</view>
+  <view catchtap='_goModification'>修改提现账号</view>
   <view>设为默认</view>
   <view>删除提现账号</view>
 </view>

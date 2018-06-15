@@ -1,0 +1,48 @@
+.modification-header{
+  margin-top: 1rpx;
+  width: 100%;
+  font-size: 32rpx;
+  padding: 30rpx 0 46rpx 30rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.select_way{
+  margin-top: 10rpx;
+}
+.select_way text{
+  display: inline-block;
+  width: 163rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  text-align: center;
+  border: 1px solid #f2f2f2;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+.select_way text.active{
+  border: 1px solid #e41436;
+  border-radius: 8rpx;
+}
+
+.modification-information{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.modification-information>view{
+  margin-left: 30rpx;
+  border-bottom: 1px solid #F0EFF5;
+  height: 93rpx;
+  line-height: 93rpx;
+  font-size: 32rpx;
+}
+.modification-information>view:last-child{
+  border-bottom: none;
+}
+.modification-information .weui-input {
+  height: 93rpx;
+  line-height: 93rpx;
+  text-align: right;
+  padding-right:30rpx; 
+  color: #666;
+}

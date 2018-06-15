@@ -1,28 +1,13 @@
-// pages/account/inex.js
+// pages/modification/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    showModal: false
+  
   },
-  hideModal: function () {
-    this.setData({
-      showModal: false
-    });
-  },
-  _showCompile:function(e){
-    this.setData({
-      showModal:true
-    })
-  },
-  _goModification:function(e){
-    wx.navigateTo({
-      url: '../modification/index',
-    })
-    this.hideModal()
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

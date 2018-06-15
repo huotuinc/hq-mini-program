@@ -19,7 +19,8 @@
     "pages/orderdetails/index",
     "pages/kiting/index",
     "pages/record/index",
-    "pages/account/index"
+    "pages/account/index",
+    "pages/modification/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
