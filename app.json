@@ -23,7 +23,10 @@
     "pages/modification/index",
     "pages/shipAddress/index",
     "pages/addAddress/index",
-    "pages/payPassword/index"
+    "pages/payPassword/index",
+    "pages/afterSale/index",
+    "pages/afterSale/MyProductDetail/index",
+    "pages/afterSale/SubmitReturnProduct/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

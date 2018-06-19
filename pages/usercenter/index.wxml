@@ -35,7 +35,7 @@
       <icon class='icon iconfont icon-yisouhuo'></icon>
       <text>已收货</text>
     </view>
-    <view>
+    <view catchtap='_goAftersale'>
       <icon class='icon iconfont icon-navicon-wsgwjcsz'></icon>
       <text>售后</text>
     </view>

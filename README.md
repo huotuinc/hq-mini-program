@@ -32,6 +32,10 @@ pages-------- 页面
     "pages/modification/index" -----------------  新增/修改提现账户
     "pages/shipAddress/index" ------------------  收货地址
     "pages/addAddress/index"--------------------  新增/修改收货地址
+    "pages/payPassword/index" ------------------  支付密码
+    "pages/afterSale/index" --------------------  售后
+    "pages/afterSale/MyProductDetail/index" ----  售后详情
+    "pages/afterSale/SubmitReturnProduct/index"-  售后详情
 
 
 utils--------- 脚本文件

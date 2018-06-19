@@ -45,6 +45,11 @@ Page({
       url: './integral/integral?currenttab='+e.currentTarget.dataset.integral,
     })
   },
+  _goAftersale:function(e){
+    wx.navigateTo({
+      url: '../afterSale/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
