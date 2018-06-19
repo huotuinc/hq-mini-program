@@ -26,6 +26,11 @@ page {
   background-color: #fff;
 }
 
+.information switch {
+  -webkit-transform: scale(0.7, 0.7);
+  -moz-transform: scale(0.7, 0.7);
+}
+
 .information>view {
   height: 70rpx;
   line-height: 70rpx;
@@ -52,10 +57,9 @@ page {
   box-sizing: border-box;
 }
 
-.sizeColor{
-  color: #E41436;
+.sizeColor {
+  color: #e41436;
 }
-
 
 .modal-mask {
   width: 100%;
@@ -69,6 +73,7 @@ page {
   z-index: 9000;
   color: #fff;
 }
+
 .modal-dialog {
   width: 540rpx;
   overflow: hidden;
@@ -80,15 +85,18 @@ page {
   margin: -180rpx 105rpx;
   border-radius: 36rpx;
 }
+
 .modal-title {
   padding-top: 50rpx;
   font-size: 36rpx;
   color: #030303;
   text-align: center;
 }
+
 .modal-content {
   padding: 50rpx 32rpx;
 }
+
 .modal-input {
   display: flex;
   background: #fff;
@@ -111,6 +119,7 @@ input-holder {
   color: #666;
   font-size: 28rpx;
 }
+
 .modal-footer {
   display: flex;
   flex-direction: row;
@@ -119,15 +128,17 @@ input-holder {
   font-size: 34rpx;
   line-height: 86rpx;
 }
+
 .btn-cancel {
   width: 50%;
   color: #666;
   text-align: center;
   border-right: 1px solid #dedede;
 }
+
 .btn-confirm {
   width: 50%;
-  color: #E41436;
+  color: #e41436;
   text-align: center;
 }
 

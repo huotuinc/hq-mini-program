@@ -20,7 +20,9 @@
     "pages/kiting/index",
     "pages/record/index",
     "pages/account/index",
-    "pages/modification/index"
+    "pages/modification/index",
+    "pages/shipAddress/index",
+    "pages/addAddress/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

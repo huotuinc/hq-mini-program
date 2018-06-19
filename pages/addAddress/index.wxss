@@ -1,0 +1,37 @@
+.addAddress {
+  border-top: 1px solid #f2f2f2;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.addAddress>view {
+  padding: 0 30rpx;
+  border-bottom: 1px solid #f0eff5;
+  box-sizing: border-box;
+}
+
+.addAddress>view:last-child {
+  border-bottom: none;
+}
+
+.weui-label {
+  height: 90rpx;
+  width: 140rpx;
+  min-height: 90rpx;
+  line-height: 90rpx;
+  color: #000;
+}
+
+.weui-input {
+  height: 90rpx;
+  min-height: 90rpx;
+  line-height: 90rpx;
+  text-align: left;
+}
+
+.btn-delete{
+  margin-top: 20rpx;
+  border: 1px solid #f2f2f2;
+  background-color: #fff;
+  color: #000;
+}

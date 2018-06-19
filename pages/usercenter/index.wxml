@@ -50,19 +50,15 @@
   <view class='my-purse_classify'>
     <view catchtap='_goBalance'>
       <text class='purse_num'>0.00</text>
-      <text>账户余额</text>
+      <text>待结算</text>
     </view>
     <view data-integral='0' catchtap='_goIntegral'>
       <text class='purse_num'>354</text>
-      <text>可用积分</text>
+      <text>余额</text>
     </view>
     <view data-integral='1' catchtap='_goIntegral'>
       <text class='purse_num'>0.00</text>
-      <text>待定积分</text>
-    </view>
-     <view>
-      <text class='purse_num'>0.00</text>
-      <text>小金库</text>
+      <text>觅豆</text>
     </view>
   </view>
 </view>

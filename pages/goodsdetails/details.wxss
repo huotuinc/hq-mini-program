@@ -50,7 +50,6 @@
 
 .goods-item-two-text1 {
   margin: 0rpx 30rpx;
-  padding-top: 30rpx;
   font-size: 28rpx;
   color: #acacac;
   display: flex;

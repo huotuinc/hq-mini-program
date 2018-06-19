@@ -1,0 +1,65 @@
+.address-item {
+  border-top: 1px solid #f2f2f2;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.item {
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #f0eff5;
+  padding: 24rpx 100rpx;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.item-left {
+  position: absolute;
+  left: 0;
+  top: 35%;
+  width: 100rpx;
+  text-align: center;
+}
+
+.item-left .icon {
+  font-size: 40rpx;
+}
+
+.item-left .icon-xuanzhong {
+  color: #e41436;
+}
+
+.item-center {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-center text {
+  line-height: 1.6;
+}
+
+.iten-right {
+  position: absolute;
+  right: 0;
+  top: 35%;
+  width: 100rpx;
+  text-align: center;
+}
+
+.iten-right text {
+  color: #e41436;
+}
+
+.add_address {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #e41436;
+  background-color: #fff;
+}

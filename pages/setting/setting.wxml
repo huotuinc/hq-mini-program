@@ -17,10 +17,12 @@
   <view class="weui-cells weui-cells_after-title" catchtap='_showGender'>
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
-        <view class="weui-label">性别</view>
+        <view class="weui-label">性别</view> 
       </view>
       <view class="weui-cell__bd">
-        <view class="weui-input allOrder">{{ gender}}</view>
+        <picker range="{{gender}}" value="{{index}}" bindchange="bindPickerChange">
+          <view class="weui-input allOrder">{{gender[index]}}</view>
+        </picker>
       </view>
     </view>
   </view>
@@ -59,7 +61,7 @@
   <view class="weui-cells weui-cells_after-title" catchtap='_wxNumber'>
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
-        <view class="weui-label">微信号</view>
+        <view class="weui-label">绑定微信号</view>
       </view>
       <view class="weui-cell__bd">
         <view class="weui-input allOrder">{{wxNum}}</view>
@@ -88,13 +90,13 @@
   </view>
   <view>
     <text>开启支付密码</text>
-    <switch checked="true" />
+    <switch />
   </view>
 </view>
 
 <text class='class_title'>更多</text>
 <view class='information other'>
-  <view>
+  <view catchtap='_goAddress'>
     <text>收货地址</text>
     <text class='allOrder'></text>
   </view>
@@ -117,23 +119,5 @@
   <view class="modal-footer">
     <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
     <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
-  </view>
-</view>
-
-
-<view class="modal-dialog" wx:if="{{showGender}}">
-  <view class="modal-content">
-    <view class="page-section page-section-gap">
-      <radio-group name="radio">
-        <label>
-          <radio value="radio1" checked data-gender='1' catchtap='selectGender'/>男</label>
-        <label>
-          <radio value="radio2" data-gender='2' catchtap='selectGender'/>女</label>
-      </radio-group>
-    </view>
-  </view>
-  <view class="modal-footer">
-    <view class="btn-cancel" bindtap="cancelGender" data-status="cancelGender">取消</view>
-    <view class="btn-confirm" bindtap="confirmGender" data-status="confirmGender">确定</view>
   </view>
 </view>

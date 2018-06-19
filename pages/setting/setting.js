@@ -7,24 +7,18 @@ Page({
   data: {
     date: ' ',
     name: "去完善",
-    gender: '未知',
+    gender: ['未知','男','女'],
     idCard: '',
     iphoneNum: '',
     wxNum: '',
     city: "",
     checked: '',
-    showModal: false,
-    showGender: false
+    showModal: false
   },
   _prefect: function(e) {
     this.setData({
       showModal: true,
       placeholder: "请输入姓名"
-    })
-  },
-  _showGender: function(e) {
-    this.setData({
-      showGender: true
     })
   },
   _idCard: function(e) {
@@ -46,7 +40,6 @@ Page({
     })
   },
   bindDateChange: function(e) {
-    console.log(e)
     this.setData({
       date: e.detail.value
     })
@@ -97,30 +90,15 @@ Page({
     }
     this.hideModal();
   },
-  selectGender: function(e) {
+  bindPickerChange:function(e){
     this.setData({
-      checked: e.currentTarget.dataset.gender
+      index: e.detail.value
     })
   },
-  confirmGender: function(e) {
-    var checked = this.data.checked
-    console.log(checked)
-    if (checked == 1) {
-      this.setData({
-        gender: "男",
-        showGender: false
-      })
-    } else if (checked == 2) {
-      this.setData({
-        gender: "女",
-        showGender: false
-      })
-    } else {
-      this.setData({
-        gender: "男",
-        showGender: false
-      })
-    }
+  _goAddress:function(e){
+    wx.navigateTo({
+      url: '../shipAddress/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载

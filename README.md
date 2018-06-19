@@ -30,6 +30,9 @@ pages-------- 页面
     "pages/record/index" -----------------------  提现记录
     "pages/account/index" ----------------------  提现账户
     "pages/modification/index" -----------------  新增/修改提现账户
+    "pages/shipAddress/index" ------------------  收货地址
+    "pages/addAddress/index"--------------------  新增/修改收货地址
+
 
 utils--------- 脚本文件
 ```

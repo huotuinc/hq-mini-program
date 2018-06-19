@@ -1,0 +1,56 @@
+<view class="addAddress">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='text' auto-focus placeholder="姓名" value='{{username}}' bindinput="nameChange" />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">联系方式</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='number' placeholder="手机号码" value='{{mobilePhone}}' bindinput="phoneChange" />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">所在城市</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker mode="region" value="{{city}}" bindchange="bindRegionChange">
+          <view class="weui-input">{{city}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">详细地址</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='text' placeholder="详细地址需要填写楼栋层数或房间信息" value='{{address}}' bindinput="addressChange" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class=''>
+  <view class='btn-recharge'>
+    确认
+  </view>
+  <view class='btn-recharge btn-delete'>
+    删除地址
+  </view>
+</view>
