@@ -1,0 +1,38 @@
+<view class="pay-password_header">
+  <view class='header_status'>
+    <view>1、验证身份</view>
+    <view>2、设置支付密码</view>
+    <view>3、完成</view>
+  </view>
+</view>
+
+<view class='telphone'>
+  <text>您当前绑定的手机号：136****2060</text>
+</view>
+
+<view class='pay-password_header header_input'>
+  <view style='display:none'>
+    <input type='password' placeholder='请输入支付密码'></input>
+  </view>
+  <view class='verification_code'>
+    <input type='password' placeholder='验证码'></input>
+    <text class='v-code'>验证码</text>
+  </view>
+</view>
+
+<view class='switchover'>
+  <text>通过手机号码来验证</text>
+</view>
+
+<view class=''>
+  <view class='btn-recharge'>
+    下一步
+  </view>
+</view>
+
+<view class='explain'>
+  <view>提示</view>
+  <view>
+    <text>提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示</text>
+  </view>
+</view>

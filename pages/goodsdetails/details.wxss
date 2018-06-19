@@ -270,3 +270,7 @@ padding-top: 20rpx;
   text-align: center;
   background-color: #e41436;
 }
+
+.calculate{
+  color: #000;
+}

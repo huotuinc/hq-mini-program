@@ -17,7 +17,7 @@
           <text>自由物体组合体</text>
         </view>
         <view class='price_num'>
-          <text style='font-weight: 800;'>￥200000</text>
+          <text style='font-weight: 800;'>￥20</text>
           <text style='color: #999;'>x1</text>
         </view>
       </view>

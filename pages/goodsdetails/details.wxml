@@ -20,7 +20,7 @@
       <text class='goods-item-price'>￥23.99</text>
       <text class='goods-item-sales_volume'>总销量：4905</text>
     </view>
-    <view class='select-size' bindtap="powerDrawer" data-statu="open">
+    <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext='立即购买'>
       <text>请选择规格</text>
       <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text>
     </view>
@@ -61,10 +61,10 @@
       购物车
     </view>
     <view class='item-bar-right'>
-      <view class='item-bar buy'>
+      <view class='item-bar buy' data-btntext='加入购物车' bindtap="powerDrawer" data-statu="open">
         <text>加入购物车</text>
       </view>
-      <view class='item-bar share'>
+      <view class='item-bar share' data-btntext='立即购买' bindtap="powerDrawer" data-statu="open">
         <text>立即购买</text>
       </view>
     </view>
@@ -119,12 +119,12 @@
         <text>购买数量</text>
       </view>
       <view class='add_minus'>
-        <text>-</text>
-        <text>1</text>
-        <text>+</text>
+        <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}">-</text>
+        <text>{{shopNum}}</text>
+        <text catchtap='numAdd' class='calculate'>+</text>
       </view>
     </view>
 
-    <view class='submit'>立即购买</view>
+    <view class='submit'>{{btnText}}</view>
   </view>
 </view>

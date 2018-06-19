@@ -10,7 +10,9 @@ Page({
   data: {
     item: {},
     showModalStatus: false,
-    categoryTitle: ''
+    categoryTitle: '',
+    btnText: '立即购买',
+    shopNum: 1
   },
 
   /**
@@ -62,7 +64,9 @@ Page({
   powerDrawer: function(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
-    console.log(currentStatu)
+    this.setData({
+      btnText: e.currentTarget.dataset.btntext
+    })
   },
   util: function(currentStatu) {
     /* 动画部分 */
@@ -109,6 +113,24 @@ Page({
     }
   },
 
+  numMinus: function(e) {
+    var num = this.data.shopNum
+    console.log(num)
+    if (num > 1) {
+      num -= 1
+      this.setData({
+        shopNum: num
+      })
+    }
+  },
+  
+  numAdd: function(e) {
+    var num = this.data.shopNum
+    num += 1
+    this.setData({
+      shopNum: num
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -119,8 +141,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-
+  onShow: function(e) {
+    this.numMinus(e)
   },
 
   /**

@@ -84,7 +84,7 @@
 
 <text class='class_title'>提升安全</text>
 <view class='information other'>
-  <view>
+  <view catchtap='_goPayPassword'>
     <text>支付密码</text>
     <text class='allOrder' style='color:#E41436'>未设置密码</text>
   </view>

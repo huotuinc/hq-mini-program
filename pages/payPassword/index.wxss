@@ -1,0 +1,86 @@
+.pay-password_header {
+  background-color: #fff;
+  font-size: 28rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.header_status {
+  height: 184rpx;
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 4rpx solid #f0eff5;
+}
+
+.header_input {
+  width: 100%;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.verification_code {
+  position: relative;
+}
+
+.header_input input {
+  height: 90rpx;
+  width: 100%;
+  border: 1px solid #f0eff5;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.verification_code input {
+  margin-right: 270rpx;
+  padding-right: 0;
+}
+
+.telphone {
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+
+.v-code {
+  width: 240rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #e41436;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+}
+
+.switchover {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+  margin-left: 30rpx;
+}
+
+.switchover text {
+  text-decoration: underline;
+}
+
+.explain {
+  padding: 0 30rpx;
+  margin-top: 50rpx;
+  font-size: 26rpx;
+  color: #666;
+  box-sizing: border-box;
+}
+
+.explain>view:first-child {
+  margin-bottom: 5rpx;
+}
+
+.explain text {
+  line-height: 1.6;
+}
