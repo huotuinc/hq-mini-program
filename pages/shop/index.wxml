@@ -1,3 +1,5 @@
+<import src="../template/backTop/backTop" />
+
 <!-- <view class='no-shopping'>
   <view class='shopping-cart'>
     <icon class='icon iconfont icon-03'></icon>
@@ -87,3 +89,5 @@
     结算
   </view>
 </view>
+
+<template is="backTop" wx:if="{{backTopValue ==true}}" />

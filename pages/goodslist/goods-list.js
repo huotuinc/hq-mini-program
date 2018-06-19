@@ -10,13 +10,32 @@ Page({
    */
   data: {
     filterTap: 1,
-    order: 2, 
+    order: 2,
     goodsItems: [],
     categoryTitle: '',
     currentTab: 0,
     showModalStatus: false,
     categoryid: 0,
-    statu: "open"
+    statu: "open",
+    backTopValue: false
+  },
+  // 监听滚动条坐标
+  onPageScroll: function(e) {
+    //console.log(e)
+    var that = this
+    var scrollTop = e.scrollTop
+    var backTopValue = scrollTop > 500 ? true : false
+    that.setData({
+      backTopValue: backTopValue
+    })
+  },
+
+  // 滚动到顶部
+  backTop: function() {
+    // 控制滚动
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
   },
   clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset.type;
@@ -51,7 +70,7 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId +'&categoryTitle=埃阿斯嘉'
+      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId + '&categoryTitle=埃阿斯嘉'
     })
   },
   /**

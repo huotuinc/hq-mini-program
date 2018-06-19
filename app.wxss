@@ -75,3 +75,20 @@ page {
   color: #fff;
   margin-top: 50rpx;
 }
+
+.backTop {
+  width: 60rpx;
+  height: 60rpx;
+  background: #fff;
+  position: fixed;
+  right: 20rpx;
+  bottom: 130rpx;
+  border-radius: 30rpx;
+  box-shadow: 0px 0px 3px #000;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.backTop text {
+  font-size: 45rpx;
+}

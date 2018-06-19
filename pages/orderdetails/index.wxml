@@ -1,3 +1,5 @@
+<import src="../template/backTop/backTop" />
+
 <view wx:if="{{!success}}">
   <view class="consignee-information">
     <text>收货人：XX</text>
@@ -252,3 +254,5 @@
     </view>
   </view>
 </view>
+
+<template is="backTop" wx:if="{{backTopValue ==true}}" />

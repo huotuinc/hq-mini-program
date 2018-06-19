@@ -2,7 +2,8 @@
 @import '../template/goods-item/goods-item-two-template.wxss';
 @import '../template/category/category-two-template.wxss';
 @import '../template/search/search-template.wxss';
-page{
+
+page {
   background-color: #fff;
 }
 
@@ -32,12 +33,12 @@ page{
 
 .swiper-item image {
   width: 100%;
-  height:100%;
+  height: 100%;
 }
 
 .page-section-title {
-   margin-top: 60rpx;
-  position: relative; 
+  margin-top: 60rpx;
+  position: relative;
 }
 
 .home-goods-item-two {
@@ -206,9 +207,10 @@ page{
   overflow: hidden;
 }
 
-.body-view{
+.body-view {
   width: 100%;
   text-align: center;
   font-size: 24rpx;
   color: #666;
 }
+

@@ -5,9 +5,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    backTopValue: false
+  },
+  // 监听滚动条坐标
+  onPageScroll: function (e) {
+    //console.log(e)
+    var that = this
+    var scrollTop = e.scrollTop
+    var backTopValue = scrollTop > 500 ? true : false
+    that.setData({
+      backTopValue: backTopValue
+    })
   },
 
+  // 滚动到顶部
+  backTop: function () {
+    // 控制滚动
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

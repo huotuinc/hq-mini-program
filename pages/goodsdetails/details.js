@@ -12,9 +12,27 @@ Page({
     showModalStatus: false,
     categoryTitle: '',
     btnText: '立即购买',
-    shopNum: 1
+    shopNum: 1,
+    backTopValue: false
+  },
+  // 监听滚动条坐标
+  onPageScroll: function (e) {
+    //console.log(e)
+    var that = this
+    var scrollTop = e.scrollTop
+    var backTopValue = scrollTop > 500 ? true : false
+    that.setData({
+      backTopValue: backTopValue
+    })
   },
 
+  // 滚动到顶部
+  backTop: function () {
+    // 控制滚动
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -61,6 +79,21 @@ Page({
     })
   },
 
+  _goService:function(e){
+    wx.switchTab({
+      url: '../service/index',
+    })
+  },
+  _goIndex:function(e){
+    wx.switchTab({
+      url: '../index/index',
+    })
+  },
+  _goShop:function(e){
+    wx.switchTab({
+      url: '../shop/index',
+    })
+  },
   powerDrawer: function(e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
@@ -115,7 +148,6 @@ Page({
 
   numMinus: function(e) {
     var num = this.data.shopNum
-    console.log(num)
     if (num > 1) {
       num -= 1
       this.setData({

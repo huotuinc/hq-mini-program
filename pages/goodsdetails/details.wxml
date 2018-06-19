@@ -1,3 +1,5 @@
+<import src="../template/backTop/backTop" />
+
 <view>
   <view class='goods-details-main-pic'>
     <image src='{{item.imgSrc}}'></image>
@@ -48,15 +50,15 @@
 
   <view style='height:100rpx;'></view>
   <view class='bottom-bar'>
-    <view class='item-bar collect'>
+    <view class='item-bar collect' catchtap='_goService'>
       <icon bindtap='clickFavTab' class="icon iconfont icon-kefu"></icon>
       客服
     </view>
-    <view class='item-bar collect'>
+    <view class='item-bar collect' catchtap='_goIndex'>
       <icon class='icon iconfont icon-shouye'></icon>
       首页
     </view>
-    <view class='item-bar collect'>
+    <view class='item-bar collect' catchtap='_goShop'>
       <icon class='icon iconfont icon-goumai'></icon>
       购物车
     </view>
@@ -128,3 +130,5 @@
     <view class='submit'>{{btnText}}</view>
   </view>
 </view>
+
+<template is="backTop" wx:if="{{backTopValue ==true}}" />

@@ -4,6 +4,7 @@
 <import src="../template/category/category-two-template.wxml" />
 <import src="../template/loading/loading.wxml" />
 <import src="../template/search/search-template" />
+<import src="../template/backTop/backTop" />
 
 <view class='home-container'>
   <view class='home-top'>
@@ -37,9 +38,8 @@
       </view>
 
       <view class='goods-special-area'>
-
         <block wx:for="{{specialItems}}" wx:key="item">
-          <view class='special-box'>
+          <view class='special-box' catchtap='_goList'>
             <view class='box2 item{{index}}'>
               <image src='{{item.pictureUrl}}'></image>
             </view>
@@ -78,15 +78,12 @@
         <text>推荐商品</text>
       </view>
     </view>
-
     <!--二级类目容器start-->
     <!-- <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
       <template is="categoryTwoTemplate" data="{{currentCategory,filterTap}}" />
     </view> -->
     <!--二级类目容器end-->
-
     <!--商品列表-->
-
     <view class='home-goods-item-two'>
       <block wx:for="{{goodsItems}}" wx:key="item">
         <template is="itemTwo" data="{{item,index}}" />
@@ -107,12 +104,17 @@
       </block>
     </view>
   </view>
-
   <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
-
 </view>
+<view class="backTop" bindtap='backTop' wx:if="{{backTopValue ==true}}">
+  <text class='icon iconfont icon-xiajiang'></text>
+</view>
+
 <view class="body-view" wx:if="{{hidden}}">
   {{loadingTitle}}
 </view>
+<template is="backTop" wx:if="{{backTopValue ==true}}" />
+
 <template is="loading" wx:if="{{loading}}" />
+
 <view style='height:40rpx;'></view>

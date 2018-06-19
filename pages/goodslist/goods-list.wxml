@@ -1,5 +1,6 @@
 <import src="../template/goods-item/goods-item-two-template.wxml" />
 <import src="../template/search/search-template" />
+<import src="../template/backTop/backTop" />
 
 <view>
   <template is="search-header" />
@@ -64,3 +65,5 @@
     <text>确认</text>
   </view>
 </view>
+
+<template is="backTop" wx:if="{{backTopValue ==true}}" />

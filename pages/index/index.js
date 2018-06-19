@@ -1,6 +1,11 @@
 const indexData = require('../../utils/mock/index.js')
-import { skillTime } from '../../utils/skillTime.js'
-import { collection, windowHeight } from '../../utils/common.js'
+import {
+  skillTime
+} from '../../utils/skillTime.js'
+import {
+  collection,
+  windowHeight
+} from '../../utils/common.js'
 
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
@@ -24,11 +29,30 @@ Page({
     filterTap: 1,
     mask: false,
     windowHeight: windowHeight(),
-    loadingTitle:"加载中...",
-    hidden:false
+    loadingTitle: "加载中...",
+    hidden: false,
+    backTopValue: false
+  },
+  // 监听滚动条坐标
+  onPageScroll: function(e) {
+    //console.log(e)
+    var that = this
+    var scrollTop = e.scrollTop
+    var backTopValue = scrollTop > 500 ? true : false
+    that.setData({
+      backTopValue: backTopValue
+    })
+  },
+
+  // 滚动到顶部
+  backTop: function() {
+    // 控制滚动
+    wx.pageScrollTo({
+      scrollTop: 0
+    })
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function (e) {
+  swichNav: function(e) {
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 0
@@ -45,16 +69,15 @@ Page({
     })
   },
   //点击商品筛选事件
-  clickfilterTap: function (e) {
+  clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset
-    if (cur.type == 4) {
-    }
+    if (cur.type == 4) {}
     this.setData({
       filterTap: cur.type
     })
   },
   //点击收藏
-  clickFavTab: function (e) {
+  clickFavTab: function(e) {
     var item = e.currentTarget.dataset.item
     var index = e.currentTarget.dataset.index
     var _type = e.currentTarget.dataset.type
@@ -80,13 +103,13 @@ Page({
     })
   },
   //商品详情页面
-  goodsDetails: function (e) {
+  goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId +'&categoryTitle=阿拉斯加'
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId + '&categoryTitle=阿拉斯加'
     })
   },
   //设置tab标题滚动
-  checkCor: function (cur) {
+  checkCor: function(cur) {
     if ((this.data.currentTab > 3 || cur > 3) && this.data.currentTab < cur) {
       this.setData({
         scrollLeft: cur * 50
@@ -106,22 +129,27 @@ Page({
     })
   },
   // 跳转至收藏夹
-  _goCollectGoods: function () {
+  _goCollectGoods: function() {
     wx.navigateTo({
       url: '../collectgoods/collectgoods'
     })
   },
   // search搜索
   searchShop(e) {
-  wx.navigateTo({
-    url: '../search/search',
-  })
+    wx.navigateTo({
+      url: '../search/search',
+    })
+  },
+  _goList: function(e) {
+    wx.navigateTo({
+      url: '../goodslist/goods-list',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     var self = this;
     if (app.globalData.mock) {
       this.setData({
@@ -136,14 +164,13 @@ Page({
     this.setData({
       loading: true
     })
-    home.homeRecommend(function (code, res) {
+    home.homeRecommend(function(code, res) {
       if (code) {
         self.setData({
           bannerItems: res.bannerItems,
           specialItems: res.specialItems
         });
-      }
-      else {
+      } else {
         self.setData({
           loading: false
         })
@@ -154,13 +181,12 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
 
-  onReady: function () {
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var date = new Date();
     date.setHours(24)
     date.setMinutes(0)
@@ -172,18 +198,18 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () { },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () { },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
 
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     wx.stopPullDownRefresh();
   },
 
@@ -192,34 +218,34 @@ Page({
    * 页面上拉触底事件的处理函数 
    */
 
-  onReachBottom: function () {
+  onReachBottom: function() {
     this.setData({
-      hidden:true
-    }) 
+      hidden: true
+    })
     var _goodsItems = this.data.goodsItems;
-    if (_goodsItems.concat(indexData.goodsItems) >_goodsItems){
+    if (_goodsItems.concat(indexData.goodsItems) > _goodsItems) {
       this.setData({
         hidden: false,
         goodsItems: _goodsItems.concat(indexData.goodsItems)
       })
-    }else{
+    } else {
       this.setData({
         hidden: false,
-        loadingTitle:"没有更多"
+        loadingTitle: "没有更多"
       })
     }
-   
+
   },
 
   /**
    * 用户点击右上角分享
    */
 
-  onShareAppMessage: function () { },
+  onShareAppMessage: function() {},
   /**
    * 商品列表
    */
-  _goGoodsList: function (e) {
+  _goGoodsList: function(e) {
     var _item = e.currentTarget.dataset.item;
     wx.navigateTo({
       url: '../goodslist/goods-list?categoryid=' + _item.categoryid + "&categoryTitle=" + _item.title,
@@ -231,7 +257,7 @@ Page({
   /**
    * 
    */
-  maskTouchStart: function (e) {
+  maskTouchStart: function(e) {
     this.setData({
       mask: false
     })
@@ -239,16 +265,16 @@ Page({
   /**
    * 显示所有类目
    */
-  showAllCategory: function () {
+  showAllCategory: function() {
     this.setData({
       mask: true
     })
   },
-  hideAllCategory:function(){
+  hideAllCategory: function() {
     this.setData({
       mask: false
     })
   },
-  onShareAppMessage: function () { }
+  onShareAppMessage: function() {}
 
 })
