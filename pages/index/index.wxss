@@ -55,25 +55,9 @@ page {
   display: inline-block;
 }
 
-.goods-special-area .item0 {
-  padding: 24rpx 0rpx 24rpx 24rpx;
-}
-
-.goods-special-area .item1 {
-  padding: 24rpx 27rpx 24rpx 24rpx;
-}
-
-.goods-special-area .item2 {
-  padding: 0 0 24rpx 27rpx;
-}
-
-.goods-special-area .item3 {
-  padding: 0 27rpx 24rpx 24rpx;
-}
-
 .goods-special-area image {
   width: 100%;
-  height: 199rpx;
+  height: 200rpx;
 }
 
 .icon-more {

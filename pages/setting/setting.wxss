@@ -115,7 +115,7 @@ page {
   color: #333;
 }
 
-input-holder {
+.input-holder {
   color: #666;
   font-size: 28rpx;
 }

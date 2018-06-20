@@ -36,7 +36,7 @@
           </block>
         </swiper>
       </view>
-
+ 
       <view class='goods-special-area'>
         <block wx:for="{{specialItems}}" wx:key="item">
           <view class='special-box' catchtap='_goList'>

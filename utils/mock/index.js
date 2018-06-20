@@ -3,8 +3,8 @@
  */
 const hotItems = [
   {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    title: "好牙口 益生菌凝胶糖果（薄荷味无糖型）",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180612/201806121823081.jpg",
     goodsPrice: 27.99,/*商品价格*/
     salesVolume: 1800,/*销量价格*/
     couponPrice: 4,/*优惠券价格*/
@@ -14,8 +14,8 @@ const hotItems = [
     goodsId: '1127878416' /*商品ID*/
   },
   {
-    title: "【24包超值装 】沐曦原生木浆抽取式孕婴面巾纸300张/包",
-    imgSrc: "http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg",
+    title: "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071614470.jpg",
     goodsPrice: 26.9,/*商品价格*/
     salesVolume: 1800,/*销量价格*/
     couponPrice: 8,/*优惠券价格*/
@@ -28,8 +28,30 @@ const hotItems = [
 
 const goodsItems = [
   {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
+    title: "好牙口 益生菌凝胶糖果（薄荷味无糖型）",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180612/201806121823081.jpg",
+    goodsPrice: 27.99,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 4,/*优惠券价格*/
+    finalPrice: 23.99,/*最终价格*/
+    isFav: false,/*是否收藏*/
+    earnMoney: 3.5,/*赚取额度*/
+    goodsId: '1127878416' /*商品ID*/
+  },
+  {
+    title: "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071614470.jpg",
+    goodsPrice: 26.9,/*商品价格*/
+    salesVolume: 1800,/*销量价格*/
+    couponPrice: 8,/*优惠券价格*/
+    finalPrice: 18.9,/*最终价格*/
+    isFav: true,/*是否收藏*/
+    earnMoney: 5.26,/*赚取额度*/
+    goodsId: '1039919965' /*商品ID*/
+  },
+  {
+    title: "【胡庆余堂】青春宝冰糖蜂蜜雪梨膏 家庭量贩装 130g*6瓶HQ",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071631360.jpg",
     goodsPrice: 27.99,/*商品价格*/
     salesVolume: 1800,/*销量价格*/
     couponPrice: 4,/*优惠券价格*/
@@ -39,8 +61,8 @@ const goodsItems = [
     goodsId: '1127878416' /*商品ID*/
   },
   {
-    title: "【24包超值装 】沐曦原生木浆抽取式孕婴面巾纸300张/包",
-    imgSrc: "http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg",
+    title: "【胡庆余堂】青春宝冰糖即食燕窝70g*3瓶 礼盒装 30%固形物 可溯源 HQ",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071653150.jpg",
     goodsPrice: 26.9,/*商品价格*/
     salesVolume: 1800,/*销量价格*/
     couponPrice: 8,/*优惠券价格*/
@@ -50,8 +72,8 @@ const goodsItems = [
     goodsId: '1039919965' /*商品ID*/
   },
   {
-    title: "【最伽人正品,93%涤纶】泳衣女连体韩版学生性感显瘦保守游泳衣",
-    imgSrc: "http://t00img.yangkeduo.com/t07img/images/2018-05-28/3da2b417d2860b1fd22472ebf4781576.jpeg",
+    title: "【胡庆余堂】铁皮枫斗晶 3g/袋*6袋*6盒",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071637590.jpg",
     goodsPrice: 25.9,/*商品价格*/
     salesVolume: 1800,/*销量价格*/
     couponPrice: 2,/*优惠券价格*/
@@ -61,8 +83,8 @@ const goodsItems = [
     goodsId: '452068537' /*商品ID*/
   },
   {
-    title: "【俞兆林】100%纯棉档内裤女无痕内裤棉质女士抗菌内裤5/7条装",
-    imgSrc: "http://t10img.yangkeduo.com/images/2018-04-10/6d82ed69d83ef31aa75add650ab1e27e.jpeg",
+    title: "【胡庆余堂】捷净海参礼盒 26克 12只装 食用方便",
+    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071645480.jpg",
     goodsPrice: 19.9,/*商品价格*/
     salesVolume: 1800,/*销量价格*/
     couponPrice: 3,/*优惠券价格*/
@@ -70,17 +92,6 @@ const goodsItems = [
     isFav: true,/*是否收藏*/
     earnMoney: 6.76,/*赚取额度*/
     goodsId: '685092301' /*商品ID*/
-  },
-  {
-    title: "芭黎公鸡男外套韩版潮男士夹克修身情侣薄夏季防晒衣100%聚酯纤维",
-    imgSrc: "http://t09img.yangkeduo.com/images/2018-04-09/6556e60f300886c378c421e87c14308b.jpeg",
-    goodsPrice: 18.9,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 5,/*优惠券价格*/
-    finalPrice: 13.9,/*最终价格*/
-    isFav: false,/*是否收藏*/
-    earnMoney: 4.17,/*赚取额度*/
-    goodsId: '202810284' /*商品ID*/
   }
 ]
 
@@ -167,17 +178,37 @@ const categoryItems = [
 
 const bannerItems = [
   {
-    pictureUrl: "http://t00img.yangkeduo.com/t08img/images/2018-05-30/b05e45e46e357b6021cfaeae9780d44f.jpeg",
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122291528031200.jpg",
     linkdata: "javascript:void(0)",
     linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
-    pictureUrl: "http://t00img.yangkeduo.com/t11img/images/2018-05-29/ce9c66dcbb5e1cf1f906a81db4379519.jpeg",
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061917525740197433.jpg",
     linkdata: "javascript:void(0)",
     linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
-    pictureUrl: "http://t00img.yangkeduo.com/t08img/images/2018-05-30/b05e45e46e357b6021cfaeae9780d44f.jpeg",
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122285219979025.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
+  },
+  {
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122285813464489.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
+  },
+  {
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122290301580382.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
+  },
+  {
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122290910920995.jpg",
+    linkdata: "javascript:void(0)",
+    linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
+  },
+  {
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122291528031200.jpg",
     linkdata: "javascript:void(0)",
     linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   }
@@ -185,21 +216,21 @@ const bannerItems = [
 
 const specialItems = [
   {
-    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_global_haitao_v1.jpg",
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122300446226128.jpg",
     linkdata: "javascript:void(0)",
     linktype: "0"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
-    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_brand_sale_v1.jpg",
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122301160858603.jpg",
     linkdata: "javascript:void(0)",
     linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   },
   {
-    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_super_spike_v1.jpg",
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122302812271737.jpg",
     linkdata: "javascript:void(0)",
     linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   }, {
-    pictureUrl: "https://cdn.pinduoduo.com/assets/img/pdd_fresh_fruit_v1.jpg",
+    pictureUrl: "http://res.chinaswt.cn/resource/images/photo/8529/2018061122303407271926.jpg",
     linkdata: "javascript:void(0)",
     linktype: "202810284"//链接类型：0：商品详情 1：商品列表 2：主题商品列表
   }

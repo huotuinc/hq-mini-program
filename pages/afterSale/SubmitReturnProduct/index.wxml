@@ -1,2 +1,51 @@
-<!--pages/afterSale/SubmitReturnProduct/index.wxml-->
-<text>pages/afterSale/SubmitReturnProduct/index.wxml</text>
+<view class='header'>
+  <view class='order-num'>
+    订单编号：20180619537058608464
+  </view>
+  <view class='order-details'>
+    <view>
+      <image src='http://res.chinaswt.cn//resource/images/photo/8529/20180612/201806121823081.jpg'></image>
+    </view>
+    <view class='order-details_title'>
+      <view class='shop_title'>啊哈哈哈啊哦i好的号</view>
+      <view class='price_num'>
+        <text>x1</text>
+        <text>￥1.00</text>
+      </view>
+    </view>
+  </view>
+  <view class='apply-reason'>
+    <view>订单编号：20180619537058608464</view>
+    <view>下单时间：2018-06-19 11:06:56</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">申请方式：</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker range="{{ proposal}}" value="{{proposalIndex}}" bindchange="bindProposalChange">
+            <view class="weui-input" wx:if="{{proposalIndex}}">{{proposal[proposalIndex]}}</view>
+             <view class="weui-input" wx:else>请选择申请方式</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">申请原因</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker range="{{pursueReason}}" value="{{index}}" bindchange="bindPursueReason">
+           <view class="weui-input" wx:if="{{index}}">{{pursueReason[index]}}</view>
+             <view class="weui-input" wx:else>请选择申请原因</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view>退款明细：</view>
+    <view>可退金额：
+      <input></input>
+    </view>
+  </view>
+</view>

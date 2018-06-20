@@ -10,5 +10,55 @@
     <view>订单号：201806119537058608464</view>
     <view>售后编号：20180619455823126319</view>
   </view>
-
+  <view class='order-product'>
+    <view>
+      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+    </view>
+    <view class='order-product_title'>
+      <text>女装2017（1）</text>
+      <text>数量：1</text>
+    </view>
+  </view>
+  <view class='ordinal-other'>
+    <view>申请方式：我要退款</view>
+    <view>申请原因：商品质量有问题</view>
+    <view>申请时间：2018/6/19 15:53:39</view>
+  </view>
 </view>
+
+
+<view class='btn-recharge'>
+  点击收起协商记录
+</view>
+
+<view class='negotiate'>
+  <view class='negotiate- result'>
+    <view class='negotiate-title'>
+      <text>买家</text>
+      <text>2018-16-19 19:18:44</text>
+    </view>
+    <view class='negotiate-status'>
+      <text style='color:#e41436;'>取消售后申请</text>
+    </view>
+  </view>
+  <view class='negititate-reason'>
+    <view class='negotiate-title'>
+      <text>买家</text>
+      <text>2018-16-19 19:18:44</text>
+    </view>
+    <view class='negotiate-details'>
+      <view style='color:#e41436;'>发起售后申请</view>
+      <view>申请方式：我要退款</view>
+      <view>申请原因：商品质量问题</view>
+      <view>退款金额：1.00</view>
+      <view>联系电话：13656682666</view>
+      <view>详细原因：</view>
+    </view>
+  </view>
+</view>
+
+<view class='btn-recharge' catchtap='_goSubmitReturnProduct'>
+  重新发起售后申请
+</view>
+
+<view style='height:30rpx;'></view>
