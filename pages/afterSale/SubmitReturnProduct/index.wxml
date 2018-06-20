@@ -25,7 +25,7 @@
         <view class="weui-cell__bd">
           <picker range="{{ proposal}}" value="{{proposalIndex}}" bindchange="bindProposalChange">
             <view class="weui-input" wx:if="{{proposalIndex}}">{{proposal[proposalIndex]}}</view>
-             <view class="weui-input" wx:else>请选择申请方式</view>
+            <view class="weui-input" wx:else>请选择申请方式</view>
           </picker>
         </view>
       </view>
@@ -37,15 +37,70 @@
         </view>
         <view class="weui-cell__bd">
           <picker range="{{pursueReason}}" value="{{index}}" bindchange="bindPursueReason">
-           <view class="weui-input" wx:if="{{index}}">{{pursueReason[index]}}</view>
-             <view class="weui-input" wx:else>请选择申请原因</view>
+            <view class="weui-input" wx:if="{{index}}">{{pursueReason[index]}}</view>
+            <view class="weui-input" wx:else>请选择申请原因</view>
           </picker>
         </view>
       </view>
     </view>
     <view>退款明细：</view>
-    <view>可退金额：
-      <input></input>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">可退金额：</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value='1.00' />
+        </view>
+      </view>
     </view>
   </view>
+  <view class='rebate'>
+    退款总金额：
+    <text style='color:#e41436;'>1.00</text>元
+  </view>
+  <view class='mobilePhone'>
+    <view>手机号码：</view>
+    <view>
+      <input value='13656682060'></input>
+    </view>
+  </view>
+  <view class='detailed-reasons'>
+    <view>详细原因：</view>
+    <view>
+      <textarea placeholder='请填写详细申请售后原因，申请成功后需要退货的请填写物流信息！不能超过100个字符！'></textarea>
+    </view>
+  </view>
+  <view class='pic-proof'>
+    <view>图片举证：(最多5张)</view>
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files">
+                <block wx:for="{{imageList}}" wx:for-item="image">
+                  <view class="weui-uploader__file">
+                    <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                  </view>
+                </block>
+              </view>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
 </view>
+
+<view class='btn-recharge'>
+  申请售后
+</view>
+
+<view style='height:40rpx;'></view>

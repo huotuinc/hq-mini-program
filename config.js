@@ -5,7 +5,6 @@ var host = "https://localhost/api"
 
 var config={
   host,
-
   // 登录地址
   loginUrl: `${host}/login`,
   // 首页推荐
@@ -28,12 +27,6 @@ var config={
   hotsearchkeyworld: `${host}/goods/hotsearchkeyworld`,
   //商品详情
   goodsDetails: `${host}/goods/details`,
-  //我的团队
-  myTeams:`${host}/user/myTeams`,
-  //我的收益
-  myProfit: `${host}/user/myProfit`,
-  //意见反馈
-  saveFeedBack: `${host }/user/saveFeedBack`
 }
 
 module.exports = config

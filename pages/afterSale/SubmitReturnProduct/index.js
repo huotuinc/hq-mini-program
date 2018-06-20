@@ -6,7 +6,10 @@ Page({
    */
   data: {
     proposal: ['请选择申请方式', '我要退款'],
-    pursueReason: ['请选择申请原因', '跟卖家协商,双方同意', '买错,不想要了', '商品质量有问题', '没有收到货', '其他原因']
+    pursueReason: ['请选择申请原因', '跟卖家协商,双方同意', '买错,不想要了', '商品质量有问题', '没有收到货', '其他原因'],
+    imageList: [],
+    countIndex: 4,
+    count: [1, 2, 3, 4, 5, 6, 7, 8, 9]
   },
   bindProposalChange: function(e) {
     console.log(e.detail.value)
@@ -14,9 +17,30 @@ Page({
       proposalIndex: e.detail.value
     })
   },
-  bindPursueReason: function (e) {
+  bindPursueReason: function(e) {
     this.setData({
       index: e.detail.value
+    })
+  },
+  chooseImage: function() {
+    var that = this
+    wx.chooseImage({
+      // sourceType: sourceType[this.data.sourceTypeIndex],
+      // sizeType: sizeType[this.data.sizeTypeIndex],
+      count: this.data.count[this.data.countIndex],
+      success: function(res) {
+        console.log(res)
+        that.setData({
+          imageList: res.tempFilePaths
+        })
+      }
+    })
+  },
+  previewImage: function(e) {
+    var current = e.target.dataset.src
+    wx.previewImage({
+      current: current,
+      urls: this.data.imageList
     })
   },
   /**
