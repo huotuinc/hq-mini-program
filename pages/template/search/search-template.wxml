@@ -1,8 +1,8 @@
 <template name="search-header">
-  <view class='home-top'>
+  <view class=''>
     <view class='index_header'>
       <view class='header_left'>
-        <icon class='icon iconfont icon-tubiaozhizuomoban1' style='font-size:80rpx;'></icon>
+        <icon class='icon iconfont icon-tubiaozhizuomoban1' style='font-size:56rpx;margin-top:4rpx;'></icon>
       </view>
       <view class='index_search' catchtap='searchShop'>
         <icon class="icon iconfont icon-sousuo"></icon>

@@ -45,6 +45,7 @@ Page({
     })
   },
   bindRegionChange: function(e) {
+    console.log(e)
     this.setData({
       city: e.detail.value
     })
@@ -99,7 +100,7 @@ Page({
     wx.navigateTo({
       url: '../shipAddress/index',
     })
-  },
+  }, 
   _goPayPassword:function(e){
   wx.navigateTo({
     url: '../payPassword/index',

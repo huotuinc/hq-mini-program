@@ -33,8 +33,7 @@ App({
 
     wx.login({
       success: function (res) {
-        console.log(config);
-        //todo:  
+        console.log(res)
 
       }
     })

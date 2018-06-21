@@ -7,15 +7,13 @@
   <view class='operate_title'>余额</view>
   <view class='kit-money'>
     <icon class='icon iconfont icon-money'></icon>
-    <input value='33.00' type='number'></input>
+    <input value='33.00' type='number' style='font-size:26px;'></input>
   </view>
   <view class='operate_other'>
     <text>可提额度：0.00</text>
     <text style='color:#5f9ce5;'>全部提现</text>
   </view>
 </view>
-
-<view style='height:10rpx;background-color:#F0EFF5;'></view>
 
 <view class='kiting_other'>
   <view class='btn-recharge'>

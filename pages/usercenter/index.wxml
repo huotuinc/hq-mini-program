@@ -3,7 +3,7 @@
   <view class='userinfo'>
     <image src='' class='userimg'></image>
     <text class='username'>星期八</text>
-    <text class='usersize'>粉丝</text>
+    <text class='usersize'><text>营养师</text></text>
   </view>
 </view>
 
@@ -24,7 +24,7 @@
       <text>待付款</text>
     </view>
     <view data-currentTab='2' catchtap='_goOrder'>
-      <icon class='icon iconfont icon-daifahuo'></icon>
+      <icon class='icon iconfont icon-dengdaihuankuan' style='font-size:44rpx;margin-bottom:4rpx;'></icon>
       <text>代发货</text>
     </view>
     <view data-currentTab='3' catchtap='_goOrder'>
@@ -64,11 +64,11 @@
 </view>
 
 <view style='margin-top:20rpx; '>
-  <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style='height:350rpx;'>
+  <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx'>
     <block wx:for="{{bannerItems}}" wx:key="{{item}}">
       <swiper-item>
         <view class="swiper-item">
-          <image lazy-load='true' src='{{item.pictureUrl}}' style='width:100%; '></image>
+          <image lazy-load='true' src='{{item.pictureUrl}}'  bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
         </view>
       </swiper-item>
     </block>
@@ -91,6 +91,10 @@
     <view>
       <icon class='icon iconfont icon-hongbao'></icon>
       <text>红包优惠券</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-kefu'></icon>
+      <text>客服</text>
     </view>
   </view>
 </view>

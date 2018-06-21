@@ -26,20 +26,24 @@
 .select-footer_icon .icon {
   font-size: 30rpx;
   margin-right: 10rpx;
+  color: #ddd;
 }
-.select-footer_icon .icon-guanbi{
-  color: #fe4d52;
+
+.select-footer_icon .icon-guanbi {
+  color: #09bb06;
 }
+
 .footer-operate text {
   display: inline-block;
   width: 50%;
-  color: #fff;
 }
 
 .footer-del {
-  background-color: #fe4d52;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 .footer-share {
-  background-color: #888;
+  background-color: #e41436;
+  color: #fff;
 }

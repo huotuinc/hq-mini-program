@@ -1,6 +1,6 @@
-<view class="setting-header">
+<!-- <view class="setting-header">
   <text>当前安全等级</text>
-</view>
+</view> -->
 
 <text class='class_title'>基础信息</text>
 <view class='information'>

@@ -3,8 +3,8 @@
 <import src="../template/backTop/backTop" />
 
 <view>
-  <template is="search-header" />
-  <view class='category-goods-filter'>
+  <template is="search-header" wx:if="{{search == 1}}" />
+  <view class=" {{search ==1 ? 'category-goods-filter' : 'no-search'}}">
     <view class='filter-item {{filterTap==1 ?"active":""}}' bindtap='clickfilterTap' data-type='1' data-order='{{order}}' data-msg='新品'>
       新品
       <view class='filter-icon'>
@@ -27,7 +27,7 @@
     <view data-type='5' data-msg='筛选' bindtap="powerDrawer" data-statu="{{statu}}">筛选</view>
   </view>
 </view>
-<view class='separator'></view>
+<view class=" {{search ==1 ? 'separator' : 'no-separator'}}"></view>
 <view>
   <block wx:for="{{goodsItems}}" wx:key="item">
     <template is="itemTwo" data="{{item,index}}" />
@@ -36,7 +36,7 @@
 
 <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" catchtouchmove="true" wx:if="{{showModalStatus}}"></view>
 
-<view class='filtrate'  wx:if="{{showModalStatus}}" catchtouchmove="true">
+<view class=" {{search ==1 ? 'filtrate' : 'no-filtrate'}}" wx:if="{{showModalStatus}}" catchtouchmove="true">
   <view class='filtrate-header'>
     <view class="tab-item {{currentTab==0?'active':''}}" data-index='0' bindtap="swichNav">品牌</view>
     <view class="tab-item {{currentTab==1?'active':''}}" data-index='1' bindtap="swichNav">分类</view>

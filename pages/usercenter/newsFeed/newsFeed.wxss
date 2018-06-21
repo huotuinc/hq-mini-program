@@ -41,7 +41,7 @@
 .content_con {
   width: 100%;
   background-color: #fff;
-  padding: 20rpx;
+  padding: 30rpx 24rpx;
   margin-bottom: 28rpx;
   display: flex;
   flex-direction: column;
@@ -57,13 +57,13 @@
 }
 
 .feed-con_title .con_logo {
-  width: 87rpx;
-  height: 87rpx;
+  width: 68rpx;
+  height: 68rpx;
   background-color: #48d3a7;
   text-align: center;
   margin-right: 28rpx;
-  line-height: 87rpx;
-  border-radius: 5rpx;
+  line-height: 68rpx;
+  border-radius: 8rpx;
 }
 
 .feed-con_title .con_logo icon {
@@ -93,7 +93,11 @@
 }
 
 .feed-con_text{
-  font-size: 29rpx;
+  font-size: 30rpx;
   color: #838383;
-  line-height: 1.6;
+  line-height: 1.2;
+}
+
+.feed-con_title .gonggao{
+  background-color: #76b5ff;
 }

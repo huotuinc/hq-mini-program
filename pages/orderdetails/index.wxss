@@ -13,7 +13,7 @@
 }
 
 .goods-information, .pay-way {
-  margin-top: 30rpx;
+  margin-top: 28rpx;
   background-color: #fff;
 }
 
@@ -97,7 +97,7 @@
 
 .pay-way>view {
   margin-left: 30rpx;
-  font-size: 36rpx;
+  font-size: 28rpx;
 }
 
 .pay-way_wx {

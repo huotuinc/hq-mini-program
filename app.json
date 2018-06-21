@@ -40,7 +40,7 @@
     "backgroundColor": "#FFFFFF",
     "selectedColor": "#E41436",
     "color": "#898989",
-    "borderStyle": "black",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",

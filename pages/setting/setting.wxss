@@ -32,10 +32,10 @@ page {
 }
 
 .information>view {
-  height: 70rpx;
-  line-height: 70rpx;
+  height: 90rpx;
+  line-height: 90rpx;
   margin-left: 30rpx;
-  padding-right: 30rpx;
+  padding-right: 40rpx;
   border-bottom: 1px solid #f2f2f2;
 }
 
@@ -44,9 +44,9 @@ page {
 }
 
 .weui-input {
-  height: 70rpx;
-  min-height: 70rpx;
-  line-height: 70rpx;
+  height: 90rpx;
+  min-height: 90rpx;
+  line-height:90rpx;
   text-align: right;
 }
 

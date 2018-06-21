@@ -1,5 +1,5 @@
 <template name="itemTwo">
-  <view class="goods-item-two"  bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+  <view class="goods-item-two" bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
     <view class='item-box'>
       <view>
         <view class='goods-item-pic'>
@@ -18,12 +18,13 @@
         <icon catchtap='clickFavTab' data-item='{{item}}' data-type='goodsItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
       </view>
 
-       <view>
+      <view class='goods-item-coupon'>
         <view class='goods-item-coupon-text'>
           购买送
         </view>
-       <text class='goods-item_integral'> 2积分</text>
-      </view> 
+        <text class='goods-item_integral'> 2觅豆</text>
+      </view>
+      <!-- <view></view> -->
     </view>
   </view>
 </template>

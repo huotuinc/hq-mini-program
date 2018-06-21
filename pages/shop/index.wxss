@@ -1,6 +1,6 @@
 .no-shopping {
   width: 100%;
-  padding-top: 70rpx;
+  padding-top: 40%;
 }
 
 .shopping-cart {
@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #000;
   box-sizing: border-box;
   border-top: 1px solid #f2f2f2;
@@ -55,11 +55,45 @@
   color: #000;
 }
 
+.touch-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.del {
+  font-size: 28rpx;
+  background-color: #e41436;
+  width: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(120rpx);
+  transform: translateX(120rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.touch-move-active .item, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
 .item {
+  width: 100%;
   padding: 30rpx;
-  background-color: #fafafa;
-  box-sizing: border-box;
-  border-bottom: 1px solid #F0EFF5;
+  background-color: #fff;
+  border-bottom: 1px solid #f0eff5;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(120rpx);
+  transform: translateX(120rpx);
+  margin-left: -120rpx;
 }
 
 .shop-item {
@@ -124,7 +158,7 @@
 
 .item-other {
   margin-top: 30rpx;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #e41436;
 }
 
@@ -140,13 +174,14 @@
   flex-direction: row;
   justify-content: space-between;
   box-sizing: border-box;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .balance-left {
   display: flex;
   flex-direction: row;
-  font-size: 28rpx;
-  margin-top: 14rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
 }
 
 .balance-left .icon {
@@ -157,6 +192,10 @@
 .pay-total {
   display: flex;
   flex-direction: column;
+}
+
+.pay-total>view:first-child {
+  font-size: 28rpx;
 }
 
 .balance-right {

@@ -33,6 +33,23 @@ Page({
     hidden: false,
     backTopValue: false
   },
+
+  imageLoad: function (e) {
+    var $width = e.detail.width
+    var  $height = e.detail.height
+    this.setData({
+      imgHeight: $height
+    })
+  },
+
+  specialLoad:function(e){
+    var $width = e.detail.width
+    var $height = e.detail.height
+    this.setData({
+      specialHeight: $height
+    })
+  },
+
   // 监听滚动条坐标
   onPageScroll: function(e) {
     //console.log(e)

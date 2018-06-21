@@ -5,68 +5,44 @@
     <icon class='icon iconfont icon-03'></icon>
     <view class='text'>您的购物车空空如也</view>
   </view>
-  <view class='go-around'>去逛逛</view>
 </view> -->
 
 <view class='shopping'>
   <view class='merchant'>
     <view class='merchant-left'>
-      <icon class='icon iconfont icon-ico2'></icon>
-      <text class='allOrder'>商场自营</text>
+      <!-- <icon class='icon iconfont icon-ico2'></icon> -->
+      <text class=''>商场自营</text>
     </view>
     <view class='merchant-right'>编辑</view>
   </view>
-  <view class='item'>
-    <view class='shop-item'>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-      </view>
-      <view class='my-order_con' catchtap='_goGoodsDetails'>
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="item">
+    <view class='item'>
+      <view class='shop-item'>
         <view>
-          <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
+          <icon class='icon iconfont icon-ico2'></icon>
         </view>
-        <view class='goods_title'>
-          <view class='title_con'>
-            <text class='shop_title'>自由物体组合体自由物体组合体自由物体组合体组合体自由物体组合体</text>
-            <text style='color:#000;'>规格 ：F4A1蓝色，L</text>
-            <text>剩余库存 ：4</text>
+        <view class='my-order_con' catchtap='_goGoodsDetails'>
+          <view>
+            <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
           </view>
-          <view class='price_num'>
-            <text style='font-weight: 800;'>￥20</text>
-            <text style='color: #999;'>x1</text>
-          </view>
-        </view>
-      </view>
-    </view>
-    <view class='item-other'>
-      <text>活动：觅方66节下单就返3-8元随机无门槛优惠券</text>
-    </view>
-  </view>
-  <view class='item'>
-    <view class='shop-item'>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-      </view>
-      <view class='my-order_con' catchtap='_goGoodsDetails'>
-        <view>
-          <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
-        </view>
-        <view class='goods_title'>
-          <view class='title_con'>
-            <text class='shop_title'>自由物体组合体自由物体组合体自由物体组合体组合体自由物体组合体</text>
-            <text style='color:#000;'>规格 ：F4A1蓝色，L</text>
-            <text>剩余库存 ：4</text>
-          </view>
-          <view class='price_num'>
-            <text style='font-weight: 800;'>￥20000</text>
-            <text style='color: #999;'>x1</text>
+          <view class='goods_title'>
+            <view class='title_con'>
+              <text class='shop_title'>{{item.Name}}</text>
+              <text style='color:#000;'>规格 ：F4A1蓝色，L</text>
+              <text>剩余库存 ：{{item.AvaliableStore}}</text>
+            </view>
+            <view class='price_num'>
+              <text style='font-weight: 800;'>￥{{item.Price}}</text>
+              <text style='color: #999;'>x{{item.Nums}}</text>
+            </view>
           </view>
         </view>
       </view>
+      <view class='item-other'>
+        <text>活动：觅方66节下单就返3-8元随机无门槛优惠券</text>
+      </view>
     </view>
-    <view class='item-other'>
-      <text>活动：觅方66节下单就返3-8元随机无门槛优惠券</text>
-    </view>
+    <view class="del" catchtap="del" data-index="{{index}}">删除</view>
   </view>
 </view>
 

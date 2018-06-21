@@ -4,7 +4,7 @@
       <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
     </block>
   </view>
-</view> 
+</view>
 
 <view class='separator2'></view>
 
@@ -36,14 +36,30 @@
                 </view>
               </view>
             </view>
+            <view class='my-order_con' catchtap='_goGoodsDetails'>
+              <view>
+                <image src='{{item.imgSrc}}'></image>
+              </view>
+              <view class='goods_title'>
+                <view class='title_con'>
+                  <text>{{item.goodsName}}</text>
+                </view>
+                <view class='price_num'>
+                  <text>￥{{item.orderAmount}}</text>
+                  <text style='color: #999;'>x1</text>
+                </view>
+              </view>
+            </view>
           </view>
           <view class='separator3'></view>
           <view class='item-info-3'>
-            <text>共1件商品 合计￥</text>
-            <text style='color: #E41436;'>{{item.orderAmount}} </text>
+            <text style='color:#ccc;'>{{item.orderCreateTime}}</text>
+            <view>
+              <text>共1件商品 合计￥</text>
+              <text style='color: #E41436;'>{{item.orderAmount}} </text>
+            </view>
           </view>
           <view class='item-info-4'>
-            <text style='color:#ccc; margin-top:20rpx;'>{{item.orderCreateTime}}</text>
             <view class=' operation'>
               <view class='cancel '>取消订单</view>
               <view class=' payment'>支付订单</view>

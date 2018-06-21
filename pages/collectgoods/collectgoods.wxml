@@ -7,8 +7,8 @@
 </view>
 
 <view class='collect-footer '>
-  <view class='select-footer_icon'>
-    <icon class="icon iconfont {{!checked?'icon-ico2':'icon-guanbi'}}" catchtap='checkedAll'></icon>
+  <view class='select-footer_icon'  catchtap='checkedAll'>
+    <icon class="icon iconfont {{!checked?'icon-ico2':'icon-guanbi'}}"></icon>
     <text>{{ checkedTitle }}</text>
   </view>
   <view class='footer-operate'>

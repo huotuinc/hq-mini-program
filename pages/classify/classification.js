@@ -17,7 +17,11 @@ Page({
       currentTab: cur
     })
   },
-
+  _goGoodsList:function(e){
+    wx.navigateTo({
+      url: '../goodslist/goods-list?search=2',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

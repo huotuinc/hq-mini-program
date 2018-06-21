@@ -11,7 +11,7 @@
       <text style='float:right;'>更多</text>
     </view>
     <view class='goods-logo'>
-      <view class='goods-classify_item'>
+      <view class='goods-classify_item' catchtap='_goGoodsList'>
         <view>
           <image src='https:////img11.360buyimg.com/n1/jfs/t21397/157/1156155950/120963/e7f0d47b/5b20b0bcN135c117a.jpg'></image>
         </view>

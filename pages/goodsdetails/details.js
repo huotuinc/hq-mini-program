@@ -114,7 +114,7 @@ Page({
     this.animation = animation;
 
     // 第3步：执行第一组动画：Y轴偏移240px后(盒子高度是240px)，停  
-    animation.translateY(240).step();
+    animation.translateY(500).step();
 
     // 第4步：导出动画对象赋给数据对象储存  
     this.setData({

@@ -17,7 +17,8 @@ Page({
     showModalStatus: false,
     categoryid: 0,
     statu: "open",
-    backTopValue: false
+    backTopValue: false,
+    search: '2'
   },
   // 监听滚动条坐标
   onPageScroll: function(e) {
@@ -81,7 +82,8 @@ Page({
     this.setData({
       goodsItems: indexData.goodsItems,
       categoryid: options.categoryid || 0,
-      categoryTitle: options.categoryTitle || '商品列表'
+      categoryTitle: options.categoryTitle || '商品列表',
+      search: options.search
     })
     wx.setNavigationBarTitle({
       title: this.data.categoryTitle,
@@ -121,8 +123,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-
+  onReady: function(e) {
   },
 
   /**

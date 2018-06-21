@@ -1,33 +1,32 @@
 <template name="goodsItem">
-  <view class='goods-item-container' bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+  <view class='goods-item-container' data-goodsId='{{item.goodsId}}' catchtap='clickFavTab' data-item='{{item}}' data-type='hotItems' data-index='{{index}}'>
     <view class='goods-item-left'>
       <view class='select-icon'>
         <block>
-          <icon catchtap='clickFavTab' data-item='{{item}}' data-type='hotItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-ico2':'icon-guanbi'}}"></icon>
+          <icon class="icon iconfont {{item.isFav?'icon-ico2':'icon-guanbi'}}"></icon>
         </block>
       </view>
       <image lazy-load="true" src='{{ item.imgSrc }}'></image>
     </view>
 
-    <view class='goods-item-right'>
+    <view class='goods-item-right' bindtap='goodsDetails'>
       <view class='goods-item-title'>
         <text>{{item.title}}</text>
       </view>
 
-      <view class='old_shoucang'>
-        <text class='oldprice'>￥{{item.goodsPrice}}</text>
+      <view>
+        <view class='old_shoucang'>
+          <text class='oldprice'>￥{{item.goodsPrice}}</text>
+        </view>
       </view>
       <view>
-        <view class='old-ticket_sales'>
-          <view class='sales_volume'>销量{{item.salesVolume}}件</view>
-        </view>
-
         <view class='new-ticket_sales'>
           <view class='new-price_ticket'>
             <text class='price'>￥{{item.finalPrice}}</text>
+            <text class='sales_volume'>销量{{item.salesVolume}}件</text>
           </view>
         </view>
-      </view> 
+      </view>
     </view>
   </view>
 </template>

@@ -6,7 +6,7 @@ var host = "https://localhost/api"
 var config={
   host,
   // 登录地址
-  loginUrl: `${host}/login`,
+  loginUrl: `${host}/user/LoginByAuthCode`,
   // 首页推荐
   homeRecommendUrl: `${host}/goods/recommend`,
   // 商品列表

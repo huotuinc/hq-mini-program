@@ -33,7 +33,6 @@ page {
 
 .swiper-item image {
   width: 100%;
-  height: 100%;
 }
 
 .page-section-title {
@@ -57,7 +56,6 @@ page {
 
 .goods-special-area image {
   width: 100%;
-  height: 200rpx;
 }
 
 .icon-more {

@@ -29,11 +29,10 @@
   </view>
 
   <view class='promotion'>
-    <text style='color:#acacac;margin-right:18rpx;'>促销</text>
-    <!-- <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text> -->
-    <text style='padding:2rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
-    <text>觅方66节下单就返3-8元随机无门槛优惠券</text>
-    <text class='allOrder' style='float:right;'></text>
+    <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
+    <text style='padding:0rpx 6rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
+    <text class='ellips'>觅方66节下单就返3-8元随机无门槛优惠券返3-8元随机无门槛优惠券</text>
+     <text class='allOrder' style='float:right;'></text> 
   </view>
 
   <view class='separator1'></view>
@@ -85,13 +84,13 @@
         <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
       </view>
       <view class='price-repertory_select'>
-        <view style='color:#e41436'>￥39</view>
+        <view style='color:#e41436;font-size:40rpx;'>￥39</view>
         <view>库存：78件</view>
         <view>已选择：s 宝蓝迷彩</view>
       </view>
     </view>
 
-    <view class='buy-select'>
+    <!-- <view class='buy-select'>
       <view class='select-title'>
         <text>尺码</text>
       </view>
@@ -99,7 +98,7 @@
         <text class='active'>S</text>
         <text>M</text>
         <text>L</text>
-        <text>XL</text>
+        <text class='no_select'>XL</text>
       </view>
     </view>
     <view class='buy-select'>
@@ -114,16 +113,16 @@
         <text>浅灰迷彩</text>
         <text>紫色迷彩</text>
       </view>
-    </view>
+    </view> -->
 
     <view class='buy_num'>
       <view class='buy-num_title'>
         <text>购买数量</text>
       </view>
       <view class='add_minus'>
-        <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}">-</text>
-        <text>{{shopNum}}</text>
-        <text catchtap='numAdd' class='calculate'>+</text>
+        <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}" style="font-size:42rpx;">-</text>
+        <text style='background-color:#f5f5f5;'>{{shopNum}}</text>
+        <text catchtap='numAdd' class='calculate' style="font-size:42rpx;">+</text>
       </view>
     </view>
 
