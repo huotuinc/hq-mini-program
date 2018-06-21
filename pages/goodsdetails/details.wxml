@@ -2,7 +2,7 @@
 
 <view>
   <view class='goods-details-main-pic'>
-    <image src='{{item.imgSrc}}' bindload="imageLoad" style='height:{{imgHeight}}rpx'></image>
+    <image src='{{item.imgSrc}}' bindload="imageLoad" mode='widthFix'></image>
   </view>
   <view class='goods-details-info-box'>
     <view class='goods-item-title'>
@@ -39,15 +39,15 @@
 
   <view class='goods-details-info'>
     <view class='goods-details'>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161550476552.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161551616614.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171306404889.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171308971188.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
-       <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161557974414.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161550476552.jpg'  mode="widthFix"></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161551616614.jpg'  mode="widthFix"></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171306404889.jpg'  mode="widthFix"></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171308971188.jpg'  mode="widthFix"></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg'  mode="widthFix"></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg'  mode="widthFix"></image>
+       <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161557974414.jpg'  mode="widthFix"></image>
     </view>
   </view>
 

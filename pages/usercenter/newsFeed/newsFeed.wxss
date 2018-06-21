@@ -22,13 +22,12 @@
   content: "";
   display: block;
   height: 6rpx;
-  width: 151rpx;
+  width: 300rpx;
   background: #000;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-54%);
-  border-radius: 16rpx;
 }
 
 
@@ -78,7 +77,7 @@
 
 .feed-con_title  .con-size_time .feed-size {
   font-size: 33rpx;
-  color: #838383;
+  color: #333;
 }
 
 .feed-con_title  .con-size_time .feed-time {

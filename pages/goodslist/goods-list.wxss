@@ -5,9 +5,20 @@ page {
   background-color: #fff;
 }
 
+.goods-list_header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+}
+
+.index_header{
+  z-index: 1001;
+}
+
 .filter-item {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; 
   justify-content: center;
   position: relative;
 }
@@ -55,8 +66,8 @@ page {
 }
 
 .category-goods-filter {
-  position: fixed;
-  top: 90rpx;
+  /* position: fixed; */
+  /* top: 0rpx; */
 }
 
 .no-search {
@@ -91,7 +102,7 @@ page {
   background-color: #fff;
   z-index: 1000;
   position: fixed;
-  top: 175rpx;
+  top: 155rpx;
   padding-bottom: 50rpx;
 }
 

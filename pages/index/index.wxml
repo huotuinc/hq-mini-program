@@ -26,11 +26,11 @@
     <!--主题/广告等模块-->
     <view class='home-index {{currentTab!=0?"home-index-display":""}}'>
       <view class="page-section page-section-spacing swiper">
-        <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx'>
+        <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
               <view class="swiper-item">
-                <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad" style='height:{{imgHeight}}rpx'></image>
+                <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad"  mode='widthFix'></image>
               </view>
             </swiper-item>
           </block>
@@ -40,8 +40,8 @@
       <view class='goods-special-area'>
         <block wx:for="{{specialItems}}" wx:key="item">
           <view class='special-box' catchtap='_goList'>
-            <view class='box2 item{{index}}' style='height:{{specialHeight}}rpx'>
-              <image src='{{item.pictureUrl}}'  bindload="specialLoad" style='height:{{specialHeight}}rpx'></image>
+            <view class='box2 item{{index}}'>
+              <image src='{{item.pictureUrl}}' mode='widthFix'></image>
             </view>
           </view>
         </block>

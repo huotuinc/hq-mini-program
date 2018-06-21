@@ -33,5 +33,4 @@
   bottom: 0;
   left: 50%;
   transform: translate(-54%);
-  border-radius: 16rpx;
 }

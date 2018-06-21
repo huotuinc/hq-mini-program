@@ -4,6 +4,7 @@
 
 .goods-details-main-pic image {
   width: 100%;
+  display: block;
 }
 
 .goods-details-info-box {

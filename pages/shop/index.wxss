@@ -104,6 +104,7 @@
 .shop-item .icon {
   font-size: 40rpx;
   margin-right: 20rpx;
+  color: #ddd;
 }
 
 .my-order_con {

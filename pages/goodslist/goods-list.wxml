@@ -2,11 +2,11 @@
 <import src="../template/search/search-template" />
 <import src="../template/backTop/backTop" />
 
-<view>
+<view class='goods-list_header'>
   <template is="search-header" wx:if="{{search == 1}}" />
   <view class=" {{search ==1 ? 'category-goods-filter' : 'no-search'}}">
     <view class='filter-item {{filterTap==1 ?"active":""}}' bindtap='clickfilterTap' data-type='1' data-order='{{order}}' data-msg='新品'>
-      新品
+      新品 
       <view class='filter-icon'>
         <icon class='{{filterTap==1 & order==1?"active":""}} icon iconfont icon-xia'></icon>
         <icon class='{{filterTap==1 & order==2?"active":""}} icon iconfont icon-xia-copy'></icon>
@@ -27,7 +27,7 @@
     <view data-type='5' data-msg='筛选' bindtap="powerDrawer" data-statu="{{statu}}">筛选</view>
   </view>
 </view>
-<view class=" {{search ==1 ? 'separator' : 'no-separator'}}"></view>
+ <view class=" {{search ==1 ? 'separator' : 'no-separator'}}"></view> 
 <view>
   <block wx:for="{{goodsItems}}" wx:key="item">
     <template is="itemTwo" data="{{item,index}}" />

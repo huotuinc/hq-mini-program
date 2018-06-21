@@ -32,6 +32,7 @@ page {
 }
 
 .swiper-item image {
+  display: block;
   width: 100%;
 }
 
@@ -55,6 +56,7 @@ page {
 }
 
 .goods-special-area image {
+  display: block;
   width: 100%;
 }
 
