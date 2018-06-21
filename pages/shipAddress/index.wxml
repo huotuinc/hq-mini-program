@@ -4,8 +4,8 @@
       <icon class='icon iconfont icon-xuanzhong'></icon>
     </view>
     <view class="item-center">
-      <text style=' color: #000;font-weight: 800;'>星期八 186****5950</text>
-      <text>浙江杭州市滨江区阡陌路482号智慧E谷B幢4楼</text>
+      <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>星期八 186****5950</text>
+      <text style='font-size:28rpx;'>浙江杭州市滨江区阡陌路482号智慧E谷B幢4楼</text>
     </view>
     <view class='iten-right'>
       <text>编辑</text>
@@ -17,8 +17,8 @@
       <icon class='icon iconfont icon-ico2'></icon>
     </view>
     <view class="item-center">
-      <text style=' color: #000;font-weight: 800;'>星期八 186****5950</text>
-      <text>浙江杭州市滨江区阡陌路482号智慧E谷B幢4楼</text>
+      <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>星期八 186****5950</text>
+      <text style='font-size:28rpx;'>浙江杭州市滨江区阡陌路482号智慧E谷B幢4楼</text>
     </view>
     <view class='iten-right'>
       <text>编辑</text>
@@ -30,8 +30,8 @@
       <icon class='icon iconfont icon-ico2'></icon>
     </view>
     <view class="item-center">
-      <text style=' color: #000;font-weight: 800;'>星期八 186****5950</text>
-      <text>浙江杭州市滨江区阡陌路482号</text>
+      <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>星期八 186****5950</text>
+      <text style='font-size:28rpx;'>浙江杭州市滨江区阡陌路482号</text>
     </view>
     <view class='iten-right'>
       <text>编辑</text>
@@ -41,5 +41,5 @@
 
 <view style='height:100rpx;'></view>
 <view class='add_address' catchtap='_goAddAddress'>
-<text>新增收货地址</text>
+  <text>新增收货地址</text>
 </view>

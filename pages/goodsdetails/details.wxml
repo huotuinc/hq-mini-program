@@ -2,11 +2,11 @@
 
 <view>
   <view class='goods-details-main-pic'>
-    <image src='{{item.imgSrc}}'></image>
+    <image src='{{item.imgSrc}}' bindload="imageLoad" style='height:{{imgHeight}}rpx'></image>
   </view>
   <view class='goods-details-info-box'>
     <view class='goods-item-title'>
-      <text>【阿拉斯加】啊手动阀手动阀手动阀手动阀大阿斯顿发射点啊手动阀是啊啊撒旦阿斯顿哎说是阿斯顿啊啊撒旦阿斯顿哎说是阿斯顿</text>
+      <text>{{item.title}}</text>
     </view>
     <view class='send-specification'>
       <text>【偏远地区不包邮】阿拉斯加阿拉斯加阿拉斯加阿拉斯加</text>
@@ -16,11 +16,11 @@
       <text>TECTOP/探拓</text>
     </view>
     <view class='goods-item-two-text2'>
-      <text class='goods-final-price'>￥19.99</text>
+      <text class='goods-final-price'>￥{{item.finalPrice}}</text>
     </view>
     <view class='goods-item-two-text1'>
-      <text class='goods-item-price'>￥23.99</text>
-      <text class='goods-item-sales_volume'>总销量：4905</text>
+      <text class='goods-item-price'>￥{{item.goodsPrice}}</text>
+      <text class='goods-item-sales_volume'>总销量：{{item.couponPrice}}</text>
     </view>
     <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext='立即购买'>
       <text>请选择规格</text>
@@ -31,7 +31,7 @@
   <view class='promotion'>
     <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
     <text style='padding:0rpx 6rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
-    <text class='ellips'>觅方66节下单就返3-8元随机无门槛优惠券返3-8元随机无门槛优惠券</text>
+    <text class='ellips'>觅方66节下单就返3-8元随机无门槛优惠券</text>
      <text class='allOrder' style='float:right;'></text> 
   </view>
 
@@ -39,11 +39,15 @@
 
   <view class='goods-details-info'>
     <view class='goods-details'>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161550476552.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161551616614.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171306404889.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171308971188.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
+       <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161557974414.jpg' bindload="imagedetails" style='height:{{detailsHeight}}rpx'></image>
     </view>
   </view>
 

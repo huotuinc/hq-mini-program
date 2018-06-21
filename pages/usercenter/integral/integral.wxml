@@ -28,7 +28,7 @@
               <text class='income'>34</text>
             </view>
             <view class='item-right'>
-              <text>签到</text>
+              <text class='item-right_title'>签到</text>
               <text class='time'>时间：2018-06-08 17：04：05</text>
             </view>
           </view>

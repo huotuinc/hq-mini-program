@@ -101,6 +101,7 @@
 }
 
 .goods-details image {
+  display: block;
   width: 100%;
 }
 

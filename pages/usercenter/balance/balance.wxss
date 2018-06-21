@@ -56,3 +56,7 @@
   color: #a5a5b2;
   margin-top: 14rpx;
 }
+
+.item-right_title{
+  font-size:28rpx
+}

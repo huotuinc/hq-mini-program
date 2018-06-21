@@ -1,14 +1,12 @@
 @import "../balance/balance.wxss";
-
-.balance{
-  border-top: 2rpx solid #f2f2f2;
-  border-bottom: 2rpx solid #f2f2f2;
+.news-feed{
+  border-top: 1px solid #F0EFF5;
 }
 
 .news-feed_header {
   height: 100rpx;
   width: 100%;
-  font-size: 33rpx;
+  font-size: 28rpx;
   line-height: 100rpx;
   text-align: center;
   background-color: #fff;
