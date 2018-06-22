@@ -78,17 +78,29 @@
 }
 
 .select-size {
-  padding: 30rpx 50rpx 30rpx 30rpx;
+  padding: 30rpx;
   font-size: 28rpx;
 }
 
-.promotion {
-  margin: 20rpx 0;
-  padding: 30rpx 30rpx 18rpx;
-  font-size: 24rpx;
+.privilege, .promotion {
   background-color: #fff;
   display: flex;
   flex-direction: row;
+}
+
+.privilege {
+  justify-content: space-between;
+  margin: 20rpx 0;
+  padding: 25rpx 30rpx;
+  font-size: 24rpx;
+}
+
+.moreBtn {
+  font-size: 24rpx;
+}
+
+.moreBtn .icon {
+  margin-top: -10rpx;
 }
 
 .promotion > text {
@@ -96,6 +108,7 @@
 }
 
 .promotion .ellips {
+  margin-top: 4rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -257,27 +270,30 @@
 }
 
 .buy-num_title {
-  height: 62rpx;
-  line-height: 62rpx;
+  height: 100rpx;
+  line-height: 100rpx;
 }
 
 .add_minus {
-  height: 62rpx;
-  /* border: 1rpx solid #f0eff5; */
-  border-radius: 8rpx;
+  height: 100rpx;
 }
 
 .add_minus text {
   display: inline-block;
-  height: 60rpx;
-  padding: 0 29rpx;
-  line-height: 60rpx;
-  /* border-left: 1rpx solid #f0eff5; */
+  height: 100rpx;
+  padding: 0 40rpx;
+  line-height: 100rpx;
+  font-size: 42rpx;
 }
 
-/* .add_minus text:first-child {
-  border-left: none;
-} */
+.add_minus .shop_number {
+  background-color: #f5f5f5;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin-top: 20rpx;
+  padding: 0 29rpx;
+  font-size: 28rpx;
+}
 
 .submit {
   width: 100%;
@@ -290,7 +306,6 @@
 }
 
 .no_select {
-  /* border: 1px dashed #f0eff5; */
   background-color: #f5f5f5;
   color: #ddd;
 }

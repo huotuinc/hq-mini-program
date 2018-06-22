@@ -106,9 +106,6 @@
   </view>
   <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
 </view>
-<view class="backTop" bindtap='backTop' wx:if="{{backTopValue ==true}}">
-  <text class='icon iconfont icon-xiajiang'></text>
-</view>
 
 <view class="body-view" wx:if="{{hidden}}">
   {{loadingTitle}}

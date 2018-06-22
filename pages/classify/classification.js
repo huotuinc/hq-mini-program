@@ -6,7 +6,7 @@ Page({
    */
   data: {
     currentTab: 0,
-    classifList: ["户外服装", "户外裤装", "内衣/配饰", "户外鞋靴", "户外背包", "户外工具"]
+    classifList: ["户外服装", "户外裤装", "内衣/配饰", "户外鞋靴", "户外背包", "户外工具", "户外服装", "户外裤装", "内衣/配饰", "户外鞋靴", "户外背包"]
   },
   swichNav: function(e) {
     var cur = e.target.dataset.current
@@ -17,7 +17,7 @@ Page({
       currentTab: cur
     })
   },
-  _goGoodsList:function(e){
+  _goGoodsList: function(e) {
     wx.navigateTo({
       url: '../goodslist/goods-list?search=2',
     })
@@ -26,7 +26,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    wx.getSystemInfo({
+      success: function(res) {
+        var clientHeight = res.windowHeight
+        var clientWidth = res.windowWidth
+        that.setData({
+          clientHeight: clientHeight
+        })
+      }
+    })
   },
 
   /**

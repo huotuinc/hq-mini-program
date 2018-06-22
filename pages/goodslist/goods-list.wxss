@@ -151,19 +151,17 @@ page {
 .filtrate-select {
   padding: 0 20rpx;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
   font-size: 28rpx;
   color: #666;
   box-sizing: border-box;
+  z-index: 1001;
 }
 
 .filtrate-select view {
+  float: left;
   width: 50%;
-  height: 80rpx;
-  line-height: 80rpx;
+  height: 100rpx;
+  line-height: 100rpx;
   border-bottom: 1px solid #f0eff5;
 }
 
@@ -181,6 +179,7 @@ page {
   padding: 0 20rpx;
   box-sizing: border-box;
   margin-top: 20rpx;
+  z-index: 1001;
 }
 
 .filtrate-btn text {
@@ -192,5 +191,5 @@ page {
   height: 90rpx;
   line-height: 90rpx;
   text-align: center;
-  border-radius: 15rpx;
+  border-radius: 12rpx;
 }

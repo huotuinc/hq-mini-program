@@ -7,12 +7,6 @@
   </view>
 </view>
 
-<view class='user-integral'>
-  <icon class='icon iconfont icon-jifen' style='margin-right:10rpx;'></icon>
-  <text>近30天积分：</text>
-  <text class='user-integral_num'>0</text>
-</view>
-
 <view class='my-order'>
   <view class='my-order_title'>
     <text>我的订单</text>
@@ -20,24 +14,35 @@
   </view>
   <view class='my-order_classify'>
     <view data-currentTab='1' catchtap='_goOrder'>
-      <icon class='icon iconfont icon-wallet_icon'></icon>
-      <text>待付款</text>
+      <view class='order-classift_item'>
+        <icon class='icon iconfont icon-wallet_icon'></icon>
+        <text>待付款</text>
+      </view>
+       <view class='order-classift_num'>10</view> 
     </view>
     <view data-currentTab='2' catchtap='_goOrder'>
-      <icon class='icon iconfont icon-dengdaihuankuan' style='font-size:44rpx;margin-bottom:4rpx;'></icon>
-      <text>代发货</text>
+      <view class='order-classift_item'>
+        <icon class='icon iconfont icon-dengdaihuankuan' style='font-size:44rpx;margin-bottom:4rpx;'></icon>
+        <text>代发货</text>
+      </view>
     </view>
     <view data-currentTab='3' catchtap='_goOrder'>
-      <icon class='icon iconfont icon-daishouhuo'></icon>
-      <text>待收货</text>
+      <view class='order-classift_item'>
+        <icon class='icon iconfont icon-daishouhuo'></icon>
+        <text>待收货</text>
+      </view>
     </view>
     <view data-currentTab='4' catchtap='_goOrder'>
-      <icon class='icon iconfont icon-yisouhuo'></icon>
-      <text>已收货</text>
+      <view class='order-classift_item'>
+        <icon class='icon iconfont icon-yisouhuo'></icon>
+        <text>已收货</text>
+      </view>
     </view>
     <view catchtap='_goAftersale'>
-      <icon class='icon iconfont icon-navicon-wsgwjcsz'></icon>
-      <text>售后</text>
+      <view class='order-classift_item'>
+        <icon class='icon iconfont icon-navicon-wsgwjcsz'></icon>
+        <text>售后</text>
+      </view>
     </view>
   </view>
 </view>
@@ -68,7 +73,7 @@
     <block wx:for="{{bannerItems}}" wx:key="{{item}}">
       <swiper-item>
         <view class="swiper-item">
-          <image lazy-load='true' src='{{item.pictureUrl}}'  bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
+          <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
         </view>
       </swiper-item>
     </block>

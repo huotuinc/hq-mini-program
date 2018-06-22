@@ -25,7 +25,7 @@
           <view>
             <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
           </view>
-          <view class='goods_title'>
+          <view class='goods_title'> 
             <view class='title_con'>
               <text class='shop_title'>{{item.Name}}</text>
               <text style='color:#000;'>规格 ：F4A1蓝色，L</text>

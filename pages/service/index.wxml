@@ -1,2 +1,1 @@
-<!--pages/service/index.wxml-->
-<text>pages/service/index.wxml</text>
+<web-view src="http://msite.caijigaoshou.com/service.html"></web-view>

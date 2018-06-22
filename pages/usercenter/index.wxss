@@ -50,26 +50,6 @@
   border-radius: 8rpx;
 }
 
-.user-integral {
-  width: 100%;
-  margin-top: 20rpx;
-  padding: 0 36rpx;
-  height: 76rpx;
-  line-height: 76rpx;
-  background-color: #fff;
-  font-size: 28rpx;
-  box-sizing: border-box;
-}
-
-.user-integral .icon {
-  font-size: 28rpx;
-  color: #333;
-}
-
-.user-integral_num {
-  color: #e41436;
-}
-
 .my-order, .my-purse, .my-common {
   margin-top: 20rpx;
   width: 100%;
@@ -96,10 +76,8 @@
   justify-content: flex-start;
 }
 
-.my-order .my-order_classify view {
+ .my-order .my-order_classify>view {
   width: 20%;
-  display: flex;
-  flex-direction: column;
   padding: 24rpx 30rpx;
   margin-right: 2rpx;
   box-sizing: border-box;
@@ -107,6 +85,23 @@
   font-size: 24rpx;
   text-align: center;
   color: #666;
+  position: relative;
+} 
+
+.my-order .my-order_classify .order-classift_item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-order .my-order_classify .order-classift_num{
+  padding: 2rpx 10rpx;
+  border-radius: 50%;
+  background-color: #e41436;
+  color: #fff;
+  position: absolute;
+  top: 20rpx;
+  right: 24rpx;
 }
 
 .my-order .my-order_classify .icon {

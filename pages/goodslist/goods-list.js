@@ -22,7 +22,6 @@ Page({
   },
   // 监听滚动条坐标
   onPageScroll: function(e) {
-    //console.log(e)
     var that = this
     var scrollTop = e.scrollTop
     var backTopValue = scrollTop > 500 ? true : false
@@ -78,6 +77,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that =this
     console.log(options);
     this.setData({
       goodsItems: indexData.goodsItems,
@@ -87,6 +87,16 @@ Page({
     })
     wx.setNavigationBarTitle({
       title: this.data.categoryTitle,
+    })
+
+    wx.getSystemInfo({
+      success: function(res) {
+        var clientHeight = res.windowHeight
+        var clientWidth = res.windowWidth
+        that.setData({
+          clientHeight: clientHeight-30
+        })
+      }
     })
   },
   powerDrawer: function(e) {
@@ -123,8 +133,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function(e) {
-  },
+  onReady: function(e) {},
 
   /**
    * 生命周期函数--监听页面显示

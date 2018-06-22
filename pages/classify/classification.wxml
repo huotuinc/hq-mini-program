@@ -1,13 +1,13 @@
 <view class='classify'>
-  <view class="classify-left">
+  <scroll-view scroll-y class="classify-left" style='height:{{clientHeight}}px'>
     <block wx:for="{{classifList}}" wx:key="item">
       <view class="item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
     </block>
-  </view>
+  </scroll-view>
 
   <view class='classify-right'>
     <view class='goods-classify'>
-      <text>户外服装</text>
+      <text>户外服装</text> 
       <text style='float:right;'>更多</text>
     </view>
     <view class='goods-logo'>

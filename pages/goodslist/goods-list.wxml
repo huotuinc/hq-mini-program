@@ -6,7 +6,7 @@
   <template is="search-header" wx:if="{{search == 1}}" />
   <view class=" {{search ==1 ? 'category-goods-filter' : 'no-search'}}">
     <view class='filter-item {{filterTap==1 ?"active":""}}' bindtap='clickfilterTap' data-type='1' data-order='{{order}}' data-msg='新品'>
-      新品 
+      新品
       <view class='filter-icon'>
         <icon class='{{filterTap==1 & order==1?"active":""}} icon iconfont icon-xia'></icon>
         <icon class='{{filterTap==1 & order==2?"active":""}} icon iconfont icon-xia-copy'></icon>
@@ -27,14 +27,14 @@
     <view data-type='5' data-msg='筛选' bindtap="powerDrawer" data-statu="{{statu}}">筛选</view>
   </view>
 </view>
- <view class=" {{search ==1 ? 'separator' : 'no-separator'}}"></view> 
+<view class=" {{search ==1 ? 'separator' : 'no-separator'}}"></view>
 <view>
   <block wx:for="{{goodsItems}}" wx:key="item">
     <template is="itemTwo" data="{{item,index}}" />
   </block>
 </view>
 
-<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" catchtouchmove="true" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}" catchtouchmove="true"></view>
 
 <view class=" {{search ==1 ? 'filtrate' : 'no-filtrate'}}" wx:if="{{showModalStatus}}" catchtouchmove="true">
   <view class='filtrate-header'>
@@ -42,7 +42,7 @@
     <view class="tab-item {{currentTab==1?'active':''}}" data-index='1' bindtap="swichNav">分类</view>
     <view class="tab-item {{currentTab==2?'active':''}}" data-index='2' bindtap="swichNav">热点</view>
   </view>
-  <view class='filtrate-select'>
+  <scroll-view class='filtrate-select' scroll-y  style='height:{{clientHeight-190}}px;'>
     <view>
       <icon class='icon iconfont icon-ico2'></icon>
       <text>kurui</text>
@@ -59,7 +59,40 @@
       <icon class='icon iconfont icon-xuanzhong'></icon>
       <text>2222</text>
     </view>
-  </view>
+    <view>
+      <icon class='icon iconfont icon-ico2'></icon>
+      <text>kurui</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-ico2'></icon>
+      <text>ku</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-xuanzhong'></icon>
+      <text>11111</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-xuanzhong'></icon>
+      <text>2222</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-ico2'></icon>
+      <text>kurui</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-ico2'></icon>
+      <text>ku</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-xuanzhong'></icon>
+      <text>11111</text>
+    </view>
+    <view>
+      <icon class='icon iconfont icon-xuanzhong'></icon>
+      <text>2222</text>
+    </view>
+
+  </scroll-view>
 
   <view class='filtrate-btn'>
     <text>确认</text>
