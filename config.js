@@ -1,7 +1,7 @@
 /**
  * 小程序配置文件
  */
-var host = "https://localhost/api"
+var host = "http://yapi.demo.qunar.com/mock/11987/api"
 
 var config={
   host,

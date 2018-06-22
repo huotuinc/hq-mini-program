@@ -34,9 +34,9 @@ Page({
     backTopValue: false
   },
 
-  imageLoad: function (e) {
+  imageLoad: function(e) {
     var $width = e.detail.width
-    var  $height = e.detail.height
+    var $height = e.detail.height
     this.setData({
       imgHeight: $height
     })
@@ -163,28 +163,58 @@ Page({
     if (app.globalData.mock) {
       this.setData({
         category: indexData.categoryItems,
-        goodsItems: indexData.goodsItems,
-        bannerItems: indexData.bannerItems,
+        // goodsItems: indexData.goodsItems,
         hotItems: indexData.hotItems,
+        bannerItems: indexData.bannerItems,
         specialItems: indexData.specialItems,
         currentCategory: indexData.categoryItems[this.data.currentTab].child
       });
     }
     this.setData({
-      loading: true
+      // loading: true
     })
-    home.homeRecommend(function(code, res) {
-      if (code) {
+
+    app.request({
+      url: config.homeRecommendUrl,
+      method: 'get',
+      success: function(res) {
+        var list = res.data.data.list
         self.setData({
-          bannerItems: res.bannerItems,
-          specialItems: res.specialItems
-        });
-      } else {
-        self.setData({
+          bannerItems: list,
           loading: false
         })
+      },
+      fail: function(error) {
+        console.log(error)
       }
     })
+
+    var data = {
+      page: 1,
+      pageSize: 20
+    }
+
+    app.request({
+      url: config.goodsListUrl,
+      data: data,
+      method: 'post',
+      success: function(res) {
+        if (res.data.code == 200) {
+          console.log(res.data.list)
+          self.setData({
+            goodsItems: res.data.list
+          })
+        } else {
+          wx.showToast({
+            title: res.msg
+          })
+        }
+      },
+      fail: function(error) {
+        console.log(error)
+      }
+    })
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -257,7 +287,7 @@ Page({
   _goGoodsList: function(e) {
     var _item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '../goodslist/goods-list?categoryid=' + _item.categoryid + "&categoryTitle=" + _item.title,
+      url: '../goodslist/goods-list?categoryid=' + _item.categoryid + "&categoryTitle=" + _item.Name,
     })
     this.setData({
       mask: false

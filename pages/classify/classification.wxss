@@ -21,7 +21,7 @@
   background-color: #fff;
 }
 
-.classify-left .item {
+.classify-left .classify_item {
   position: relative;
 }
 

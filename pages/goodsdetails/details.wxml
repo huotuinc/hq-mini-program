@@ -1,8 +1,18 @@
 <import src="../template/backTop/backTop" />
 
 <view>
-  <view class='goods-details-main-pic'>
-    <image src='{{item.imgSrc}}' bindload="imageLoad" mode='widthFix'></image>
+  <view class='goods-details-main-pic' catchtap='watchBigImage'>
+    <view style='height:{{imgHeight}}rpx;'>
+      <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
+        <block wx:for="{{item.imgSrc}}" wx:key="item">
+          <swiper-item>
+            <view class="swiper-item">
+              <image lazy-load='true' src='{{item.image}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
   </view>
   <view class='goods-details-info-box'>
     <view class='goods-item-title'>
@@ -80,10 +90,23 @@
   </view>
 </view>
 
-<!-- 选择规格的底部弹出内容 -->
+
+<view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
+  <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
+    <block wx:for="{{item.imgSrc}}" wx:key="item">
+      <swiper-item>
+        <view class="swiper-item" catchtap='powerDrawer'>
+          <image lazy-load='true' src='{{item.image}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="drawer_screen drawer-option" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{swiperDetail}}"></view>
+
 <view class="drawer_screen" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{showModalStatus}}"></view>
-<!--content-->
-<!--使用animation属性指定需要执行的动画-->
+
 <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}" catchtouchmove="true">
   <!--drawer content-->
   <view class="drawer_content">
@@ -130,7 +153,7 @@
       <view class='add_minus'>
         <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}">-</text>
         <text class='shop_number'>{{shopNum}}</text>
-        <text catchtap='numAdd' class='calculate' >+</text>
+        <text catchtap='numAdd' class='calculate'>+</text>
       </view>
     </view>
 

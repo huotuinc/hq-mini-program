@@ -10,6 +10,7 @@ var homeRecommend = function (callback) {
   //获取首页推荐
   app.request({
     url: config.homeRecommendUrl,
+    method:'get',
     success: function (res) {
       if (res.code == 200) {
         var list = res.data.list
@@ -40,11 +41,8 @@ var homeRecommend = function (callback) {
 }
 //获取商品列表
 var goodsList = function (data, callback) {
-  if (typeof callback != 'function') {
-    return;
-  }
   app.request({
-    url: config.homeRecommendUrl,
+    url: config.goodsListUrl,
     data: data,
     success: function (res) {
       if (res.code == 200) {

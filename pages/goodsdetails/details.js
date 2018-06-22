@@ -13,9 +13,24 @@ Page({
     categoryTitle: '',
     btnText: '立即购买',
     shopNum: 1,
-    backTopValue: false
+    backTopValue: false,
+    swiperDetail: false
   },
 
+  watchBigImage: function(e) {
+    this.setData({
+      swiperDetail: true
+    })
+  },
+
+  imageLoad: function(e) {
+    var $width = e.detail.width
+    var $height = e.detail.height
+    this.setData({
+      imgHeight: $height,
+      imagewidth: $width
+    })
+  },
 
   // 监听滚动条坐标
   onPageScroll: function(e) {
@@ -42,7 +57,16 @@ Page({
     this.setData({
       item: {
         title: "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
-        imgSrc: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg",
+        imgSrc: [{
+            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
+          },
+          {
+            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
+          },
+          {
+            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
+          }
+        ],
         goodsPrice: 198,
         /*商品价格*/
         salesVolume: 1800,
@@ -100,9 +124,11 @@ Page({
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     this.setData({
-      btnText: e.currentTarget.dataset.btntext
+      btnText: e.currentTarget.dataset.btntext,
+      swiperDetail: false
     })
   },
+
   util: function(currentStatu) {
     /* 动画部分 */
     // 第1步：创建动画实例   

@@ -1,7 +1,7 @@
 <view class='classify'>
   <scroll-view scroll-y class="classify-left" style='height:{{clientHeight}}px'>
     <block wx:for="{{classifList}}" wx:key="item">
-      <view class="item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
+      <view class="classify_item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item}}</view>
     </block>
   </scroll-view>
 
