@@ -31,7 +31,9 @@ Page({
     windowHeight: windowHeight(),
     loadingTitle: "加载中...",
     hidden: false,
-    backTopValue: false
+    backTopValue: false,
+    page: 1,
+    pageSize: 20
   },
 
   imageLoad: function(e) {
@@ -114,7 +116,7 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId + '&categoryTitle=阿拉斯加'
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsid + '&categoryTitle=' + e.currentTarget.dataset.title
     })
   },
   //设置tab标题滚动
@@ -163,7 +165,7 @@ Page({
     if (app.globalData.mock) {
       this.setData({
         category: indexData.categoryItems,
-        // goodsItems: indexData.goodsItems,
+        goodsItems: indexData.goodsItems,
         hotItems: indexData.hotItems,
         bannerItems: indexData.bannerItems,
         specialItems: indexData.specialItems,
@@ -189,18 +191,15 @@ Page({
       }
     })
 
-    var data = {
-      page: 1,
-      pageSize: 20
-    }
-
     app.request({
       url: config.goodsListUrl,
-      data: data,
+      data: {
+        page: self.data.page,
+        pageSize: self.data.pageSize
+      },
       method: 'post',
       success: function(res) {
         if (res.data.code == 200) {
-          console.log(res.data.list)
           self.setData({
             goodsItems: res.data.list
           })
@@ -258,22 +257,43 @@ Page({
    */
 
   onReachBottom: function() {
+    var self = this
     this.setData({
       hidden: true
     })
+    // var _goodsItems = this.data.goodsItems;
+    // if (_goodsItems.concat(indexData.goodsItems) > _goodsItems) {
+    //   this.setData({
+    //     hidden: false,
+    //     goodsItems: _goodsItems.concat(indexData.goodsItems)
+    //   })
+    // } else {
+    //   this.setData({
+    //     hidden: false,
+    //     loadingTitle: "没有更多"
+    //   })
+    // }
+    var page = this.data.page
     var _goodsItems = this.data.goodsItems;
-    if (_goodsItems.concat(indexData.goodsItems) > _goodsItems) {
-      this.setData({
-        hidden: false,
-        goodsItems: _goodsItems.concat(indexData.goodsItems)
-      })
-    } else {
-      this.setData({
-        hidden: false,
-        loadingTitle: "没有更多"
-      })
-    }
-
+    home.goodsList({
+      page: page++,
+      pageSize: self.data.pageSize
+    }, function(code, res) {
+      if (code) {
+        if (res.goodsItems.length > 0) {
+          self.setData({
+            hidden: false,
+            goodsItems: _goodsItems.concat(res.goodsItems),
+            page: page++,
+          })
+        }
+      } else {
+        self.setData({
+          hidden: false,
+          loadingTitle: "没有更多"
+        })
+      }
+    })
   },
 
   /**

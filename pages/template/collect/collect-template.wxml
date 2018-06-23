@@ -1,7 +1,7 @@
 <template name="goodsItem">
-  <view class="goods-item-container touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-goodsId='{{item.goodsId}}'  data-item='{{item}}' data-type='hotItems' data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove">
+  <view class="goods-item-container touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-goodsId='{{item.goodsId}}'  data-item='{{item}}' data-type='hotItems' data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" catchtap='clickFavTab'>
     <view class='item'>
-      <view class='goods-item-left' catchtap='clickFavTab'>
+      <view class='goods-item-left' >
         <view class='select-icon'>
           <block>
             <icon class="icon iconfont {{item.isFav?'icon-ico2':'icon-guanbi'}}"></icon>
@@ -10,7 +10,7 @@
         <image lazy-load="true" src='{{ item.imgSrc }}'></image>
       </view>
 
-      <view class='goods-item-right' bindtap='goodsDetails'>
+      <view class='goods-item-right' catchtap='goodsDetails'>
         <view class='goods-item-title'>
           <text>{{item.title}}</text>
         </view>

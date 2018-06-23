@@ -12,7 +12,7 @@ var homeRecommend = function (callback) {
     url: config.homeRecommendUrl,
     method:'get',
     success: function (res) {
-      if (res.code == 200) {
+      if (res.data.code == 200) {
         var list = res.data.list
         var bannerItems = specialItems = [];
         for (let item in list) {
@@ -45,14 +45,9 @@ var goodsList = function (data, callback) {
     url: config.goodsListUrl,
     data: data,
     success: function (res) {
-      if (res.code == 200) {
+      if (res.data.code == 200) {
         callback(true, {
-          goodsItems: res.data.goods_list
-        })
-      }
-      else {
-        wx.showToast({
-          title: res.msg
+          goodsItems: res.data.list
         })
       }
     },

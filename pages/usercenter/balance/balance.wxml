@@ -9,7 +9,7 @@
 </view>
 
 <view class='balance-con'>
-  <view class='item'>
+  <view class='balance-con_item'>
     <view class='item-left'>
       <text class='income'>+0.71</text>
     </view>
@@ -18,7 +18,7 @@
       <text class='time'>时间：2018-06-08 17：04：05</text>
     </view>
   </view>
-  <view class='item'>
+  <view class='balance-con_item'>
     <view class='item-left'>
       <text class='expense'>-30</text>
     </view>
@@ -27,7 +27,7 @@
       <text class='time'>时间：2018-03-28 17：04：05</text>
     </view>
   </view>
-  <view class='item'>
+  <view class='balance-con_item'>
     <view class='item-left'>
       <text class='income'>+100000还好看瓦哈卡</text>
     </view>

@@ -1,5 +1,5 @@
 <template name="itemTwo">
-  <view class="goods-item-two" bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+  <view class="goods-item-two" bindtap='goodsDetails' data-goodsId='{{item.goodsId}}' data-title="{{item.Name}}">
     <view class='item-box'>
       <view>
         <view class='goods-item-pic'>

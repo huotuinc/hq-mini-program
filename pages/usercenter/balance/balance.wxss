@@ -25,7 +25,7 @@
   box-sizing: border-box;
 }
 
-.balance-con .item{
+.balance-con .balance-con_item{
   padding: 20rpx;
   width: 100%;
   min-height: 100rpx;
@@ -35,7 +35,7 @@
   background-color: #fff;
   box-sizing: border-box;
 }
-.balance-con .item  .item-left  {
+.balance-con .balance-con_item  .item-left  {
    width: 25%; 
   min-height: 100rpx;
   font-size: 36rpx;
@@ -43,16 +43,16 @@
   margin-right: 2%;
 }
 
- .balance-con .item  .item-left  .income{
+ .balance-con .balance-con_item  .item-left  .income{
    white-space: pre-wrap;
  }
-.balance-con .item .item-right{      
+.balance-con .balance-con_item .item-right{      
   width: 73%;    
   font-size: 24rpx;
   display: flex;
   flex-direction: column;
 }
-.balance-con .item .time{
+.balance-con .balance-con_item .time{
   color: #a5a5b2;
   margin-top: 14rpx;
 }
