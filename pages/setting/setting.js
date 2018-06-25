@@ -1,17 +1,20 @@
-// pages/setting/setting.js
+import config from '../../config.js'
+import user from '../../utils/request/user.js'
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: ' ',
-    name: "去完善",
-    gender: ['未知','男','女'],
-    idCard: '',
-    iphoneNum: '',
-    wxNum: '',
-    city: "",
+    RealName: "去完善",
+    UserGender: ['未知', '男', '女'],
+    UserBirthday: '',
+    UserCardNo: '',
+    UserMobile: '',
+    UserWxNo: '',
+    UserCityName: "",
     checked: '',
     showModal: false
   },
@@ -41,13 +44,13 @@ Page({
   },
   bindDateChange: function(e) {
     this.setData({
-      date: e.detail.value
+      UserBirthday: e.detail.value
     })
   },
   bindRegionChange: function(e) {
     console.log(e)
     this.setData({
-      city: e.detail.value
+      UserCityName: e.detail.value
     })
   },
   hideModal: function() {
@@ -74,43 +77,62 @@ Page({
     var placeholder = this.data.placeholder
     if (placeholder === '请输入姓名') {
       this.setData({
-        name: excessive
+        RealName: excessive
+      })
+      user.updateUserBaseInfo({
+        type: 1,
+        content: excessive
+      }, function(res) {
+        console.log(res.code)
       })
     } else if (placeholder === '请输入身份证') {
       this.setData({
-        idCard: excessive
+        UserCardNo: excessive
       })
     } else if (placeholder === '请输入手机号') {
       this.setData({
-        iphoneNum: excessive
+        UserMobile: excessive
       })
     } else if (placeholder === '请输入微信号') {
       this.setData({
-        wxNum: excessive
+        UserWxNo: excessive
       })
     }
     this.hideModal();
   },
-  bindPickerChange:function(e){
+
+  bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value
     })
   },
-  _goAddress:function(e){
+  _goAddress: function(e) {
     wx.navigateTo({
       url: '../shipAddress/index',
     })
-  }, 
-  _goPayPassword:function(e){
-  wx.navigateTo({
-    url: '../payPassword/index',
-  })
+  },
+  _goPayPassword: function(e) {
+    wx.navigateTo({
+      url: '../payPassword/index',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var self = this
+    user.setting(function(res) {
+      self.setData({
+        settingItem: res.settingItem,
+        RealName: res.settingItem.RealName || '去完善',
+        UserSex: res.settingItem.UserSex || '未知',
+        UserBirthday: res.settingItem.UserBirthday || '',
+        UserCardNo: res.settingItem.UserCardNo || '',
+        UserMobile: res.settingItem.UserMobile || '',
+        UserWxNo: res.settingItem.UserWxNo || '',
+        UserCityName: res.settingItem.UserCityName || '',
+      })
+    })
   },
 
   /**

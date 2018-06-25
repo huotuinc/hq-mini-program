@@ -27,6 +27,45 @@ var config={
   hotsearchkeyworld: `${host}/goods/hotsearchkeyworld`,
   //商品详情
   goodsDetails: `${host}/goods/details`,
+  //个人中心
+  userIndex: `${host}/user/Index`,
+  //设置界面
+  setting: `${host}/user/setting`,
+  //修改用户基本信息
+  updateUserBaseInfo: `${host}/user/updateUserBaseInfo`,
+  //是否开启支付保护
+  updatePayPasswordStatus: `${host}/user/updatePayPasswordStatus`,
+  //修改支付密码
+  updatePayPassword: `${host}/user/updatePayPassword`,
+  //我的钱包
+  myWallet: `${host}/user/MyWallet`,
+  //提现界面
+  applyIndex: `${host}/user/ApplyIndex`,
+  //提现申请
+  applySubmit: `${host}/apply/submit`,
+  //提现记录
+  applyList: `${host}/user/ApplyList`,
+  //提现账户列表
+  getaccountlist: `${host}/apply/getaccountlist`,
+  //订单列表
+  getOrderList: `${host}/order/getlist`,
+  //订单详情
+  orderInfo: `${host}/order/orderinfo`,
+  //取消订单
+  closeOrder: `${host}/order/closeorder`,
+  //删除订单
+  deletOrder: `${host}/order/deleteorder`,
+  //申请售后
+  afterSales: `${host}/aftersales/submit`,
+  //售后列表
+  getSalesList: `${host}/aftersales/getlist`,
+  //提交评论
+  submitComment: `${host}comment/submit`,
+  //买家留言提交
+  saleComment: `${host}/aftersales/comment`,
+  //物流提交
+  savelogic: `${host}/aftersales/savelogic`
+
 }
 
 module.exports = config

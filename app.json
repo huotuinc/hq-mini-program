@@ -26,7 +26,8 @@
     "pages/payPassword/index",
     "pages/afterSale/index",
     "pages/afterSale/MyProductDetail/index",
-    "pages/afterSale/SubmitReturnProduct/index"
+    "pages/afterSale/SubmitReturnProduct/index",
+    "pages/aftersales/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

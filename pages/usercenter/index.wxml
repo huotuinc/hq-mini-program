@@ -1,9 +1,9 @@
-<view class="user-header">
+<view class="user-header" style="background-image:url('{{userItem.BackGroundModel.UserCenterImg}}')">
   <text class='setting' catchtap='_goSetting'>设置</text>
   <view class='userinfo'>
     <image src='' class='userimg'></image>
-    <text class='username'>星期八</text>
-    <text class='usersize'><text>营养师</text></text>
+    <text class='username'>{{userItem.WxNickName}}</text>
+    <text class='usersize'><text>{{userItem.LevelName}}</text></text>
   </view>
 </view>
 
@@ -62,7 +62,7 @@
       <text>余额</text>
     </view>
     <view data-integral='1' catchtap='_goIntegral'>
-      <text class='purse_num'>0.00</text>
+      <text class='purse_num'>{{userItem.UserMBean}}</text>
       <text>觅豆</text>
     </view>
   </view>

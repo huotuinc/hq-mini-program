@@ -10,7 +10,7 @@
         <view class="weui-label">姓名</view>
       </view>
       <view class="weui-cell__bd">
-        <view class='weui-input allOrder {{name==="去完善" ? "sizeColor" : ""}}'>{{name}}</view>
+        <view class='weui-input allOrder {{RealName==="去完善" ? "sizeColor" : ""}}'>{{RealName}}</view>
       </view>
     </view>
   </view>
@@ -20,8 +20,8 @@
         <view class="weui-label">性别</view> 
       </view>
       <view class="weui-cell__bd">
-        <picker range="{{gender}}" value="{{index}}" bindchange="bindPickerChange">
-          <view class="weui-input allOrder">{{gender[index]}}</view>
+        <picker range="{{UserGender}}" value="{{index}}" bindchange="bindPickerChange">
+          <view class="weui-input allOrder">{{UserGender[index] || UserSex}}</view>
         </picker>
       </view>
     </view>
@@ -32,8 +32,8 @@
         <view class="weui-label">生日</view>
       </view>
       <view class="weui-cell__bd">
-        <picker mode="date" value="{{date}}" start="1900-01-01" end="2099-01-01" bindchange="bindDateChange">
-          <view class="weui-input allOrder">{{date}}</view>
+        <picker mode="date" value="{{UserBirthday}}" start="1900-01-01" end="2099-01-01" bindchange="bindDateChange">
+          <view class="weui-input allOrder">{{UserBirthday}}</view>
         </picker>
       </view>
     </view>
@@ -44,7 +44,7 @@
         <view class="weui-label">身份证</view>
       </view>
       <view class="weui-cell__bd">
-        <view class="weui-input allOrder">{{idCard}}</view>
+        <view class="weui-input allOrder">{{UserCardNo}}</view>
       </view>
     </view>
   </view>
@@ -54,7 +54,7 @@
         <view class="weui-label">绑定手机</view>
       </view>
       <view class="weui-cell__bd">
-        <view class='weui-input allOrder {{iphoneNum==="未绑定" ? "sizeColor" : ""}}'>{{iphoneNum}}</view>
+        <view class='weui-input allOrder {{iphoneNum==="未绑定" ? "sizeColor" : ""}}'>{{UserMobile}}</view>
       </view>
     </view>
   </view>
@@ -64,7 +64,7 @@
         <view class="weui-label">绑定微信号</view>
       </view>
       <view class="weui-cell__bd">
-        <view class="weui-input allOrder">{{wxNum}}</view>
+        <view class="weui-input allOrder">{{UserWxNo}}</view>
       </view>
     </view>
   </view>
@@ -74,8 +74,8 @@
         <view class="weui-label">城市</view>
       </view>
       <view class="weui-cell__bd">
-        <picker mode="region" value="{{city}}" bindchange="bindRegionChange">
-          <view class="weui-input allOrder">{{city}}</view>
+        <picker mode="region" value="{{UserCityName}}" bindchange="bindRegionChange">
+          <view class="weui-input allOrder">{{UserCityName}}</view>
         </picker>
       </view>
     </view>

@@ -1,5 +1,9 @@
 const indexData = require('../../utils/mock/index.js')
 
+import config from '../../config.js'
+import user from '../../utils/request/user.js'
+const app = getApp();
+
 Page({
 
   /**
@@ -62,9 +66,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var self = this
+
     this.setData({
       bannerItems: indexData.bannerItems,
     });
+
+    user.userIndex(function(res) {
+      console.log(res.userItem)
+      self.setData({
+        userItem: res.userItem
+      })
+    })
   },
 
   /**
