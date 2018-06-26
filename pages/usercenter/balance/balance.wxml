@@ -1,12 +1,3 @@
-<view class='balance'>
-  <view class='balance-header'>
-    <text>总收入：</text>
-    <text class='income'>12174.64元</text>
-    <text> / </text>
-    <text>总支出：</text>
-    <text class='expense'>2169.53元</text>
-  </view>
-</view>
 
 <view class='balance-con'>
   <view class='balance-con_item'>

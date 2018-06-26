@@ -89,10 +89,17 @@ Page({
       this.setData({
         UserCardNo: excessive
       })
+      user.updateUserBaseInfo({
+        type: 4,
+        content: excessive
+      }, function(res) {
+        console.log(res.code)
+      })
     } else if (placeholder === '请输入手机号') {
       this.setData({
         UserMobile: excessive
       })
+
     } else if (placeholder === '请输入微信号') {
       this.setData({
         UserWxNo: excessive
@@ -116,6 +123,44 @@ Page({
       url: '../payPassword/index',
     })
   },
+
+  //是否开启支付密码
+  passwordStatus: function(e) {
+    var self = this
+    var status = e.currentTarget.dataset.passwordstatus
+    if (status == 1) {
+      user.updatePayPasswordStatus({
+        status: status
+      }, function(res) {
+        if (res.data == 200) {
+          self.setData({
+            PayPasswordStatus: 0
+          })
+          wx.showToast({
+            title: '关闭成功',
+            icon: 'success'
+          })
+        }
+      })
+    }
+
+    if (status == 0) {
+      user.updatePayPasswordStatus({
+        status: status
+      }, function(res) {
+        if (res.data == 200) {
+          self.setData({
+            PayPasswordStatus: 1
+          })
+          wx.showToast({
+            title: '开启成功',
+            icon: 'success'
+          })
+        }
+      })
+    }
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -131,6 +176,7 @@ Page({
         UserMobile: res.settingItem.UserMobile || '',
         UserWxNo: res.settingItem.UserWxNo || '',
         UserCityName: res.settingItem.UserCityName || '',
+        PayPasswordStatus: res.settingItem.PayPasswordStatus
       })
     })
   },

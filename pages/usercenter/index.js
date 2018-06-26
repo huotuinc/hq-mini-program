@@ -52,9 +52,14 @@ Page({
       url: '../collectgoods/collectgoods',
     })
   },
+  _goResidual:function(e){
+    wx.navigateTo({
+      url: './residual/index',
+    })
+  },
   _goIntegral: function(e) {
     wx.navigateTo({
-      url: './integral/integral?currenttab=' + e.currentTarget.dataset.integral,
+      url: './integral/integral',
     })
   },
   _goAftersale: function(e) {

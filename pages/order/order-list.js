@@ -1,5 +1,8 @@
 import { windowHeight } from '../../utils/common.js'
 const order = require('../../utils/mock/order.js')
+
+import orderList from '../../utils/request/order.js'
+const app = getApp();
 Page({
  
   /**
@@ -44,6 +47,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.currenttab)
     this.setData({
       currentTab: options.currenttab
     })

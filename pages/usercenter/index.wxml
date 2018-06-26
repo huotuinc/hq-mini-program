@@ -18,18 +18,20 @@
         <icon class='icon iconfont icon-wallet_icon'></icon>
         <text>待付款</text>
       </view>
-       <view class='order-classift_num'>10</view> 
+      <view class='order-classift_num' style="{{userItem.UnpaidCount==0?'display:none;':''}}">{{userItem.UnpaidCount}}</view>
     </view>
     <view data-currentTab='2' catchtap='_goOrder'>
       <view class='order-classift_item'>
         <icon class='icon iconfont icon-dengdaihuankuan' style='font-size:44rpx;margin-bottom:4rpx;'></icon>
-        <text>代发货</text>
+        <text>待发货</text>
+        <view class='order-classift_num' style="{{userItem.UnDeliverCount==0?'display:none;':''}}">{{userItem.UnDeliverCount}}</view>
       </view>
     </view>
     <view data-currentTab='3' catchtap='_goOrder'>
       <view class='order-classift_item'>
         <icon class='icon iconfont icon-daishouhuo'></icon>
         <text>待收货</text>
+        <view class='order-classift_num' style="{{userItem.UnSendCount==0?'display:none;':''}}">{{userItem.UnSendCount}}</view>
       </view>
     </view>
     <view data-currentTab='4' catchtap='_goOrder'>
@@ -42,6 +44,7 @@
       <view class='order-classift_item'>
         <icon class='icon iconfont icon-navicon-wsgwjcsz'></icon>
         <text>售后</text>
+        <view class='order-classift_num' style="{{userItem.AftermarketCount==0?'display:none;':''}}">{{userItem.AftermarketCount}}</view>
       </view>
     </view>
   </view>
@@ -57,11 +60,11 @@
       <text class='purse_num'>0.00</text>
       <text>待结算</text>
     </view>
-    <view data-integral='0' catchtap='_goIntegral'>
+    <view catchtap='_goResidual'>
       <text class='purse_num'>354</text>
       <text>余额</text>
     </view>
-    <view data-integral='1' catchtap='_goIntegral'>
+    <view catchtap='_goIntegral'>
       <text class='purse_num'>{{userItem.UserMBean}}</text>
       <text>觅豆</text>
     </view>

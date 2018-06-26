@@ -90,7 +90,8 @@
   </view>
   <view>
     <text>开启支付密码</text>
-    <switch />
+    <switch wx:if='{{PayPasswordStatus==1}}' checked data-passwordStatus='{{PayPasswordStatus}}' catchtap='passwordStatus'/>
+    <switch wx:else data-passwordStatus='{{PayPasswordStatus}}' catchtap='passwordStatus'/>
   </view>
 </view>
 

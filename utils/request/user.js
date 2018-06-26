@@ -47,9 +47,23 @@ var updateUserBaseInfo = function(data, callback) {
   })
 }
 
+//是否开启支付保护
+var updatePayPasswordStatus = function(data,callback){
+  app.request({
+    url: config.updatePayPasswordStatus,
+    method:'post',
+    data:data,
+    success:function(res){
+     callback({
+       data: res.data.code
+     })
+    }
+  })
+}
 
 module.exports = {
   userIndex: userIndex,
   setting: setting,
-  updateUserBaseInfo: updateUserBaseInfo
+  updateUserBaseInfo: updateUserBaseInfo,
+  updatePayPasswordStatus: updatePayPasswordStatus
 };
