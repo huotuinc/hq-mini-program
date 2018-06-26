@@ -29,6 +29,8 @@ var config={
   goodsDetails: `${host}/goods/details`,
   //个人中心
   userIndex: `${host}/user/Index`,
+  //可/待用积分
+  getIntegralList: `${host}/user/GetIntegralList`,
   //设置界面
   setting: `${host}/user/setting`,
   //修改用户基本信息
@@ -42,11 +44,15 @@ var config={
   //提现界面
   applyIndex: `${host}/user/ApplyIndex`,
   //提现申请
-  applySubmit: `${host}/apply/submit`,
+  applySubmit: `${host}/user/SubmitApply`,
   //提现记录
   applyList: `${host}/user/ApplyList`,
   //提现账户列表
-  getaccountlist: `${host}/apply/getaccountlist`,
+  getaccountlist: `${host}/user/GetAccountList`,
+  //编辑提现账户
+  editAccount: `${host}/user/EditAccount`,
+  //设置默认提现账户
+  setDefaultAccount: `${host}/user/SetDefaultAccount`,
   //订单列表
   getOrderList: `${host}/order/getlist`,
   //订单详情

@@ -1,19 +1,19 @@
 <view class="withdraw">
   <view catchtap='_goBalance'>
     <text>觅豆</text>
-    <text class='withdraw_num'>0</text>
+    <text class='withdraw_num'>{{wallet.UserMBean}}</text>
   </view>
   <view>
     <text>余额</text>
-    <text class='withdraw_num'>10000000000</text>
+    <text class='withdraw_num'>{{wallet.UserIntegral}}</text>
   </view>
   <view>
     <text>待结算</text>
-    <text class='withdraw_num'>0</text>
+    <text class='withdraw_num'>{{wallet.UserTempIntegral}}</text>
   </view>
   <view>
     <text>优惠券</text>
-    <text class='withdraw_num'>0张</text>
+    <text class='withdraw_num'>{{wallet.CouponNum || 0}}张</text>
   </view>
 </view>
 

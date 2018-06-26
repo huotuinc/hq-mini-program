@@ -1,4 +1,7 @@
-// pages/account/inex.js
+import config from '../../config.js'
+import wallet from '../../utils/request/withdraw.js'
+const app = getApp();
+
 Page({
 
   /**
@@ -7,17 +10,17 @@ Page({
   data: {
     showModal: false
   },
-  hideModal: function () {
+  hideModal: function() {
     this.setData({
       showModal: false
     });
   },
-  _showCompile:function(e){
+  _showCompile: function(e) {
     this.setData({
-      showModal:true
+      showModal: true
     })
   },
-  _goModification:function(e){
+  _goModification: function(e) {
     wx.navigateTo({
       url: '../modification/index?categoryTitle=' + e.currentTarget.dataset.categorytitle
     })
@@ -26,56 +29,70 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function(options) {
+    var self = this
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading',
+      success: function() {
+        wallet.getaccountlist(function(res) {
+          if (res.data.code == 200) {
+            self.setData({
+              accountList: res.data.data.list
+            })
+            wx.hideToast()
+          }
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
+  onShareAppMessage: function() {
+
   }
 })

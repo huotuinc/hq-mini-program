@@ -57,11 +57,11 @@
   </view>
   <view class='my-purse_classify'>
     <view catchtap='_goBalance'>
-      <text class='purse_num'>0.00</text>
+      <text class='purse_num'>{{userItem.UserTempIntegral}}</text>
       <text>待结算</text>
     </view>
     <view catchtap='_goResidual'>
-      <text class='purse_num'>354</text>
+      <text class='purse_num'>{{userItem.UserBalance || 0}}</text>
       <text>余额</text>
     </view>
     <view catchtap='_goIntegral'>

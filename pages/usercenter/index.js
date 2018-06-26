@@ -52,7 +52,7 @@ Page({
       url: '../collectgoods/collectgoods',
     })
   },
-  _goResidual:function(e){
+  _goResidual: function(e) {
     wx.navigateTo({
       url: './residual/index',
     })
@@ -67,22 +67,23 @@ Page({
       url: '../afterSale/index',
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
+
+  userIndex: function() {
     var self = this
-
-    this.setData({
-      bannerItems: indexData.bannerItems,
-    });
-
     user.userIndex(function(res) {
-      console.log(res.userItem)
       self.setData({
         userItem: res.userItem
       })
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    this.setData({
+      bannerItems: indexData.bannerItems,
+    });
+    this.userIndex()
   },
 
   /**
@@ -96,7 +97,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.userIndex()
   },
 
   /**
