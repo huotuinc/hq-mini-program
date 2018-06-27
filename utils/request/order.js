@@ -9,9 +9,9 @@ var getOrderList = function(data, callback) {
     method: 'get',
     data: data,
     success: function(res) {
-      callback(
-        data= res.data.data
-      )
+      callback({
+        data: res.data.data
+      })
     }
   })
 }

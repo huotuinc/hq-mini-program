@@ -1,6 +1,6 @@
 <view>
   <view class='status'>状态：售后已取消</view>
-  <view class='feedback'>
+  <view class='feedback' catchtap='_goFeedback'>
     <text>买家留言</text>
   </view>
 </view>
@@ -27,11 +27,11 @@
 </view>
 
 
-<view class='btn-recharge'>
-  点击收起协商记录
-</view>
+<view class='btn-recharge' catchtap='_watchRecharge'>
+  {{btnMessage}}
+</view> 
 
-<view class='negotiate'>
+<view class='negotiate' wx:if="{{watch == 1}}">
   <view class='negotiate- result'>
     <view class='negotiate-title'>
       <text>买家</text>

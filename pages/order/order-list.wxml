@@ -9,64 +9,55 @@
 <view class='separator2'></view>
 
 <view class='order-list-container' bindscrolltolower="onReachBottom">
-  <block wx:for="{{orderStatus}}" wx:key="{{it}}">
-    <block wx:for="{{orders[index]}}" wx:key="{{item}}">
-      <view>
-        <view class='order-item'>
-          <view class='item-info-1'>
-            <view class='left'>联合单号：{{item.orderId}}</view>
-            <view class='right'>未支付</view>
-          </view>
+
+  <block wx:for="{{itemList.Rows}}" wx:key="*this" wx:for-item="item">
+    <view>
+      <view class='order-item'>
+        <view class='item-info-1'>
+          <view class='left'>联合单号：{{item.unionOrderId}}</view>
+          <view class='right'>{{item.PayStatusStr}}</view>
+        </view>
+
+        <block wx:for="{{item.subOrderList}}" wx:for-item="suborder" wx:key="*this">
           <view class='item-info-2'>
             <view class='my-order_title'>
-              <text>{{item.userName}}</text>
-              <text class='allOrder'>待发货</text>
+              <text>{{suborder.supplierName}}</text>
+              <text class='allOrder'>{{suborder.ShipStatusStr}}</text>
             </view>
-            <view class='my-order_con' catchtap='_goGoodsDetails'>
-              <view>
-                <image src='{{item.imgSrc}}'></image>
-              </view>
-              <view class='goods_title'>
-                <view class='title_con'>
-                  <text>{{item.goodsName}}</text>
+            <block wx:for="{{suborder.orderItemList}}" wx:for-item="goodsItem" wx:key="*this">
+              <view class='my-order_con' catchtap='_goGoodsDetails' data-orderId="{{suborder.orderId}}" data-customerId="{{item.customerId}}">
+                <view>
+                  <image src='{{goodsItem.proPic}}'></image>
                 </view>
-                <view class='price_num'>
-                  <text>￥{{item.orderAmount}}</text>
-                  <text style='color: #999;'>x1</text>
-                </view>
-              </view>
-            </view>
-            <view class='my-order_con' catchtap='_goGoodsDetails'>
-              <view>
-                <image src='{{item.imgSrc}}'></image>
-              </view>
-              <view class='goods_title'>
-                <view class='title_con'>
-                  <text>{{item.goodsName}}</text>
-                </view>
-                <view class='price_num'>
-                  <text>￥{{item.orderAmount}}</text>
-                  <text style='color: #999;'>x1</text>
+                <view class='goods_title'>
+                  <view class='title_con'>
+                    <text>{{goodsItem.name}}</text>
+                  </view>
+                  <view class='price_num'>
+                    <text>￥{{goodsItem.amount}}</text>
+                    <text style='color: #999;'>x{{goodsItem.num}}</text>
+                  </view>
                 </view>
               </view>
-            </view>
+            </block>
           </view>
-          <view class='separator3'></view>
-          <view class='item-info-3'>
-            <text style='color:#ccc;'>{{item.orderCreateTime}}</text>
-            <view>
-              <text>共1件商品 合计￥</text>
-              <text style='color: #E41436;'>{{item.orderAmount}} </text>
-            </view>
+        </block>
+        <view class='separator3'></view>
+        <view class='item-info-3'>
+          <text style='color:#ccc;'>{{item.createTime}}</text>
+          <view>
+            <text>共{{item.proNums}}件商品 合计￥</text>
+            <text style='color: #E41436;'>{{item.finalAmount}} </text>
           </view>
-          <view class='item-info-4'>
-            <view class=' operation'>
-              <view class='cancel '>取消订单</view>
-              <view class=' payment'>支付订单</view>
-            </view>
+        </view>
+        <view class='item-info-4'>
+          <view class=' operation'>
+            <view class='cancel'>取消订单</view>
+            <view class=' payment'>支付订单</view>
           </view>
         </view>
       </view>
-    </block>
+    </view>
   </block>
+
 </view>

@@ -5,62 +5,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    disabled: false,
+    time: 0,
+    timer: '',
+    sendButtonText: '获取验证码',
+    updataWay: '通过手机号码来验证',
+    updataStatus: 1
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  _updataWay: function(e) {
+    if (this.data.updataStatus == 0) {
+      this.setData({
+        updataStatus: 1,
+        updataWay: '通过支付密码来验证'
+      })
+    } else {
+      this.setData({
+        updataStatus: 0,
+        updataWay: '通过手机号码来验证'
+      })
+    }
+  },
+  sendCode: function(e) {
+    console.log(e.currentTarget.dataset.phone)
+    if (!this.data.disabled) {
+      this.data.disabled = true
+      clearTimeout(this.data.timer)
+      this.data.time = 60
+      this._getVerificationCode()
+    }
+  },
+  _getVerificationCode: function() {
+    if (this.data.time > 0) {
+      this.data.time--;
+      this.setData({
+        sendButtonText: `${this.data.time}秒后发送`,
+        timer: setTimeout(this._getVerificationCode, 1000)
+      })
+    } else {
+      this.setData({
+        disabled: false,
+        sendButtonText: '获取验证码'
+      })
+      clearTimeout(this.data.timer)
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  onLoad: function(options) {
+
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+  onShow: function() {},
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

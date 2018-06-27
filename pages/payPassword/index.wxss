@@ -34,8 +34,8 @@
 }
 
 .verification_code input {
-  margin-right: 270rpx;
-  padding-right: 0;
+  padding-right: 270rpx;
+  box-sizing: border-box;
 }
 
 .telphone {
@@ -47,6 +47,7 @@
 }
 
 .v-code {
+  display: block;
   width: 240rpx;
   height: 90rpx;
   line-height: 90rpx;
@@ -84,3 +85,4 @@
 .explain text {
   line-height: 1.6;
 }
+

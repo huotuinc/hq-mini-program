@@ -27,6 +27,7 @@
     "pages/afterSale/index",
     "pages/afterSale/MyProductDetail/index",
     "pages/afterSale/SubmitReturnProduct/index",
+    "pages/afterSale/message/index",
     "pages/aftersales/index",
     "pages/usercenter/residual/index"
   ],

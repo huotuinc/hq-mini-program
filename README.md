@@ -36,7 +36,7 @@ pages-------- 页面
     "pages/afterSale/index" --------------------  售后
     "pages/afterSale/MyProductDetail/index" ----  售后详情
     "pages/afterSale/SubmitReturnProduct/index"-  售后详情
-
+    "pages/afterSale/message/index" ------------  买家留言
 
 utils--------- 脚本文件
 ```

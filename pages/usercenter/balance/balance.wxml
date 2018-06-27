@@ -1,30 +1,13 @@
-
 <view class='balance-con'>
-  <view class='balance-con_item'>
-    <view class='item-left'>
-      <text class='income'>+0.71</text>
+  <blcok wx:for="{{itemList.Items}}" wx:key="item">
+    <view class='balance-con_item'>
+      <view class='item-left'>
+        <text class='income'>{{item.ChangeIntegral}}</text>
+      </view>
+      <view class='item-right'>
+        <text class='item-right_title'>{{item.ChangeDesc}}</text>
+        <text class='time'>时间：{{item.ChangeTime}}</text>
+      </view>
     </view>
-    <view class='item-right'>
-      <text class='item-right_title'>梦想基金分红(201805)</text>
-      <text class='time'>时间：2018-06-08 17：04：05</text>
-    </view>
-  </view>
-  <view class='balance-con_item'>
-    <view class='item-left'>
-      <text class='expense'>-30</text>
-    </view>
-    <view class='item-right'>
-      <text class='item-right_title'>余额支付，订单号：20180328234055557530余额支付，订单号：20180328234055557530余额支付，订单号：20180328234055557530</text>
-      <text class='time'>时间：2018-03-28 17：04：05</text>
-    </view>
-  </view>
-  <view class='balance-con_item'>
-    <view class='item-left'>
-      <text class='income'>+100000还好看瓦哈卡</text>
-    </view>
-    <view class='item-right'>
-      <text class='item-right_title'>测试</text>
-      <text class='time'>时间：2018-06-08 17：04：05</text>
-    </view>
-  </view>
+  </blcok>
 </view>

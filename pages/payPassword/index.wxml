@@ -6,22 +6,27 @@
   </view>
 </view>
 
-<view class='telphone'>
-  <text>您当前绑定的手机号：136****2060</text>
+<view wx:if="{{updataStatus==0}}">
+  <view class='telphone'>
+    <text>您当前绑定的手机号：136****2060</text>
+  </view>
+  <view class='pay-password_header header_input'>
+    <view class='verification_code'>
+      <input type='number' placeholder='输入验证码'></input>
+      <text class='v-code' catchtap='sendCode' data-phone="13600000000">{{sendButtonText}}</text>
+    </view>
+  </view>
 </view>
 
-<view class='pay-password_header header_input'>
-  <view style='display:none'>
+
+<view class='pay-password_header header_input' wx:if="{{updataStatus==1}}">
+  <view>
     <input type='password' placeholder='请输入支付密码'></input>
   </view>
-  <view class='verification_code'>
-    <input type='password' placeholder='验证码'></input>
-    <text class='v-code'>验证码</text>
-  </view>
 </view>
 
-<view class='switchover'>
-  <text>通过手机号码来验证</text>
+<view class='switchover' catchtap='_updataWay'>
+  <text>{{updataWay}}</text>
 </view>
 
 <view class=''>
@@ -36,3 +41,4 @@
     <text>提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示</text>
   </view>
 </view>
+

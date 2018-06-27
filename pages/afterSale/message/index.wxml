@@ -1,0 +1,9 @@
+<view class="page-section">
+  <view class="textarea-wrp">
+    <textarea auto-focus="true" placeholder='请填写留言，不能超过100个字符' bindinput='_getInputMessage' maxlength='100' />
+  </view>
+</view>
+
+<view class='btn-recharge' catchtap='_saleComment'>
+  发送留言信息
+</view>
