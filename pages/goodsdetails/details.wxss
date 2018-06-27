@@ -6,7 +6,7 @@
   width: 100%;
   display: block;
 }
- 
+
 .goods-details-info-box {
   padding: 30rpx;
   background-color: #fff;
@@ -40,14 +40,14 @@
 .product-trademark {
   font-size: 28rpx;
   font-weight: 600;
- margin-top: 10rpx;
+  margin-top: 10rpx;
   margin-left: -7rpx;
 }
 
 .product-trademark text {
   display: inline-block;
   font-size: 24rpx;
-   padding: 0 10rpx; 
+  padding: 0 10rpx;
   border: 1px solid #cbcbcb;
   border-radius: 4rpx;
 }
@@ -190,7 +190,7 @@
   overflow: hidden;
 }
 
-.drawer-option{
+.drawer-option {
   opacity: 1;
 }
 
@@ -312,8 +312,7 @@
   color: #000;
 }
 
-
-.swiper-detail{
+.swiper-detail {
   position: absolute;
   top: 50%;
   left: 0;
@@ -321,8 +320,13 @@
   height: 500rpx;
   width: 100%;
   z-index: 5000;
+  -webkit-animation-name: fadeIn; /*动画名称*/
+  -webkit-animation-duration: 2s; /*动画持续时间*/
+  -webkit-animation-iteration-count: 1; /*动画次数*/
+  -webkit-animation-delay: 0s; /*延迟时间*/
 }
-.swiper-detail imgae{
+
+.swiper-detail imgae {
   display: block;
   width: 100%;
 }

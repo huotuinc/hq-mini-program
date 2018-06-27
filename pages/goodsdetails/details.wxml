@@ -89,7 +89,7 @@
     </view>
   </view>
 </view>
-
+ 
 
 <view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
   <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">

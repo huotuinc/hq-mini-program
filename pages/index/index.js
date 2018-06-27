@@ -303,11 +303,11 @@ Page({
   onShareAppMessage: function() {},
   /**
    * 商品列表
-   */
+   */ 
   _goGoodsList: function(e) {
-    var _item = e.currentTarget.dataset.item;
+    // var _item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '../goodslist/goods-list?categoryid=' + _item.categoryid + "&categoryTitle=" + _item.Name,
+      url: '../goodslist/goods-list?&search=1',
     })
     this.setData({
       mask: false

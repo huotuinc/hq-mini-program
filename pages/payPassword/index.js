@@ -10,13 +10,14 @@ Page({
     timer: '',
     sendButtonText: '获取验证码',
     updataWay: '通过手机号码来验证',
-    updataStatus: 1
+    updataStatus: 1,
+    step:1
   },
 
   _updataWay: function(e) {
     if (this.data.updataStatus == 0) {
       this.setData({
-        updataStatus: 1,
+        updataStatus: 1, 
         updataWay: '通过支付密码来验证'
       })
     } else {
@@ -51,11 +52,21 @@ Page({
     }
   },
 
+  _goNextStep:function(e){
+    var step = e.currentTarget.dataset.step
+    if(step ==1){
+      this.setData({
+        step:2
+      })
+    }else if(step == 2){
+      this.setData({
+        step: 3
+      })
+    }
+  },
   onLoad: function(options) {
 
   },
-
-
   onShow: function() {},
 
 })

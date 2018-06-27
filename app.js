@@ -98,7 +98,7 @@ App({
     for (let k in newArgs) {
       str += k + newArgs[k]
     }
-    console.log(str);
+    // console.log(str);
     return str
   },
   /**

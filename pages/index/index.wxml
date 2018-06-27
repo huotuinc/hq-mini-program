@@ -39,7 +39,7 @@
  
       <view class='goods-special-area'>
         <block wx:for="{{specialItems}}" wx:key="item">
-          <view class='special-box' catchtap='_goList'>
+          <view class='special-box' catchtap='_goGoodsList'>
             <view class='box2 item{{index}}'>
               <image src='{{item.pictureUrl}}' mode='widthFix'></image>
             </view>

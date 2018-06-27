@@ -1,37 +1,60 @@
 <view class="pay-password_header">
+  <view class='circle'></view>
   <view class='header_status'>
-    <view>1、验证身份</view>
-    <view>2、设置支付密码</view>
-    <view>3、完成</view>
+    <view class="{{ step==1?'header_status-color':''}}">1、验证身份</view>
+    <view class="{{ step==2?'header_status-color':''}}">2、设置支付密码</view>
+    <view class="{{ step==3?'header_status-color':''}}">3、完成</view>
   </view>
 </view>
 
-<view wx:if="{{updataStatus==0}}">
-  <view class='telphone'>
-    <text>您当前绑定的手机号：136****2060</text>
-  </view>
-  <view class='pay-password_header header_input'>
-    <view class='verification_code'>
-      <input type='number' placeholder='输入验证码'></input>
-      <text class='v-code' catchtap='sendCode' data-phone="13600000000">{{sendButtonText}}</text>
+<view wx:if="{{step==1}}">
+  <view wx:if="{{updataStatus==0}}">
+    <view class='telphone'>
+      <text>您当前绑定的手机号：136****2060</text>
+    </view>
+    <view class='pay-password_header header_input'>
+      <view class='verification_code'>
+        <input type='number' placeholder='输入验证码'></input>
+        <text class='v-code' catchtap='sendCode' data-phone="13600000000">{{sendButtonText}}</text>
+      </view>
     </view>
   </view>
-</view>
+  <view class='pay-password_header header_input' wx:if="{{updataStatus==1}}">
+    <view>
+      <input type='password' placeholder='请输入支付密码'></input>
+    </view>
+  </view>
+  <view class='switchover' catchtap='_updataWay'>
+    <text>{{updataWay}}</text>
+  </view>
 
-
-<view class='pay-password_header header_input' wx:if="{{updataStatus==1}}">
-  <view>
-    <input type='password' placeholder='请输入支付密码'></input>
+  <view class='btn-recharge' data-step='1' catchtap='_goNextStep'>
+    下一步
   </view>
 </view>
 
-<view class='switchover' catchtap='_updataWay'>
-  <text>{{updataWay}}</text>
+<view wx:if="{{step ==2}}">
+  <view class='telphone'>
+    <text>请设置支付密码</text>
+  </view>
+  <view class='pay-password_header header_input'>
+    <view class='password_code'>
+      <input type='password' placeholder='设置支付密码'></input>
+      <input type='password' placeholder='确认支付密码'></input>
+    </view>
+  </view>
+
+  <view class='btn-recharge' data-step='2' catchtap='_goNextStep'>
+    下一步
+  </view>
 </view>
 
-<view class=''>
+<view wx:if="{{step ==3}}">
+  <view class='telphone'>
+    <text>支付密码设置成功！</text>
+  </view>
   <view class='btn-recharge'>
-    下一步
+    返回设置中心
   </view>
 </view>
 
@@ -41,4 +64,3 @@
     <text>提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示</text>
   </view>
 </view>
-

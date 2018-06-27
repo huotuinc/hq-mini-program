@@ -3,8 +3,14 @@
 
 page {
   background-color: #fff;
- /* animation-name: fadeIn; */
 }
+
+ .goods_list-content {
+  -webkit-animation-name: fadeIn; 
+  -webkit-animation-duration: 3s; 
+  -webkit-animation-iteration-count: 1; 
+  -webkit-animation-delay: 0s; 
+} 
 
 .goods-list_header {
   width: 100%;
@@ -65,11 +71,6 @@ page {
 .filter-item .filter-icon .icon.active, .category-goods-filter view.active,
 .no-search view.active {
   color: #e41436;
-}
-
-.no-search {
-  position: fixed;
-  top: 0;
 }
 
 .separator {
@@ -191,6 +192,6 @@ page {
   border-radius: 12rpx;
 }
 
-.fadein{
+.fadein {
   background-color: darkcyan;
 }
