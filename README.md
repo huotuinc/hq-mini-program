@@ -37,6 +37,9 @@ pages-------- 页面
     "pages/afterSale/MyProductDetail/index" ----  售后详情
     "pages/afterSale/SubmitReturnProduct/index"-  售后详情
     "pages/afterSale/message/index" ------------  买家留言
+    "pages/bindingPhone/index" -----------------  绑定手机
+    "pages/usercenter/residual/index" ----------  余额
+
 
 utils--------- 脚本文件
 ```

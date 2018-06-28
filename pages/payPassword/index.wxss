@@ -114,3 +114,7 @@
 .explain text {
   line-height: 1.6;
 }
+
+.get-v_code {
+  background-color: #808080;
+}

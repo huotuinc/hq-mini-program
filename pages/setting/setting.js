@@ -31,9 +31,8 @@ Page({
     })
   },
   _mobilePhone: function(e) {
-    this.setData({
-      showModal: true,
-      placeholder: "请输入手机号"
+    wx.navigateTo({
+      url: '../bindingPhone/index?phone=' + e.target.dataset.phone
     })
   },
   _wxNumber: function(e) {
@@ -46,11 +45,23 @@ Page({
     this.setData({
       UserBirthday: e.detail.value
     })
+    user.updateUserBaseInfo({
+      type: 3,
+      content: e.detail.value
+    }, function(res) {
+      console.log(res.code)
+    })
   },
   bindRegionChange: function(e) {
     console.log(e)
     this.setData({
       UserCityName: e.detail.value
+    })
+    user.updateUserBaseInfo({
+      type: 6,
+      content: e.detail.value
+    }, function(res) {
+      console.log(res.code)
     })
   },
   hideModal: function() {
@@ -95,14 +106,15 @@ Page({
       }, function(res) {
         console.log(res.code)
       })
-    } else if (placeholder === '请输入手机号') {
-      this.setData({
-        UserMobile: excessive
-      })
-
     } else if (placeholder === '请输入微信号') {
       this.setData({
         UserWxNo: excessive
+      })
+      user.updateUserBaseInfo({
+        type: 5,
+        content: excessive
+      }, function(res) {
+        console.log(res.code)
       })
     }
     this.hideModal();
@@ -111,6 +123,13 @@ Page({
   bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value
+    })
+    var gender = this.data.UserGender[e.detail.value]
+    user.updateUserBaseInfo({
+      type: 2,
+      content: gender
+    }, function(res) {
+      console.log(res.code)
     })
   },
   _goAddress: function(e) {
@@ -160,73 +179,28 @@ Page({
       })
     }
   },
-  
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function(options) {
     var self = this
     user.setting(function(res) {
       self.setData({
-        settingItem: res.settingItem,
         RealName: res.settingItem.RealName || '去完善',
         UserSex: res.settingItem.UserSex || '未知',
         UserBirthday: res.settingItem.UserBirthday || '',
         UserCardNo: res.settingItem.UserCardNo || '',
-        UserMobile: res.settingItem.UserMobile || '',
+        UserMobile: res.settingItem.UserMobile || '未绑定',
         UserWxNo: res.settingItem.UserWxNo || '',
         UserCityName: res.settingItem.UserCityName || '',
+        PayPassworded: res.settingItem.PayPassworded,
         PayPasswordStatus: res.settingItem.PayPasswordStatus
       })
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function(e) {
     this.onConfirm(e)
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
 
-  },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })

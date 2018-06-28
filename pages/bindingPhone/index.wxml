@@ -1,0 +1,18 @@
+<view wx:if="!{{phone=='未绑定'}}" class='bind-phone_header'>
+  <text>手机号</text>
+  <text>{{phone}}</text>
+</view>
+
+<view class='bind-phone_input'>
+  <view class='header_input header-input_border'>
+    <input type='number' placeholder='请输入手机号码' maxlength='11' bindinput='_getMobileInput'></input>
+  </view>
+  <view class='verification_code header_input'>
+    <input type='number' placeholder='请输入验证码' bindinput='_getVcodeInput'></input>
+    <text class="v-code {{vCodeColor==1?'':'get-v_code'}}" catchtap='sendCode' data-phone="{{mobile}}">{{sendButtonText}}</text>
+  </view>
+</view>
+
+<view class='btn-recharge' style='background-color: #04be02;'>
+  确定
+</view>

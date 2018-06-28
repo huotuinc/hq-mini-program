@@ -73,10 +73,10 @@
 
 <view style='margin-top:20rpx; '>
   <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx'>
-    <block wx:for="{{bannerItems}}" wx:key="{{item}}">
+    <block wx:for="{{userItem.ADList}}" wx:key="{{item}}">
       <swiper-item>
         <view class="swiper-item">
-          <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
+          <image lazy-load='true' src='{{item.ImgURL}}' bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
         </view>
       </swiper-item>
     </block>

@@ -1,17 +1,12 @@
-const indexData = require('../../utils/mock/index.js')
-
 import config from '../../config.js'
 import user from '../../utils/request/user.js'
 const app = getApp();
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
+  //计算轮播图的高度
   imageLoad: function(e) {
     var $width = e.detail.width
     var $height = e.detail.height
@@ -19,55 +14,63 @@ Page({
       imgHeight: $height
     })
   },
-
+  // 前往设置中心页面
   _goSetting: function(e) {
     wx.navigateTo({
       url: '../setting/setting',
     })
   },
+  //前往订单页面
   _goOrder: function(e) {
     var cur = e.currentTarget.dataset.currenttab ? e.currentTarget.dataset.currenttab : 0
     wx.navigateTo({
       url: '../order/order-list?currenttab=' + cur,
     })
   },
+  //前往消息中心
   _goNewsFeed: function(e) {
     wx.navigateTo({
       url: './newsFeed/newsFeed',
     })
   },
+  // 前往待结算页面
   _goBalance: function(e) {
-    console.log(1)
     wx.navigateTo({
       url: './balance/balance',
     })
   },
+  //前往我的钱包
   _goWithdraw: function() {
     wx.navigateTo({
       url: './withdraw/withdraw',
     })
   },
+  //前往收藏夹
   _goCollectGoods: function(e) {
     wx.navigateTo({
       url: '../collectgoods/collectgoods',
     })
   },
+  //前往余额页面
   _goResidual: function(e) {
     wx.navigateTo({
       url: './residual/index',
     })
   },
+  //前往觅豆页面
   _goIntegral: function(e) {
     wx.navigateTo({
       url: './integral/integral',
     })
   },
+  //前往售后页面
   _goAftersale: function(e) {
     wx.navigateTo({
       url: '../afterSale/index',
     })
   },
 
+  //页面渲染的API请求
   userIndex: function() {
     var self = this
     user.userIndex(function(res) {
@@ -76,62 +79,10 @@ Page({
       })
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
-    this.setData({
-      bannerItems: indexData.bannerItems,
-    });
-    this.userIndex()
+    // this.userIndex()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
     this.userIndex()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })

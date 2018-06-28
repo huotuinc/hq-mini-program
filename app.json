@@ -28,7 +28,7 @@
     "pages/afterSale/MyProductDetail/index",
     "pages/afterSale/SubmitReturnProduct/index",
     "pages/afterSale/message/index",
-    "pages/aftersales/index",
+    "pages/bindingPhone/index",    
     "pages/usercenter/residual/index"
   ],
   "window": {
