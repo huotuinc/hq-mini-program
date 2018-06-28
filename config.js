@@ -3,7 +3,7 @@
  */
 var host = "http://yapi.demo.qunar.com/mock/11987/api"
 
-var config={
+var config = {
   host,
   // 登录地址
   loginUrl: `${host}/user/LoginByAuthCode`,
@@ -35,6 +35,8 @@ var config={
   setting: `${host}/user/setting`,
   //修改用户基本信息
   updateUserBaseInfo: `${host}/user/updateUserBaseInfo`,
+  //更改手机号码
+  updateMobile: `${host}/user/updateMobile`,
   //是否开启支付保护
   updatePayPasswordStatus: `${host}/user/updatePayPasswordStatus`,
   //修改支付密码
@@ -51,7 +53,7 @@ var config={
   getaccountlist: `${host}/user/GetAccountList`,
   //编辑提现账户
   editAccount: `${host}/user/EditAccount`,
-  //设置默认提现账户
+  //设置默认提现账户 
   setDefaultAccount: `${host}/user/SetDefaultAccount`,
   //订单列表
   getOrderList: `${host}/order/getlist`,

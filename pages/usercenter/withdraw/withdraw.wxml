@@ -1,13 +1,13 @@
 <view class="withdraw">
-  <view catchtap='_goBalance'>
+  <view catchtap='_goUserMBean'>
     <text>觅豆</text>
     <text class='withdraw_num'>{{wallet.UserMBean}}</text>
   </view>
-  <view>
+  <view catchtap='_goResidual'>
     <text>余额</text>
     <text class='withdraw_num'>{{wallet.UserIntegral}}</text>
   </view>
-  <view>
+  <view catchtap='_goBalance'>
     <text>待结算</text>
     <text class='withdraw_num'>{{wallet.UserTempIntegral}}</text>
   </view>

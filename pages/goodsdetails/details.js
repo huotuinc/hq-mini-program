@@ -92,16 +92,9 @@ Page({
     var data = {
       goodsid: options.goodsid
     }
-    goodsdetails.goodsDetails(data, function(code, res) {
-      if (code) {
-        self.setData({
-          item: res.data
-        });
-      } else {
-        self.setData({
-          loading: false
-        })
-      }
+    goodsdetails.goodsDetails(data, function(res) {
+      console.log(res)
+
     })
   },
 

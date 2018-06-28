@@ -68,10 +68,25 @@ var getaccountlist = function(callback) {
   })
 }
 
+//设置默认的提现账号
+var setDefaultAccount = function(data, callback) {
+  app.request({
+    url: config.setDefaultAccount,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
 module.exports = {
   myWallet: myWallet,
   applyIndex: applyIndex,
   applySubmit: applySubmit,
   applyList: applyList,
-  getaccountlist: getaccountlist
+  getaccountlist: getaccountlist,
+  setDefaultAccount: setDefaultAccount
 };

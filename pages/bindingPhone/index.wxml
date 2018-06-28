@@ -13,6 +13,6 @@
   </view>
 </view>
 
-<view class='btn-recharge' style='background-color: #04be02;'>
+<view class='btn-recharge' style='background-color: #04be02;' bindtap='_updateMobile'>
   确定
 </view>

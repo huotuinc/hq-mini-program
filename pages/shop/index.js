@@ -9,22 +9,22 @@ Page({
     startX: 0, 
     startY: 0
   },
-
+  //返回顶部
   onPageScroll: function (e) {
     var that = this
     var scrollTop = e.scrollTop
     var backTopValue = scrollTop > 500 ? true : false
     that.setData({
-      backTopValue: backTopValue
+      backTopValue: backTopValue 
     })
   },
-
   backTop: function () {
     wx.pageScrollTo({
       scrollTop: 0
     })
   },
 
+  //左划删除
   touchstart: function (e) {
 
     this.data.items.forEach(function (v, i) {
@@ -37,7 +37,6 @@ Page({
       items: this.data.items
     })
   },
-
   touchmove: function (e) {
     var that = this,
       index = e.currentTarget.dataset.index,

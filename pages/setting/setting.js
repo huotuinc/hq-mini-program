@@ -30,15 +30,15 @@ Page({
       placeholder: "请输入身份证"
     })
   },
-  _mobilePhone: function(e) {
-    wx.navigateTo({
-      url: '../bindingPhone/index?phone=' + e.target.dataset.phone
-    })
-  },
   _wxNumber: function(e) {
     this.setData({
       showModal: true,
       placeholder: "请输入微信号"
+    })
+  },
+  _mobilePhone: function(e) {
+    wx.navigateTo({
+      url: '../bindingPhone/index?phone=' + e.target.dataset.phone
     })
   },
   bindDateChange: function(e) {
@@ -83,6 +83,8 @@ Page({
       excessive: newName
     })
   },
+
+  //修改用户基本信息
   onConfirm: function() {
     var excessive = this.data.excessive
     var placeholder = this.data.placeholder
@@ -179,8 +181,8 @@ Page({
       })
     }
   },
-
-  onLoad: function(options) {
+  //获取用户设置界面信息
+  _getSetting: function() {
     var self = this
     user.setting(function(res) {
       self.setData({
@@ -196,11 +198,10 @@ Page({
       })
     })
   },
+  onLoad: function(options) {},
 
   onShow: function(e) {
+    this._getSetting()
     this.onConfirm(e)
   },
-
-
-
 })

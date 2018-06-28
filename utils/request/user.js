@@ -77,6 +77,20 @@ var updateUserBaseInfo = function(data, callback) {
   })
 }
 
+//更改手机号码
+var updateMobile = function(data, callback) {
+  app.request({
+    url: config.updateMobile,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
 //是否开启支付保护
 var updatePayPasswordStatus = function(data, callback) {
   app.request({
@@ -92,14 +106,14 @@ var updatePayPasswordStatus = function(data, callback) {
 }
 
 //买家留言
-var saleComment = function(data,callback){
+var saleComment = function(data, callback) {
   app.request({
     url: config.saleComment,
-    method:'post',
-    data:data,
-    success:function(res){
+    method: 'post',
+    data: data,
+    success: function(res) {
       callback({
-        data:res.data
+        data: res.data
       })
     }
   })
@@ -111,6 +125,7 @@ module.exports = {
   getSalesList: getSalesList,
   saleComment: saleComment,
   setting: setting,
+  updateMobile: updateMobile,
   updateUserBaseInfo: updateUserBaseInfo,
   updatePayPasswordStatus: updatePayPasswordStatus
 };

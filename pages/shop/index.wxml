@@ -10,7 +10,7 @@
 <view class='shopping'>
   <view class='merchant'>
     <view class='merchant-left'>
-      <!-- <icon class='icon iconfont icon-ico2'></icon> -->
+      <icon class='icon iconfont icon-ico2'></icon>
       <text class=''>商场自营</text>
     </view>
     <view class='merchant-right'>编辑</view>
@@ -25,15 +25,27 @@
           <view>
             <image src='http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg'></image>
           </view>
-          <view class='goods_title'> 
-            <view class='title_con'>
-              <text class='shop_title'>{{item.Name}}</text>
-              <text style='color:#000;'>规格 ：F4A1蓝色，L</text>
-              <text>剩余库存 ：{{item.AvaliableStore}}</text>
+          <view class='goods-content'>
+            <view class='goods_title'>
+              <view class='title_con'>
+                <text class='shop_title'>{{item.Name}}</text>
+                <text style='color:#000;'>规格 ：F4A1蓝色，L</text>
+              </view>
+              <view class='price_num'>
+                <text style='font-weight: 800;'>￥{{item.Price}}</text>
+                <text style='color: #999;'>x{{item.Nums}}</text>
+              </view>
             </view>
-            <view class='price_num'>
-              <text style='font-weight: 800;'>￥{{item.Price}}</text>
-              <text style='color: #999;'>x{{item.Nums}}</text>
+            <view class='goods_store'>
+              <!-- <text>剩余库存 ：{{item.AvaliableStore}}</text> -->
+              <view class='goods-edit'>
+                <view class='btn-minus'>-</view>
+                <view class='btn-input'>
+                  <input value='1'></input>
+                </view>
+                <view class='btn-plus'>+</view>
+                <view class='btn-del'>删除</view>
+              </view>
             </view>
           </view>
         </view>
@@ -61,8 +73,11 @@
       </view>
     </view>
   </view>
-  <view class='balance-right'>
+  <!-- <view class='balance-right'>
     结算
+  </view> -->
+  <view class='balance-right'>
+    删除
   </view>
 </view>
 
