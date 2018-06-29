@@ -26,7 +26,6 @@ Page({
 
   //左划删除
   touchstart: function (e) {
-
     this.data.items.forEach(function (v, i) {
       if (v.isTouchMove)
         v.isTouchMove = false;

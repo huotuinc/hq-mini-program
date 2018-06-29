@@ -1,15 +1,10 @@
 const indexData = require('../../utils/mock/index.js')
-import {
-  skillTime
-} from '../../utils/skillTime.js'
-import {
-  collection,
-  windowHeight
-} from '../../utils/common.js'
+import { skillTime } from '../../utils/skillTime.js'
+import { collection, windowHeight } from '../../utils/common.js'
 
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
-const app = getApp();
+const app = getApp()
 
 Page({
   /**
@@ -29,7 +24,7 @@ Page({
     filterTap: 1,
     mask: false,
     windowHeight: windowHeight(),
-    loadingTitle: "加载中...",
+    loadingTitle: '加载中...',
     hidden: false,
     backTopValue: false,
     page: 1,
@@ -82,7 +77,8 @@ Page({
   //点击商品筛选事件
   clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset
-    if (cur.type == 4) {}
+    if (cur.type == 4) {
+    }
     this.setData({
       filterTap: cur.type
     })
@@ -116,7 +112,11 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsid + '&categoryTitle=' + e.currentTarget.dataset.title
+      url:
+        '../goodsdetails/details?goodsid=' +
+        e.currentTarget.dataset.goodsid +
+        '&categoryTitle=' +
+        e.currentTarget.dataset.title
     })
   },
   //设置tab标题滚动
@@ -148,12 +148,12 @@ Page({
   // search搜索
   searchShop(e) {
     wx.navigateTo({
-      url: '../search/search',
+      url: '../search/search'
     })
   },
   _goList: function(e) {
     wx.navigateTo({
-      url: '../goodslist/goods-list',
+      url: '../goodslist/goods-list'
     })
   },
   /**
@@ -161,7 +161,7 @@ Page({
    */
 
   onLoad: function(options) {
-    var self = this;
+    var self = this
     if (app.globalData.mock) {
       this.setData({
         category: indexData.categoryItems,
@@ -170,7 +170,7 @@ Page({
         bannerItems: indexData.bannerItems,
         specialItems: indexData.specialItems,
         currentCategory: indexData.categoryItems[this.data.currentTab].child
-      });
+      })
     }
     this.setData({
       // loading: true
@@ -199,21 +199,14 @@ Page({
       },
       method: 'post',
       success: function(res) {
-        if (res.data.code == 200) {
-          self.setData({
-            goodsItems: res.data.list
-          })
-        } else {
-          wx.showToast({
-            title: res.msg
-          })
-        }
+        self.setData({
+          goodsItems: res.data.list
+        })
       },
       fail: function(error) {
         console.log(error)
       }
     })
-
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -225,7 +218,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var date = new Date();
+    var date = new Date()
     date.setHours(24)
     date.setMinutes(0)
     date.setSeconds(0)
@@ -248,12 +241,11 @@ Page({
    */
 
   onPullDownRefresh: function() {
-    wx.stopPullDownRefresh();
+    wx.stopPullDownRefresh()
   },
 
-
   /**
-   * 页面上拉触底事件的处理函数 
+   * 页面上拉触底事件的处理函数
    */
 
   onReachBottom: function() {
@@ -274,26 +266,29 @@ Page({
     //   })
     // }
     var page = this.data.page
-    var _goodsItems = this.data.goodsItems;
-    home.goodsList({
-      page: page++,
-      pageSize: self.data.pageSize
-    }, function(code, res) {
-      if (code) {
-        if (res.goodsItems.length > 0) {
+    var _goodsItems = this.data.goodsItems
+    home.goodsList(
+      {
+        page: page++,
+        pageSize: self.data.pageSize
+      },
+      function(code, res) {
+        if (code) {
+          if (res.goodsItems.length > 0) {
+            self.setData({
+              hidden: false,
+              goodsItems: _goodsItems.concat(res.goodsItems),
+              page: page++
+            })
+          }
+        } else {
           self.setData({
             hidden: false,
-            goodsItems: _goodsItems.concat(res.goodsItems),
-            page: page++,
+            loadingTitle: '没有更多'
           })
         }
-      } else {
-        self.setData({
-          hidden: false,
-          loadingTitle: "没有更多"
-        })
       }
-    })
+    )
   },
 
   /**
@@ -303,18 +298,19 @@ Page({
   onShareAppMessage: function() {},
   /**
    * 商品列表
-   */ 
+   */
+
   _goGoodsList: function(e) {
     // var _item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '../goodslist/goods-list?&search=1',
+      url: '../goodslist/goods-list?&search=1'
     })
     this.setData({
       mask: false
     })
   },
   /**
-   * 
+   *
    */
   maskTouchStart: function(e) {
     this.setData({
@@ -335,5 +331,4 @@ Page({
     })
   },
   onShareAppMessage: function() {}
-
 })

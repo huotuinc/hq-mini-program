@@ -42,9 +42,12 @@
 .iten-right {
   position: absolute;
   right: 0;
-  top: 35%;
+  height: 100%;
+  top: 0%;
+  padding-top: 5%;
   width: 100rpx;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .iten-right text {

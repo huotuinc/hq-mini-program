@@ -20,7 +20,7 @@ Page({
       self.setData({
         itemList: res.data
       })
-    })
+    }) 
   },
   onLoad: function(options) {
     var that = this

@@ -1,9 +1,8 @@
 import config from '../../config.js'
 import wallet from '../../utils/request/withdraw.js'
-const app = getApp();
+const app = getApp()
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -12,12 +11,12 @@ Page({
   },
   _goRecord: function(e) {
     wx.navigateTo({
-      url: '../record/index',
+      url: '../record/index'
     })
   },
   _goAccount: function(e) {
     wx.navigateTo({
-      url: '../account/index',
+      url: '../account/index'
     })
   },
   applyNum: function(e) {
@@ -56,12 +55,13 @@ Page({
           content: '确认提现之后，预计24个小时之内可以到账',
           success: function(res) {
             if (res.confirm) {
-              wallet.applySubmit({
-                AccountId: accountId,
-                ApplyMoney: realityIntegral
-              }, function(res) {
-                if (res.data.code == 200) {}
-              })
+              wallet.applySubmit(
+                {
+                  AccountId: accountId,
+                  ApplyMoney: realityIntegral
+                },
+                function(res) {}
+              )
             }
           }
         })
@@ -74,25 +74,19 @@ Page({
   onLoad: function(options) {
     var self = this
     wallet.applyIndex(function(res) {
-      if (res.data.code == 200) {
-        self.setData({
-          applyData: res.data.data
-        })
-      }
+      self.setData({
+        applyData: res.data.data
+      })
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-
-  }
+  onShow: function() {}
 })

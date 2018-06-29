@@ -1,6 +1,8 @@
-// pages/payPassword/index.js
-Page({
+import config from '../../config.js'
+import user from '../../utils/request/user.js'
+const app = getApp()
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -36,17 +38,51 @@ Page({
     })
   },
   sendCode: function(e) {
-    console.log(e.currentTarget.dataset.phone)
+    var self = this
+    var mobile = e.currentTarget.dataset.phone
+    if (!mobile) {
+      wx.showToast({
+        title: '请输入手机号',
+        icon: 'none'
+      })
+      return
+    }
+    if (!/^1([34578])\d{9}$/.test(mobile)) {
+      wx.showToast({
+        title: '手机号码错误',
+        icon: 'none'
+      })
+      return
+    }
+
     if (!this.data.disabled) {
       this.data.disabled = true
       clearTimeout(this.data.timer)
-      this.data.time = 60
-      this._getVerificationCode()
+      user.sendCode(
+        {
+          mobile: mobile
+        },
+        function(res) {
+          var verifyCode = res.data.data.verifyCode
+          wx.showToast({
+            title: '验证码发送成功',
+            icon: 'none',
+            success: function() {
+              self.setData({
+                time: 60,
+                verifyCode: verifyCode
+              })
+              self._getVerificationCode()
+            }
+          })
+        }
+      )
     }
   },
+
   _getVerificationCode: function() {
     if (this.data.time > 0) {
-      this.data.time--;
+      this.data.time--
       this.setData({
         sendButtonText: `${this.data.time}秒后发送`,
         timer: setTimeout(this._getVerificationCode, 1000),
@@ -74,9 +110,6 @@ Page({
       })
     }
   },
-  onLoad: function(options) {
-
-  },
-  onShow: function() {},
-
+  onLoad: function(options) {},
+  onShow: function() {}
 })

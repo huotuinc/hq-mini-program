@@ -9,7 +9,7 @@
           <text class='informatiom-name'>{{item.RealName}}</text>
           <text>{{item.AccountInfo}}</text>
         </view>
-        <view class='compile' catchtap='_showCompile' data-accountId='{{item.AccountId}}'>编辑</view>
+        <view class='compile' catchtap='_showCompile' data-accountId='{{item.AccountId}}' data-RealName='{{item.RealName}}' data-AccountInfo='{{item.AccountInfo}}'>编辑</view>
       </view>
     </view>
   </block>
@@ -22,4 +22,4 @@
   <view catchtap='_goModification' data-categorytitle='修改提现账号'>修改提现账号</view>
   <view catchtap='_setDefault'>设为默认</view>
   <view catchtap='_deleteAccoun'>删除提现账号</view>
-</view>
+</view> 

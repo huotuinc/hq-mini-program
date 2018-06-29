@@ -27,8 +27,8 @@
         <view class="weui-label">所在城市</view>
       </view>
       <view class="weui-cell__bd">
-        <picker mode="region" value="{{city}}" bindchange="bindRegionChange">
-          <view class="weui-input">{{city}}</view>
+        <picker mode="region" value="{{cityList}}" bindchange="bindRegionChange">
+          <view class="weui-input">{{cityList}}</view>
         </picker>
       </view>
     </view>

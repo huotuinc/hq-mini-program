@@ -7,11 +7,9 @@ var userIndex = function(callback) {
     url: config.userIndex,
     method: 'get',
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          userItem: res.data.data
-        })
-      }
+      callback({
+        userItem: res.data.data
+      })
     }
   })
 }
@@ -23,11 +21,9 @@ var getIntegralList = function(data, callback) {
     method: 'get',
     data: data,
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          data: res.data.data
-        })
-      }
+      callback({
+        data: res.data.data
+      })
     }
   })
 }
@@ -52,11 +48,9 @@ var setting = function(callback) {
     url: config.setting,
     method: 'get',
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          settingItem: res.data.data
-        })
-      }
+      callback({
+        settingItem: res.data.data
+      })
     }
   })
 }
@@ -68,11 +62,9 @@ var updateUserBaseInfo = function(data, callback) {
     method: 'post',
     data: data,
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          code: res.data.code
-        })
-      }
+      callback({
+        code: res.data.code
+      })
     }
   })
 }
@@ -119,6 +111,72 @@ var saleComment = function(data, callback) {
   })
 }
 
+//发送验证码
+var sendCode = function(data, callback) {
+  app.request({
+    url: config.sendCode,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
+//收货地址管理
+var addressList = function(callback) {
+  app.request({
+    url: config.addressList,
+    method: 'post',
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+//添加/编辑收货地址
+var updateAddress = function(data, callback) {
+  app.request({
+    url: config.updateAddress,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+//删除收货地址
+var deleteAddress = function(data, callback) {
+  app.request({
+    url: config.deleteAddress,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+//设置默认收货地址
+var changeAddressDefault = function(data, callback) {
+  app.request({
+    url: config.changeAddressDefault,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
 module.exports = {
   userIndex: userIndex,
   getIntegralList: getIntegralList,
@@ -127,5 +185,10 @@ module.exports = {
   setting: setting,
   updateMobile: updateMobile,
   updateUserBaseInfo: updateUserBaseInfo,
-  updatePayPasswordStatus: updatePayPasswordStatus
+  updatePayPasswordStatus: updatePayPasswordStatus,
+  sendCode: sendCode,
+  addressList: addressList,
+  updateAddress: updateAddress,
+  deleteAddress: deleteAddress,
+  changeAddressDefault: changeAddressDefault
 };

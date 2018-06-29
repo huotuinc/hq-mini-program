@@ -16,7 +16,7 @@
 </view>
 
 <view class='kiting_other'>
-  <view class='btn-recharge' catchtap='withdrawBtn'>
+  <view class='btn-recharge' catchtap='withdrawBtn'> 
     提现
   </view>
 

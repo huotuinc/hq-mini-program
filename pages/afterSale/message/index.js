@@ -1,10 +1,8 @@
 import config from '../../../config.js'
 import user from '../../../utils/request/user.js'
-const app = getApp();
+const app = getApp()
 Page({
-  data: {
-
-  },
+  data: {},
 
   _getInputMessage: function(e) {
     this.setData({
@@ -22,35 +20,29 @@ Page({
       })
       return
     }
-    user.saleComment({
-      customerid: 1,
-      afterid: 10,
-      orderid: 23,
-      txtmemo: self.data.txtmemo
-    }, function(res) {
-      if(res.data.code == 200){
+    user.saleComment(
+      {
+        customerid: 1,
+        afterid: 10,
+        orderid: 23,
+        txtmemo: self.data.txtmemo
+      },
+      function(res) {
         wx.showToast({
-          title: '发送成功',
+          title: '发送成功'
         })
       }
-    })
+    )
   },
-  onLoad: function(options) {
-
-  },
-
+  onLoad: function(options) {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-
-  },
+  onShow: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
-  }
+  onShareAppMessage: function() {}
 })

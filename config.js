@@ -72,8 +72,17 @@ var config = {
   //买家留言提交
   saleComment: `${host}/aftersales/comment`,
   //物流提交
-  savelogic: `${host}/aftersales/savelogic`
-
+  savelogic: `${host}/aftersales/savelogic`,
+  //发送验证码
+  sendCode: `${host}/user/sendCode`,
+  //收货地址管理
+  addressList: `${host}/user/addressList`,
+  //添加/编辑收货地址
+  updateAddress: `${host}/user/updateAddress`,
+  //删除收货地址
+  deleteAddress: `${host}/user/deleteAddress`,
+  //设置默认收货地址
+  changeAddressDefault: `${host}/user/changeAddressDefault`
 }
 
 module.exports = config

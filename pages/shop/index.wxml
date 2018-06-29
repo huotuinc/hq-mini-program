@@ -10,7 +10,7 @@
 <view class='shopping'>
   <view class='merchant'>
     <view class='merchant-left'>
-      <icon class='icon iconfont icon-ico2'></icon>
+      <icon class='icon iconfont icon-ico2'></icon> 
       <text class=''>商场自营</text>
     </view>
     <view class='merchant-right'>编辑</view>
@@ -44,7 +44,7 @@
                   <input value='1'></input>
                 </view>
                 <view class='btn-plus'>+</view>
-                <view class='btn-del'>删除</view>
+                <view class='btn-del' catchtap="del" data-index="{{index}}">删除</view>
               </view>
             </view>
           </view>

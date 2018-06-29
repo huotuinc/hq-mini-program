@@ -1,41 +1,20 @@
 <view class='address-item'>
-  <view class='item'>
-    <view class='item-left'>
-      <icon class='icon iconfont icon-xuanzhong'></icon>
+  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{addressList}}" wx:for-item="item">
+    <view class='item' data-pid='{{item.pid}}' catchtap='_setDefaultAddress'>
+      <view catchtap='_setDefaultAddress'>
+        <view class='item-left'>
+          <icon class='icon iconfont icon-ico2'></icon>
+        </view>
+        <view class="item-center">
+          <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>{{item.name}} {{item.mobile}}</text>
+          <text style='font-size:28rpx;'>{{item.area}} {{item.address}}</text>
+        </view>
+      </view>
+      <view class='iten-right' data-pid='{{item.pid}}' data-index="{{index}}" catchtap='_editAddress'>
+        <text>编辑</text>
+      </view>
     </view>
-    <view class="item-center">
-      <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>星期八 186****5950</text>
-      <text style='font-size:28rpx;'>浙江杭州市滨江区阡陌路482号智慧E谷B幢4楼</text>
-    </view>
-    <view class='iten-right'>
-      <text>编辑</text>
-    </view>
-  </view>
-
-  <view class='item'>
-    <view class='item-left'>
-      <icon class='icon iconfont icon-ico2'></icon>
-    </view>
-    <view class="item-center">
-      <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>星期八 186****5950</text>
-      <text style='font-size:28rpx;'>浙江杭州市滨江区阡陌路482号智慧E谷B幢4楼</text>
-    </view>
-    <view class='iten-right'>
-      <text>编辑</text>
-    </view>
-  </view>
-
-  <view class='item'>
-    <view class='item-left'>
-      <icon class='icon iconfont icon-ico2'></icon>
-    </view>
-    <view class="item-center">
-      <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>星期八 186****5950</text>
-      <text style='font-size:28rpx;'>浙江杭州市滨江区阡陌路482号</text>
-    </view>
-    <view class='iten-right'>
-      <text>编辑</text>
-    </view>
+    <view class="del" catchtap="del" data-pid='{{item.pid}}'>删除</view>
   </view>
 </view>
 
