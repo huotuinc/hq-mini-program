@@ -15,12 +15,10 @@ var config = {
   categoryUrl: `${host}/goods/category`,
   // 商品连接
   goodsDetailsUrl: `${host}/goods/category`,
-  //添加收藏
-  favoriteUrl: `${host}/user/favorite`,
-  //删除收藏
-  favoriteDeleteUrl: `${host}/user/favoriteDelete`,
+  //添加/删除收藏
+  addCollection: `${host}/user/addCollection`,
   //我的收藏
-  favoriteListUrl: `${host}/user/favoriteList`,
+  myCollection: `${host}/user/myCollection`,
   //搜索商品
   searchGoods: `${host}/goods/search`,
   //热门搜索关键字
@@ -56,13 +54,15 @@ var config = {
   //设置默认提现账户 
   setDefaultAccount: `${host}/user/SetDefaultAccount`,
   //订单列表
-  getOrderList: `${host}/order/getlist`,
+  getOrderList: `${host}/user/orderList`,
   //订单详情
-  orderInfo: `${host}/order/orderinfo`,
+  orderDetail: `${host}/user/orderDetail`,
   //取消订单
-  closeOrder: `${host}/order/closeorder`,
+  closeOrder: `${host}/user/closeOrder`,
   //删除订单
-  deletOrder: `${host}/order/deleteorder`,
+  deletOrder: `${host}/user/deleteOrder`,
+  //确认收货
+  confirmOrder: `${host}/user/confirmOrder`,
   //申请售后
   afterSales: `${host}/aftersales/submit`,
   //售后列表

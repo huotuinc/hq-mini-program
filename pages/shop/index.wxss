@@ -63,7 +63,6 @@
 .shop-item .icon {
   font-size: 40rpx;
   margin-right: 20rpx;
-  color: #ddd;
 }
 
 .my-order_con {
@@ -220,4 +219,12 @@
   line-height: 64rpx;
   margin-top: 14rpx;
   border-radius: 10rpx;
+}
+
+.icon-ico2 {
+  color: #ddd;
+}
+
+.icon-xuanzhong {
+  color: #09bb06;
 }

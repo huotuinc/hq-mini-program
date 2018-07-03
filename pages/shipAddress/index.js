@@ -91,7 +91,7 @@ Page({
       })
     })
   },
-  //编辑收货地址
+  //编辑收货地址 
   _editAddress: function(e) {
     var id = e.currentTarget.dataset.pid
     var index = e.currentTarget.dataset.index

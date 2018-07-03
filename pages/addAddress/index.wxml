@@ -50,7 +50,7 @@
   <view class='btn-recharge'>
     确认
   </view>
-  <view class='btn-recharge btn-delete'>
+  <view class='btn-recharge btn-delete' catchtap='_delectAddress' wx:if='{{editID !== 0}}'>
     删除地址
   </view>
 </view>

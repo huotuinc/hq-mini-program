@@ -1,9 +1,12 @@
 const indexData = require('../../utils/mock/index.js')
-import { skillTime } from '../../utils/skillTime.js'
-import { collection, windowHeight } from '../../utils/common.js'
+import {
+  collection,
+  windowHeight
+} from '../../utils/common.js'
 
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
+import collectgoods from '../../utils/request/collectgoods.js'
 const app = getApp()
 
 Page({
@@ -77,43 +80,54 @@ Page({
   //点击商品筛选事件
   clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset
-    if (cur.type == 4) {
-    }
+    if (cur.type == 4) {}
     this.setData({
       filterTap: cur.type
     })
   },
-  //点击收藏
+  //点击收藏 
   clickFavTab: function(e) {
+    var self = this
     var item = e.currentTarget.dataset.item
     var index = e.currentTarget.dataset.index
-    var _type = e.currentTarget.dataset.type
+    var isFav = e.target.dataset.isfav
     var _items = []
-    if (_type == 'goodsItems') {
-      _items = this.data.goodsItems
-      _items[index].isFav = !item.isFav
-      this.setData({
-        goodsItems: _items
+    if (isFav) {
+      collectgoods.addCollection({
+        goodsId: e.target.dataset.goodsid
+      }, function(res) {
+        wx.showToast({
+          title: '收藏成功',
+          success: function() {
+            _items = self.data.goodsItems
+            _items[index].isFav = !isFav
+            self.setData({
+              goodsItems: _items
+            })
+          }
+        })
+      })
+    } else {
+      collectgoods.addCollection({
+        goodsId: e.target.dataset.goodsid
+      }, function(res) {
+        wx.showToast({
+          title: '取消成功',
+          success: function() {
+            _items = self.data.goodsItems
+            _items[index].isFav = !isFav
+            self.setData({
+              goodsItems: _items
+            })
+          }
+        })
       })
     }
-    if (_type == 'hotItems') {
-      _items = this.data.hotItems
-      _items[index].isFav = !item.isFav
-      this.setData({
-        hotItems: _items
-      })
-    }
-    //设置收藏
-    collection(item.goodsId, !item.isFav)
-    wx.showToast({
-      title: !item.isFav ? '收藏成功' : '取消收藏'
-    })
   },
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url:
-        '../goodsdetails/details?goodsid=' +
+      url: '../goodsdetails/details?goodsid=' +
         e.currentTarget.dataset.goodsid +
         '&categoryTitle=' +
         e.currentTarget.dataset.title
@@ -165,8 +179,6 @@ Page({
     if (app.globalData.mock) {
       this.setData({
         category: indexData.categoryItems,
-        goodsItems: indexData.goodsItems,
-        hotItems: indexData.hotItems,
         bannerItems: indexData.bannerItems,
         specialItems: indexData.specialItems,
         currentCategory: indexData.categoryItems[this.data.currentTab].child
@@ -217,24 +229,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    var date = new Date()
-    date.setHours(24)
-    date.setMinutes(0)
-    date.setSeconds(0)
-    skillTime(date.toString(), this)
-    var that = this
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {},
+  onShow: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -253,22 +248,9 @@ Page({
     this.setData({
       hidden: true
     })
-    // var _goodsItems = this.data.goodsItems;
-    // if (_goodsItems.concat(indexData.goodsItems) > _goodsItems) {
-    //   this.setData({
-    //     hidden: false,
-    //     goodsItems: _goodsItems.concat(indexData.goodsItems)
-    //   })
-    // } else {
-    //   this.setData({
-    //     hidden: false,
-    //     loadingTitle: "没有更多"
-    //   })
-    // }
     var page = this.data.page
     var _goodsItems = this.data.goodsItems
-    home.goodsList(
-      {
+    home.goodsList({
         page: page++,
         pageSize: self.data.pageSize
       },
@@ -303,7 +285,7 @@ Page({
   _goGoodsList: function(e) {
     // var _item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '../goodslist/goods-list?&search=1'
+      url: '../goodslist/goods-list'
     })
     this.setData({
       mask: false

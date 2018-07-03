@@ -11,7 +11,7 @@
 
 .news-feed_header .tab-item {
   display: inline-block;
-  width: 50%;
+  width: 25%;
 }
 
 .news-feed_header .tab-item.active {
@@ -22,7 +22,7 @@
   content: "";
   display: block;
   height: 6rpx;
-  width: 300rpx;
+  width: 100rpx;
   background: #000;
   position: absolute;
   bottom: 0;

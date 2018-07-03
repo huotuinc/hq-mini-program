@@ -12,7 +12,7 @@
     <text>{{ checkedTitle }}</text>
   </view>
   <view class='footer-operate'>
-    <text  class='footer-del'>批量删除</text>
+    <text  class='footer-del' >批量删除</text>
     <text class='footer-share'>立即分享</text>
   </view>
-</view>
+</view>  

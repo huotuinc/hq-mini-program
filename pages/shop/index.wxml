@@ -10,16 +10,16 @@
 <view class='shopping'>
   <view class='merchant'>
     <view class='merchant-left'>
-      <icon class='icon iconfont icon-ico2'></icon> 
+      <icon class='icon iconfont icon-xuanzhong'></icon>
       <text class=''>商场自营</text>
     </view>
-    <view class='merchant-right'>编辑</view>
+    <view class='merchant-right' catchtap='_editHandle' data-editTile='{{editTitle}}'>{{editTitle}}</view>
   </view>
   <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="item">
     <view class='item'>
       <view class='shop-item'>
         <view>
-          <icon class='icon iconfont icon-ico2'></icon>
+          <icon class='icon iconfont icon-xuanzhong'></icon>
         </view>
         <view class='my-order_con' catchtap='_goGoodsDetails'>
           <view>
@@ -37,11 +37,11 @@
               </view>
             </view>
             <view class='goods_store'>
-              <!-- <text>剩余库存 ：{{item.AvaliableStore}}</text> -->
-              <view class='goods-edit'>
+              <text wx:if="{{!edit}}">剩余库存 ：{{item.AvaliableStore}}</text>
+              <view class='goods-edit' wx:if="{{edit}}">
                 <view class='btn-minus'>-</view>
                 <view class='btn-input'>
-                  <input value='1'></input>
+                  <input value='{{item.Nums}}'></input>
                 </view>
                 <view class='btn-plus'>+</view>
                 <view class='btn-del' catchtap="del" data-index="{{index}}">删除</view>
@@ -50,7 +50,7 @@
           </view>
         </view>
       </view>
-      <view class='item-other'>
+      <view class='item-other' wx:if="{{!edit}}">
         <text>活动：觅方66节下单就返3-8元随机无门槛优惠券</text>
       </view>
     </view>
@@ -62,7 +62,7 @@
 
 <view class='balance'>
   <view class='balance-left'>
-    <icon class='icon iconfont icon-ico2'></icon>
+    <icon class='icon iconfont icon-xuanzhong'></icon>
     <view class='pay-total'>
       <view>
         总计
@@ -73,11 +73,8 @@
       </view>
     </view>
   </view>
-  <!-- <view class='balance-right'>
-    结算
-  </view> -->
   <view class='balance-right'>
-    删除
+    {{closeTitle}}
   </view>
 </view>
 

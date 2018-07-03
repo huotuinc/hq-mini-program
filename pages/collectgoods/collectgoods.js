@@ -1,22 +1,39 @@
-const indexData = require('../../utils/mock/index.js')
+import config from '../../config.js'
+import collectgoods from '../../utils/request/collectgoods.js'
+const app = getApp()
+
 Page({
   data: {
     checked: false,
     checkedTitle: '已选 （0）',
-    hotItems:[],
+    page: 1,
+    pageSize: 20,
+    hotItems: [],
     startX: 0, //开始坐标
     startY: 0
   },
 
-  onLoad: function (options) {
-    this.setData({
-      hotItems: indexData.collectItems
-    });
+  //获取我的收藏数据
+  _getMyCollection: function(e) {
+    var self = this
+    var data = {
+      page: this.data.page,
+      pageSize: this.data.pageSize
+    }
+
+    collectgoods.myCollection(data, function(res) {
+      self.setData({
+        hotItems: res.data.data
+      })
+    })
+  },
+
+  onLoad: function(options) {
+    this._getMyCollection()
   },
 
   //手指触摸动作开始 记录起点X坐标
   touchstart: function(e) {
-    console.log(e)
     //开始触摸时 重置所有删除
     this.data.hotItems.forEach(function(v, i) {
       if (v.isTouchMove) //只操作为true的
@@ -73,9 +90,30 @@ Page({
   },
   //删除事件
   del: function(e) {
-    this.data.hotItems.splice(e.currentTarget.dataset.index, 1)
-    this.setData({
-      hotItems: this.data.hotItems
+    var self = this
+    // this.data.hotItems.splice(e.currentTarget.dataset.index, 1)
+    // this.setData({
+    //   hotItems: this.data.hotItems
+    // })
+    wx.showModal({
+      title: '',
+      content: '您确定要删除吗',
+      success: function(res) {
+        if (res.confirm) {
+          console.log(1)
+          collectgoods.addCollection({
+            goodsId: e.currentTarget.dataset.goodsid
+          }, function(res) {
+            // console.log(res.data)
+            wx.showToast({
+              title: '删除成功',
+              success: function(res) {
+                self._getMyCollection()
+              }
+            })
+          })
+        }
+      }
     })
   },
   // 选中和不选中
@@ -135,6 +173,7 @@ Page({
     }
   },
 
+  //跳转商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
       url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId

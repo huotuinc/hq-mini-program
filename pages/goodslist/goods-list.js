@@ -1,13 +1,12 @@
 const indexData = require('../../utils/mock/index.js')
 import {
-  collection,
   windowHeight
 } from '../../utils/common.js'
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+import config from '../../config.js'
+import collectgoods from '../../utils/request/collectgoods.js'
+const app = getApp()
+Page({
   data: {
     filterTap: 1,
     order: 2,
@@ -17,8 +16,18 @@ Page({
     showModalStatus: false,
     categoryid: 0,
     statu: "open",
-    backTopValue: false,
-    search: '2'
+    backTopValue: false
+  },
+
+  _goCollectGoods: function() {
+    wx.navigateTo({
+      url: '../collectgoods/collectgoods'
+    })
+  },
+  searchShop(e) {
+    wx.navigateTo({
+      url: '../search/search'
+    })
   },
   // 监听滚动条坐标
   onPageScroll: function(e) {
@@ -54,18 +63,42 @@ Page({
   },
   //点击收藏
   clickFavTab: function(e) {
-    var item = e.currentTarget.dataset.item;
-    var index = e.currentTarget.dataset.index;
-    var _items = this.data.goodsItems;
-    _items[index].isFav = !item.isFav;
-    this.setData({
-      goodsItems: _items
-    })
-    //设置收藏
-    collection(item.goodsId, !item.isFav);
-    wx.showToast({
-      title: !item.isFav ? "收藏成功" : "取消收藏",
-    })
+    var self = this
+    var item = e.currentTarget.dataset.item
+    var index = e.currentTarget.dataset.index
+    var isFav = e.target.dataset.isfav
+    var _items = []
+    if (isFav) {
+      collectgoods.addCollection({
+        goodsId: e.target.dataset.goodsid
+      }, function(res) {
+        wx.showToast({
+          title: '收藏成功',
+          success: function() {
+            _items = self.data.goodsItems
+            _items[index].isFav = !isFav
+            self.setData({
+              goodsItems: _items
+            })
+          }
+        })
+      })
+    } else {
+      collectgoods.addCollection({
+        goodsId: e.target.dataset.goodsid
+      }, function(res) {
+        wx.showToast({
+          title: '取消成功',
+          success: function() {
+            _items = self.data.goodsItems
+            _items[index].isFav = !isFav
+            self.setData({
+              goodsItems: _items
+            })
+          }
+        })
+      })
+    }
   },
   //商品详情页面
   goodsDetails: function(e) {
@@ -138,7 +171,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-   
+
   },
   /**
    * 生命周期函数--监听页面隐藏

@@ -1,5 +1,8 @@
-Page({
+import config from '../../config.js'
+import user from '../../utils/request/user.js'
+const app = getApp()
 
+Page({
   data: {
     username: '',
     mobilePhone: '',
@@ -54,6 +57,26 @@ Page({
     })
   },
 
+  //删除用户收货地址
+  _delectAddress: function(e) {
+    var self = this
+    wx.showModal({
+      title: '删除地址',
+      content: '是否确定删除改地址？',
+      success: function(res) {
+        if (res.confirm) {
+          user.deleteAddress({
+            id: self.data.pid
+          }, function(req) {
+            wx.navigateBack({
+              delta: 1
+            })
+          })
+        }
+      }
+    })
+  },
+
   onLoad: function(options) {
     if (!options.pid == 0) {
       this._getEditAddress()
@@ -62,6 +85,9 @@ Page({
         success: function(res) {},
       })
     }
+    this.setData({
+      editID: Number(options.pid)
+    })
   },
 
   onShow: function() {
@@ -69,3 +95,4 @@ Page({
   }
 
 })
+

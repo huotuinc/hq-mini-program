@@ -21,7 +21,7 @@
   </view>
   <view class='pay-password_header header_input' wx:if="{{updataStatus==1}}">
     <view>
-      <input type='password' placeholder='请输入支付密码'></input>
+      <input type='password' placeholder='请输入支付密码' bindinput='_getOldPwd'></input>
     </view>
   </view>
   <view class='switchover' catchtap='_updataWay'>
@@ -53,7 +53,7 @@
   <view class='telphone'>
     <text>支付密码设置成功！</text>
   </view>
-  <view class='btn-recharge'>
+  <view class='btn-recharge' catchtap='_goNextStep'>
     返回设置中心
   </view>
 </view>

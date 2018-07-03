@@ -81,7 +81,7 @@
 
 <text class='class_title'>提升安全</text>
 <view class='information other'>
-  <view catchtap='_goPayPassword'>
+  <view catchtap='_goPayPassword' data-PayPassworded='{{PayPassworded}}'>
     <text>支付密码</text>
     <text class='allOrder' style='color:#E41436'>{{PayPassworded ==1?'重置密码':'未设置密码'}}</text>
   </view>

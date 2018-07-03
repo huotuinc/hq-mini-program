@@ -141,7 +141,7 @@ Page({
   },
   _goPayPassword: function(e) {
     wx.navigateTo({
-      url: '../payPassword/index',
+      url: '../payPassword/index?PayPassworded='+e.currentTarget.dataset.paypassworded,
     })
   },
 

@@ -14,22 +14,16 @@ Page({
     currentTab: 0,
     winHeight: windowHeight(),
     orderStatus: ["全部", "待付款", "代发货", "待收货", "已收货"],
-    // orders: {
-    //   0: order.list,
-    //   1: order.list,
-    //   2: order.list,
-    //   3: order.list,
-    //   4: order.list,
-    // },
     pageIndex: 1,
     pageSize: 20
   },
+  //类目切换
   swichNav: function(e) {
     var cur = e.target.dataset.current
     if (this.data.currentTab == cur) {
       return false
     }
-    this._getOrderList(cur, 0)
+    this._getOrderList(cur)
     this.setData({
       currentTab: cur
     })
@@ -46,30 +40,106 @@ Page({
       url: '../orderdetails/index',
     })
   },
+  //取消订单
+  _cancelOrder: function(e) {
+    var self = this
+    var orderStatus = this.data.currentTab
+    var orderId = e.currentTarget.dataset.order[0].orderId
+    wx.showModal({
+      content: '您确认要取消当前订单吗？',
+      success: function(res) {
+        if (res.confirm) {
+          orderList.closeOrder({
+            orderId: orderId
+          }, function(req) {
+            console.log(req)
+            wx.showLoading({
+              title: '取消中...',
+              icon: 'loading',
+              success: function() {
+                if (req) {
+                  wx.showLoading({
+                    title: '取消成功',
+                  })
+                  self._getOrderList(orderStatus)
+                  wx.hideLoading()
+                }
+              }
+            })
+          })
+        }
+      }
+    })
+  },
 
-  _getOrderList: function(customerId, orderStatus) {
+  //删除订单
+  _deleteOrder: function(e) {
+    var self = this
+    var orderStatus = this.data.currentTab
+    var orderId = e.currentTarget.dataset.order[0].orderId
+    wx.showModal({
+      content: '您确认要删除当前订单吗？',
+      success: function(res) {
+        if (res.confirm) {
+          orderList.deleteOrder({
+            orderId: orderId
+          }, function(req) {
+            self._getOrderList(orderStatus)
+          })
+        }
+      }
+    })
+  },
+
+  //订单确认
+  _confirmOrder: function(e) {
+    var self = this
+    var orderStatus = this.data.currentTab
+    var orderId = e.currentTarget.dataset.order[0].orderId
+    orderList.confirmOrder({
+      orderId: orderId
+    }, function(res) {
+      wx.hideLoading({
+        title: '正在加载...',
+        success: function() {
+          self._getOrderList()
+          wx.hideLoading(orderStatus)
+        }
+      })
+    })
+  },
+
+  //获取订单列表
+  _getOrderList: function(customerId) {
     var self = this
     var data = {
       pageSize: this.data.pageSize,
       pageIndex: this.data.pageIndex,
-      orderStatus: orderStatus,
-      customerId: customerId
+      orderStatus: customerId,
     }
     orderList.getOrderList(data, function(res) {
       self.setData({
-        itemList: res.data
+        itemList: res.data.data
       })
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var self = this
     this.setData({
       currentTab: options.currenttab
     })
 
-    this._getOrderList(options.currenttab, 0)
+    wx.showLoading({
+      title: '正在加载...',
+      success: function() {
+        self._getOrderList(options.currenttab)
+        wx.hideLoading()
+      }
+    })
   },
 
   /**

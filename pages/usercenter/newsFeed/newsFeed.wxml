@@ -2,7 +2,7 @@
   <view class='news-feed_header' scroll-left="{{scrollLeft}}">
     <scroll-view scroll-x="true">
       <block wx:for="{{category}}" wx:key="item">
-        <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
+        <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item.title}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
       </block>
     </scroll-view>
   </view>
@@ -10,7 +10,7 @@
 
 <view>
   <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:{{winHeight}}px">
-    <swiper-item wx:for="{{[0,1]}}">
+    <swiper-item wx:for="{{[0,1,2,3]}}">
       <scroll-view scroll-y="true" style='height:100%;'>
         <view class='feed-content'>
           <view class='content_con'>
