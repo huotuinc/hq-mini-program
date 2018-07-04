@@ -10,7 +10,7 @@
   height: 80rpx;
   line-height: 80rpx;
   width: 100%;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .order-status-tab .tab-item {
@@ -43,7 +43,7 @@
 
 .separator3 {
   height: 15rpx;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
   /* margin: 0 0 0 25rpx; */
 }
 
@@ -71,7 +71,7 @@
 }
 
 .item-info-2 {
-  border: 1px solid #F0EFF5;
+  border: 1px solid #f0eff5;
   display: flex;
   flex-direction: column;
 }
@@ -85,7 +85,7 @@
   font-size: 28rpx;
   color: #000;
   box-sizing: border-box;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .my-order_con {
@@ -115,7 +115,12 @@
 }
 
 .title_con text {
-  white-space: pre-wrap;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .price_num {
@@ -145,7 +150,7 @@
 .operation view {
   float: right;
   border-radius: 10rpx;
-  padding:4rpx 14rpx;
+  padding: 4rpx 14rpx;
   margin-left: 10rpx;
 }
 

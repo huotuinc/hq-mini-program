@@ -20,12 +20,9 @@ Page({
       })
       return
     }
-    user.saleComment(
-      {
-        customerid: 1,
-        afterid: 10,
-        orderid: 23,
-        txtmemo: self.data.txtmemo
+    user.saleComment({
+        afterSaleId: 10,
+        content: self.data.txtmemo
       },
       function(res) {
         wx.showToast({

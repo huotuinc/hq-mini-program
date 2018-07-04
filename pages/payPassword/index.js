@@ -11,25 +11,8 @@ Page({
     time: 0,
     timer: '',
     sendButtonText: '获取验证码',
-    updataWay: '通过手机号码来验证',
-    updataStatus: 1,
     step: 1,
     vCodeColor: '1'
-  },
-
-  _updataWay: function(e) {
-    if (this.data.updataStatus == 0) {
-      this.setData({
-        updataStatus: 1,
-        updataWay: '通过支付密码来验证',
-        time: 0
-      })
-    } else {
-      this.setData({
-        updataStatus: 0,
-        updataWay: '通过手机号码来验证'
-      })
-    }
   },
 
   //身份认证获取输入的验证码
@@ -38,24 +21,10 @@ Page({
       vcode: e.detail.value
     })
   },
-  //身份认证获取输入的原始密码
-  _getOldPwd: function(e) {
-    this.setData({
-      oldPwd: e.detail.value
-    })
-  },
-
   //验证手机号码&发送验证码
   sendCode: function(e) {
     var self = this
     var mobile = e.currentTarget.dataset.phone
-    if (!/^1([34578])\d{9}$/.test(mobile)) {
-      wx.showToast({
-        title: '手机号码错误',
-        icon: 'none'
-      })
-      return
-    }
 
     if (!this.data.disabled) {
       this.data.disabled = true
@@ -96,29 +65,79 @@ Page({
       clearTimeout(this.data.timer)
     }
   },
-
+  //设置支付密码
+  _getNewPwd: function(e) {
+    this.setData({
+      newPwd: e.detail.value
+    })
+  },
+  //确认支付密码
+  _getConfirmPwd: function(e) {
+    this.setData({
+      confirmPwd: e.detail.value
+    })
+  },
   //下一步&返回设置界面
   _goNextStep: function(e) {
     var step = e.currentTarget.dataset.step
-    var updataStatus = this.data.updataStatus
-
+    var self = this
     if (step == 1) {
-      this.setData({
-        step: 2
-      })
-      // if (updataStatus ==1){
+      var code = self.data.vcode
+      var mobile = self.data.mobile
+      if (code) {
+        user.updateMobile({
+          mobile: mobile,
+          code: code
+        }, function(res) {
+          self.setData({
+            step: 2
+          })
+        })
+      } else {
+        wx.showToast({
+          title: '请输入验证码',
+          icon: 'none'
+        })
+      }
 
-      // }
     } else if (step == 2) {
+      var newPwd = self.data.newPwd
+      var confirmPwd = self.data.confirmPwd
+      if (!newPwd) {
+        wx.showToast({
+          title: '请输入支付密码',
+          icon: 'none'
+        })
+        return
+      }
+      if (!confirmPwd) {
+        wx.showToast({
+          title: '请确认支付密码',
+          icon: 'none'
+        })
+        return
+      }
+      if (newPwd != confirmPwd) {
+        wx.showToast({
+          title: '两次密码不一致',
+          icon: 'none'
+        })
+        return
+      }
       this.setData({
         step: 3
       })
-    }else{
+
+    } else {
       wx.navigateBack({
-        delta:1
+        delta: 1
       })
     }
   },
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    this.setData({
+      mobile: options.mobile
+    })
+  },
   onShow: function() {}
 })

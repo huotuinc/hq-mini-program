@@ -58,10 +58,25 @@ var confirmOrder = function(data, callback) {
   })
 }
 
+//提交评论
+var submitEvaluate = function(data, callback) {
+  app.request({
+    url: config.submitComment,
+    data: data,
+    metod: 'post',
+    success:function(res){
+      callback({
+        data:res.data
+      })
+    }
+  })
+}
+
 
 module.exports = {
   getOrderList: getOrderList,
   closeOrder: closeOrder,
   deleteOrder: deleteOrder,
-  confirmOrder: confirmOrder
+  confirmOrder: confirmOrder,
+  submitEvaluate: submitEvaluate
 };

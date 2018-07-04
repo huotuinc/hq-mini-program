@@ -109,6 +109,17 @@ Page({
     })
   },
 
+  //评价
+  _evaluateOrder: function(e) {
+    var order = e.currentTarget.dataset.order[0]
+    wx.setStorage({
+      key: 'goodsOrder',
+      data: order,
+    })
+    wx.navigateTo({
+      url: '../evaluate/index',
+    })
+  },
   //获取订单列表
   _getOrderList: function(customerId) {
     var self = this

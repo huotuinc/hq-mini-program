@@ -24,8 +24,21 @@ Page({
   //底部弹出设置默认的提现账户
   _setDefault: function(e) {
     var self = this
-    wallet.setDefaultAccount(
-      {
+    wallet.setDefaultAccount({
+        AccountId: self.data.accoundId
+      },
+      function(res) {
+        self.setData({
+          showModal: false
+        })
+        self.getAccountList()
+      }
+    )
+  },
+  //删除提现账号
+  _deleteAccoun: function(e) {
+    var self = this
+    wallet.delAccount({
         AccountId: self.data.accoundId
       },
       function(res) {
@@ -40,8 +53,7 @@ Page({
     var self = this
     if (e.currentTarget.dataset.categorytitle == '修改提现账户') {
       wx.navigateTo({
-        url:
-          '../modification/index?categoryTitle=' +
+        url: '../modification/index?categoryTitle=' +
           e.currentTarget.dataset.categorytitle +
           '&AccountId=' +
           self.data.accoundId
@@ -54,6 +66,7 @@ Page({
     this.hideModal()
   },
 
+  //获取提现账户列表
   getAccountList: function() {
     var self = this
     wx.showToast({
@@ -71,9 +84,8 @@ Page({
   },
   //设置默认提现账户
   _setDefaultAccount: function(e) {
-    // console.log(e)
-    wallet.setDefaultAccount(
-      {
+    var self = this
+    wallet.setDefaultAccount({
         AccountId: e.currentTarget.dataset.accountid
       },
       function(res) {

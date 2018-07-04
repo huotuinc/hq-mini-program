@@ -1,34 +1,47 @@
 <view class="modification-header">
   <view>选择提现方式</view>
   <view class='select_way'>
-    <text class='active'>支付宝</text>
-    <text>微信</text>
+    <text class="{{accountType == 1?'active':''}}" bindtap='_switchType' data-accountType='1'>支付宝</text>
+    <text class="{{accountType == 4?'active':''}}" bindtap='_switchType' data-accountType='4'>微信</text>
   </view>
 </view>
 
-<view class='modification-information'>
-    <view class="weui-cells weui-cells_after-title" catchtap='_prefect'>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">姓名</view>
-        </view>
-        <view class="weui-cell__bd">
-           <input class="weui-input" type='text' placeholder="请输入姓名" value=''/>
-        </view>
+<view class='modification-information' wx:if="{{accountType == 1}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">姓名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='text' placeholder="请输入姓名" value='' bindinput='_getRealName' />
       </view>
     </view>
-    <view class="weui-cells weui-cells_after-title" catchtap='_prefect'>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">支付宝账号</view>
-        </view>
-        <view class="weui-cell__bd">
-           <input class="weui-input" type='text' placeholder="请输入支付宝账号" value='' />
-        </view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">支付宝账号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='text' placeholder="请输入支付宝账号" value='' bindinput='_getAccountInfo' />
       </view>
     </view>
+  </view>
 </view>
 
-  <view class='btn-recharge'>
-    保存
+<view class='modification-information' wx:if="{{accountType == 4}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">微信昵称</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type='text' disabled value='星期八' />
+      </view>
+    </view>
   </view>
+</view>
+
+<view class='btn-recharge' bindtap='_saveAccount'>
+  保存
+</view>

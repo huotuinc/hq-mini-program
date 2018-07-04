@@ -8,24 +8,16 @@
 </view>
 
 <view wx:if="{{step==1}}">
-  <view wx:if="{{updataStatus==0}}">
+  <view>
     <view class='telphone'>
-      <text>您当前绑定的手机号：136****2060</text>
+      <text>您当前绑定的手机号：{{mobile}}</text>
     </view>
     <view class='pay-password_header header_input'>
       <view class='verification_code'>
         <input type='number' placeholder='输入验证码' bindinput='_getVcodInput'></input>
-        <text class="v-code {{vCodeColor==1?'':'get-v_code'}}" catchtap='sendCode' data-phone="13600000000">{{sendButtonText}}</text>
+        <text class="v-code {{vCodeColor==1?'':'get-v_code'}}" catchtap='sendCode' data-phone="{{mobile}}">{{sendButtonText}}</text>
       </view>
     </view>
-  </view>
-  <view class='pay-password_header header_input' wx:if="{{updataStatus==1}}">
-    <view>
-      <input type='password' placeholder='请输入支付密码' bindinput='_getOldPwd'></input>
-    </view>
-  </view>
-  <view class='switchover' catchtap='_updataWay'>
-    <text>{{updataWay}}</text>
   </view>
 
   <view class='btn-recharge' data-step='1' catchtap='_goNextStep'>
@@ -39,8 +31,8 @@
   </view>
   <view class='pay-password_header header_input'>
     <view class='password_code'>
-      <input type='password' placeholder='设置支付密码'></input>
-      <input type='password' placeholder='确认支付密码'></input>
+      <input type='password' placeholder='设置支付密码' bindinput='_getNewPwd'></input>
+      <input type='password' placeholder='确认支付密码' bindinput='_getConfirmPwd'></input>
     </view>
   </view>
 

@@ -22,4 +22,4 @@
   <view catchtap='_goModification' data-categorytitle='修改提现账号'>修改提现账号</view>
   <view catchtap='_setDefault'>设为默认</view>
   <view catchtap='_deleteAccoun'>删除提现账号</view>
-</view> 
+</view>  

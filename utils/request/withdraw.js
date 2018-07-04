@@ -82,11 +82,41 @@ var setDefaultAccount = function(data, callback) {
   })
 }
 
+//删除提现账号
+var delAccount = function(data, callback) {
+  app.request({
+    url: config.delAccount,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
+//编辑提现账户
+var editAccount = function(data, callback) {
+  app.request({
+    url: config.editAccount,
+    method: 'post',
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
 module.exports = {
   myWallet: myWallet,
   applyIndex: applyIndex,
   applySubmit: applySubmit,
   applyList: applyList,
   getaccountlist: getaccountlist,
-  setDefaultAccount: setDefaultAccount
+  setDefaultAccount: setDefaultAccount,
+  delAccount: delAccount,
+  editAccount: editAccount
 };

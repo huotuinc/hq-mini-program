@@ -1,4 +1,3 @@
-
 <text class='class_title'>基础信息</text>
 <view class='information'>
   <view class="weui-cells weui-cells_after-title" catchtap='_prefect'>
@@ -14,7 +13,7 @@
   <view class="weui-cells weui-cells_after-title" catchtap='_showGender'>
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
-        <view class="weui-label">性别</view> 
+        <view class="weui-label">性别</view>
       </view>
       <view class="weui-cell__bd">
         <picker range="{{UserGender}}" value="{{index}}" bindchange="bindPickerChange">
@@ -48,7 +47,7 @@
   <view class="weui-cells weui-cells_after-title" catchtap='_mobilePhone'>
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
-        <view class="weui-label">绑定手机</view> 
+        <view class="weui-label">绑定手机</view>
       </view>
       <view class="weui-cell__bd">
         <view class='weui-input allOrder {{UserMobile==="未绑定" ? "sizeColor" : ""}}' data-phone='{{UserMobile}}'>{{UserMobile}}</view>
@@ -81,14 +80,14 @@
 
 <text class='class_title'>提升安全</text>
 <view class='information other'>
-  <view catchtap='_goPayPassword' data-PayPassworded='{{PayPassworded}}'>
+  <view catchtap='_goPayPassword' data-mobile='{{UserMobile}}'>
     <text>支付密码</text>
     <text class='allOrder' style='color:#E41436'>{{PayPassworded ==1?'重置密码':'未设置密码'}}</text>
   </view>
   <view>
     <text>开启支付密码</text>
-    <switch wx:if='{{PayPasswordStatus==1}}' checked data-passwordStatus='{{PayPasswordStatus}}' catchtap='passwordStatus'/>
-    <switch wx:else data-passwordStatus='{{PayPasswordStatus}}' catchtap='passwordStatus'/>
+    <switch wx:if='{{PayPasswordStatus==1}}' checked data-passwordStatus='{{PayPasswordStatus}}' catchtap='passwordStatus' />
+    <switch wx:else data-passwordStatus='{{PayPasswordStatus}}' catchtap='passwordStatus' />
   </view>
 </view>
 

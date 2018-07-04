@@ -4,7 +4,7 @@
   <view class="consignee-information">
     <text>收货人：XX</text>
     <text>联系方式：1500000000</text>
-    <text>收获地址：</text>
+    <text>收获地址：</text> 
     <text>杭州市滨江区阡陌路22号智慧e谷B幢4楼</text>
   </view>
 
@@ -40,13 +40,6 @@
   <view class='pay-way'>
     <view class='pay-way_wx'>
       <text class='active'>微信支付</text>
-    </view>
-    <view class='pay-way_other'>
-      <text>是否找人代付</text>
-      <view class='yes_no'>
-        <text class='active'>是</text>
-        <text>否</text>
-      </view>
     </view>
   </view>
 

@@ -29,7 +29,8 @@
     "pages/afterSale/SubmitReturnProduct/index",
     "pages/afterSale/message/index",
     "pages/bindingPhone/index",    
-    "pages/usercenter/residual/index"
+    "pages/usercenter/residual/index",
+    "pages/evaluate/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

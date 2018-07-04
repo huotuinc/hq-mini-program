@@ -53,6 +53,8 @@ var config = {
   editAccount: `${host}/user/EditAccount`,
   //设置默认提现账户 
   setDefaultAccount: `${host}/user/SetDefaultAccount`,
+  //删除提现账号
+  delAccount: `${host}/user/DelAccount`,
   //订单列表
   getOrderList: `${host}/user/orderList`,
   //订单详情
@@ -68,9 +70,9 @@ var config = {
   //售后列表
   getSalesList: `${host}/aftersales/getlist`,
   //提交评论
-  submitComment: `${host}comment/submit`,
+  submitComment: `${host}/user/comment`,
   //买家留言提交
-  saleComment: `${host}/aftersales/comment`,
+  saleComment: `${host}/aftersales/leaveMessage`,
   //物流提交
   savelogic: `${host}/aftersales/savelogic`,
   //发送验证码

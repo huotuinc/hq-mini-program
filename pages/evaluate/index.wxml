@@ -1,0 +1,63 @@
+<view class='evaluate-header'>
+  <view class='header-left'>
+    <image src='{{goodsOrder.orderItemList[0].proPic}}'></image>
+  </view>
+  <view class='header-right'>
+    <text>{{goodsOrder.orderItemList[0].name}}</text>
+  </view>
+</view>
+
+<view class='evaluate-title'>
+  <text>留言</text>
+</view>
+
+<view class='evaluate-content'>
+  <view class="textarea-wrp">
+    <textarea auto-focus="true" placeholder='请输入评论，不能超过200个字符' bindinput='_getInputMessage' maxlength='200' />
+  </view>
+  <view class='grade'>
+    <view>评价打分</view>
+    <view class='star'>
+      <blcok wx:for="{{starData.starSelect}}">
+        <icon class='icon iconfont icon-xingxingxuanzhong' data-id='{{index+1}}' data-imgitem="starActive" bindtap='starComment'></icon>
+      </blcok>
+
+      <block wx:for="{{starData.star}}">
+        <icon class='icon iconfont icon-xingxingweixuanzhong' data-id='{{index+1}}' data-imgitem="starNormal" bindtap='starComment'></icon>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class='evaluate-title'>
+  <text>上传图片（最多8张）</text>
+</view>
+
+<view class='pic-proof'>
+  <view class="weui-cells">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="weui-uploader">
+          <view class="weui-uploader__hd">
+          </view>
+          <view class="weui-uploader__bd">
+            <view class="weui-uploader__files">
+              <block wx:for="{{imageList}}" wx:for-item="image">
+                <view class="weui-uploader__file">
+                  <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                </view>
+              </block>
+            </view>
+            <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="chooseImage"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='btn-recharge' style='background-color: #04be02;' bindtap='_submitEvaluate'>
+  提交
+</view>
