@@ -1,0 +1,38 @@
+<view class="comment-list">
+  <blcok wx:for="{{commentList}}" wx:key="*this" wx:for-item="item">
+    <view>
+      <view class='saidan-wrapper'>
+        <view class='saidan-top'>
+          <text>{{item.loginName}}</text>
+          <view class='star'>
+            <blcok wx:for="{{item.score}}">
+              <icon class='icon iconfont icon-xingxingxuanzhong'></icon>
+            </blcok>
+            <block wx:for="{{5-item.score}}">
+              <icon class='icon iconfont icon-xingxingweixuanzhong'></icon>
+            </block>
+          </view>
+        </view>
+        <view class='saidan-bottom'>
+          <view class='saidan-content'>{{item.content}}</view>
+          <view class='product-img-module'>
+            <view class='image-center' wx:for="{{item.commentImages}}" wx:key="*this" wx:for-item="img">
+              <image src='{{img}}'></image>
+            </view>
+          </view>
+        </view>
+        <view class='product-type'>
+          <view class='product-type_time'>
+            {{item.time}}
+          </view>
+          <view class='product-type_num' catchtap='_commentLike' data-commentId="{{item.commentId}}">
+            <icon class='icon iconfont icon-zan-copy'></icon>
+            {{item.likeCount}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </blcok>
+</view>
+
+<view style='height:30rpx;'></view>

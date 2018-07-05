@@ -48,48 +48,106 @@
       <icon class='icon iconfont icon-icon--'></icon>
     </view>
   </view>
-
-  <view class='separator1'></view>
-
-  <view class='goods-details-info'>
-    <view class='goods-details'>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161550476552.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161551616614.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171306404889.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171308971188.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' mode="widthFix"></image>
-      <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161557974414.jpg' mode="widthFix"></image>
-    </view>
+</view>
+<!-- 商品编号 start -->
+<view class='old_price_wrap'>
+  <view class='gBN'>
+    <text>商品编号：XRPC005/XRPC006</text>
   </view>
-
-  <view style='height:100rpx;'></view>
-  <view class='bottom-bar'>
-    <view class='item-bar collect' catchtap='_goService'>
-      <icon bindtap='clickFavTab' class="icon iconfont icon-kefu"></icon>
-      客服
+  <view class='saleTag'>
+    <view>
+      <icon class='icon iconfont icon-dui'></icon>
+      品牌直供
     </view>
-    <view class='item-bar collect' catchtap='_goIndex'>
-      <icon class='icon iconfont icon-shouye'></icon>
-      首页
-    </view>
-    <view class='item-bar collect' catchtap='_goShop'>
-      <icon class='icon iconfont icon-goumai'></icon>
-      购物车
-    </view>
-    <view class='item-bar-right'>
-      <view class='item-bar buy' data-btntext='加入购物车' bindtap="powerDrawer" data-statu="open">
-        <text>加入购物车</text>
-      </view>
-      <view class='item-bar share' data-btntext='立即购买' bindtap="powerDrawer" data-statu="open">
-        <text>立即购买</text>
-      </view>
+    <view>
+      <icon class='icon iconfont icon-dui'></icon>
+      正品保证
     </view>
   </view>
 </view>
- 
+<!-- 商品编号 end -->
+<!-- 商品评论 start -->
+<view style='margin-top:2rpx;'>
+  <view class='comment' catchtap='_goCommentList'>
+    <text>评价（38）</text>
+    <text class='allOrder'>好评度99%</text>
+  </view>
+  <!-- 评论内容 start -->
+  <view>
+    <view class='saidan-wrapper'>
+      <view class='saidan-top'>
+        <text>AP4****M8L</text>
+        <view class='star'>
+          <blcok wx:for="{{starData.starSelect}}">
+            <icon class='icon iconfont icon-xingxingxuanzhong'></icon>
+          </blcok>
+
+          <block wx:for="{{starData.star}}">
+            <icon class='icon iconfont icon-xingxingweixuanzhong'></icon>
+          </block>
+        </view>
+      </view>
+      <view class='saidan-bottom'>
+        <view class='saidan-content'>越来越爱行装！每一次都给足信心</view>
+        <view class='product-img-module'>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' mode="widthFix"></image>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' mode="widthFix"></image>
+        </view>
+      </view>
+      <view class='product-type'>
+        <view class='product-type_num'>
+          <icon class='icon iconfont icon-zan-copy'></icon>
+          1
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+<!-- 商品评论 end -->
+
+<view class='separator1'></view>
+<!-- 商品介绍  start-->
+<view class='goods-details-info'>
+  <view class='goods-details'>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161550476552.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161551616614.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171306404889.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171308971188.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161557974414.jpg' mode="widthFix"></image>
+  </view>
+</view>
+<!-- 商品介绍 end -->
+<view style='height:100rpx;'></view>
+<view class='bottom-bar'>
+  <view class='item-bar collect' catchtap='_goService'>
+    <icon bindtap='clickFavTab' class="icon iconfont icon-kefu"></icon>
+    客服
+  </view>
+  <view class='item-bar collect' catchtap='_goIndex'>
+    <icon class='icon iconfont icon-shouye'></icon>
+    首页
+  </view>
+  <view class='item-bar collect' catchtap='_goShop'>
+    <icon class='icon iconfont icon-goumai'></icon>
+    购物车
+  </view>
+  <view class='item-bar-right'>
+    <view class='item-bar buy' data-btntext='加入购物车' bindtap="powerDrawer" data-statu="open">
+      <text>加入购物车</text>
+    </view>
+    <view class='item-bar share' data-btntext='立即购买' bindtap="powerDrawer" data-statu="open">
+      <text>立即购买</text>
+    </view>
+  </view>
+</view>
+
 
 <view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
   <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
@@ -107,6 +165,7 @@
 
 <view class="drawer_screen" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{showModalStatus}}"></view>
 
+<!-- 选择商品规格 start -->
 <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}" catchtouchmove="true">
   <!--drawer content-->
   <view class="drawer_content">
@@ -160,5 +219,6 @@
     <view class='submit'>{{btnText}}</view>
   </view>
 </view>
+<!-- 选择商品规格 end -->
 
 <template is="backTop" wx:if="{{backTopValue ==true}}" />

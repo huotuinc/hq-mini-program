@@ -20,7 +20,6 @@ var getOrderList = function(data, callback) {
 var closeOrder = function(data, callback) {
   app.request({
     url: config.closeOrder,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -34,7 +33,6 @@ var closeOrder = function(data, callback) {
 var deleteOrder = function(data, callback) {
   app.request({
     url: config.deletOrder,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -48,7 +46,6 @@ var deleteOrder = function(data, callback) {
 var confirmOrder = function(data, callback) {
   app.request({
     url: config.confirmOrder,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -63,20 +60,61 @@ var submitEvaluate = function(data, callback) {
   app.request({
     url: config.submitComment,
     data: data,
-    metod: 'post',
-    success:function(res){
+    success: function(res) {
       callback({
-        data:res.data
+        data: res.data
       })
     }
   })
 }
 
+//评论列表
+var commentList = function(data, callback) {
+  app.request({
+    url: config.commentList,
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
+//评论点赞
+var commentLike = function(data, callback) {
+  app.request({
+    url: config.commentLike,
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
+//订单详情
+var orderDetail = function(data, callback) {
+  app.request({
+    url: config.orderDetail,
+    data: data,
+    method: 'get',
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+} 
 
 module.exports = {
   getOrderList: getOrderList,
   closeOrder: closeOrder,
   deleteOrder: deleteOrder,
   confirmOrder: confirmOrder,
-  submitEvaluate: submitEvaluate
+  submitEvaluate: submitEvaluate,
+  commentList: commentList,
+  commentLike: commentLike,
+  orderDetail: orderDetail
 };

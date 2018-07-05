@@ -59,7 +59,7 @@ var setting = function(callback) {
 var updateUserBaseInfo = function(data, callback) {
   app.request({
     url: config.updateUserBaseInfo,
-    method: 'post',
+
     data: data,
     success: function(res) {
       callback({
@@ -73,7 +73,6 @@ var updateUserBaseInfo = function(data, callback) {
 var updateMobile = function(data, callback) {
   app.request({
     url: config.updateMobile,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -87,7 +86,6 @@ var updateMobile = function(data, callback) {
 var updatePayPasswordStatus = function(data, callback) {
   app.request({
     url: config.updatePayPasswordStatus,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -101,7 +99,6 @@ var updatePayPasswordStatus = function(data, callback) {
 var saleComment = function(data, callback) {
   app.request({
     url: config.saleComment,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -115,7 +112,6 @@ var saleComment = function(data, callback) {
 var sendCode = function(data, callback) {
   app.request({
     url: config.sendCode,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -129,7 +125,6 @@ var sendCode = function(data, callback) {
 var addressList = function(callback) {
   app.request({
     url: config.addressList,
-    method: 'post',
     success: function(res) {
       callback({
         data: res.data
@@ -141,7 +136,6 @@ var addressList = function(callback) {
 var updateAddress = function(data, callback) {
   app.request({
     url: config.updateAddress,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -154,7 +148,6 @@ var updateAddress = function(data, callback) {
 var deleteAddress = function(data, callback) {
   app.request({
     url: config.deleteAddress,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -167,7 +160,6 @@ var deleteAddress = function(data, callback) {
 var changeAddressDefault = function(data, callback) {
   app.request({
     url: config.changeAddressDefault,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({

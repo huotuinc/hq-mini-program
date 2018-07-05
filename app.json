@@ -30,7 +30,8 @@
     "pages/afterSale/message/index",
     "pages/bindingPhone/index",    
     "pages/usercenter/residual/index",
-    "pages/evaluate/index"
+    "pages/evaluate/index",
+    "pages/evaluate/conmmentList/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

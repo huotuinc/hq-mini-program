@@ -1,0 +1,70 @@
+.saidan-wrapper {
+  margin-top: 20rpx;
+  background-color: #fff;
+  font-size: 24rpx;
+  padding: 10rpx 30rpx;
+}
+
+.saidan-top {
+  padding: 15rpx 0;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0eff5;
+}
+
+.star .icon {
+  font-size: 26rpx;
+  margin-top: -14rpx;
+}
+
+.star  .icon-xingxingxuanzhong {
+  color: #ffde00;
+  font-size: 28rpx;
+}
+
+.saidan-content {
+  line-height: 34rpx;
+  margin-top: 16rpx;
+}
+
+.product-img-module {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20rpx 0;
+}
+
+.image-center {
+  width: 22%;
+  margin: 1%;
+  height: auto;
+}
+
+.product-img-module image {
+  /* height: 160rpx; */
+  width: 100%;
+  border-radius: 8rpx;
+}
+
+.product-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.product-type_time {
+  padding: 10rpx 0;
+}
+
+.product-type_num {
+  padding: 10rpx 15rpx;
+}
+
+.product-type_num .icon {
+  margin-top: -24rpx;
+  font-size: 28rpx;
+}

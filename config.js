@@ -71,6 +71,10 @@ var config = {
   getSalesList: `${host}/aftersales/getlist`,
   //提交评论
   submitComment: `${host}/user/comment`,
+  //评论列表
+  commentList: `${host}/user/commentList`,
+  //评论点赞
+  commentLike: `${host}/user/commentLike`,
   //买家留言提交
   saleComment: `${host}/aftersales/leaveMessage`,
   //物流提交

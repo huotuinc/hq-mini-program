@@ -31,7 +31,6 @@ var applyIndex = function(callback) {
 var applySubmit = function(data, callback) {
   app.request({
     url: config.applySubmit,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -72,7 +71,6 @@ var getaccountlist = function(callback) {
 var setDefaultAccount = function(data, callback) {
   app.request({
     url: config.setDefaultAccount,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -86,7 +84,6 @@ var setDefaultAccount = function(data, callback) {
 var delAccount = function(data, callback) {
   app.request({
     url: config.delAccount,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({
@@ -100,7 +97,6 @@ var delAccount = function(data, callback) {
 var editAccount = function(data, callback) {
   app.request({
     url: config.editAccount,
-    method: 'post',
     data: data,
     success: function(res) {
       callback({

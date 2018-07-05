@@ -37,7 +37,7 @@ Page({
   },
   _goGoodsDetails: function(e) {
     wx.navigateTo({
-      url: '../orderdetails/index',
+      url: '../orderdetails/index?detail=3&orderId='+e.currentTarget.dataset.orderid
     })
   },
   //取消订单
@@ -91,7 +91,7 @@ Page({
     })
   },
 
-  //订单确认
+  //确认收货
   _confirmOrder: function(e) {
     var self = this
     var orderStatus = this.data.currentTab

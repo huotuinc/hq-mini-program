@@ -108,6 +108,105 @@
   white-space: nowrap;
 }
 
+.old_price_wrap {
+  margin-top: 20rpx;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20rpx 30rpx;
+  font-size: 24rpx;
+  color: #999;
+  background-color: #fff;
+}
+
+.gBN {
+  display: block;
+  height: 24rpx;
+  line-height: 24rpx;
+}
+
+.saleTag {
+  display: flex;
+  flex-direction: row;
+}
+
+.saleTag>view {
+  margin-right: 8rpx;
+}
+
+.saleTag  icon {
+  font-size: 28rpx;
+  color: #fea110;
+}
+
+.comment {
+  background-color: #fff;
+  font-size: 24rpx;
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+
+.saidan-wrapper {
+  margin-top: 20rpx;
+  background-color: #fff;
+  font-size: 24rpx;
+  padding: 10rpx 30rpx;
+}
+
+.saidan-top {
+  padding: 15rpx 0;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0eff5;
+}
+
+.star .icon {
+  font-size: 26rpx;
+  margin-top: -14rpx;
+}
+
+.star  .icon-xingxingxuanzhong {
+  color: #ffde00;
+  font-size: 28rpx;
+}
+
+.saidan-content {
+  line-height: 34rpx;
+  margin-top: 16rpx;
+}
+
+.product-img-module {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0;
+}
+
+.product-img-module image {
+  height: 160rpx;
+  margin: 1%;
+  border-radius: 8rpx;
+}
+
+.product-type {
+  overflow: hidden;
+}
+
+.product-type_num {
+  float: right;
+  padding: 10rpx 15rpx;
+  color: #999;
+}
+
+.product-type_num .icon {
+  margin-top: -24rpx;
+  font-size: 28rpx;
+}
+
 .goods-details image {
   display: block;
   width: 100%;

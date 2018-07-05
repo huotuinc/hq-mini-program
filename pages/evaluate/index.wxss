@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.header-left {
+.header-left { 
   margin-right: 20rpx;
 }
 

@@ -14,7 +14,11 @@ Page({
     btnText: '立即购买',
     shopNum: 1,
     backTopValue: false,
-    swiperDetail: false
+    swiperDetail: false,
+    starData: {
+      starSelect: 4,
+      star: 1
+    }
   },
 
   watchBigImage: function(e) {
@@ -48,6 +52,13 @@ Page({
     // 控制滚动
     wx.pageScrollTo({
       scrollTop: 0
+    })
+  },
+
+  //去评论列表页面
+  _goCommentList:function(e){
+    wx.navigateTo({
+      url: '../evaluate/conmmentList/index?goodsid=1',
     })
   },
   /**
