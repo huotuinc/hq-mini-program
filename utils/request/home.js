@@ -20,28 +20,29 @@ var homeRecommend = function(callback) {
           specialItems.push(item)
         }
       }
-      callback(true, {
+      callback({
         bannerItems: bannerItems,
         specialItems: specialItems
       })
     },
     fail: function(error) {
-      callback(false, error)
+      callback( error)
     }
   })
 }
+
 //获取商品列表
 var goodsList = function(data, callback) {
   app.request({
     url: config.goodsListUrl,
     data: data,
     success: function(res) {
-      callback(true, {
+      callback({
         goodsItems: res.data.list
       })
     },
     fail: function(error) {
-      callback(false, error)
+      callback(error)
     }
   })
 }
@@ -51,12 +52,12 @@ var hotSearchKeyWorld = function(callback) {
   app.request({
     url: config.hotsearchkeyworld,
     success: function(res) {
-      callback(true, {
+      callback({
         keys: res.data.keys
       })
     },
     fail: function(error) {
-      callback(false, error)
+      callback( error)
     }
   })
 }

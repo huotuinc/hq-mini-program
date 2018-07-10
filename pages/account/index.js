@@ -18,7 +18,8 @@ Page({
   _showCompile: function(e) {
     this.setData({
       accoundId: e.currentTarget.dataset.accountid,
-      showModal: true
+      showModal: true,
+      item: e.currentTarget.dataset.item
     })
   },
   //底部弹出设置默认的提现账户
@@ -51,19 +52,22 @@ Page({
   },
   _goModification: function(e) {
     var self = this
-    if (e.currentTarget.dataset.categorytitle == '修改提现账户') {
-      wx.navigateTo({
-        url: '../modification/index?categoryTitle=' +
-          e.currentTarget.dataset.categorytitle +
-          '&AccountId=' +
-          self.data.accoundId
-      })
-    } else {
-      wx.navigateTo({
-        url: '../modification/index?categoryTitle=' + e.currentTarget.dataset.categorytitle
-      })
-    }
+    wx.setStorage({
+      key: 'AccountItem',
+      data: self.data.item,
+    })
+    wx.navigateTo({
+      url: '../modification/index?AccountId=' + self.data.accoundId
+    })
+
     this.hideModal()
+  },
+  _addModification: function(e) {
+    var self = this
+    wx.navigateTo({
+      url: '../modification/index'
+    })
+
   },
 
   //获取提现账户列表

@@ -1,10 +1,12 @@
-// pages/search/search.js
+
 Page({
 
   data: {
     hotItems: [],
     historyList: [],
-    newSearch: []
+    newSearch: [],
+    page: 1,
+    pageSize: 20
   },
 
   cancelSearch: function(e) {
@@ -28,14 +30,14 @@ Page({
     let searchList = []
     var that = this
     searchList.push(this.data.inputSearch)
-    //对搜索记录得去重并且按搜索先后顺序进行排序
+    //对搜索记录去重并且按搜索先后顺序进行排序
     this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
     wx.setStorage({
       key: 'historyList',
       data: that.data.historyList
     })
     wx.navigateTo({
-      url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyworld=' + this.data.inputSearch
+      url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyword=' + this.data.inputSearch
     })
   },
 
@@ -59,7 +61,7 @@ Page({
   startSearch: function(e) {
     // console.log(e.target.dataset.con)
     wx.navigateTo({
-      url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyworld=' + e.target.dataset.con
+      url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyword=' + e.target.dataset.con
     })
   },
 

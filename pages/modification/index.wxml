@@ -13,7 +13,7 @@
         <view class="weui-label">姓名</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" type='text' placeholder="请输入姓名" value='' bindinput='_getRealName' />
+        <input class="weui-input" type='text' placeholder="请输入姓名" value='{{RealName}}' bindinput='_getRealName' />
       </view>
     </view>
   </view>
@@ -23,7 +23,7 @@
         <view class="weui-label">支付宝账号</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" type='text' placeholder="请输入支付宝账号" value='' bindinput='_getAccountInfo' />
+        <input class="weui-input" type='text' placeholder="请输入支付宝账号" value='{{AccountInfo}}' bindinput='_getAccountInfo' />
       </view>
     </view>
   </view>
@@ -44,4 +44,8 @@
 
 <view class='btn-recharge' bindtap='_saveAccount'>
   保存
+</view>
+
+<view class='btn-recharge btn-delete' catchtap='_delectAccount' wx:if='{{AccountId}}'>
+  删除地址
 </view>

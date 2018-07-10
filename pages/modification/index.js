@@ -56,30 +56,65 @@ Page({
         RealName: self.data.RealName || '',
         AccountInfo: self.data.AccountInfo || '',
         AccountType: self.data.accountType,
-        AccountId: self.data.AccountId || ''
+        AccountId: self.data.AccountId || '0'
       }, function(res) {
         console.log(res)
       })
     } else {
       wallet.editAccount({
         AccountType: self.data.accountType,
-        AccountId: self.data.AccountId || ''
+        AccountId: self.data.AccountId || '0'
       }, function(res) {
         console.log(res)
       })
     }
-
   },
+
+  //删除提现账户
+  _delectAccount: function(e) {
+    var self = this
+    wallet.delAccount({
+        AccountId: self.data.AccountId
+      },
+      function(res) {
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    )
+  },
+
+  //获取编辑过来的提现账户信息
+  _getAccountInfo: function(e) {
+    var self = this
+    wx.getStorage({
+      key: 'AccountItem',
+      success: function(res) {
+        var AccountInfo = res.data.AccountInfo
+        var account = AccountInfo.split("-")
+        self.setData({
+          RealName: res.data.RealName,
+          AccountInfo: account[1] || '',
+          accountType: res.data.AccountType,
+          AccountId: res.data.AccountId
+        })
+      },
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      categoryTitle: options.categoryTitle
-    })
-    wx.setNavigationBarTitle({
-      title: this.data.categoryTitle,
-    })
+    var self = this
+    console.log(options)
+    if (options.AccountId) {
+      this._getAccountInfo()
+    } else {
+      wx.removeStorage({
+        key: 'AccountItem',
+      })
+    }
   },
 
   /**
