@@ -6,8 +6,8 @@ App({
    */
   globalData: {
     mock:true,
-    client_id: "",
-    client_secret: "",
+    client_id: "wx461ef1c099dc8738",
+    client_secret: "20678f117838b053c397c919e0c61521",
     app_secret: "4165a8d240b29af3f41818d10599d0d1",
     hasLogin: false,
     loading:false,
