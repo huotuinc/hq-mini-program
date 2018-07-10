@@ -1,33 +1,36 @@
 <template name="goodsItem">
-  <view class='goods-item-container' bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
-    <view class='goods-item-left'>
-      <view class='select-icon'>
-        <block>
-          <icon catchtap='clickFavTab' data-item='{{item}}' data-type='hotItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-ico2':'icon-guanbi'}}"></icon>
-        </block>
-      </view>
-      <image lazy-load="true" src='{{ item.imgSrc }}'></image>
-    </view>
-
-    <view class='goods-item-right'>
-      <view class='goods-item-title'>
-        <text>{{item.title}}</text>
-      </view>
-
-      <view class='old_shoucang'>
-        <text class='oldprice'>￥{{item.goodsPrice}}</text>
-      </view>
-      <view>
-        <view class='old-ticket_sales'>
-          <view class='sales_volume'>销量{{item.salesVolume}}件</view>
+  <view class="goods-item-container touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-goodsId='{{item.pid}}'  data-item='{{item}}' data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" catchtap='clickFavTab'>
+    <view class='item'>
+      <view class='goods-item-left'>
+        <view class='select-icon'>
+          <block>
+            <icon class="icon iconfont {{item.isFav?'icon-ico2':'icon-guanbi'}}"></icon>
+          </block>
         </view>
+        <image lazy-load="true" src='{{ item.pictureUrl }}'></image>
+      </view>
 
-        <view class='new-ticket_sales'>
-          <view class='new-price_ticket'>
-            <text class='price'>￥{{item.finalPrice}}</text>
+      <view class='goods-item-right' catchtap='goodsDetails'>
+        <view class='goods-item-title'>
+          <text>{{item.goodsName}}</text>
+        </view>
+        <view>
+          <view>
+            <view class='old_shoucang'>
+              <text class='oldprice'>￥{{item.MktPrice}}</text>
+            </view>
+          </view>
+          <view>
+            <view class='new-ticket_sales'>
+              <view class='new-price_ticket'>
+                <text class='price'>￥{{item.price}}</text>
+                <text class='sales_volume'>销量{{item.Sales}}件</text>
+              </view>
+            </view>
           </view>
         </view>
-      </view> 
+      </view>
     </view>
+    <view class="del" catchtap="del" data-index="{{index}}" data-goodsid='{{item.pid}}'>删除</view>
   </view>
 </template>

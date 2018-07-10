@@ -1,110 +1,88 @@
-const indexData = require('../../utils/mock/index.js')
+import config from '../../config.js'
+import user from '../../utils/request/user.js'
+const app = getApp();
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    
+
   },
-  _goSetting:function(e){
+  //计算轮播图的高度
+  imageLoad: function(e) {
+    var $width = e.detail.width
+    var $height = e.detail.height
+    this.setData({
+      imgHeight: $height
+    })
+  },
+  // 前往设置中心页面
+  _goSetting: function(e) {
     wx.navigateTo({
       url: '../setting/setting',
     })
   },
-  _goOrder:function(e){
-    var cur = e.currentTarget.dataset.currenttab ? e.currentTarget.dataset.currenttab:0
+  //前往订单页面
+  _goOrder: function(e) {
+    var cur = e.currentTarget.dataset.currenttab ? e.currentTarget.dataset.currenttab : 0
     wx.navigateTo({
       url: '../order/order-list?currenttab=' + cur,
     })
   },
-  _goNewsFeed:function(e){
+  //前往消息中心
+  _goNewsFeed: function(e) {
     wx.navigateTo({
       url: './newsFeed/newsFeed',
     })
   },
-  _goBalance:function(e){
-    console.log(1)
+  // 前往待结算页面
+  _goBalance: function(e) {
     wx.navigateTo({
       url: './balance/balance',
     })
   },
-  _goWithdraw:function(){
+  //前往我的钱包
+  _goWithdraw: function() {
     wx.navigateTo({
       url: './withdraw/withdraw',
     })
   },
-  _goCollectGoods:function(e){
+  //前往收藏夹
+  _goCollectGoods: function(e) {
     wx.navigateTo({
       url: '../collectgoods/collectgoods',
     })
   },
-  _goIntegral:function(e){
+  //前往余额页面
+  _goResidual: function(e) {
     wx.navigateTo({
-      url: './integral/integral?currenttab='+e.currentTarget.dataset.integral,
+      url: './residual/index',
     })
   },
-  _goAftersale:function(e){
+  //前往觅豆页面
+  _goIntegral: function(e) {
+    wx.navigateTo({
+      url: './integral/integral',
+    })
+  },
+  //前往售后页面
+  _goAftersale: function(e) {
     wx.navigateTo({
       url: '../afterSale/index',
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.setData({
-      bannerItems: indexData.bannerItems,
-    });
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  //页面渲染的API请求
+  userIndex: function() {
+    var self = this
+    user.userIndex(function(res) {
+      self.setData({
+        userItem: res.userItem
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
+  onLoad: function(options) {
+    // this.userIndex()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
+  onShow: function() {
+    this.userIndex()
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
 })

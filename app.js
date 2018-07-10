@@ -5,12 +5,18 @@ App({
    * 全局变量数据
    */
   globalData: {
+<<<<<<< HEAD
     mock:true,
     client_id: "wx461ef1c099dc8738",
     client_secret: "20678f117838b053c397c919e0c61521",
+=======
+    mock: true,
+    client_id: "",
+    client_secret: "",
+>>>>>>> a2b077ed00d6f01bb983ca72efa6dea858d9920d
     app_secret: "4165a8d240b29af3f41818d10599d0d1",
     hasLogin: false,
-    loading:false,
+    loading: false,
     unionid: null,
     mobileType: '',
     hwid: '',
@@ -22,20 +28,18 @@ App({
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
-  onLaunch: function () {
+  onLaunch: function() {
     var self = this;
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         self.globalData.osVersion = res.system;
         self.globalData.mobileType = res.model;
       },
     })
 
     wx.login({
-      success: function (res) {
-        console.log(config);
-        //todo:  
-
+      success: function(res) {
+      console.log(res)
       }
     })
   },
@@ -43,29 +47,29 @@ App({
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */
-  onShow: function (options) {
+  onShow: function(options) {
 
   },
 
   /**
    * 当小程序从前台进入后台，会触发 onHide
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
    */
-  onError: function (msg) {
+  onError: function(msg) {
 
   },
   /** 
-    *  数组对象按key升序, 并生成 md5_hex 签名
-    * @param {Array/Object} obj   数组对象
-    * @return {String}  encrypted md5加密后的字符串
-    */
-  sign: function (obj) {
+   *  数组对象按key升序, 并生成 md5_hex 签名
+   * @param {Array/Object} obj   数组对象
+   * @return {String}  encrypted md5加密后的字符串
+   */
+  sign: function(obj) {
     let signParams = obj || {}
     delete signParams['sign']
     //userToken加入签名
@@ -84,7 +88,7 @@ App({
   /**
    * 签名参数排序并拼接成字符串
    */
-  raw: function (args) {
+  raw: function(args) {
     // 规避非驼峰问题
     const newObj = {}
     for (let o in args) {
@@ -100,17 +104,17 @@ App({
     for (let k in newArgs) {
       str += k + newArgs[k]
     }
-    console.log(str);
+    // console.log(str);
     return str
   },
   /**
    * 网络请求
    *   
    */
-  request: function (options) {
+  request: function(options) {
     options = options || {}
     options.url = options.url || ''
-    options.data = options.data || {}    
+    options.data = options.data || {}
     var self = this;
     options.data.timestamp = +new Date()
     options.data.sign = self.sign(options.data);
@@ -127,11 +131,11 @@ App({
         userToken: self.globalData.userToken
       },
       method: options.method || 'post',
-      success: function (res) {        
+      success: function(res) {
         if (typeof options.success == 'function')
           options.success(res);
       },
-      fail: function (err) {
+      fail: function(err) {
         console.log('接口异常：' + options.url, err)
         if (typeof options.fail == 'function')
           options.fail(err)

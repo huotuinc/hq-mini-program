@@ -6,29 +6,29 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  font-size: 28rpx;
+  font-size: 24rpx;
   color: #999;
   border-top: 1px solid #cecece;
   box-sizing: border-box;
 }
 
 .goods-information, .pay-way {
-  margin-top: 30rpx;
+  margin-top: 28rpx;
   background-color: #fff;
 }
 
 .shop_name {
   height: 76rpx;
   line-height: 76rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   padding-left: 30rpx;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .my-order_con {
   background-color: #fafafa;
   padding: 30rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   display: flex;
   flex-direction: row;
 }
@@ -62,6 +62,7 @@
 }
 
 .price_num {
+  width: 25%;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -74,8 +75,8 @@
 .goods-other view {
   height: 83rpx;
   line-height: 83rpx;
-  font-size: 32rpx;
-  border-top: 1px solid #F0EFF5;
+  font-size: 24rpx;
+  border-top: 1px solid #f0eff5;
   padding-right: 30rpx;
   position: relative;
 }
@@ -97,13 +98,13 @@
 
 .pay-way>view {
   margin-left: 30rpx;
-  font-size: 36rpx;
+  font-size: 24rpx;
 }
 
 .pay-way_wx {
   height: 136rpx;
   padding: 25rpx 0 27rpx;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
   box-sizing: border-box;
 }
 
@@ -137,23 +138,23 @@
 
 .discounts-title {
   padding: 26rpx 0 16rpx 30rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #888;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .discounts-con {
   background-color: #fff;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .discounts-con>view {
   height: 85rpx;
-  font-size: 32rpx;
+  font-size: 24rpx;
   color: #000;
   line-height: 85rpx;
   margin-left: 30rpx;
-  border-top: 1px solid #F0EFF5;
+  border-top: 1px solid #f0eff5;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -214,14 +215,14 @@
   margin-top: 14rpx;
 }
 
-.trade-successfully{
+.trade-successfully {
   padding-bottom: 20rpx;
 }
 
 .success-header {
   width: 100%;
-  height: 165rpx;
-  font-size: 28rpx;
+  /* height: 165rpx; */
+  font-size: 24rpx;
   color: #fff;
   background-color: #e41436;
   padding: 30rpx;
@@ -229,15 +230,15 @@
 }
 
 .success-title {
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 
 .addressee {
   margin-top: 20rpx;
   background-color: #fff;
-  border-top: 1px solid #F0EFF5;
-  border-bottom: 1px solid #F0EFF5;
-  font-size: 30rpx;
+  border-top: 1px solid #f0eff5;
+  border-bottom: 1px solid #f0eff5;
+  font-size: 24rpx;
 }
 
 .addressee>view {
@@ -246,7 +247,7 @@
 }
 
 .addressee>view:first-child {
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
   height: 86rpx;
   line-height: 86rpx;
   box-sizing: border-box;
@@ -270,23 +271,23 @@
   font-size: 24rpx;
   line-height: 42rpx;
   text-align: center;
-  border: 1px solid #EBEBEB;
+  border: 1px solid #ebebeb;
   border-radius: 8rpx;
   margin-right: 10rpx;
 }
 
-.trade-successfully .goods-information{
+.trade-successfully .goods-information {
   background-color: #fafafa;
 }
 
-.trade-successfully .shop_name{
+.trade-successfully .shop_name {
   background-color: #fff;
 }
 
 .trade-successfully .my-order_con {
   padding-left: 0;
   margin-left: 30rpx;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .trade-successfully .my-order_con:last-child {
@@ -296,55 +297,56 @@
 .ramark {
   width: 100%;
   height: 83rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   line-height: 83rpx;
-  margin-top: 20rpx;  
+  margin-top: 20rpx;
   background-color: #fff;
   padding-left: 30rpx;
   box-sizing: border-box;
 }
 
-.payroll-title,.logistics-title{
-  font-size: 32rpx;
+.payroll-title, .logistics-title {
+  font-size: 28rpx;
   color: #888;
-  border-bottom: 1px solid #F0EFF5; 
-  padding: 32rpx 0 17rpx 30rpx; 
+  border-bottom: 1px solid #f0eff5;
+  padding: 15rpx 0 10rpx 30rpx;
 }
 
-.contact-service{
+.contact-service {
   margin-top: 20rpx;
   width: 100%;
   height: 79rpx;
   line-height: 79rpx;
   text-align: center;
-  font-size: 32rpx;
-  background-color: #FFF9E7;
-  border-top: 1px solid #F0EFF5;
-  border-bottom: 1px solid #F0EFF5;
+  font-size: 28rpx;
+  background-color: #fff9e7;
+  border-top: 1px solid #f0eff5;
+  border-bottom: 1px solid #f0eff5;
 }
 
-.logistics-title{
-  padding: 37rpx 0 30rpx 30rpx;
+.logistics-title {
+  padding: 15rpx 0 10rpx 30rpx;
 }
 
-.logistics-item,.logistics-odd{
+.logistics-item, .logistics-odd {
   background-color: #fff;
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #888;
 }
-.logistics-odd{
-  background-color:#fff;
+
+.logistics-odd {
+  background-color: #fff;
   padding-left: 30rpx;
   height: 86rpx;
   line-height: 86rpx;
 }
 
-.logistics-item>view{
+.logistics-item>view {
   margin-left: 30rpx;
-  border-top: 1px solid #F0EFF5;
+  border-top: 1px solid #f0eff5;
   padding: 33rpx 0;
 }
 
-.logistics-item>view:first-child{
-  color: #019EFB;
+.logistics-item>view:first-child {
+  color: #019efb;
 }

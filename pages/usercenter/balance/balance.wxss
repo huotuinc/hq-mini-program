@@ -3,15 +3,17 @@
   width: 100%;
 }
 .balance-header{
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 60rpx;
   line-height: 60rpx;
   text-align: center;
-  /* display: flex; */
-  /* flex-direction: row; */
   font-size: 24rpx;
   background-color: #fff;
   margin: 0 auto;
+  border-top:1px solid #F0EFF5;
 }
 .income{
   color: #31c000;
@@ -26,29 +28,38 @@
   box-sizing: border-box;
 }
 
-.balance-con .item{
+.balance-con .balance-con_item{
+  padding: 20rpx;
   width: 100%;
-  height: 160rpx;
-  display: flex;
-  flex-direction: row;
+  min-height: 100rpx;
+   display: flex;
+  flex-direction: row; 
   margin: 20rpx 0;
   background-color: #fff;
+  box-sizing: border-box;
 }
-
-.balance-con .item  .item-left  {
-  width: 180rpx;
-  height: 160rpx;
-  line-height: 160rpx;
+.balance-con .balance-con_item  .item-left  {
+   width: 25%; 
+  min-height: 100rpx;
   font-size: 36rpx;
   text-align: center;
+  margin-right: 2%;
 }
-.balance-con .item .item-right{
-  margin-top: 28rpx;          
+
+ .balance-con .balance-con_item  .item-left  .income{
+   white-space: pre-wrap;
+ }
+.balance-con .balance-con_item .item-right{      
+  width: 73%;    
   font-size: 24rpx;
   display: flex;
   flex-direction: column;
 }
-.balance-con .item .time{
+.balance-con .balance-con_item .time{
   color: #a5a5b2;
   margin-top: 14rpx;
+}
+
+.item-right_title{
+  font-size:28rpx
 }

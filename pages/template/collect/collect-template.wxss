@@ -18,11 +18,8 @@
 
 .goods-item-container {
   width: 100%;
-  height: 290rpx;
-  padding: 10px;
   background-color: #fff;
-  border-bottom: 1px solid #c8c8cb;
-  margin-bottom: 10rpx;
+  border-bottom: 1px solid #f0eff5;
   box-sizing: border-box;
 }
 
@@ -36,76 +33,71 @@
   width: 40rpx;
   height: 40rpx;
   margin-right: 20rpx;
-  margin-top: 100rpx;
+  margin-top: 25%;
 }
 
 .select-icon .icon-ico2 {
   font-size: 40rpx;
-  margin-top: -40rpx;
+  color: #ddd;
 }
 
 .select-icon .icon-guanbi {
   font-size: 40rpx;
-  margin-top: -40rpx;
-  color: #E41436;
+  color: #09bb06;
 }
 
 .goods-item-left image {
-  width: 240rpx;
-  height: 240rpx;
+  width: 160rpx;
+  height: 160rpx;
 }
 
 .goods-item-right {
   display: flex;
   flex-direction: column;
-  padding-left: 15rpx;
+  padding-left: 30rpx;
   box-sizing: border-box;
 }
-
 
 .goods-item-title {
   display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
-  font-size: 30rpx;
+  font-size: 28rpx;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
 
-.old_shoucang {
-  margin-top: 10rpx;
+.new-price_ticket {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 .oldprice {
-  margin-top: 10rpx;
   font-size: 28rpx;
   text-decoration: line-through;
   color: #acacac;
 }
 
-
 .old-ticket_sales {
   margin-top: 10rpx;
 }
 
-.new-ticket_sales {
-  margin-top: 20rpx;
-}
-
 .sales_volume {
-  font-size: 26rpx;
+  font-size: 28rpx;
   color: #acacac;
 }
 
-.new-price_ticket {
+.price {
   font-size: 32rpx;
   font-weight: bold;
 }
 
+.sales_volume {
+  font-size: 28rpx;
+}
+
 .new-price_ticket .price {
-  color: #E41436;
+  color: #e41436;
 }

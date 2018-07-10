@@ -1,0 +1,13 @@
+.page-section {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.page-section textarea {
+  width: 100%;
+  height: 400rpx;
+  padding: 20rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}

@@ -1,5 +1,5 @@
 <template name="backTop">
   <view class="backTop" bindtap='backTop'>
-    <text class='icon iconfont icon-icon'></text>
+    <text class='icon iconfont icon-top'></text>
   </view>
 </template>

@@ -26,7 +26,12 @@
     "pages/payPassword/index",
     "pages/afterSale/index",
     "pages/afterSale/MyProductDetail/index",
-    "pages/afterSale/SubmitReturnProduct/index"
+    "pages/afterSale/SubmitReturnProduct/index",
+    "pages/afterSale/message/index",
+    "pages/bindingPhone/index",    
+    "pages/usercenter/residual/index",
+    "pages/evaluate/index",
+    "pages/evaluate/conmmentList/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
@@ -40,37 +45,37 @@
     "backgroundColor": "#FFFFFF",
     "selectedColor": "#E41436",
     "color": "#898989",
-    "borderStyle": "black",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "images/a-2.png",
+        "iconPath": "images/a-b.png",
         "selectedIconPath": "images/a.png"
       },
       {
         "pagePath": "pages/classify/classification",
         "text": "分类",
-        "iconPath": "images/c-2.png",
-        "selectedIconPath": "images/c.png"
+        "iconPath": "images/b-b.png",
+        "selectedIconPath": "images/b.png"
       },
       {
         "pagePath": "pages/shop/index",
         "text": "购物车",
-        "iconPath": "images/b-2.png",
-        "selectedIconPath": "images/b.png"
+        "iconPath": "images/c-b.png",
+        "selectedIconPath": "images/c.png"
       },
       {
         "pagePath": "pages/service/index",
         "text": "客服",
-        "iconPath": "images/e-2.png",
-        "selectedIconPath": "images/e.png"
+        "iconPath": "images/d-b.png",
+        "selectedIconPath": "images/d.png"
       },
       {
         "pagePath": "pages/usercenter/index",
         "text": "个人中心",
-        "iconPath": "images/d-2.png",
-        "selectedIconPath": "images/d.png"
+        "iconPath": "images/e-b.png",
+        "selectedIconPath": "images/e.png"
       }
     ]
   }

@@ -9,7 +9,7 @@
 <view class='home-container'>
   <view class='home-top'>
     <template is="search-header" />
-    <view class='home-category' tag="类目" style='display:none; height:0;'>
+    <!-- <view class='home-category' tag="类目" style='display:none; height:0;'>
       <scroll-view scroll-x="true" class="tab-h" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
         <block wx:for="{{category}}" wx:key="item">
           <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
@@ -19,18 +19,18 @@
       <view class='icon-more-box' catchtap='showAllCategory'>
         <icon class='icon iconfont icon-gengduocaidan-copy icon-more'></icon>
       </view>
-    </view>
+    </view> -->
   </view>
-  <view style='padding-top: 90rpx;'></view>
+  <view style='padding-top: 82rpx;'></view>
   <view class='home-body'>
     <!--主题/广告等模块-->
     <view class='home-index {{currentTab!=0?"home-index-display":""}}'>
       <view class="page-section page-section-spacing swiper">
-        <swiper indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style='height:350rpx;'>
+        <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
               <view class="swiper-item">
-                <image lazy-load='true' src='{{item.pictureUrl}}'></image>
+                <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad"  mode='widthFix'></image>
               </view>
             </swiper-item>
           </block>
@@ -39,15 +39,15 @@
  
       <view class='goods-special-area'>
         <block wx:for="{{specialItems}}" wx:key="item">
-          <view class='special-box' catchtap='_goList'>
+          <view class='special-box' catchtap='_goGoodsList'>
             <view class='box2 item{{index}}'>
-              <image src='{{item.pictureUrl}}'></image>
+              <image src='{{item.pictureUrl}}' mode='widthFix'></image>
             </view>
           </view>
         </block>
       </view>
 
-      <view class='home-goods-items' style='display:none;'>
+      <!-- <view class='home-goods-items' style='display:none;'>
         <view class='goodsItem_title'>
           限时购
           <text>{{ clock.hs?clock.hs:"00" }}</text> :
@@ -72,11 +72,11 @@
             </scroll-view>
           </view>
         </block>
-      </view>
+      </view>-->
 
       <view class='trademark-goods_title'>
         <text>推荐商品</text>
-      </view>
+      </view> 
     </view>
     <!--二级类目容器start-->
     <!-- <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
@@ -91,7 +91,7 @@
     </view>
   </view>
 
-  <view wx:if="{{mask}}" class='category-more'>
+  <!-- <view wx:if="{{mask}}" class='category-more'>
     <view class='category-more-title'>
       <text>全部分类</text>
       <icon class='icon iconfont icon-x' style='float:right;margin-right:50rpx;' catchtap='hideAllCategory'></icon>
@@ -104,10 +104,7 @@
       </block>
     </view>
   </view>
-  <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view>
-</view>
-<view class="backTop" bindtap='backTop' wx:if="{{backTopValue ==true}}">
-  <text class='icon iconfont icon-xiajiang'></text>
+  <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view> -->
 </view>
 
 <view class="body-view" wx:if="{{hidden}}">

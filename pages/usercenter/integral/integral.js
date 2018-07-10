@@ -5,55 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTab: 0, //预设当前项的
-    scrollLeft: 0, //tab标题的滚动条位置
-    category: [
-      {
-        title: "可用积分",
-        categoryid: 1,
-        selected: true,
-      },
-      {
-        title: "待定积分",
-        categoryid: 2,
-        selected: false,
-      }
-    ]
-  },
-  swichNav: function (e) {
-    var cur = e.target.dataset.current
-    console.log(e);
-    if (this.data.currentTab == cur) {
-      return false
-    }
-    this.setData({
-      currentTab: e.target.dataset.item.categoryid - 1
-    })
-  },
-  // 滚动切换标签样式
-  switchTab: function (e) {
-    this.setData({
-      currentTab: e.detail.current
-    });
-    // this.checkCor();
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.getSystemInfo({
-      success: function (res) {
-        let h = res.windowHeight;
-        that.setData({
-          winHeight: h - 50
-        })
-      },
-    })
-    this.setData({
-      currentTab: options.currenttab
-    })
+ 
   },
 
   /**

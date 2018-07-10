@@ -10,7 +10,7 @@
   height: 80rpx;
   line-height: 80rpx;
   width: 100%;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .order-status-tab .tab-item {
@@ -34,7 +34,6 @@
   position: absolute;
   transform: translate(25%);
   bottom: 0;
-  border-radius: 16rpx;
 }
 
 .separator2 {
@@ -43,9 +42,9 @@
 }
 
 .separator3 {
-  height: 37rpx;
-  border-bottom: 1px solid #F0EFF5;
-  margin: 0 0 0 25rpx;
+  height: 15rpx;
+  border-bottom: 1px solid #f0eff5;
+  /* margin: 0 0 0 25rpx; */
 }
 
 .order-list-container {
@@ -54,14 +53,14 @@
 
 .order-item {
   margin-top: 20rpx;
-  padding: 30rpx 20rpx;
+  padding: 0rpx 20rpx 30rpx;
   box-sizing: border-box;
   background-color: #fff;
 }
 
 .item-info-1 {
-  height: 50rpx;
-  line-height: 50rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,7 +71,7 @@
 }
 
 .item-info-2 {
-  border: 1px solid #F0EFF5;
+  border: 1px solid #f0eff5;
   display: flex;
   flex-direction: column;
 }
@@ -82,24 +81,24 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 24rpx 36rpx;
+  padding: 20rpx 36rpx;
   font-size: 28rpx;
   color: #000;
   box-sizing: border-box;
-  border-bottom: 1px solid #F0EFF5;
+  border-bottom: 1px solid #f0eff5;
 }
 
 .my-order_con {
   background-color: #fafafa;
-  padding: 30rpx;
+  padding: 20rpx 30rpx;
   font-size: 28rpx;
   display: flex;
   flex-direction: row;
 }
 
 .my-order_con image {
-  width: 240rpx;
-  height: 240rpx;
+  width: 120rpx;
+  height: 120rpx;
   margin-right: 30rpx;
 }
 
@@ -108,7 +107,6 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding-top: 50rpx;
   box-sizing: border-box;
 }
 
@@ -117,10 +115,16 @@
 }
 
 .title_con text {
-  white-space: pre-wrap;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .price_num {
+  width: 35%;
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -129,28 +133,25 @@
 .item-info-3 {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-size: 28rpx;
   margin-top: 10rpx;
 }
 
 .item-info-4 {
-  margin-top: 30rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin-top: 20rpx;
   font-size: 28rpx;
 }
 
 .operation {
-  display: flex;
-  flex-direction: row;
+  overflow: hidden;
 }
 
 .operation view {
+  float: right;
   border-radius: 10rpx;
-  padding: 10rpx;
-  margin-left: 8rpx;
+  padding: 4rpx 14rpx;
+  margin-left: 10rpx;
 }
 
 .cancel {
@@ -162,4 +163,5 @@
 .payment {
   background-color: #e00003;
   color: #fff;
+  border: 1rpx solid #e00003;
 }

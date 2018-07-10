@@ -1,23 +1,16 @@
 import config from '../../config.js'
-const app = getApp();
+const app = getApp()
 
-var searchGoods = function (data, callback) {
+var searchGoods = function(data, callback) {
   app.request({
     url: config.searchGoods,
     data: data,
-    success: function (res) {
-      if (res.code == 200) {
-        callback(true, {
-          goodsItems: res.data.goods_list
-        })
-      }
-      else {
-        wx.showToast({
-          title: res.msg
-        })
-      }
+    success: function(res) {
+      callback(true, {
+        goodsItems: res.data.goods_list
+      })
     },
-    fail: function (error) {
+    fail: function(error) {
       callback(false, error)
     }
   })
@@ -25,4 +18,4 @@ var searchGoods = function (data, callback) {
 
 module.exports = {
   searchGoods: searchGoods
-};
+}

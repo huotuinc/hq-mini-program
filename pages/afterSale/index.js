@@ -1,71 +1,56 @@
-// pages/afterSale/index.js
+import config from '../../config.js'
+import user from '../../utils/request/user.js'
+const app = getApp();
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    pageSize: 10,
+    pageIndex: 1
   },
-  _goSaleDetail:function(e){
+  _goSaleDetail: function(e) {
     wx.navigateTo({
       url: 'MyProductDetail/index',
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  _getSalesList: function(customerId) {
+    var self = this
+    var data = {
+      pageSize: this.data.pageSize,
+      pageIndex: this.data.pageIndex,
+      customerId: customerId
+    }
+    user.getSalesList(data, function(res) {
+      self.setData({
+        itemList: res.list.data
+      })
+    })
+  },
+  onLoad: function(options) {
+    var customerId = 0
+    var that = this
+    wx.showToast({
+      title: '努力加载中...',
+      icon: 'loading',
+      success: function() {
+        that._getSalesList(customerId)
+        wx.hideToast()
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  onShow: function() {
+
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+  onPullDownRefresh: function() {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
-  },
+  onReachBottom: function() {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+  },
 })

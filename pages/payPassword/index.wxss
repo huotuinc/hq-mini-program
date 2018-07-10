@@ -1,24 +1,49 @@
 .pay-password_header {
   background-color: #fff;
   font-size: 28rpx;
-  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 10rpx;
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  top: 52%;
+  width: 90%;
+  height: 0;
+  margin: 0 40rpx;
+  box-sizing: border-box;
+  border-bottom: 6rpx dotted #ccc;
+}
+
+.header_status-color {
+  color: #e41436;
 }
 
 .header_status {
-  height: 184rpx;
+  height: 90rpx;
   width: 100%;
   padding: 30rpx;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 4rpx solid #f0eff5;
+}
+
+.header_status>view {
+  padding: 0 10rpx;
+  background-color: #fff;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .header_input {
   width: 100%;
   padding: 10rpx 30rpx;
   box-sizing: border-box;
+  -webkit-animation-name: fadeIn; /*动画名称*/
+  -webkit-animation-duration: 3s; /*动画持续时间*/
+  -webkit-animation-iteration-count: 1; /*动画次数*/
+  -webkit-animation-delay: 0s; /*延迟时间*/
 }
 
 .verification_code {
@@ -34,8 +59,8 @@
 }
 
 .verification_code input {
-  margin-right: 270rpx;
-  padding-right: 0;
+  padding-right: 270rpx;
+  box-sizing: border-box;
 }
 
 .telphone {
@@ -46,7 +71,12 @@
   line-height: 76rpx;
 }
 
+.password_code input {
+  margin-bottom: 10rpx;
+}
+
 .v-code {
+  display: block;
   width: 240rpx;
   height: 90rpx;
   line-height: 90rpx;
@@ -83,4 +113,8 @@
 
 .explain text {
   line-height: 1.6;
+}
+
+.get-v_code {
+  background-color: #808080;
 }

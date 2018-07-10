@@ -1,17 +1,20 @@
-// pages/setting/setting.js
+import config from '../../config.js'
+import user from '../../utils/request/user.js'
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: ' ',
-    name: "去完善",
-    gender: ['未知','男','女'],
-    idCard: '',
-    iphoneNum: '',
-    wxNum: '',
-    city: "",
+    RealName: "去完善",
+    UserGender: ['未知', '男', '女'],
+    UserBirthday: '',
+    UserCardNo: '',
+    UserMobile: '',
+    UserWxNo: '',
+    UserCityName: "",
     checked: '',
     showModal: false
   },
@@ -27,26 +30,38 @@ Page({
       placeholder: "请输入身份证"
     })
   },
-  _mobilePhone: function(e) {
-    this.setData({
-      showModal: true,
-      placeholder: "请输入手机号"
-    })
-  },
   _wxNumber: function(e) {
     this.setData({
       showModal: true,
       placeholder: "请输入微信号"
     })
   },
+  _mobilePhone: function(e) {
+    wx.navigateTo({
+      url: '../bindingPhone/index?phone=' + e.target.dataset.phone
+    })
+  },
   bindDateChange: function(e) {
     this.setData({
-      date: e.detail.value
+      UserBirthday: e.detail.value
+    })
+    user.updateUserBaseInfo({
+      type: 3,
+      content: e.detail.value
+    }, function(res) {
+      console.log(res.code)
     })
   },
   bindRegionChange: function(e) {
+    console.log(e)
     this.setData({
-      city: e.detail.value
+      UserCityName: e.detail.value
+    })
+    user.updateUserBaseInfo({
+      type: 6,
+      content: e.detail.value
+    }, function(res) {
+      console.log(res.code)
     })
   },
   hideModal: function() {
@@ -68,96 +83,125 @@ Page({
       excessive: newName
     })
   },
+
+  //修改用户基本信息
   onConfirm: function() {
     var excessive = this.data.excessive
     var placeholder = this.data.placeholder
     if (placeholder === '请输入姓名') {
       this.setData({
-        name: excessive
+        RealName: excessive
+      })
+      user.updateUserBaseInfo({
+        type: 1,
+        content: excessive
+      }, function(res) {
+        console.log(res.code)
       })
     } else if (placeholder === '请输入身份证') {
       this.setData({
-        idCard: excessive
+        UserCardNo: excessive
       })
-    } else if (placeholder === '请输入手机号') {
-      this.setData({
-        iphoneNum: excessive
+      user.updateUserBaseInfo({
+        type: 4,
+        content: excessive
+      }, function(res) {
+        console.log(res.code)
       })
     } else if (placeholder === '请输入微信号') {
       this.setData({
-        wxNum: excessive
+        UserWxNo: excessive
+      })
+      user.updateUserBaseInfo({
+        type: 5,
+        content: excessive
+      }, function(res) {
+        console.log(res.code)
       })
     }
     this.hideModal();
   },
-  bindPickerChange:function(e){
+
+  bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value
     })
+    var gender = this.data.UserGender[e.detail.value]
+    user.updateUserBaseInfo({
+      type: 2,
+      content: gender
+    }, function(res) {
+      console.log(res.code)
+    })
   },
-  _goAddress:function(e){
+  _goAddress: function(e) {
     wx.navigateTo({
       url: '../shipAddress/index',
     })
   },
-  _goPayPassword:function(e){
-  wx.navigateTo({
-    url: '../payPassword/index',
-  })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
+  _goPayPassword: function(e) {
+    wx.navigateTo({
+      url: '../payPassword/index?mobile=' + e.currentTarget.dataset.mobile,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
+  //是否开启支付密码
+  passwordStatus: function(e) {
+    var self = this
+    var status = e.currentTarget.dataset.passwordstatus
+    if (status == 1) {
+      user.updatePayPasswordStatus({
+        status: status
+      }, function(res) {
+        if (res.data == 200) {
+          self.setData({
+            PayPasswordStatus: 0
+          })
+          wx.showToast({
+            title: '关闭成功',
+            icon: 'success'
+          })
+        }
+      })
+    }
 
+    if (status == 0) {
+      user.updatePayPasswordStatus({
+        status: status
+      }, function(res) {
+        if (res.data == 200) {
+          self.setData({
+            PayPasswordStatus: 1
+          })
+          wx.showToast({
+            title: '开启成功',
+            icon: 'success'
+          })
+        }
+      })
+    }
   },
+  //获取用户设置界面信息
+  _getSetting: function() {
+    var self = this
+    user.setting(function(res) {
+      self.setData({
+        RealName: res.settingItem.RealName || '去完善',
+        UserSex: res.settingItem.UserSex || '未知',
+        UserBirthday: res.settingItem.UserBirthday || '',
+        UserCardNo: res.settingItem.UserCardNo || '',
+        UserMobile: res.settingItem.UserMobile || '未绑定',
+        UserWxNo: res.settingItem.UserWxNo || '',
+        UserCityName: res.settingItem.UserCityName || '',
+        PayPassworded: res.settingItem.PayPassworded,
+        PayPasswordStatus: res.settingItem.PayPasswordStatus
+      })
+    })
+  },
+  onLoad: function(options) {},
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function(e) {
+    this._getSetting()
     this.onConfirm(e)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
-  }
 })

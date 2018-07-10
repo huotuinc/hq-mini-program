@@ -28,70 +28,88 @@ const hotItems = [
 
 const goodsItems = [
   {
-    title: "好牙口 益生菌凝胶糖果（薄荷味无糖型）",
-    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180612/201806121823081.jpg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: false,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
+    "Name": "好牙口 益生菌凝胶糖果（薄荷味无糖型）",
+    "PicUrl": "http://res.chinaswt.cn//resource/images/photo/8529/20180612/201806121823081.jpg",
+    "CatId": "1",
+    "Price": "27.99",
+    "MktPrice": "49.9",
+    "EarnMiBean": "4",
+    "finalPrice": "23.99",
+    "isFav": "false",
+    "EarnIntegral": "3.5",
+    "goodsId": "1127878416",
+    "Store": "1350",
+    "Sales": "13051"
   },
   {
-    title: "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
-    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071614470.jpg",
-    goodsPrice: 26.9,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 8,/*优惠券价格*/
-    finalPrice: 18.9,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 5.26,/*赚取额度*/
-    goodsId: '1039919965' /*商品ID*/
+    "Name": "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
+    "PicUrl": "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071614470.jpg",
+    "CatId": "1",
+    "Price": "27.99",
+    "MktPrice": "49.9",
+    "EarnMiBean": "4",
+    "finalPrice": "23.99",
+    "isFav": "false",
+    "EarnIntegral": "3.5",
+    "goodsId": "1127878416",
+    "Store": "1350",
+    "Sales": "13051"
   },
   {
-    title: "【胡庆余堂】青春宝冰糖蜂蜜雪梨膏 家庭量贩装 130g*6瓶HQ",
-    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071631360.jpg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
+    "Name": "【胡庆余堂】青春宝冰糖蜂蜜雪梨膏 家庭量贩装 130g*6瓶HQ",
+    "PicUrl": "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071631360.jpg",
+    "CatId": "1",
+    "Price": "27.99",
+    "MktPrice": "49.9",
+    "EarnMiBean": "4",
+    "finalPrice": "23.99",
+    "isFav": "false",
+    "EarnIntegral": "3.5",
+    "goodsId": "1127878416",
+    "Store": "1350",
+    "Sales": "13051"
   },
   {
-    title: "【胡庆余堂】青春宝冰糖即食燕窝70g*3瓶 礼盒装 30%固形物 可溯源 HQ",
-    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071653150.jpg",
-    goodsPrice: 26.9,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 8,/*优惠券价格*/
-    finalPrice: 18.9,/*最终价格*/
-    isFav: false,/*是否收藏*/
-    earnMoney: 5.26,/*赚取额度*/
-    goodsId: '1039919965' /*商品ID*/
+    "Name": "【胡庆余堂】青春宝冰糖即食燕窝70g*3瓶 礼盒装 30%固形物 可溯源 HQ",
+    "PicUrl": "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071653150.jpg",
+    "CatId": "1",
+    "Price": "27.99",
+    "MktPrice": "49.9",
+    "EarnMiBean": "4",
+    "finalPrice": "23.99",
+    "isFav": "false",
+    "EarnIntegral": "3.5",
+    "goodsId": "1127878416",
+    "Store": "1350",
+    "Sales": "13051"
   },
   {
-    title: "【胡庆余堂】铁皮枫斗晶 3g/袋*6袋*6盒",
-    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071637590.jpg",
-    goodsPrice: 25.9,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 2,/*优惠券价格*/
-    finalPrice: 23.9,/*最终价格*/
-    isFav: false,/*是否收藏*/
-    earnMoney: 4.25,/*赚取额度*/
-    goodsId: '452068537' /*商品ID*/
+    "Name": "【胡庆余堂】铁皮枫斗晶 3g/袋*6袋*6盒",
+    "PicUrl": "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071637590.jpg",
+    "CatId": "1",
+    "Price": "27.99",
+    "MktPrice": "49.9",
+    "EarnMiBean": "4",
+    "finalPrice": "23.99",
+    "isFav": "false",
+    "EarnIntegral": "3.5",
+    "goodsId": "1127878416",
+    "Store": "1350",
+    "Sales": "13051"
   },
   {
-    title: "【胡庆余堂】捷净海参礼盒 26克 12只装 食用方便",
-    imgSrc: "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071645480.jpg",
-    goodsPrice: 19.9,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 3,/*优惠券价格*/
-    finalPrice: 16.9,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 6.76,/*赚取额度*/
-    goodsId: '685092301' /*商品ID*/
+    "Name": "【胡庆余堂】捷净海参礼盒 26克 12只装 食用方便",
+    "PicUrl": "http://res.chinaswt.cn//resource/images/photo/8529/20180607/201806071645480.jpg",
+    "CatId": "1",
+    "Price": "27.99",
+    "MktPrice": "49.9",
+    "EarnMiBean": "4",
+    "finalPrice": "23.99",
+    "isFav": "false",
+    "EarnIntegral": "3.5",
+    "goodsId": "1127878416",
+    "Store": "1350",
+    "Sales": "13051"
   }
 ]
 
@@ -236,92 +254,10 @@ const specialItems = [
   }
 ]
 
-
-const collectItems = [
-  {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
-  },
-  {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
-  },
-  {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
-  },
-  {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
-  },
-  {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
-  },
-  {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
-  },
-  {
-    title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-    imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-    goodsPrice: 27.99,/*商品价格*/
-    salesVolume: 1800,/*销量价格*/
-    couponPrice: 4,/*优惠券价格*/
-    finalPrice: 23.99,/*最终价格*/
-    isFav: true,/*是否收藏*/
-    earnMoney: 3.5,/*赚取额度*/
-    goodsId: '1127878416' /*商品ID*/
-  }
-]
-
 module.exports = {
   hotItems: hotItems,
   goodsItems: goodsItems,
   categoryItems: categoryItems,
   bannerItems: bannerItems,
-  specialItems: specialItems,
-  collectItems: collectItems
+  specialItems: specialItems
 };

@@ -2,24 +2,17 @@ import config from '../../config.js'
 const app = getApp();
 
 //获取商品详情
-var goodsDetails = function (data, callback) {
+var goodsDetails = function(data, callback) {
   app.request({
     url: config.goodsDetails,
     data: data,
-    success: function (res) {
-      if (res.code == 200) {
-        callback(true, {
-          item: res.data
-        })
-      }
-      else {
-        wx.showToast({
-          title: res.msg
-        })
-      }
+    success: function(res) {
+      callback({
+        data: res.data
+      })
     },
-    fail: function (error) {
-      callback(false, error)
+    fail: function(error) {
+      callback(error)
     }
   })
 }

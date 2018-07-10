@@ -19,7 +19,7 @@ Page({
   },
   bindPursueReason: function(e) {
     this.setData({
-      index: e.detail.value
+      index: e.detail.value 
     })
   },
   chooseImage: function() {

@@ -1,81 +1,104 @@
-// pages/account/inex.js
-Page({
+import config from '../../config.js'
+import wallet from '../../utils/request/withdraw.js'
+const app = getApp()
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
     showModal: false
   },
-  hideModal: function () {
+  hideModal: function() {
     this.setData({
       showModal: false
-    });
+    })
   },
-  _showCompile:function(e){
+  //编辑
+  _showCompile: function(e) {
     this.setData({
-      showModal:true
+      accoundId: e.currentTarget.dataset.accountid,
+      showModal: true
     })
   },
-  _goModification:function(e){
-    wx.navigateTo({
-      url: '../modification/index?categoryTitle=' + e.currentTarget.dataset.categorytitle
-    })
+  //底部弹出设置默认的提现账户
+  _setDefault: function(e) {
+    var self = this
+    wallet.setDefaultAccount({
+        AccountId: self.data.accoundId
+      },
+      function(res) {
+        self.setData({
+          showModal: false
+        })
+        self.getAccountList()
+      }
+    )
+  },
+  //删除提现账号
+  _deleteAccoun: function(e) {
+    var self = this
+    wallet.delAccount({
+        AccountId: self.data.accoundId
+      },
+      function(res) {
+        self.setData({
+          showModal: false
+        })
+        self.getAccountList()
+      }
+    )
+  },
+  _goModification: function(e) {
+    var self = this
+    if (e.currentTarget.dataset.categorytitle == '修改提现账户') {
+      wx.navigateTo({
+        url: '../modification/index?categoryTitle=' +
+          e.currentTarget.dataset.categorytitle +
+          '&AccountId=' +
+          self.data.accoundId
+      })
+    } else {
+      wx.navigateTo({
+        url: '../modification/index?categoryTitle=' + e.currentTarget.dataset.categorytitle
+      })
+    }
     this.hideModal()
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+
+  //获取提现账户列表
+  getAccountList: function() {
+    var self = this
+    wx.showToast({
+      title: '加载中...',
+      icon: 'loading',
+      success: function() {
+        wallet.getaccountlist(function(res) {
+          self.setData({
+            accountList: res.data.data.list
+          })
+          wx.hideToast()
+        })
+      }
+    })
+  },
+  //设置默认提现账户
+  _setDefaultAccount: function(e) {
+    var self = this
+    wallet.setDefaultAccount({
+        AccountId: e.currentTarget.dataset.accountid
+      },
+      function(res) {
+        self.getAccountList()
+      }
+    )
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  onLoad: function(options) {
+    // this.getAccountList()
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  onShow: function() {
+    this.getAccountList()
   }
 })

@@ -1,23 +1,21 @@
-
 .user-header {
   width: 100%;
-  height: 300rpx;
-  background-image: url('http://img.hexun.com/2011-07-20/131594415.jpg');
+  height: 360rpx;
   background-size: cover;
 }
 
 .user-header .setting {
   position: absolute;
-  color: #fff;
   font-size: 28rpx;
-  left: 20rpx;
-  top: 3%;
+  left: 10rpx;
+  top: 1%;
+  padding: 30rpx;
 }
 
 .user-header .userinfo {
   position: absolute;
   left: 50%;
-  top: 3%;
+  top: 5%;
   transform: translate(-50%);
   display: flex;
   flex-direction: column;
@@ -25,45 +23,27 @@
 }
 
 .user-header .userimg {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 100rpx;
-  background-color: skyblue;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
 }
 
 .user-header .username {
   margin-top: 10rpx;
-  color: #fff;
+  color: #000;
   font-size: 26rpx;
+  font-weight: 800;
 }
 
 .user-header .usersize {
-  display: block;
-  width: 50rpx;
-  height: 30rpx;
-  background-color: yellow;
-  border-radius: 5rpx;
-  font-size: 24rpx;
-  color: #000;
-  line-height: 30rpx;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: 30rpx;
+  margin-top: 8rpx;
 }
 
-.user-integral {
-  width: 100%;
-  margin-top: 20rpx;
-  padding: 0 36rpx;
-  height: 76rpx;
-  line-height: 76rpx;
-  background-color: #fff;
-  font-size: 28rpx;
-  box-sizing: border-box;
-}
-
-.user-integral_num {
-  color: #e41436;
+.user-header .usersize text {
+  padding: 6rpx 20rpx;
+  font-size: 26rpx;
+ 
+  border-radius: 8rpx;
 }
 
 .my-order, .my-purse, .my-common {
@@ -77,7 +57,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 24rpx 36rpx;
+  padding: 20rpx 36rpx;
   font-size: 28rpx;
   color: #000;
   box-sizing: border-box;
@@ -92,21 +72,36 @@
   justify-content: flex-start;
 }
 
-.my-order .my-order_classify view {
+ .my-order .my-order_classify>view {
   width: 20%;
-  display: flex;
-  flex-direction: column;
-  padding: 17rpx 30rpx;
+  padding: 24rpx 30rpx;
   margin-right: 2rpx;
   box-sizing: border-box;
   background-color: #fff;
-  font-size: 21rpx;
+  font-size: 24rpx;
   text-align: center;
   color: #666;
+  position: relative;
+} 
+
+.my-order .my-order_classify .order-classift_item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-order .my-order_classify .order-classift_num{
+  padding: 2rpx 10rpx;
+  border-radius: 50%;
+  background-color: #e41436;
+  color: #fff;
+  position: absolute;
+  top: 20rpx;
+  right: 24rpx;
 }
 
 .my-order .my-order_classify .icon {
-  font-size: 40rpx;
+  font-size: 50rpx;
   color: #666;
 }
 
@@ -117,21 +112,20 @@
   font-size: 24rpx;
   color: #666;
   text-align: center;
-  padding: 18rpx 36rpx;
+  padding: 30rpx 36rpx;
   margin-right: 2rpx;
   background-color: #fff;
   box-sizing: border-box;
   white-space: nowrap;
 }
 
-.my-purse .my-purse_classify view{
+.my-purse .my-purse_classify view {
   width: 33.333%;
 }
 
 .my-purse .my-purse_classify .purse_num {
   font-size: 36rpx;
   color: #e41436;
-  margin-bottom: 20rpx;
 }
 
 .my-common {
@@ -154,4 +148,8 @@
 .my-purse .my-purse_classify view:last-child,
 .my-common .my-common_classify view:last-child {
   margin-right: 0;
+}
+
+.allOrder {
+  font-size: 24rpx;
 }

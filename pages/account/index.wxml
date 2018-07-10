@@ -1,28 +1,18 @@
 <view class="account">
-  <view class='account-item'>
-    <view class='item-left'>
-      <icon class='icon iconfont icon-xuanzhong'></icon>
-    </view>
-    <view class='item-right'>
-      <view class='informatiom'>
-        <text class='informatiom-name'>星期八（默认）</text>
-        <text>支付宝4375894@gmail.com</text>
+  <block wx:for="{{accountList}}" wx:key="item">
+    <view class='account-item' catchtap='_setDefaultAccount' data-accountId='{{item.AccountId}}'>
+      <view class='item-left'>
+        <icon class="icon iconfont {{item.IsDefault == 1?'icon-xuanzhong':'icon-ico2'}} "></icon>
       </view>
-      <view class='compile' catchtap='_showCompile'>编辑</view>
-    </view>
-  </view>
-  <view class='account-item'>
-    <view class='item-left'>
-      <icon class='icon iconfont icon-ico2'></icon>
-    </view>
-    <view class='item-right'>
-      <view class='informatiom'>
-        <text class='informatiom-name'>六月</text>
-        <text>支付宝4375894@gmail.com</text>
+      <view class='item-right'>
+        <view class='informatiom'>
+          <text class='informatiom-name'>{{item.RealName}}</text>
+          <text>{{item.AccountInfo}}</text>
+        </view>
+        <view class='compile' catchtap='_showCompile' data-accountId='{{item.AccountId}}' data-RealName='{{item.RealName}}' data-AccountInfo='{{item.AccountInfo}}'>编辑</view>
       </view>
-      <view class='compile' catchtap='_showCompile'>编辑</view>
     </view>
-  </view>
+  </block>
 </view>
 <view class='add_account' catchtap='_goModification' data-categorytitle='添加提现账号'>+ 添加提现账号</view>
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
@@ -30,6 +20,6 @@
 <view class='model_content' wx:if="{{showModal}}">
   <view style='color:#666;'>编辑</view>
   <view catchtap='_goModification' data-categorytitle='修改提现账号'>修改提现账号</view>
-  <view>设为默认</view>
-  <view>删除提现账号</view>
-</view>
+  <view catchtap='_setDefault'>设为默认</view>
+  <view catchtap='_deleteAccoun'>删除提现账号</view>
+</view>  

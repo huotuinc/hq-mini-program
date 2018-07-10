@@ -1,0 +1,24 @@
+<view class='balance'>
+  <view class='balance-header'>
+    <text>总收入：</text>
+    <text class='income'>{{itemList.SumExportIntegral}}元</text>
+    <text> / </text>
+    <text>总支出：</text>
+    <text class='expense'>{{itemList.SumImportIntegral}}元</text>
+  </view>
+</view>
+<view style='height:60rpx;'></view>
+<view class='balance-con'>
+  <blcok wx:for="{{itemList.Items}}" wx:key="item">
+    <view class='balance-con_item'>
+      <view class='item-left'>
+        <text class='income'>{{item.ChangeIntegral}}</text>
+      </view>
+      <view class='item-right'>
+        <text class='item-right_title'>{{item.ChangeDesc}}</text>
+        <text class='time'>时间：{{item.ChangeTime}}</text>
+      </view>
+    </view>
+
+  </blcok>
+</view>

@@ -1,11 +1,13 @@
-// pages/orderdetails/index.js
+import orderList from '../../utils/request/order.js'
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    success: false,
+    //  detail: 1,
     backTopValue: false
   },
 
@@ -17,7 +19,26 @@ Page({
       }
     })
   },
-  
+
+  //查看订单状态
+  watchStatus: function(e) {
+    this.setData({
+      watchStatus: 1
+    })
+  },
+
+  //获取订单详情
+  _getOrderDetail: function(orderId) {
+    var self = this
+    orderList.orderDetail({
+      orderId: orderId
+    }, function(res) {
+      self.setData({
+        orderDetail: res.data.data
+      })
+    })
+  },
+
   // 监听滚动条坐标
   onPageScroll: function(e) {
     //console.log(e)
@@ -41,7 +62,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.setData({
+      detail: options.detail
+    })
+    this._getOrderDetail(options.orderId)
   },
 
   /**
@@ -89,13 +113,6 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
-    return {
-      title: '建瓯多久哦i回家o',
-      imageUrl: 'http://t05img.yangkeduo.com/images/2018-05-04/763d35d3060a752f6b296cf0db710094.jpeg',
-      path: '/pages/orderdetails/index?id=123'
-    }
-  }
+  onShareAppMessage: function() {}
 
 })

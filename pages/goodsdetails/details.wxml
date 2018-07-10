@@ -1,12 +1,22 @@
 <import src="../template/backTop/backTop" />
 
 <view>
-  <view class='goods-details-main-pic'>
-    <image src='{{item.imgSrc}}'></image>
+  <view class='goods-details-main-pic' catchtap='watchBigImage'>
+    <view style='height:{{imgHeight}}rpx;'>
+      <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
+        <block wx:for="{{item.imgSrc}}" wx:key="item">
+          <swiper-item>
+            <view class="swiper-item">
+              <image lazy-load='true' src='{{item.image}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
   </view>
   <view class='goods-details-info-box'>
     <view class='goods-item-title'>
-      <text>【阿拉斯加】啊手动阀手动阀手动阀手动阀大阿斯顿发射点啊手动阀是啊啊撒旦阿斯顿哎说是阿斯顿啊啊撒旦阿斯顿哎说是阿斯顿</text>
+      <text>{{item.title}}</text>
     </view>
     <view class='send-specification'>
       <text>【偏远地区不包邮】阿拉斯加阿拉斯加阿拉斯加阿拉斯加</text>
@@ -16,11 +26,11 @@
       <text>TECTOP/探拓</text>
     </view>
     <view class='goods-item-two-text2'>
-      <text class='goods-final-price'>￥19.99</text>
+      <text class='goods-final-price'>￥{{item.finalPrice}}</text>
     </view>
     <view class='goods-item-two-text1'>
-      <text class='goods-item-price'>￥23.99</text>
-      <text class='goods-item-sales_volume'>总销量：4905</text>
+      <text class='goods-item-price'>￥{{item.goodsPrice}}</text>
+      <text class='goods-item-sales_volume'>总销量：{{item.couponPrice}}</text>
     </view>
     <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext='立即购买'>
       <text>请选择规格</text>
@@ -28,55 +38,134 @@
     </view>
   </view>
 
-  <view class='promotion'>
-    <text style='color:#acacac;margin-right:18rpx;'>促销</text>
-    <!-- <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text> -->
-    <text style='padding:2rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
-    <text>觅方66节下单就返3-8元随机无门槛优惠券</text>
-    <text class='allOrder' style='float:right;'></text>
-  </view>
-
-  <view class='separator1'></view>
-
-  <view class='goods-details-info'>
-    <view class='goods-details'>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
-      <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+  <view class='privilege'>
+    <view class='promotion'>
+      <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
+      <text style='padding:0rpx 6rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
+      <text class='ellips'>觅方66节下单就返3-8元随机无门槛优惠券</text>
+    </view>
+    <view class='moreBtn'>
+      <icon class='icon iconfont icon-icon--'></icon>
     </view>
   </view>
+</view>
+<!-- 商品编号 start -->
+<view class='old_price_wrap'>
+  <view class='gBN'>
+    <text>商品编号：XRPC005/XRPC006</text>
+  </view>
+  <view class='saleTag'>
+    <view>
+      <icon class='icon iconfont icon-dui'></icon>
+      品牌直供
+    </view>
+    <view>
+      <icon class='icon iconfont icon-dui'></icon>
+      正品保证
+    </view>
+  </view>
+</view>
+<!-- 商品编号 end -->
+<!-- 商品评论 start -->
+<view style='margin-top:2rpx;'>
+  <view class='comment' catchtap='_goCommentList'>
+    <text>评价（38）</text>
+    <text class='allOrder'>好评度99%</text>
+  </view>
+  <!-- 评论内容 start -->
+  <view>
+    <view class='saidan-wrapper'>
+      <view class='saidan-top'>
+        <text>AP4****M8L</text>
+        <view class='star'>
+          <blcok wx:for="{{starData.starSelect}}">
+            <icon class='icon iconfont icon-xingxingxuanzhong'></icon>
+          </blcok>
 
-  <view style='height:100rpx;'></view>
-  <view class='bottom-bar'>
-    <view class='item-bar collect' catchtap='_goService'>
-      <icon bindtap='clickFavTab' class="icon iconfont icon-kefu"></icon>
-      客服
-    </view>
-    <view class='item-bar collect' catchtap='_goIndex'>
-      <icon class='icon iconfont icon-shouye'></icon>
-      首页
-    </view>
-    <view class='item-bar collect' catchtap='_goShop'>
-      <icon class='icon iconfont icon-goumai'></icon>
-      购物车
-    </view>
-    <view class='item-bar-right'>
-      <view class='item-bar buy' data-btntext='加入购物车' bindtap="powerDrawer" data-statu="open">
-        <text>加入购物车</text>
+          <block wx:for="{{starData.star}}">
+            <icon class='icon iconfont icon-xingxingweixuanzhong'></icon>
+          </block>
+        </view>
       </view>
-      <view class='item-bar share' data-btntext='立即购买' bindtap="powerDrawer" data-statu="open">
-        <text>立即购买</text>
+      <view class='saidan-bottom'>
+        <view class='saidan-content'>越来越爱行装！每一次都给足信心</view>
+        <view class='product-img-module'>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' mode="widthFix"></image>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
+          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' mode="widthFix"></image>
+        </view>
       </view>
+      <view class='product-type'>
+        <view class='product-type_num'>
+          <icon class='icon iconfont icon-zan-copy'></icon>
+          1
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+<!-- 商品评论 end -->
+
+<view class='separator1'></view>
+<!-- 商品介绍  start-->
+<view class='goods-details-info'>
+  <view class='goods-details'>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161550476552.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161551616614.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171306404889.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171308971188.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' mode="widthFix"></image>
+    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161557974414.jpg' mode="widthFix"></image>
+  </view>
+</view>
+<!-- 商品介绍 end -->
+<view style='height:100rpx;'></view>
+<view class='bottom-bar'>
+  <view class='item-bar collect' catchtap='_goService'>
+    <icon bindtap='clickFavTab' class="icon iconfont icon-kefu"></icon>
+    客服
+  </view>
+  <view class='item-bar collect' catchtap='_goIndex'>
+    <icon class='icon iconfont icon-shouye'></icon>
+    首页
+  </view>
+  <view class='item-bar collect' catchtap='_goShop'>
+    <icon class='icon iconfont icon-goumai'></icon>
+    购物车
+  </view>
+  <view class='item-bar-right'>
+    <view class='item-bar buy' data-btntext='加入购物车' bindtap="powerDrawer" data-statu="open">
+      <text>加入购物车</text>
+    </view>
+    <view class='item-bar share' data-btntext='立即购买' bindtap="powerDrawer" data-statu="open">
+      <text>立即购买</text>
     </view>
   </view>
 </view>
 
-<!-- 选择规格的底部弹出内容 -->
+
+<view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
+  <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
+    <block wx:for="{{item.imgSrc}}" wx:key="item">
+      <swiper-item>
+        <view class="swiper-item" catchtap='powerDrawer'>
+          <image lazy-load='true' src='{{item.image}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="drawer_screen drawer-option" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{swiperDetail}}"></view>
+
 <view class="drawer_screen" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{showModalStatus}}"></view>
-<!--content-->
-<!--使用animation属性指定需要执行的动画-->
+
+<!-- 选择商品规格 start -->
 <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}" catchtouchmove="true">
   <!--drawer content-->
   <view class="drawer_content">
@@ -85,13 +174,13 @@
         <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
       </view>
       <view class='price-repertory_select'>
-        <view style='color:#e41436'>￥39</view>
+        <view style='color:#e41436;font-size:40rpx;'>￥39</view>
         <view>库存：78件</view>
         <view>已选择：s 宝蓝迷彩</view>
       </view>
     </view>
 
-    <view class='buy-select'>
+    <!-- <view class='buy-select'>
       <view class='select-title'>
         <text>尺码</text>
       </view>
@@ -99,7 +188,7 @@
         <text class='active'>S</text>
         <text>M</text>
         <text>L</text>
-        <text>XL</text>
+        <text class='no_select'>XL</text>
       </view>
     </view>
     <view class='buy-select'>
@@ -114,7 +203,7 @@
         <text>浅灰迷彩</text>
         <text>紫色迷彩</text>
       </view>
-    </view>
+    </view> -->
 
     <view class='buy_num'>
       <view class='buy-num_title'>
@@ -122,7 +211,7 @@
       </view>
       <view class='add_minus'>
         <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}">-</text>
-        <text>{{shopNum}}</text>
+        <text class='shop_number'>{{shopNum}}</text>
         <text catchtap='numAdd' class='calculate'>+</text>
       </view>
     </view>
@@ -130,5 +219,6 @@
     <view class='submit'>{{btnText}}</view>
   </view>
 </view>
+<!-- 选择商品规格 end -->
 
 <template is="backTop" wx:if="{{backTopValue ==true}}" />

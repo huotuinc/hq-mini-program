@@ -35,7 +35,7 @@ Page({
       data: that.data.historyList
     })
     wx.navigateTo({
-      url: '../goodslist/goods-list?categoryTitle=搜索结果&keyworld=' + this.data.inputSearch
+      url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyworld=' + this.data.inputSearch
     })
   },
 
@@ -59,7 +59,7 @@ Page({
   startSearch: function(e) {
     // console.log(e.target.dataset.con)
     wx.navigateTo({
-      url: '../goodslist/goods-list?categoryTitle=搜索结果&keyworld=' + e.target.dataset.con
+      url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyworld=' + e.target.dataset.con
     })
   },
 

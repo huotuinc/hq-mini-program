@@ -6,7 +6,7 @@
 
     <view class='goods-item-right'>
       <view class='goods-item-title goods-item-logo'>
-        <image src='http://jinbao.pinduoduo.com/favicon.ico'></image>
+        <image src=''></image>
         <text>{{item.title}}</text>
       </view>
 

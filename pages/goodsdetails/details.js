@@ -13,10 +13,31 @@ Page({
     categoryTitle: '',
     btnText: '立即购买',
     shopNum: 1,
-    backTopValue: false
+    backTopValue: false,
+    swiperDetail: false,
+    starData: {
+      starSelect: 4,
+      star: 1
+    }
   },
+
+  watchBigImage: function(e) {
+    this.setData({
+      swiperDetail: true
+    })
+  },
+
+  imageLoad: function(e) {
+    var $width = e.detail.width
+    var $height = e.detail.height
+    this.setData({
+      imgHeight: $height,
+      imagewidth: $width
+    })
+  },
+
   // 监听滚动条坐标
-  onPageScroll: function (e) {
+  onPageScroll: function(e) {
     //console.log(e)
     var that = this
     var scrollTop = e.scrollTop
@@ -27,10 +48,17 @@ Page({
   },
 
   // 滚动到顶部
-  backTop: function () {
+  backTop: function() {
     // 控制滚动
     wx.pageScrollTo({
       scrollTop: 0
+    })
+  },
+
+  //去评论列表页面
+  _goCommentList:function(e){
+    wx.navigateTo({
+      url: '../evaluate/conmmentList/index?goodsid=1',
     })
   },
   /**
@@ -39,15 +67,24 @@ Page({
   onLoad: function(options) {
     this.setData({
       item: {
-        title: "[减肥茶月瘦5-30斤]华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶",
-        imgSrc: "http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg",
-        goodsPrice: 27.99,
+        title: "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
+        imgSrc: [{
+            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
+          },
+          {
+            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
+          },
+          {
+            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
+          }
+        ],
+        goodsPrice: 198,
         /*商品价格*/
         salesVolume: 1800,
         /*销量价格*/
-        couponPrice: 4,
+        couponPrice: 4905,
         /*优惠券价格*/
-        finalPrice: 23.99,
+        finalPrice: 158,
         /*最终价格*/
         isFav: true,
         /*是否收藏*/
@@ -66,30 +103,23 @@ Page({
     var data = {
       goodsid: options.goodsid
     }
-    goodsdetails.goodsDetails(data, function(code, res) {
-      if (code) {
-        self.setData({
-          item: res.data
-        });
-      } else {
-        self.setData({
-          loading: false
-        })
-      }
+    goodsdetails.goodsDetails(data, function(res) {
+      console.log(res)
+
     })
   },
 
-  _goService:function(e){
+  _goService: function(e) {
     wx.switchTab({
       url: '../service/index',
     })
   },
-  _goIndex:function(e){
+  _goIndex: function(e) {
     wx.switchTab({
       url: '../index/index',
     })
   },
-  _goShop:function(e){
+  _goShop: function(e) {
     wx.switchTab({
       url: '../shop/index',
     })
@@ -98,9 +128,11 @@ Page({
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     this.setData({
-      btnText: e.currentTarget.dataset.btntext
+      btnText: e.currentTarget.dataset.btntext,
+      swiperDetail: false
     })
   },
+
   util: function(currentStatu) {
     /* 动画部分 */
     // 第1步：创建动画实例   
@@ -114,7 +146,7 @@ Page({
     this.animation = animation;
 
     // 第3步：执行第一组动画：Y轴偏移240px后(盒子高度是240px)，停  
-    animation.translateY(240).step();
+    animation.translateY(500).step();
 
     // 第4步：导出动画对象赋给数据对象储存  
     this.setData({
@@ -155,7 +187,7 @@ Page({
       })
     }
   },
-  
+
   numAdd: function(e) {
     var num = this.data.shopNum
     num += 1

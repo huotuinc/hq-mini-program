@@ -1,6 +1,6 @@
 .address-item {
   border-top: 1px solid #f2f2f2;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #666;
 }
 
@@ -36,15 +36,18 @@
 }
 
 .item-center text {
-  line-height: 1.6;
+  line-height: 1.2;
 }
 
 .iten-right {
   position: absolute;
   right: 0;
-  top: 35%;
+  height: 100%;
+  top: 0%;
+  padding-top: 5%;
   width: 100rpx;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .iten-right text {

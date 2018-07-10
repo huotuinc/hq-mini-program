@@ -1,29 +1,30 @@
 <template name="itemTwo">
-  <view class="goods-item-two"  bindtap='goodsDetails' data-goodsId='{{item.goodsId}}'>
+  <view class="goods-item-two" bindtap='goodsDetails' data-goodsId='{{item.goodsId}}' data-title="{{item.Name}}">
     <view class='item-box'>
       <view>
         <view class='goods-item-pic'>
-          <image src='{{item.imgSrc}}'></image>
+          <image src='{{item.PicUrl}}'></image>
         </view>
         <view class='goods-item-tow-text'>
-          <text class='goods-item-two-title'>{{item.title}}</text>
+          <text class='goods-item-two-title'>{{item.Name}}</text>
         </view>
         <view class='goods-item-two-text1'>
-          <text class='goods-item-price'>￥{{item.goodsPrice}}</text>
-          <text class='goods-item-sales_volume'>销量{{item.salesVolume}}件</text>
+          <text class='goods-item-price'>￥{{item.Price}}</text> 
+          <text class='goods-item-sales_volume'>销量{{item.Sales}}件</text>
         </view>
       </view>
       <view class='goods-item-two-text2'>
         <text class='coupon-price'>￥{{item.finalPrice}}</text>
-        <icon catchtap='clickFavTab' data-item='{{item}}' data-type='goodsItems' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-xin':'icon-heart'}}"></icon>
+        <icon catchtap='clickFavTab' data-goodsid='{{item.goodsId}}' data-isFav='{{item.isFav}}' data-item='{{item}}' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-heart':'icon-xin'}}"></icon>
       </view>
 
-       <view>
+      <view class='goods-item-coupon'>
         <view class='goods-item-coupon-text'>
           购买送
         </view>
-       <text class='goods-item_integral'> 2积分</text>
-      </view> 
+        <text class='goods-item_integral'> {{item.EarnMiBean}}觅豆</text>
+      </view>
+
     </view>
   </view>
 </template>

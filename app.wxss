@@ -5,7 +5,7 @@
 page {
   font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;
   font-weight: normal;
-  background-color: #F0EFF5;
+  background-color: #f0eff5;
 }
 
 /**隐藏scroll-view滚动条*/
@@ -47,7 +47,7 @@ page {
 }
 
 .allOrder {
-  color: #C8C7CD;
+  color: #999;
 }
 
 .allOrder::after {
@@ -56,7 +56,7 @@ page {
   height: 12rpx;
   width: 12rpx;
   border-width: 4rpx 4rpx 0 0;
-  border-color: #C8C7CD;
+  border-color: #c8c7cd;
   border-style: solid;
   -webkit-transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
   transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
@@ -69,7 +69,7 @@ page {
   height: 80rpx;
   line-height: 80rpx;
   text-align: center;
-  border-radius: 15rpx;
+  border-radius: 12rpx;
   font-size: 30rpx;
   background-color: #e41436;
   color: #fff;
@@ -84,11 +84,62 @@ page {
   right: 20rpx;
   bottom: 130rpx;
   border-radius: 30rpx;
-  box-shadow: 0px 0px 3px #000;
+  border: 1px solid #f5f5f5;
   line-height: 60rpx;
   text-align: center;
 }
 
 .backTop text {
   font-size: 45rpx;
+}
+
+.touch-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.del {
+  font-size: 28rpx;
+  background-color: #e41436;
+  width: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(120rpx);
+  transform: translateX(120rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.touch-move-active .item, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+ .item {
+  width: 100%;
+  padding: 30rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #f0eff5;
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(120rpx);
+  transform: translateX(120rpx);
+  margin-left: -120rpx;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; /*初始状态 透明度为0*/
+  }
+
+  100% {
+    opacity: 1; /*结尾状态 透明度为1*/
+  }
 }
