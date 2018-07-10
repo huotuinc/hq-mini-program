@@ -5,15 +5,9 @@ App({
    * 全局变量数据
    */
   globalData: {
-<<<<<<< HEAD
     mock:true,
     client_id: "wx461ef1c099dc8738",
     client_secret: "20678f117838b053c397c919e0c61521",
-=======
-    mock: true,
-    client_id: "",
-    client_secret: "",
->>>>>>> a2b077ed00d6f01bb983ca72efa6dea858d9920d
     app_secret: "4165a8d240b29af3f41818d10599d0d1",
     hasLogin: false,
     loading: false,
