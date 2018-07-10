@@ -1,8 +1,9 @@
 <import src="../template/goods-item/goods-item-two-template.wxml" />
 <import src="../template/search/search-template" />
 <import src="../template/backTop/backTop" />
+<import src="../template/loading/loading.wxml" />
 
-<view >
+<view>
   <view class='goods-list_header'>
     <template is="search-header" />
     <view class="category-goods-filter">
@@ -41,64 +42,31 @@
     <view class='filtrate-header'>
       <view class="tab-item {{currentTab==0?'active':''}}" data-index='0' bindtap="swichNav">品牌</view>
       <view class="tab-item {{currentTab==1?'active':''}}" data-index='1' bindtap="swichNav">分类</view>
-      <view class="tab-item {{currentTab==2?'active':''}}" data-index='2' bindtap="swichNav">热点</view>
+      <view class="tab-item {{currentTab==2?'active':''}}" data-index='2' bindtap="swichNav">标签</view>
     </view>
     <scroll-view class='filtrate-select' scroll-y style='height:{{clientHeight-190}}px;'>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-        <text>kurui</text>
+      <view wx:for='{{goodsBrands}}' wx:for-item='item' data-index='{{index}}' wx:if='{{currentTab ==0}}' data-item='{{item}}' catchtap='_selectBrands'>
+        <icon class="icon iconfont {{item.isSelect?'icon-xuanzhong':'icon-ico2'}}"></icon>
+        <text>{{item.BrandName}}</text>
       </view>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-        <text>ku</text>
+
+      <view wx:for='{{goodsCats}}' wx:for-item='item' data-index='{{index}}' wx:if='{{currentTab ==1}}' data-item='{{item}}' catchtap='_selectCats'>
+        <icon class="icon iconfont {{item.isSelect?'icon-xuanzhong':'icon-ico2'}}"></icon>
+        <text>{{item.CatName}}</text>
       </view>
-      <view>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-        <text>11111</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-        <text>2222</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-        <text>kurui</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-        <text>ku</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-        <text>11111</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-        <text>2222</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-        <text>kurui</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-ico2'></icon>
-        <text>ku</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-        <text>11111</text>
-      </view>
-      <view>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
-        <text>2222</text>
+
+      <view wx:for='{{goodsTags}}' wx:for-item='item' data-index='{{index}}' wx:if='{{currentTab ==2}}' data-item='{{item}}' catchtap='_selectTags'>
+        <icon class="icon iconfont {{item.isSelect?'icon-xuanzhong':'icon-ico2'}}"></icon>
+        <text>{{item.TagName}}</text>
       </view>
 
     </scroll-view>
 
-    <view class='filtrate-btn'>
+    <view class='filtrate-btn' catchtap='_getFiltrateList'>
       <text>确认</text>
     </view>
   </view>
 </view>
 
 <template is="backTop" wx:if="{{backTopValue ==true}}" />
+<template is="loading" wx:if="{{loading}}" />

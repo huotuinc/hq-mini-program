@@ -46,3 +46,11 @@
   padding-right:30rpx; 
   color: #666;
 }
+
+
+.btn-delete{
+  margin-top: 20rpx;
+  border: 1px solid #f5f5f5;
+  background-color: #fff;
+  color: #000;
+}

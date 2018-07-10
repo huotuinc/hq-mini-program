@@ -1,22 +1,30 @@
-const indexData = require('../../utils/mock/index.js')
 import {
   windowHeight
 } from '../../utils/common.js'
-
 import config from '../../config.js'
+import goodsList from '../../utils/request/home.js'
+import goodsdetails from '../../utils/request/goodsdetails.js'
 import collectgoods from '../../utils/request/collectgoods.js'
 const app = getApp()
+
 Page({
   data: {
+    loading: true,
     filterTap: 1,
     order: 2,
-    goodsItems: [],
-    categoryTitle: '',
-    currentTab: 0,
-    showModalStatus: false,
-    categoryid: 0,
-    statu: "open",
-    backTopValue: false
+    orderType: 1, //排序方式
+    page: 1, //页码
+    loadPage: 2, //加载页码
+    pageSize: 20, //每页数
+    goodsItems: [], //商品列表
+    categoryTitle: '', //页面头名称
+    currentTab: 0, //筛选分类默认
+    showModalStatus: false, //遮罩
+    statu: "open", //遮罩开关
+    backTopValue: false, //返回顶部
+    brandIds: [], //商品品牌搜索ID
+    tags: [], //商品分类搜索ID
+    catIds: [] //商品标签搜索ID
   },
 
   _goCollectGoods: function() {
@@ -29,6 +37,7 @@ Page({
       url: '../search/search'
     })
   },
+
   // 监听滚动条坐标
   onPageScroll: function(e) {
     var that = this
@@ -38,7 +47,6 @@ Page({
       backTopValue: backTopValue
     })
   },
-
   // 滚动到顶部
   backTop: function() {
     // 控制滚动
@@ -46,6 +54,8 @@ Page({
       scrollTop: 0
     })
   },
+
+  //切换商品排序
   clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset.type;
     var orderId = e.currentTarget.dataset.order
@@ -60,8 +70,71 @@ Page({
         filterTap: cur
       })
     }
+
+    //改变排序方式
+    if (cur == 1) {
+      if (orderId == 1) {
+        this.setData({
+          orderType: 1
+        })
+        this.getGoodsList({
+          page: this.data.page,
+          pageSize: this.data.pageSize,
+          orderType: this.data.orderType
+        })
+      } else {
+        this.setData({
+          orderType: 2
+        })
+        this.getGoodsList({
+          page: this.data.page,
+          pageSize: this.data.pageSize,
+          orderType: this.data.orderType
+        })
+      }
+    } else if (cur == 2) {
+      this.setData({
+        orderType: 3
+      })
+      this.getGoodsList({
+        page: this.data.page,
+        pageSize: this.data.pageSize,
+        orderType: this.data.orderType
+      })
+    } else if (cur == 3) {
+      if (orderId == 1) {
+        this.setData({
+          orderType: 5
+        })
+        this.getGoodsList({
+          page: this.data.page,
+          pageSize: this.data.pageSize,
+          orderType: this.data.orderType
+        })
+      } else {
+        this.setData({
+          orderType: 6
+        })
+        this.getGoodsList({
+          page: this.data.page,
+          pageSize: this.data.pageSize,
+          orderType: this.data.orderType
+        })
+      }
+    } else if (cur == 4) {
+      this.setData({
+        orderType: 0
+      })
+      this.getGoodsList({
+        page: this.data.page,
+        pageSize: this.data.pageSize,
+        orderType: this.data.orderType
+      })
+    }
+
   },
-  //点击收藏
+
+  //点击收藏/取消收藏
   clickFavTab: function(e) {
     var self = this
     var item = e.currentTarget.dataset.item
@@ -103,7 +176,23 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId + '&categoryTitle=埃阿斯嘉'
+      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId +
+        '&categoryTitle=' +
+        e.currentTarget.dataset.title
+    })
+  },
+
+  //获取商品列表
+  getGoodsList: function(data) {
+    this.setData({
+      loading: true
+    })
+    var self = this
+    goodsList.goodsList(data, function(res) {
+      self.setData({
+        goodsItems: res.goodsItems,
+        loading: false
+      })
     })
   },
   /**
@@ -111,9 +200,14 @@ Page({
    */
   onLoad: function(options) {
     var that = this
+    var keyword = options.keyword
+    this.getGoodsList({
+      page: that.data.page,
+      pageSize: that.data.pageSize,
+      orderType: that.data.orderType,
+      keyword: keyword
+    })
     this.setData({
-      goodsItems: indexData.goodsItems,
-      categoryid: options.categoryid || 0,
       categoryTitle: options.categoryTitle || '商品列表',
     })
     wx.setNavigationBarTitle({
@@ -131,9 +225,21 @@ Page({
       }
     })
   },
+
+  //筛选
   powerDrawer: function(e) {
+    var self = this
     var currentStatu = e.currentTarget.dataset.statu;
     if (currentStatu == "open") {
+      goodsdetails.goodsBrands(function(res) {
+        var data = res.data.data
+        for (let item in data) {
+          data[item].isSelect = false
+        }
+        self.setData({
+          goodsBrands: data
+        })
+      })
       this.setData({
         statu: "close",
         showModalStatus: true
@@ -152,8 +258,43 @@ Page({
     }
   },
 
+  //切换筛选条件
   swichNav: function(e) {
+    var self = this
     var cur = e.target.dataset.index
+    if (cur == 0) {
+      goodsdetails.goodsBrands(function(res) {
+        var data = res.data.data
+        for (let item in data) {
+          data[item].isSelect = false
+        }
+        console.log(data)
+        self.setData({
+          goodsBrands: data
+        })
+      })
+    } else if (cur == 1) {
+      goodsdetails.goodsCats(function(res) {
+        var data = res.data.data
+        for (let item in data) {
+          data[item].isSelect = false
+        }
+        self.setData({
+          goodsCats: data
+        })
+      })
+    } else {
+      goodsdetails.goodsTags(function(res) {
+        var data = res.data.data
+        for (let item in data) {
+          data[item].isSelect = false
+        }
+        self.setData({
+          goodsTags: data
+        })
+      })
+    }
+
     if (this.data.currentTab == cur) {
       return false
     }
@@ -162,26 +303,96 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function(e) {},
+  //具体筛选条件
+  _selectBrands: function(e) {
+    var brandIds = this.data.brandIds
+    var item = e.currentTarget.dataset.item
+    var index = e.currentTarget.dataset.index
+    var _items = this.data.goodsBrands
+    _items[index].isSelect = !item.isSelect
+    this.setData({
+      goodsBrands: _items
+    })
+    if (_items[index].isSelect) {
+      brandIds.push(_items[index].BrandId)
+    } else {
+      var idx = brandIds.indexOf(_items[index].BrandId)
+      brandIds.splice(idx, 1)
+    }
+    this.setData({
+      brandIds: brandIds
+    })
+  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
+  _selectCats: function(e) {
+    var catIds = this.data.catIds
+    var item = e.currentTarget.dataset.item
+    var index = e.currentTarget.dataset.index
+    var _items = this.data.goodsCats
+    _items[index].isSelect = !item.isSelect
+    this.setData({
+      goodsCats: _items
+    })
+    if (_items[index].isSelect) {
+      catIds.push(_items[index].CatId)
+    } else {
+      var idx = catIds.indexOf(_items[index].CatId)
+      catIds.splice(idx, 1)
+    }
+    this.setData({
+      catIds: catIds
+    })
+  },
+
+  _selectTags: function(e) {
+    var tags = this.data.tags
+    var item = e.currentTarget.dataset.item
+    var index = e.currentTarget.dataset.index
+    var _items = this.data.goodsTags
+    _items[index].isSelect = !item.isSelect
+    this.setData({
+      goodsTags: _items
+    })
+    if (_items[index].isSelect) {
+      tags.push(_items[index].TagId)
+    } else {
+      var idx = tags.indexOf(_items[index].TagId)
+      tags.splice(idx, 1)
+    }
+    this.setData({
+      tags: tags
+    })
+  },
+
+  //获取筛选商品列表
+  _getFiltrateList: function() {
+    var brandIds = this.data.brandIds.join(',')
+    var catIds = this.data.catIds.join(',')
+    var tags = this.data.tags.join(',')
+    if (brandIds || catIds || tags) {
+      this.getGoodsList({
+        page: this.data.page,
+        pageSize: this.data.pageSize,
+        orderType: this.data.orderType,
+        brandIds: brandIds || '',
+        catIds: catIds || '',
+        tags: tags || ''
+      })
+    } else {
+      wx.showToast({
+        title: '请选择筛选条件',
+        icon: 'none'
+      })
+      return
+    }
+    this.setData({
+      showModalStatus: false
+    })
+
 
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {},
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
+  onShow: function() {
 
   },
 
@@ -189,8 +400,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    this.setData({
-      goodsItems: indexData.goodsItems
+    this.getGoodsList({
+      page: this.data.page,
+      pageSize: this.data.pageSize,
+      orderType: this.data.orderType
     })
     wx.stopPullDownRefresh();
   },
@@ -199,10 +412,29 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    var _goodsItems = this.data.goodsItems;
-    this.setData({
-      goodsItems: _goodsItems.concat(indexData.goodsItems)
-    })
+    var self = this
+    var page = this.data.loadPage
+    var _goodsItems = this.data.goodsItems
+    goodsList.goodsList({
+        page: page++,
+        pageSize: self.data.pageSize,
+        orderType: self.data.orderType
+      },
+      function(res) {
+        if (res.goodsItems.length > 0) {
+          self.setData({
+            loading: false,
+            goodsItems: _goodsItems.concat(res.goodsItems),
+            loadPage: page++
+          })
+        } else {
+          wx.showToast({
+            title: '没有更多商品',
+            icon: 'none'
+          })
+        }
+      }
+    )
   },
 
   /**

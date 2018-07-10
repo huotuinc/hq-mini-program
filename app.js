@@ -26,6 +26,7 @@ App({
     var self = this;
     wx.getSystemInfo({
       success: function(res) {
+        console.log(res)
         self.globalData.osVersion = res.system;
         self.globalData.mobileType = res.model;
       },
@@ -33,9 +34,20 @@ App({
 
     wx.login({
       success: function(res) {
-      console.log(res)
+        console.log(res)
+        wx.getUserInfo({
+          withCredentials: true,
+          success: function(res) {
+            //此处为获取微信信息后的业务方法
+            console.log(res)
+          },
+          fail:function(err){
+            console.log(err)
+          }
+        })
       }
     })
+
   },
 
   /**

@@ -4,13 +4,11 @@
     "pages/usercenter/index",
     "pages/shop/index",
     "pages/goodsdetails/details",
-    "pages/classify/classification",
     "pages/search/search",
     "pages/collectgoods/collectgoods",
     "pages/order/order-list",
     "pages/setting/setting",
     "pages/goodslist/goods-list",
-    "pages/usercenter/newsFeed/newsFeed",
     "pages/usercenter/withdraw/withdraw",
     "pages/usercenter/balance/balance",
     "pages/usercenter/integral/integral",
@@ -52,12 +50,6 @@
         "text": "首页",
         "iconPath": "images/a-b.png",
         "selectedIconPath": "images/a.png"
-      },
-      {
-        "pagePath": "pages/classify/classification",
-        "text": "分类",
-        "iconPath": "images/b-b.png",
-        "selectedIconPath": "images/b.png"
       },
       {
         "pagePath": "pages/shop/index",

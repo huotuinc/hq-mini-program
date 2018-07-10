@@ -42,7 +42,7 @@ var deleteOrder = function(data, callback) {
   })
 }
 
-//确认订单
+//确认收货
 var confirmOrder = function(data, callback) {
   app.request({
     url: config.confirmOrder,

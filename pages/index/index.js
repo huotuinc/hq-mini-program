@@ -14,7 +14,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loading: false,
+    loading: true,
     bannerItems: [],
     scrollIntoView: 1,
     category: [],
@@ -179,14 +179,11 @@ Page({
     if (app.globalData.mock) {
       this.setData({
         category: indexData.categoryItems,
-        bannerItems: indexData.bannerItems,
+        // bannerItems: indexData.bannerItems,
         specialItems: indexData.specialItems,
         currentCategory: indexData.categoryItems[this.data.currentTab].child
       })
     }
-    this.setData({
-      // loading: true
-    })
 
     app.request({
       url: config.homeRecommendUrl,
@@ -254,19 +251,12 @@ Page({
         page: page++,
         pageSize: self.data.pageSize
       },
-      function(code, res) {
-        if (code) {
-          if (res.goodsItems.length > 0) {
-            self.setData({
-              hidden: false,
-              goodsItems: _goodsItems.concat(res.goodsItems),
-              page: page++
-            })
-          }
-        } else {
+      function(res) {
+        if (res.goodsItems.length > 0) {
           self.setData({
             hidden: false,
-            loadingTitle: '没有更多'
+            goodsItems: _goodsItems.concat(res.goodsItems),
+            page: page++
           })
         }
       }

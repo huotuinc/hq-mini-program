@@ -9,17 +9,17 @@
           <text class='informatiom-name'>{{item.RealName}}</text>
           <text>{{item.AccountInfo}}</text>
         </view>
-        <view class='compile' catchtap='_showCompile' data-accountId='{{item.AccountId}}' data-RealName='{{item.RealName}}' data-AccountInfo='{{item.AccountInfo}}'>编辑</view>
+        <view class='compile' catchtap='_showCompile' data-accountId='{{item.AccountId}}' data-item='{{item}}'>编辑</view>
       </view>
     </view>
   </block>
 </view>
-<view class='add_account' catchtap='_goModification' data-categorytitle='添加提现账号'>+ 添加提现账号</view>
+<view class='add_account' catchtap='_addModification'>+ 添加提现账号</view>
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
 
 <view class='model_content' wx:if="{{showModal}}">
   <view style='color:#666;'>编辑</view>
-  <view catchtap='_goModification' data-categorytitle='修改提现账号'>修改提现账号</view>
+  <view catchtap='_goModification'>修改提现账号</view>
   <view catchtap='_setDefault'>设为默认</view>
   <view catchtap='_deleteAccoun'>删除提现账号</view>
-</view>  
+</view>

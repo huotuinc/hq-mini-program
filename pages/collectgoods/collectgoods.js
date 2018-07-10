@@ -122,7 +122,7 @@ Page({
     var index = e.currentTarget.dataset.index
     var _items = this.data.hotItems
     _items[index].isFav = !item.isFav
-    this.setData({
+    this.setData({ 
       hotItems: _items
     })
     let num = 0

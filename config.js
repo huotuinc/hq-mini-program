@@ -15,6 +15,12 @@ var config = {
   categoryUrl: `${host}/goods/category`,
   // 商品连接
   goodsDetailsUrl: `${host}/goods/category`,
+  //商品品牌
+  goodsBrands: `${host}/goods/brands`,
+  //商品标签
+  goodsTags: `${host}/goods/tags`,
+  //商品分类
+  goodsCats: `${host}/goods/cats`,
   //添加/删除收藏
   addCollection: `${host}/user/addCollection`,
   //我的收藏

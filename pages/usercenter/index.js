@@ -27,12 +27,6 @@ Page({
       url: '../order/order-list?currenttab=' + cur,
     })
   },
-  //前往消息中心
-  _goNewsFeed: function(e) {
-    wx.navigateTo({
-      url: './newsFeed/newsFeed',
-    })
-  },
   // 前往待结算页面
   _goBalance: function(e) {
     wx.navigateTo({
@@ -79,10 +73,13 @@ Page({
       })
     })
   },
+  onGotUserInfo: function(res) {
+    console.log(res.detail)
+  },
   onLoad: function(options) {
     // this.userIndex()
   },
   onShow: function() {
     this.userIndex()
-  },
+  }
 })
