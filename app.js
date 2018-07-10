@@ -17,7 +17,8 @@ App({
     osType: 0,
     osVersion: '',
     userId: 0,
-    userToken: ''
+    userToken: '',
+    customerId:4886
   },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
@@ -68,6 +69,7 @@ App({
     delete signParams['sign']
     //userToken加入签名
     signParams.userToken = this.globalData.userToken
+    signParams.customerId = this.globalData.customerId
     // 过滤空值
     for (let param in signParams) {
       if (signParams[param] === '' || signParams[param] === undefined || signParams[param] === null) {
@@ -77,6 +79,7 @@ App({
     const newParams = JSON.parse(JSON.stringify(signParams))
     //移除userToken
     delete signParams['userToken'];
+    delete signParams['customerId'];
     return md5(this.raw(newParams) + this.globalData.app_secret)
   },
   /**
