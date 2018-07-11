@@ -1,5 +1,5 @@
-const shop = require('../../utils/mock/shop.js')
-
+import config from '../../config.js'
+import cart from '../../utils/request/goodShop.js'
 var app = getApp()
 
 Page({
@@ -11,8 +11,8 @@ Page({
     edit: false,
     editTitle: '编辑',
     closeTitle: '结算',
-    isSelect:false,//商品是否全选
-    shopIsSelect:false //某供应商的商品是否全选
+    isSelect: false, //商品是否全选
+    shopIsSelect: false //某供应商的商品是否全选
   },
 
   //编辑操作
@@ -49,7 +49,7 @@ Page({
 
   //左划删除
   touchstart: function(e) {
-    this.data.items.forEach(function(v, i) {
+    this.data.items.Products.forEach(function(v, i) {
       if (v.isTouchMove)
         v.isTouchMove = false;
     })
@@ -73,7 +73,7 @@ Page({
         X: touchMoveX,
         Y: touchMoveY
       });
-    that.data.items.forEach(function(v, i) {
+    that.data.items.Products.forEach(function(v, i) {
       v.isTouchMove = false
       if (Math.abs(angle) > 30) return;
       if (i == index) {
@@ -93,16 +93,95 @@ Page({
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
   },
   del: function(e) {
-    this.data.items.splice(e.currentTarget.dataset.index, 1)
+    // this.data.items.Products.splice(e.currentTarget.dataset.index, 1)
+    // this.setData({
+    //   items: this.data.items
+    // })
+    var index = e.currentTarget.dataset.index
+    var _items = this.data.items
+    this.delCart({
+      goodsId: _items.Products[index].GoodsId,
+      productId: _items.Products[index].ProductId
+    })
+  },
+
+  //购物车获取
+  getGoods: function(e) {
+    var self = this
+    cart.getCartGoods(function(res) {
+      self.setData({
+        items: res.cartGoods
+      })
+    })
+  },
+
+  //购物车修改
+  updateCart: function(data) {
+    cart.updateCart(data, function(res) {
+      console.log(res)
+    })
+  },
+
+  //减少购买数量
+  minus: function(e) {
+    var index = e.currentTarget.dataset.index
+    var _items = this.data.items
+    if (_items.Products[index].Nums <= 1) {
+      _items.Products[index].Nums = 1
+      wx.showToast({
+        title: '亲不能再少了',
+        icon: 'none'
+      })
+      return
+    } else {
+      _items.Products[index].Nums--
+    }
     this.setData({
-      items: this.data.items
+      items: _items
+    })
+
+    this.updateCart({
+      goodsId: _items.Products[index].GoodsId,
+      productId: _items.Products[index].ProductId,
+      updateType: 0,
+      quantity: _items.Products[index].Nums
+    })
+  },
+  //增加购买数量
+  addnus: function(e) {
+    var index = e.currentTarget.dataset.index
+    var _items = this.data.items
+    if (_items.Products[index].Nums >= _items.Products[index].AvaliableStore) {
+      _items.Products[index].Nums = _items.Products[index].AvaliableStore
+      wx.showToast({
+        title: '已超出购买数量',
+        icon: 'none'
+      })
+      return
+    } else {
+      _items.Products[index].Nums++
+    }
+    this.setData({
+      items: _items
+    })
+
+    this.updateCart({
+      goodsId: _items.Products[index].GoodsId,
+      productId: _items.Products[index].ProductId,
+      updateType: 0,
+      quantity: _items.Products[index].Nums
+    })
+  },
+
+  // 购物车删除
+  delCart: function(data) {
+    cart.removeCart(data, function(res) {
+      console.log(res)
     })
   },
 
   onLoad: function(options) {
-    this.setData({
-      items: shop.shopList
-    })
+    this.getGoods()
   },
 
   /**

@@ -2,11 +2,12 @@
  * 小程序配置文件
  */
 var host = "http://yapi.demo.qunar.com/mock/11987/api"
+// var host = "http://mfapi.mfmall.com"
 
 var config = {
   host,
   // 登录地址
-  loginUrl: `${host}/user/LoginByAuthCode`,
+  loginUrl: `${host}/user/loginByAuthCode`,
   // 首页推荐
   homeRecommendUrl: `${host}/goods/recommend`,
   // 商品列表
@@ -25,8 +26,7 @@ var config = {
   addCollection: `${host}/user/addCollection`,
   //我的收藏
   myCollection: `${host}/user/myCollection`,
-  //搜索商品
-  searchGoods: `${host}/goods/search`,
+
   //热门搜索关键字
   hotsearchkeyworld: `${host}/goods/hotsearchkeyworld`,
   //商品详情
@@ -94,7 +94,17 @@ var config = {
   //删除收货地址
   deleteAddress: `${host}/user/deleteAddress`,
   //设置默认收货地址
-  changeAddressDefault: `${host}/user/changeAddressDefault`
+  changeAddressDefault: `${host}/user/changeAddressDefault`,
+
+  //购物车
+  //获取购物车
+  getCart: `${host}/cart/get`,
+  //购物车添加
+  addCart: `${host}/cart/add`,
+  //购物车修改
+  updateCart: `${host}/cart/update`,
+  //购物车删除
+  removeCart: `${host}/cart/remove`
 }
 
 module.exports = config
