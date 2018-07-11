@@ -10,8 +10,8 @@
 <view wx:else>
   <view class='shopping'>
     <view class='merchant'>
-      <view class='merchant-left'>
-        <icon class='icon iconfont icon-xuanzhong'></icon>
+      <view class='merchant-left' catchtap='shopIsSelect'>
+        <icon class="icon iconfont {{shopIsSelect?'icon-xuanzhong':'icon-ico2'}}"></icon>
         <text class=''>商场自营</text>
       </view>
       <view class='merchant-right' catchtap='_editHandle' data-editTile='{{editTitle}}'>{{editTitle}}</view>
@@ -19,8 +19,8 @@
     <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items.Products}}" wx:key="item">
       <view class='item'>
         <view class='shop-item'>
-          <view>
-            <icon class='icon iconfont icon-xuanzhong'></icon>
+          <view catchtap='isChecked' data-index='{{index}}'>
+            <icon class="icon iconfont {{item.IsChecked?'icon-xuanzhong':'icon-ico2'}}"></icon>
           </view>
           <view class='my-order_con' catchtap='_goGoodsDetails'>
             <view>
@@ -51,9 +51,9 @@
             </view>
           </view>
         </view>
-        <view class='item-other' wx:if="{{!edit}}">
-          <!-- <text>活动：觅方66节下单就返3-8元随机无门槛优惠券</text> -->
-        </view>
+        <!-- <view class='item-other' wx:if="{{!edit}}">
+           <text>活动：觅方66节下单就返3-8元随机无门槛优惠券</text> 
+        </view> -->
       </view>
       <view class="del" catchtap="del" data-index="{{index}}">删除</view>
     </view>
@@ -62,19 +62,19 @@
   <view style='height:116rpx;'></view>
 
   <view class='balance'>
-    <view class='balance-left'>
-      <icon class='icon iconfont icon-xuanzhong'></icon>
+    <view class='balance-left' catchtap='isSelect'>
+      <icon class="icon iconfont {{isSelect?'icon-xuanzhong':'icon-ico2'}}"></icon>
       <view class='pay-total'>
         <view>
           总计
-          <text style='color:#e41436;'>1076元</text>
+          <text style='color:#e41436;'>{{items.PayedAdvance}}元</text>
         </view>
         <view>
-          <text>已减0元</text>
+          <text>已减{{items.TotalPmtAmount}}元</text>
         </view>
       </view>
     </view>
-    <view class='balance-right'>
+    <view class='balance-right' catchtap='_goOrderClose'>
       {{closeTitle}}
     </view>
   </view>

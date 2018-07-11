@@ -3,7 +3,7 @@
 <view wx:if="{{detail == 1}}">
   <view class="consignee-information">
     <text>收货人：XX</text>
-    <text>联系方式：1500000000</text>
+    <text>联系方式：1500000000</text> 
     <text>收获地址：</text>
     <text>杭州市滨江区阡陌路22号智慧e谷B幢4楼</text>
   </view>

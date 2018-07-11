@@ -109,6 +109,23 @@ Page({
   getGoods: function(e) {
     var self = this
     cart.getCartGoods(function(res) {
+      var num = 0
+      for (let idx in res.cartGoods.Products) {
+        if (res.cartGoods.Products[idx].IsChecked) {
+          num++
+        }
+      }
+      if (num < res.cartGoods.Products.length) {
+        self.setData({
+          isSelect: false,
+          shopIsSelect: false
+        })
+      } else {
+        self.setData({
+          isSelect: true,
+          shopIsSelect: true
+        })
+      }
       self.setData({
         items: res.cartGoods
       })
@@ -117,8 +134,10 @@ Page({
 
   //购物车修改
   updateCart: function(data) {
+    var self = this
     cart.updateCart(data, function(res) {
       console.log(res)
+      self.getGoods()
     })
   },
 
@@ -173,11 +192,133 @@ Page({
     })
   },
 
+  //是否购买/选中
+  isChecked: function(e) {
+    var index = e.currentTarget.dataset.index
+    var _items = this.data.items
+    var num = 0
+    if (_items.Products[index].IsChecked) {
+      _items.Products[index].IsChecked = 0
+    } else {
+      _items.Products[index].IsChecked = 1
+    }
+
+    //购物车是否选中修改
+    this.updateCart({
+      goodsId: _items.Products[index].GoodsId,
+      productId: _items.Products[index].ProductId,
+      updateType: 1,
+      isChecked: _items.Products[index].IsChecked
+    })
+
+    this.setData({
+      items: _items
+    })
+
+    for (let idx in _items.Products) {
+      if (_items.Products[idx].IsChecked) {
+        num++
+      }
+    }
+
+    if (num < _items.Products.length) {
+      this.setData({
+        isSelect: false,
+        shopIsSelect: false
+      })
+    } else {
+      this.setData({
+        isSelect: true,
+        shopIsSelect: true
+      })
+    }
+  },
+
   // 购物车删除
   delCart: function(data) {
     cart.removeCart(data, function(res) {
       console.log(res)
     })
+  },
+
+  //某商店商品全选/全不选
+  shopIsSelect: function(e) {
+    var shopIsSelect = this.data.shopIsSelect
+    var _items = this.data.items
+    if (shopIsSelect) {
+      for (let idx in _items.Products) {
+        _items.Products[idx].IsChecked = 0
+      }
+      this.setData({
+        items: _items,
+        shopIsSelect: false,
+        isSelect: false
+      })
+    } else {
+      for (let idx in _items.Products) {
+        _items.Products[idx].IsChecked = 1
+      }
+      this.setData({
+        items: _items,
+        shopIsSelect: true
+      })
+    }
+  },
+
+  //全部商品的全选/全不选
+  isSelect: function(e) {
+    var isSelect = this.data.isSelect
+    var _items = this.data.items
+    var data = []
+    if (isSelect) {
+      for (let idx in _items.Products) {
+        _items.Products[idx].IsChecked = 0
+        var item = {
+          goodsId: _items.Products[idx].GoodsId,
+          productId: _items.Products[idx].ProductId,
+          updateType: 1,
+          quantity: _items.Products[idx].Nums,
+          isChecked: _items.Products[idx].IsChecked,
+          pmtId: _items.Products[idx].SelectedPmtId
+        }
+        data.push(item)
+      }
+      this.updateCart(data)
+      this.setData({
+        items: _items,
+        shopIsSelect: false,
+        isSelect: false
+      })
+    } else {
+      for (let idx in _items.Products) {
+        _items.Products[idx].IsChecked = 1
+        var item = {
+          goodsId: _items.Products[idx].GoodsId,
+          productId: _items.Products[idx].ProductId,
+          updateType: 1,
+          quantity: _items.Products[idx].Nums,
+          isChecked: _items.Products[idx].IsChecked,
+          pmtId: _items.Products[idx].SelectedPmtId
+        }
+        data.push(item)
+      }
+      this.updateCart(data)
+      this.setData({
+        items: _items,
+        shopIsSelect: true,
+        isSelect: true
+      })
+    }
+  },
+
+  //去订单结算页面/批量删除购物车
+  _goOrderClose: function(e) {
+    var closeTitle = this.data.closeTitle
+    if (closeTitle == '结算') {
+      wx.navigateTo({
+        url: '../orderdetails/index?detail=1',
+      })
+    }
   },
 
   onLoad: function(options) {
