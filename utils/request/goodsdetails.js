@@ -45,9 +45,8 @@ var goodsDetails = function(data, callback) {
     method: "get",
     success: function(res) {      
       var result = res.data;
-      if (result.code == 200) {
-        var data=result.data
-        callback(resolveToDetails(data))
+      if (result.code == 200) {        
+        callback(result.data)
       }
     },
     fail: function(error) {

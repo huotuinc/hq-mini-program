@@ -4,7 +4,7 @@
   <view class='goods-details-main-pic' catchtap='watchBigImage'>
     <view style='height:{{imgHeight}}rpx;'>
       <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
-        <block wx:for="{{goodsItem.imgSrc}}" wx:key="item">
+        <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
           <swiper-item>
             <view class="swiper-item">
               <image lazy-load='true' src='{{item.PicUrl}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
@@ -16,21 +16,21 @@
   </view>
   <view class='goods-details-info-box'>
     <view class='goods-item-title'>
-      <text>{{goodsItem.title}}</text>
+      <text>{{goodsItem.Base.Name}}</text>
     </view>
     <view class='send-specification'>
-      <text>{{goodsItem.SubTitle}}</text>
+      <text>{{goodsItem.Base.SubTitle}}</text>
     </view>
     <view class='product-trademark'>
       品牌：
-      <text>{{goodsItem.BrandName}}</text>
+      <text>{{goodsItem.Base.BrandName}}</text>
     </view>
     <view class='goods-item-two-text2'>
-      <text class='goods-final-price'>￥{{goodsItem.goodUserPrice}}</text>
+      <text class='goods-final-price'>￥{{specData.price}}</text>
     </view>
     <view class='goods-item-two-text1'>
-      <text class='goods-item-price'>￥{{goodsItem.goodsPrice}}</text>
-      <text class='goods-item-sales_volume'>总销量：{{goodsItem.salesVolume}}</text>
+      <text class='goods-item-price' wx:if="{{specData.isUserPrice}}">￥{{goodsItem.Base.Price}}</text>
+      <text class='goods-item-sales_volume'>总销量：{{goodsItem.Base.SalesCount}}</text>
     </view>
     <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext="立即购买">
       <text>请选择规格</text>
@@ -40,7 +40,7 @@
 
   <view class='privilege'>
     <view class='promotion'>
-      <block wx:for="{{goodsItem.PmtItems}}" wx:key="item">
+      <block wx:for="{{goodsItem.Promotion}}" wx:key="item">
       <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
       <text class="tagname">{{item.TagName}}</text>
       <text class='ellips'>{{item.Describe}}</text>
@@ -54,10 +54,10 @@
 <!-- 商品编号 start -->
 <view class='old_price_wrap'>
   <view class='gBN'>
-    <text>商品编号：{{goodsItem.BN}}</text>
+    <text>商品编号：{{goodsItem.Base.BN}}</text>
   </view>
   <view class='saleTag'>
-    <view wx:for="{{goodsItem.SaleTag}}" wx:key="item">
+    <view wx:for="{{specData.SaleTag}}" wx:key="item">
       <icon class='icon iconfont icon-dui'></icon>
       {{item}}
     </view>
@@ -71,8 +71,8 @@
 <!-- 商品评论 start -->
 <view style='margin-top:2rpx;'>
   <view class='comment' catchtap='_goCommentList'>
-    <text>评价（38）</text>
-    <text class='allOrder'>好评度99%</text>
+    <text>评价（{{commentData.num}}）</text>
+    <text class='allOrder'>好评度{{commentData.praise}}%</text>
   </view>
   <!-- 评论内容 start -->
   <view>
@@ -115,7 +115,7 @@
 <!-- 商品介绍  start-->
 <view class='goods-details-info'>
   <view class='goods-details'>
-    <block wx:for="{{goodsItem.DescImgList}}" wx:key="{{item}}">
+    <block wx:for="{{goodsItem.Base.DescImgList}}" wx:key="{{item}}">
       <image src='{{item.pic}}' mode="widthFix"></image>
     </block>
   </view>
@@ -147,20 +147,21 @@
   </view>
 </view>
 
-
-<view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
+<!--点击商品主图全屏显示 begin  -->
+ <view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
   <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
-    <block wx:for="{{goodsItem.imgSrc}}" wx:key="item">
+    <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
       <swiper-item>
         <view class="swiper-item" catchtap='powerDrawer'>
-          <image lazy-load='true' src='{{item.image}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+          <image lazy-load='true' src='{{item.PicUrl}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
         </view>
       </swiper-item>
     </block>
   </swiper>
-</view>
+</view> 
 
 <view class="drawer_screen drawer-option" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{swiperDetail}}"></view>
+<!--点击商品主图全屏显示 end  -->
 
 <view class="drawer_screen" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{showModalStatus}}"></view>
 
@@ -170,23 +171,23 @@
   <view class="drawer_content">
     <view class='size-header'>
       <view class='goods-image'>
-        <image src='{{goodsItem.PicUrl}}'></image>        
+        <image src='{{goodsItem.Base.PicUrl}}'></image>        
       </view>
       <view class='price-repertory_select'>
-        <view style='color:#e41436;font-size:40rpx;'>￥39</view>
-        <view>库存：{{goodsItem.Store}}件</view>
+        <view style='color:#e41436;font-size:40rpx;'>￥{{specData.price}}</view>
+        <view>库存：{{specData.store}}件</view>
         <view>已选择：{{specData.descName}}</view>
       </view>
     </view>
   <!-- 规格 -->
-    <block wx:for="{{goodsItem.Spec}}" wx:for-index='key' wx:key="item">
+    <block wx:for="{{goodsItem.Base.Spec}}" wx:for-index='key' wx:key="item">
       <view class='buy-select'>      
           <view class='select-title'>
             <text>{{item}}</text>
           </view>
           <view class='select_size'>
-            <block wx:for="{{goodsItem.SpecDesc}}" wx:key="item">              
-                <text catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]?'active':''}}" >{{item.SpecValue}}</text>
+            <block wx:for="{{goodsItem.Base.SpecDesc}}" wx:key="item">              
+                <text catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]}}" >{{item.SpecValue}}</text>
                 <!-- <text class='active'>S</text>
                 <text>M</text>
                 <text>L</text>
@@ -203,7 +204,7 @@
       <view class='add_minus'>
         <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}">-</text>
         <text class='shop_number'>{{shopNum}}</text>
-        <text catchtap='numAdd'  class="{{shopNum<goodsItem.Store?'calculate':''}}">+</text>
+        <text catchtap='numAdd'  class="{{shopNum<specData.store&&shopNum<specData.LimitBuyNum?'calculate':''}}">+</text>
       </view>
     </view>
 

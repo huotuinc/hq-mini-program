@@ -1,4 +1,5 @@
 import config from '../../config.js'
+import viewDataResponsity from '../../utils/viewDataResponsity.js'
 import {
   isInArray
 } from '../../utils/common.js'
@@ -30,8 +31,17 @@ Page({
       specCount: 0,
       selectProduct: null,
       productid: 0,
-      descName: ''
-    }
+      descName: '',
+      price:0,
+      store:0,
+      SaleTag:'',
+      isUserPrice:true,
+      LimitBuyNum:0
+    },
+    commentData:{
+      num:0,
+      praise:100
+    }  
   },
 
   watchBigImage: function(e) {
@@ -91,28 +101,52 @@ Page({
     }
     goodsdetails.goodsDetails(data, function(data) {      
       if (data!=null){
+
+        data.Base.SubTitle=data.Base.SubTitle || ''
+
+        viewDataResponsity.init(data);
         var _specCount=0;
         //用于判断每组规格的选中状态
         var _specStatus={}
-        for (var s in data.Spec){                    
+        for (var s in data.Base.Spec){                    
           _specCount++          
           _specStatus[s] = _specStatus[s]||{}
-          for (var x in data.SpecDesc){
-            var item = data.SpecDesc[x];
+          for (var x in data.Base.SpecDesc){
+            var item = data.Base.SpecDesc[x];
             if (item.SpecId==s){
-              _specStatus[s][item.SpecValueId]=false
+              _specStatus[s][item.SpecValueId]=''
             }
           }
         }
 
-        var _specData = self.data.specData;
-        _specData.specCount = _specCount;
-        _specData.specStatus=_specStatus;
-        console.log(_specStatus)
+        var _specData = self.data.specData
+        _specData.specCount = _specCount
+        _specData.specStatus=_specStatus 
+        _specData.store = data.Base.Store    
+        //判断是否限购
+        _specData.LimitBuyNum = data.Base.LimitBuyNum
+        if (data.Base.LimitBuyNum == 0)
+          _specData.LimitBuyNum = data.Base.Store
+        //获取用户价格
+        _specData.price = viewDataResponsity.getUserPrice(0)   
+        //如果用户价格和商品价格一致的话,则隐藏销售价格
+        if(_specData.price==viewDataResponsity.goodPrice)
+          _specData.isUserPrice=false;
+        var tags = data.SaleTag || ''
+        _specData.SaleTag = tags.split(',')
+
+        //好评度
+        if (data.Base.CommentModel!=null){
+          var _commentData = self.data.commentData;
+          _commentData.num = data.Base.CommentModel.CommentNum
+          _commentData.praise = ((data.Base.CommentModel.CommentScore*100) /(_commentData.num*5)).toFixed(0)
+        }
+
         self.setData({
           goodsItem:data,
           loading: false,
-          specData: _specData
+          specData: _specData,
+          commentData: _commentData
         })
       }
     })
@@ -199,7 +233,7 @@ Page({
 
   numAdd: function(e) {
     var num = this.data.shopNum
-    if (num < this.data.goodsItem.Store){
+    if (num < this.data.specData.store && num < this.data.specData.LimitBuyNum){
       num += 1
       this.setData({
         shopNum: num
@@ -257,20 +291,21 @@ Page({
   /**
    * 选择规格
    */
-  spec_selected:function(e){
+  spec_selected:function(e){    
     var item = e.currentTarget.dataset.item;
     var _item= this.data.goodsItem;
     var _specData = this.data.specData
-    _item.PicUrl=item.GoodsImageIds[0]
-
     var spec = {
       SpecId: item.SpecId,
       SpecValueId: item.SpecValueId
     }
-
+    //如果当前选中的规格无库存,则直接跳过
+    if (_specData.specStatus[item.SpecId][spec.SpecValueId] == 'no_select')
+      return
     _specData.props[item.SpecId] = spec;
     _specData.descName= item.SpecValue
 
+    _item.Base.PicUrl = item.GoodsImageIds[0]
 
     if (_specData.step < _specData.specCount) {
       _specData.step++
@@ -278,48 +313,45 @@ Page({
    
     //当选择了最后一个规格时，得到选择的货品
     if (_specData.step == _specData.specCount) {
-      var pros = this.getSelectProduct(_specData.props, _specData.specCount)   
+      var pros = viewDataResponsity.getSelectProduct(_specData.props, _specData.specCount)   
       _specData.selectProduct=pros
       _specData.productid = pros.ProductId
-    }
+      _specData.store = pros.Store
+      if (_specData.LimitBuyNum==0)
+        _specData.LimitBuyNum = pros.Store
+      //判断当前选择的库存是否超出限制
+      if (this.data.shopNum > _specData.LimitBuyNum)
+      {
+        this.setData({
+          shopNum: _specData.LimitBuyNum
+        }) 
+      }
 
+      _specData.price = viewDataResponsity.getUserPrice(pros.ProductId)   
+
+      //如果用户价格和商品价格一致的话,则隐藏销售价格
+      if (_specData.price == viewDataResponsity.goodPrice)
+        _specData.isUserPrice = false
+      else
+        _specData.isUserPrice = true
+        
+    }
+    //设置规格的选中状态
     for (var key in _specData.specStatus)
     {
       var item = _specData.specStatus[key];
       if (key == spec.SpecId){
         for (var k in item){
-          item[k]=false;
+          item[k]='';
         }
-        _specData.specStatus[key][spec.SpecValueId]=true
+        _specData.specStatus[key][spec.SpecValueId] ='active'
         break;
       }
     }
+
     this.setData({
       goodsItem: _item,      
       specData: _specData
     }) 
-  },
-  /**
-   * 根据规格，得到选择的货品
-   */
-  getSelectProduct: function (props, specCount) {
-    var Products = this.data.goodsItem.Products;
-    var selectProduct = null;
-    for (var i in Products){
-      var count = 0;
-      var item = Products[i];
-      for (var x in item.Props){
-        var proItem = item.Props[x];
-        if (props[proItem.SpecId] != null) {
-          if (props[proItem.SpecId].SpecId == proItem.SpecId && props[proItem.SpecId].SpecValueId == proItem.SpecValueId) {
-            count++;
-          }
-        }
-      }
-      if (count == specCount) {
-        selectProduct = item;
-      }
-    }
-    return selectProduct;
-  }
+  }  
 })
