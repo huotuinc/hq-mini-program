@@ -5,7 +5,7 @@ App({
    * 全局变量数据
    */
   globalData: {
-    mock:true,
+    mock: true,
     client_id: "wx461ef1c099dc8738",
     client_secret: "20678f117838b053c397c919e0c61521",
     app_secret: "4165a8d240b29af3f41818d10599d0d1",
@@ -18,7 +18,7 @@ App({
     osVersion: '',
     userId: 0,
     userToken: '',
-    customerId:4886
+    customerId: 4886
   },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
@@ -35,14 +35,18 @@ App({
 
     wx.login({
       success: function(res) {
-        console.log(res)
-        wx.getUserInfo({
-          withCredentials: true,
+        var code = res.code
+        //拿到code到服务器换取userToken等判断用用户登录信息
+        wx.request({
+          url: config.loginUrl,
+          // method: 'get',
+          data: {
+            code: code
+          },
           success: function(res) {
-            //此处为获取微信信息后的业务方法
             console.log(res)
           },
-          fail:function(err){
+          fail: function(err) {
             console.log(err)
           }
         })
