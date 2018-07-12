@@ -1,13 +1,13 @@
 <import src="../template/backTop/backTop" />
-
+<import src="../template/loading/loading.wxml" />
 <view>
   <view class='goods-details-main-pic' catchtap='watchBigImage'>
     <view style='height:{{imgHeight}}rpx;'>
       <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
-        <block wx:for="{{item.imgSrc}}" wx:key="item">
+        <block wx:for="{{goodsItem.imgSrc}}" wx:key="item">
           <swiper-item>
             <view class="swiper-item">
-              <image lazy-load='true' src='{{item.image}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+              <image lazy-load='true' src='{{item.PicUrl}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
             </view>
           </swiper-item>
         </block>
@@ -16,23 +16,23 @@
   </view>
   <view class='goods-details-info-box'>
     <view class='goods-item-title'>
-      <text>{{item.title}}</text>
+      <text>{{goodsItem.title}}</text>
     </view>
     <view class='send-specification'>
-      <text>【偏远地区不包邮】阿拉斯加阿拉斯加阿拉斯加阿拉斯加</text>
+      <text>{{goodsItem.SubTitle}}</text>
     </view>
     <view class='product-trademark'>
       品牌：
-      <text>TECTOP/探拓</text>
+      <text>{{goodsItem.BrandName}}</text>
     </view>
     <view class='goods-item-two-text2'>
-      <text class='goods-final-price'>￥{{item.finalPrice}}</text>
+      <text class='goods-final-price'>￥{{goodsItem.goodUserPrice}}</text>
     </view>
     <view class='goods-item-two-text1'>
-      <text class='goods-item-price'>￥{{item.goodsPrice}}</text>
-      <text class='goods-item-sales_volume'>总销量：{{item.couponPrice}}</text>
+      <text class='goods-item-price'>￥{{goodsItem.goodsPrice}}</text>
+      <text class='goods-item-sales_volume'>总销量：{{goodsItem.salesVolume}}</text>
     </view>
-    <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext='立即购买'>
+    <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext="立即购买">
       <text>请选择规格</text>
       <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text>
     </view>
@@ -40,9 +40,11 @@
 
   <view class='privilege'>
     <view class='promotion'>
+      <block wx:for="{{goodsItem.PmtItems}}" wx:key="item">
       <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
-      <text style='padding:0rpx 6rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;'>满赠</text>
-      <text class='ellips'>觅方66节下单就返3-8元随机无门槛优惠券</text>
+      <text class="tagname">{{item.TagName}}</text>
+      <text class='ellips'>{{item.Describe}}</text>
+      </block>
     </view>
     <view class='moreBtn'>
       <icon class='icon iconfont icon-icon--'></icon>
@@ -52,17 +54,17 @@
 <!-- 商品编号 start -->
 <view class='old_price_wrap'>
   <view class='gBN'>
-    <text>商品编号：XRPC005/XRPC006</text>
+    <text>商品编号：{{goodsItem.BN}}</text>
   </view>
   <view class='saleTag'>
-    <view>
+    <view wx:for="{{goodsItem.SaleTag}}" wx:key="item">
       <icon class='icon iconfont icon-dui'></icon>
-      品牌直供
+      {{item}}
     </view>
-    <view>
+    <!-- <view>
       <icon class='icon iconfont icon-dui'></icon>
       正品保证
-    </view>
+    </view> -->
   </view>
 </view>
 <!-- 商品编号 end -->
@@ -78,11 +80,11 @@
       <view class='saidan-top'>
         <text>AP4****M8L</text>
         <view class='star'>
-          <blcok wx:for="{{starData.starSelect}}">
+          <blcok wx:for="{{starData.starSelect}}"  wx:key="item">
             <icon class='icon iconfont icon-xingxingxuanzhong'></icon>
           </blcok>
 
-          <block wx:for="{{starData.star}}">
+          <block wx:for="{{starData.star}}"  wx:key="item">
             <icon class='icon iconfont icon-xingxingweixuanzhong'></icon>
           </block>
         </view>
@@ -109,21 +111,18 @@
 <!-- 商品评论 end -->
 
 <view class='separator1'></view>
+
 <!-- 商品介绍  start-->
 <view class='goods-details-info'>
   <view class='goods-details'>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161550476552.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161551616614.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171306404889.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171308971188.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' mode="widthFix"></image>
-    <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161557974414.jpg' mode="widthFix"></image>
+    <block wx:for="{{goodsItem.DescImgList}}" wx:key="{{item}}">
+      <image src='{{item.pic}}' mode="widthFix"></image>
+    </block>
   </view>
+
 </view>
 <!-- 商品介绍 end -->
+
 <view style='height:100rpx;'></view>
 <view class='bottom-bar'>
   <view class='item-bar collect' catchtap='_goService'>
@@ -139,10 +138,10 @@
     购物车
   </view>
   <view class='item-bar-right'>
-    <view class='item-bar buy' data-btntext='加入购物车' bindtap="powerDrawer" data-statu="open">
+    <view class='item-bar buy' data-btntext="加入购物车" bindtap="powerDrawer" data-statu="open">
       <text>加入购物车</text>
     </view>
-    <view class='item-bar share' data-btntext='立即购买' bindtap="powerDrawer" data-statu="open">
+    <view class='item-bar share' data-btntext="立即购买" bindtap="powerDrawer" data-statu="open">
       <text>立即购买</text>
     </view>
   </view>
@@ -151,7 +150,7 @@
 
 <view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
   <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
-    <block wx:for="{{item.imgSrc}}" wx:key="item">
+    <block wx:for="{{goodsItem.imgSrc}}" wx:key="item">
       <swiper-item>
         <view class="swiper-item" catchtap='powerDrawer'>
           <image lazy-load='true' src='{{item.image}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
@@ -171,39 +170,31 @@
   <view class="drawer_content">
     <view class='size-header'>
       <view class='goods-image'>
-        <image src='http://t00img.yangkeduo.com/t05img/images/2018-05-29/af95c46dc07e8a0a74d2cbf800fbd07d.jpeg'></image>
+        <image src='{{goodsItem.PicUrl}}'></image>        
       </view>
       <view class='price-repertory_select'>
         <view style='color:#e41436;font-size:40rpx;'>￥39</view>
-        <view>库存：78件</view>
-        <view>已选择：s 宝蓝迷彩</view>
+        <view>库存：{{goodsItem.Store}}件</view>
+        <view>已选择：{{specData.descName}}</view>
       </view>
     </view>
-
-    <!-- <view class='buy-select'>
-      <view class='select-title'>
-        <text>尺码</text>
+  <!-- 规格 -->
+    <block wx:for="{{goodsItem.Spec}}" wx:for-index='key' wx:key="item">
+      <view class='buy-select'>      
+          <view class='select-title'>
+            <text>{{item}}</text>
+          </view>
+          <view class='select_size'>
+            <block wx:for="{{goodsItem.SpecDesc}}" wx:key="item">              
+                <text catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]?'active':''}}" >{{item.SpecValue}}</text>
+                <!-- <text class='active'>S</text>
+                <text>M</text>
+                <text>L</text>
+                <text class='no_select'>XL</text> -->
+            </block>
+          </view>
       </view>
-      <view class='select_size'>
-        <text class='active'>S</text>
-        <text>M</text>
-        <text>L</text>
-        <text class='no_select'>XL</text>
-      </view>
-    </view>
-    <view class='buy-select'>
-      <view class='select-title'>
-        <text>颜色分类</text>
-      </view>
-      <view class='select_size'>
-        <text class='active'>宝蓝迷彩</text>
-        <text>藏青迷彩</text>
-        <text>深灰迷彩</text>
-        <text>瑰红</text>
-        <text>浅灰迷彩</text>
-        <text>紫色迷彩</text>
-      </view>
-    </view> -->
+    </block>
 
     <view class='buy_num'>
       <view class='buy-num_title'>
@@ -212,7 +203,7 @@
       <view class='add_minus'>
         <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}">-</text>
         <text class='shop_number'>{{shopNum}}</text>
-        <text catchtap='numAdd' class='calculate'>+</text>
+        <text catchtap='numAdd'  class="{{shopNum<goodsItem.Store?'calculate':''}}">+</text>
       </view>
     </view>
 
@@ -222,3 +213,5 @@
 <!-- 选择商品规格 end -->
 
 <template is="backTop" wx:if="{{backTopValue ==true}}" />
+
+<template is="loading" wx:if="{{loading}}" />

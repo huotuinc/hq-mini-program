@@ -1,4 +1,7 @@
 import config from '../../config.js'
+import {
+  isInArray
+} from '../../utils/common.js'
 import goodsdetails from '../../utils/request/goodsdetails.js'
 const app = getApp();
 
@@ -8,7 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: {},
+    loading: true,
+    goodsItem: {},
     showModalStatus: false,
     categoryTitle: '',
     btnText: '立即购买',
@@ -18,6 +22,15 @@ Page({
     starData: {
       starSelect: 4,
       star: 1
+    },
+    specData:{
+      specStatus: {},
+      props: {},
+      step: 0,
+      specCount: 0,
+      selectProduct: null,
+      productid: 0,
+      descName: ''
     }
   },
 
@@ -65,34 +78,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      item: {
-        title: "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
-        imgSrc: [{
-            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
-          },
-          {
-            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
-          },
-          {
-            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
-          }
-        ],
-        goodsPrice: 198,
-        /*商品价格*/
-        salesVolume: 1800,
-        /*销量价格*/
-        couponPrice: 4905,
-        /*优惠券价格*/
-        finalPrice: 158,
-        /*最终价格*/
-        isFav: true,
-        /*是否收藏*/
-        earnMoney: 3.5,
-        /*赚取额度*/
-        goodsId: '1127878416' /*商品ID*/ ,
-        goodsIntro: "华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶"
-      },
+    this.setData({     
       categoryTitle: options.categoryTitle || '商品详情'
     })
     wx.setNavigationBarTitle({
@@ -103,9 +89,32 @@ Page({
     var data = {
       goodsid: options.goodsid
     }
-    goodsdetails.goodsDetails(data, function(res) {
-      console.log(res)
+    goodsdetails.goodsDetails(data, function(data) {      
+      if (data!=null){
+        var _specCount=0;
+        //用于判断每组规格的选中状态
+        var _specStatus={}
+        for (var s in data.Spec){                    
+          _specCount++          
+          _specStatus[s] = _specStatus[s]||{}
+          for (var x in data.SpecDesc){
+            var item = data.SpecDesc[x];
+            if (item.SpecId==s){
+              _specStatus[s][item.SpecValueId]=false
+            }
+          }
+        }
 
+        var _specData = self.data.specData;
+        _specData.specCount = _specCount;
+        _specData.specStatus=_specStatus;
+        console.log(_specStatus)
+        self.setData({
+          goodsItem:data,
+          loading: false,
+          specData: _specData
+        })
+      }
     })
   },
 
@@ -128,7 +137,7 @@ Page({
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     this.setData({
-      btnText: e.currentTarget.dataset.btntext,
+      //btnText: e.currentTarget.dataset.btntext,
       swiperDetail: false
     })
   },
@@ -190,10 +199,12 @@ Page({
 
   numAdd: function(e) {
     var num = this.data.shopNum
-    num += 1
-    this.setData({
-      shopNum: num
-    })
+    if (num < this.data.goodsItem.Store){
+      num += 1
+      this.setData({
+        shopNum: num
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -242,5 +253,73 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  /**
+   * 选择规格
+   */
+  spec_selected:function(e){
+    var item = e.currentTarget.dataset.item;
+    var _item= this.data.goodsItem;
+    var _specData = this.data.specData
+    _item.PicUrl=item.GoodsImageIds[0]
+
+    var spec = {
+      SpecId: item.SpecId,
+      SpecValueId: item.SpecValueId
+    }
+
+    _specData.props[item.SpecId] = spec;
+    _specData.descName= item.SpecValue
+
+
+    if (_specData.step < _specData.specCount) {
+      _specData.step++
+    }   
+   
+    //当选择了最后一个规格时，得到选择的货品
+    if (_specData.step == _specData.specCount) {
+      var pros = this.getSelectProduct(_specData.props, _specData.specCount)   
+      _specData.selectProduct=pros
+      _specData.productid = pros.ProductId
+    }
+
+    for (var key in _specData.specStatus)
+    {
+      var item = _specData.specStatus[key];
+      if (key == spec.SpecId){
+        for (var k in item){
+          item[k]=false;
+        }
+        _specData.specStatus[key][spec.SpecValueId]=true
+        break;
+      }
+    }
+    this.setData({
+      goodsItem: _item,      
+      specData: _specData
+    }) 
+  },
+  /**
+   * 根据规格，得到选择的货品
+   */
+  getSelectProduct: function (props, specCount) {
+    var Products = this.data.goodsItem.Products;
+    var selectProduct = null;
+    for (var i in Products){
+      var count = 0;
+      var item = Products[i];
+      for (var x in item.Props){
+        var proItem = item.Props[x];
+        if (props[proItem.SpecId] != null) {
+          if (props[proItem.SpecId].SpecId == proItem.SpecId && props[proItem.SpecId].SpecValueId == proItem.SpecValueId) {
+            count++;
+          }
+        }
+      }
+      if (count == specCount) {
+        selectProduct = item;
+      }
+    }
+    return selectProduct;
   }
 })

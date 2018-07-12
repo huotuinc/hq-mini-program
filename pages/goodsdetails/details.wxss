@@ -125,12 +125,8 @@
   line-height: 24rpx;
 }
 
-.saleTag {
-  display: flex;
-  flex-direction: row;
-}
-
 .saleTag>view {
+   display: inline-block;
   margin-right: 8rpx;
 }
 
@@ -221,7 +217,9 @@
   display: flex;
   flex-direction: row;
 }
-
+.tagname{
+  padding:0rpx 6rpx;border:1px solid #e41436;color:#e41436;border-radius: 8rpx;margin-right:18rpx;
+}
 .item-bar {
   text-align: center;
   height: 99rpx;

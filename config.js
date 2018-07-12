@@ -14,7 +14,7 @@ var config = {
   // 商品类目
   categoryUrl: `${host}/goods/category`,
   // 商品连接
-  goodsDetailsUrl: `${host}/goods/category`,
+  goodsDetailsUrl: `${host}/goods/detail`,
   //商品品牌
   goodsBrands: `${host}/goods/brands`,
   //商品标签
@@ -30,7 +30,7 @@ var config = {
   //热门搜索关键字
   hotsearchkeyworld: `${host}/goods/hotsearchkeyworld`,
   //商品详情
-  goodsDetails: `${host}/goods/details`,
+  goodsDetails: `${host}/goods/detail`,
   //个人中心
   userIndex: `${host}/user/Index`,
   //可/待用积分
