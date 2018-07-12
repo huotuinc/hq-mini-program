@@ -30,7 +30,7 @@ Page({
       step: 0,
       specCount: 0,
       selectProduct: null,
-      productid: 0,
+      productid: 0,      
       descName: '',
       price:0,
       store:0,
@@ -169,13 +169,26 @@ Page({
   },
   powerDrawer: function(e) {
     var currentStatu = e.currentTarget.dataset.statu;
-    this.util(currentStatu)
-    this.setData({
-      //btnText: e.currentTarget.dataset.btntext,
-      swiperDetail: false
-    })
+    if (currentStatu=="buy"){
+      if (this.data.specData.productid==0){
+        currentStatu="open"
+        this.util(currentStatu)
+        this.setData({
+          swiperDetail: false
+        })
+      }
+      else{
+        
+      }
+    }
+    else{
+      this.util(currentStatu)
+      this.setData({
+        swiperDetail: false
+      })
+    }
   },
-
+ 
   util: function(currentStatu) {
     /* 动画部分 */
     // 第1步：创建动画实例   
@@ -317,8 +330,9 @@ Page({
       _specData.selectProduct=pros
       _specData.productid = pros.ProductId
       _specData.store = pros.Store
-      if (_specData.LimitBuyNum==0)
+      if (_specData.LimitBuyNum == 0 || _specData.LimitBuyNum > _specData.store || _specData.LimitBuyNum == _item.Base.Store)
         _specData.LimitBuyNum = pros.Store
+
       //判断当前选择的库存是否超出限制
       if (this.data.shopNum > _specData.LimitBuyNum)
       {

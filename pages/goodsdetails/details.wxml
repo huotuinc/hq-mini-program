@@ -141,7 +141,7 @@
     <view class='item-bar buy' data-btntext="加入购物车" bindtap="powerDrawer" data-statu="open">
       <text>加入购物车</text>
     </view>
-    <view class='item-bar share' data-btntext="立即购买" bindtap="powerDrawer" data-statu="open">
+    <view class='item-bar share' data-btntext="立即购买" bindtap="powerDrawer" data-statu="buy">
       <text>立即购买</text>
     </view>
   </view>
