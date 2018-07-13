@@ -1,1 +1,1 @@
-/* pages/submitOrder/submitOrder.wxss */
+@import "../orderdetails/index.wxss";
