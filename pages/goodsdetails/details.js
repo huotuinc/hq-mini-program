@@ -1,4 +1,8 @@
 import config from '../../config.js'
+import viewDataResponsity from '../../utils/viewDataResponsity.js'
+import {
+  isInArray
+} from '../../utils/common.js'
 import goodsdetails from '../../utils/request/goodsdetails.js'
 const app = getApp();
 
@@ -8,7 +12,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: {},
+    loading: true,
+    goodsItem: {},
     showModalStatus: false,
     categoryTitle: '',
     btnText: '立即购买',
@@ -18,7 +23,25 @@ Page({
     starData: {
       starSelect: 4,
       star: 1
-    }
+    },
+    specData:{
+      specStatus: {},
+      props: {},
+      step: 0,
+      specCount: 0,
+      selectProduct: null,
+      productid: 0,      
+      descName: '',
+      price:0,
+      store:0,
+      SaleTag:'',
+      isUserPrice:true,
+      LimitBuyNum:0
+    },
+    commentData:{
+      num:0,
+      praise:100
+    }  
   },
 
   watchBigImage: function(e) {
@@ -65,34 +88,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.setData({
-      item: {
-        title: "【胡庆余堂】蜂胶胶囊 0.38g/粒*12粒*8盒",
-        imgSrc: [{
-            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
-          },
-          {
-            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
-          },
-          {
-            image: "http://res.chinaswt.cn/resource/images/photo/8529/20180607/201806071614470.jpg"
-          }
-        ],
-        goodsPrice: 198,
-        /*商品价格*/
-        salesVolume: 1800,
-        /*销量价格*/
-        couponPrice: 4905,
-        /*优惠券价格*/
-        finalPrice: 158,
-        /*最终价格*/
-        isFav: true,
-        /*是否收藏*/
-        earnMoney: 3.5,
-        /*赚取额度*/
-        goodsId: '1127878416' /*商品ID*/ ,
-        goodsIntro: "华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶华佗拾遗瘦肚子瘦身产品瘦腿神器正品清脂流茶"
-      },
+    this.setData({     
       categoryTitle: options.categoryTitle || '商品详情'
     })
     wx.setNavigationBarTitle({
@@ -103,9 +99,56 @@ Page({
     var data = {
       goodsid: options.goodsid
     }
-    goodsdetails.goodsDetails(data, function(res) {
-      console.log(res)
+    goodsdetails.goodsDetails(data, function(data) {      
+      if (data!=null){
 
+        data.Base.SubTitle=data.Base.SubTitle || ''
+
+        viewDataResponsity.init(data);
+        var _specCount=0;
+        //用于判断每组规格的选中状态
+        var _specStatus={}
+        for (var s in data.Base.Spec){                    
+          _specCount++          
+          _specStatus[s] = _specStatus[s]||{}
+          for (var x in data.Base.SpecDesc){
+            var item = data.Base.SpecDesc[x];
+            if (item.SpecId==s){
+              _specStatus[s][item.SpecValueId]=''
+            }
+          }
+        }
+
+        var _specData = self.data.specData
+        _specData.specCount = _specCount
+        _specData.specStatus=_specStatus 
+        _specData.store = data.Base.Store    
+        //判断是否限购
+        _specData.LimitBuyNum = data.Base.LimitBuyNum
+        if (data.Base.LimitBuyNum == 0)
+          _specData.LimitBuyNum = data.Base.Store
+        //获取用户价格
+        _specData.price = viewDataResponsity.getUserPrice(0)   
+        //如果用户价格和商品价格一致的话,则隐藏销售价格
+        if(_specData.price==viewDataResponsity.goodPrice)
+          _specData.isUserPrice=false;
+        var tags = data.SaleTag || ''
+        _specData.SaleTag = tags.split(',')
+
+        //好评度
+        if (data.Base.CommentModel!=null){
+          var _commentData = self.data.commentData;
+          _commentData.num = data.Base.CommentModel.CommentNum
+          _commentData.praise = ((data.Base.CommentModel.CommentScore*100) /(_commentData.num*5)).toFixed(0)
+        }
+
+        self.setData({
+          goodsItem:data,
+          loading: false,
+          specData: _specData,
+          commentData: _commentData
+        })
+      }
     })
   },
 
@@ -126,13 +169,26 @@ Page({
   },
   powerDrawer: function(e) {
     var currentStatu = e.currentTarget.dataset.statu;
-    this.util(currentStatu)
-    this.setData({
-      btnText: e.currentTarget.dataset.btntext,
-      swiperDetail: false
-    })
+    if (currentStatu=="buy"){
+      if (this.data.specData.productid==0){
+        currentStatu="open"
+        this.util(currentStatu)
+        this.setData({
+          swiperDetail: false
+        })
+      }
+      else{
+        
+      }
+    }
+    else{
+      this.util(currentStatu)
+      this.setData({
+        swiperDetail: false
+      })
+    }
   },
-
+ 
   util: function(currentStatu) {
     /* 动画部分 */
     // 第1步：创建动画实例   
@@ -190,10 +246,12 @@ Page({
 
   numAdd: function(e) {
     var num = this.data.shopNum
-    num += 1
-    this.setData({
-      shopNum: num
-    })
+    if (num < this.data.specData.store && num < this.data.specData.LimitBuyNum){
+      num += 1
+      this.setData({
+        shopNum: num
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -242,5 +300,72 @@ Page({
    */
   onShareAppMessage: function() {
 
-  }
+  },
+  /**
+   * 选择规格
+   */
+  spec_selected:function(e){    
+    var item = e.currentTarget.dataset.item;
+    var _item= this.data.goodsItem;
+    var _specData = this.data.specData
+    var spec = {
+      SpecId: item.SpecId,
+      SpecValueId: item.SpecValueId
+    }
+    //如果当前选中的规格无库存,则直接跳过
+    if (_specData.specStatus[item.SpecId][spec.SpecValueId] == 'no_select')
+      return
+    _specData.props[item.SpecId] = spec;
+    _specData.descName= item.SpecValue
+
+    _item.Base.PicUrl = item.GoodsImageIds[0]
+
+    if (_specData.step < _specData.specCount) {
+      _specData.step++
+    }   
+   
+    //当选择了最后一个规格时，得到选择的货品
+    if (_specData.step == _specData.specCount) {
+      var pros = viewDataResponsity.getSelectProduct(_specData.props, _specData.specCount)   
+      _specData.selectProduct=pros
+      _specData.productid = pros.ProductId
+      _specData.store = pros.Store
+      if (_specData.LimitBuyNum == 0 || _specData.LimitBuyNum > _specData.store || _specData.LimitBuyNum == _item.Base.Store)
+        _specData.LimitBuyNum = pros.Store
+
+      //判断当前选择的库存是否超出限制
+      if (this.data.shopNum > _specData.LimitBuyNum)
+      {
+        this.setData({
+          shopNum: _specData.LimitBuyNum
+        }) 
+      }
+
+      _specData.price = viewDataResponsity.getUserPrice(pros.ProductId)   
+
+      //如果用户价格和商品价格一致的话,则隐藏销售价格
+      if (_specData.price == viewDataResponsity.goodPrice)
+        _specData.isUserPrice = false
+      else
+        _specData.isUserPrice = true
+        
+    }
+    //设置规格的选中状态
+    for (var key in _specData.specStatus)
+    {
+      var item = _specData.specStatus[key];
+      if (key == spec.SpecId){
+        for (var k in item){
+          item[k]='';
+        }
+        _specData.specStatus[key][spec.SpecValueId] ='active'
+        break;
+      }
+    }
+
+    this.setData({
+      goodsItem: _item,      
+      specData: _specData
+    }) 
+  }  
 })
