@@ -57,6 +57,17 @@ Page({
     })
   },
 
+
+  //添加/修改用户收货地址信息
+  addAddress: function(e) {
+    var self = this
+    user.updateAddress({
+      id: self.data.pid || 0,
+      name: self.data.username,
+      mobile: self.data.mobile
+    })
+  },
+
   //删除用户收货地址
   _delectAddress: function(e) {
     var self = this
@@ -95,4 +106,3 @@ Page({
   }
 
 })
-

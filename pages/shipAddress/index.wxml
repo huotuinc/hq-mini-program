@@ -1,7 +1,7 @@
 <view class='address-item'>
   <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{addressList}}" wx:for-item="item">
-    <view class='item' data-pid='{{item.pid}}' catchtap='_setDefaultAddress'>
-      <view catchtap='_setDefaultAddress'>
+    <view class='item' data-pid='{{item.pid}}' catchtap='_setDefaultAddress' data-address="{{item}}">
+      <view>
         <view class='item-left'>
           <icon class='icon iconfont icon-ico2'></icon>
         </view>
@@ -13,7 +13,7 @@
       <view class='iten-right' data-pid='{{item.pid}}' data-index="{{index}}" catchtap='_editAddress'>
         <text>编辑</text>
       </view>
-    </view>
+    </view> 
     <view class="del" catchtap="del" data-pid='{{item.pid}}'>删除</view>
   </view>
 </view>

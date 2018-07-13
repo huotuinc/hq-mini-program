@@ -83,9 +83,11 @@ Page({
   //设置默认收货地址
   _setDefaultAddress: function(e) {
     var id = e.currentTarget.dataset.pid
+    var item = e.currentTarget.dataset.address
     user.changeAddressDefault({
       id: id
     }, function(res) {
+      wx.setStorageSync('address', item)
       wx.navigateBack({
         delta: 1
       })
