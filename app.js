@@ -33,18 +33,66 @@ App({
       },
     })
 
+    var loginInfo = wx.getStorageSync("login")
+    if (!loginInfo) {
+      this.getToken()
+    } else {
+      var userToken = loginInfo.data.token
+      self.request({
+        url: config.appInit,
+        data: {
+          token: userToken
+        },
+        success: function(res) {
+          console.log(res.data.data)
+          if (!(res.data.data.token == userToken)) {
+            self.getToken()
+          }
+        }
+      })
+    }
+
+  },
+
+
+  /**
+   * 登录获取用户登录唯一标识Token
+   */
+  getToken: function() {
+    var self = this
     wx.login({
       success: function(res) {
         var code = res.code
         //拿到code到服务器换取userToken等判断用用户登录信息
         wx.request({
           url: config.loginUrl,
-          // method: 'get',
+          method: 'post',
           data: {
             code: code
           },
           success: function(res) {
-            console.log(res)
+            self.globalData.userToken = res.data.data.token
+            wx.setStorageSync('login', res.data)
+            wx.getSetting({
+              success: function(res) {
+                console.log(res)
+                if (!res.authSetting['scope.userInfo']) {
+                  wx.authorize({
+                    scope: 'scope.userInfo',
+                    success() {
+                      wx.getUserInfo({
+                        success: function(res) {
+                          console.log(res)
+                        },
+                        fail: function(err) {
+                          console.log(err)
+                        }
+                      })
+                    }
+                  })
+                }
+              }
+            })
           },
           fail: function(err) {
             console.log(err)
@@ -52,15 +100,14 @@ App({
         })
       }
     })
-
   },
+
+  //修改用户得基本信息
 
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */
-  onShow: function(options) {
-
-  },
+  onShow: function(options) {},
 
   /**
    * 当小程序从前台进入后台，会触发 onHide

@@ -8,6 +8,8 @@ var config = {
   host,
   // 登录地址
   loginUrl: `${host}/user/loginByAuthCode`,
+  //判断Token是否过期
+  appInit: `${host}/user/appInit`,
   // 首页推荐
   homeRecommendUrl: `${host}/goods/recommend`,
   // 商品列表

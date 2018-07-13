@@ -17,7 +17,11 @@
       <view class='merchant-right' catchtap='_editHandle' data-editTile='{{editTitle}}'>{{editTitle}}</view>
     </view>
     <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items.Products}}" wx:key="item">
-      <view class='item'>
+      <view class="item  {{item.AvaliableStore == 0?'item-clear':''}}">
+        <view class='avaliable-store' wx:if="{{item.AvaliableStore<10}}">
+          <text wx:if="{{item.AvaliableStore>0}}">商品库存不足，请即时处理！</text>
+          <text wx:else>商品已售完</text>
+        </view>
         <view class='shop-item'>
           <view catchtap='isChecked' data-index='{{index}}'>
             <icon class="icon iconfont {{item.IsChecked?'icon-xuanzhong':'icon-ico2'}}"></icon>
@@ -67,7 +71,7 @@
       <view class='pay-total'>
         <view>
           总计
-          <text style='color:#e41436;'>{{items.PayedAdvance}}元</text>
+          <text style='color:#e41436;'>{{items.TotalPrice}}元</text>
         </view>
         <view>
           <text>已减{{items.TotalPmtAmount}}元</text>

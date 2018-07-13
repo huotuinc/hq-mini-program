@@ -18,13 +18,33 @@ Page({
   //编辑操作
   _editHandle: function(e) {
     var editHandle = e.target.dataset.edittile
+    var _items = this.data.items.Products
     if (editHandle == '编辑') {
-      this.setData({
-        edit: true,
-        editTitle: '完成',
-        closeTitle: '删除'
-      })
+      var num = 0
+      for (let idx in _items) {
+        if (_items[idx].IsChecked) {
+          num++
+        }
+      }
+      if (num < _items.length) {
+        this.setData({
+          edit: true,
+          editTitle: '完成',
+          closeTitle: '删除',
+          shopIsSelect: false,
+          isSelect: false
+        })
+      } else {
+        this.setData({
+          edit: true,
+          editTitle: '完成',
+          closeTitle: '删除',
+          shopIsSelect: true,
+          isSelect: true
+        })
+      }
     } else {
+      this.getGoods()
       this.setData({
         edit: false,
         editTitle: '编辑',
@@ -93,15 +113,19 @@ Page({
     return 360 * Math.atan(_Y / _X) / (2 * Math.PI);
   },
   del: function(e) {
-    // this.data.items.Products.splice(e.currentTarget.dataset.index, 1)
-    // this.setData({
-    //   items: this.data.items
-    // })
+    var self = this
     var index = e.currentTarget.dataset.index
     var _items = this.data.items
-    this.delCart({
-      goodsId: _items.Products[index].GoodsId,
-      productId: _items.Products[index].ProductId
+    wx.showModal({
+      content: '确定要将该商品移出购物车吗？',
+      success: function(res) {
+        if (res.confirm) {
+          self.delCart({
+            goodsId: _items.Products[index].GoodsId,
+            productId: _items.Products[index].ProductId
+          })
+        }
+      }
     })
   },
 
@@ -110,12 +134,15 @@ Page({
     var self = this
     cart.getCartGoods(function(res) {
       var num = 0
+      var noNum = 0
       for (let idx in res.cartGoods.Products) {
         if (res.cartGoods.Products[idx].IsChecked) {
           num++
+        } else {
+          noNum++
         }
       }
-      if (num < res.cartGoods.Products.length) {
+      if (num < (res.cartGoods.Products.length - noNum)) {
         self.setData({
           isSelect: false,
           shopIsSelect: false
@@ -127,7 +154,7 @@ Page({
         })
       }
       self.setData({
-        items: res.cartGoods
+        items: res.cartGoods,
       })
     })
   },
@@ -135,9 +162,11 @@ Page({
   //购物车修改
   updateCart: function(data) {
     var self = this
+    var _items = self.data.items.Products
+
     cart.updateCart(data, function(res) {
       console.log(res)
-      self.getGoods()
+      // self.getGoods()
     })
   },
 
@@ -146,11 +175,15 @@ Page({
     var index = e.currentTarget.dataset.index
     var _items = this.data.items
     if (_items.Products[index].Nums <= 1) {
-      _items.Products[index].Nums = 1
-      wx.showToast({
-        title: '亲不能再少了',
-        icon: 'none'
-      })
+      if (_items.Products[index].AvaliableStore > 1) {
+        _items.Products[index].Nums = 1
+        wx.showToast({
+          title: '亲不能再少了',
+          icon: 'none'
+        })
+      } else {
+        _items.Products[index].Nums = 1
+      }
       return
     } else {
       _items.Products[index].Nums--
@@ -171,9 +204,8 @@ Page({
     var index = e.currentTarget.dataset.index
     var _items = this.data.items
     if (_items.Products[index].Nums >= _items.Products[index].AvaliableStore) {
-      _items.Products[index].Nums = _items.Products[index].AvaliableStore
       wx.showToast({
-        title: '已超出购买数量',
+        title: '库存不足',
         icon: 'none'
       })
       return
@@ -194,44 +226,10 @@ Page({
 
   //是否购买/选中
   isChecked: function(e) {
+    var closeTitle = this.data.closeTitle
     var index = e.currentTarget.dataset.index
     var _items = this.data.items
-    var num = 0
-    if (_items.Products[index].IsChecked) {
-      _items.Products[index].IsChecked = 0
-    } else {
-      _items.Products[index].IsChecked = 1
-    }
-
-    //购物车是否选中修改
-    this.updateCart({
-      goodsId: _items.Products[index].GoodsId,
-      productId: _items.Products[index].ProductId,
-      updateType: 1,
-      isChecked: _items.Products[index].IsChecked
-    })
-
-    this.setData({
-      items: _items
-    })
-
-    for (let idx in _items.Products) {
-      if (_items.Products[idx].IsChecked) {
-        num++
-      }
-    }
-
-    if (num < _items.Products.length) {
-      this.setData({
-        isSelect: false,
-        shopIsSelect: false
-      })
-    } else {
-      this.setData({
-        isSelect: true,
-        shopIsSelect: true
-      })
-    }
+    this.shopSelect(index, _items, closeTitle)
   },
 
   // 购物车删除
@@ -245,44 +243,10 @@ Page({
   shopIsSelect: function(e) {
     var shopIsSelect = this.data.shopIsSelect
     var _items = this.data.items
-    if (shopIsSelect) {
-      for (let idx in _items.Products) {
-        _items.Products[idx].IsChecked = 0
-      }
-      this.setData({
-        items: _items,
-        shopIsSelect: false,
-        isSelect: false
-      })
-    } else {
-      for (let idx in _items.Products) {
-        _items.Products[idx].IsChecked = 1
-      }
-      this.setData({
-        items: _items,
-        shopIsSelect: true
-      })
-    }
-  },
+    var data = this.removeHandle(shopIsSelect, _items.Products)
+    console.log(data)
 
-  //全部商品的全选/全不选
-  isSelect: function(e) {
-    var isSelect = this.data.isSelect
-    var _items = this.data.items
-    var data = []
-    if (isSelect) {
-      for (let idx in _items.Products) {
-        _items.Products[idx].IsChecked = 0
-        var item = {
-          goodsId: _items.Products[idx].GoodsId,
-          productId: _items.Products[idx].ProductId,
-          updateType: 1,
-          quantity: _items.Products[idx].Nums,
-          isChecked: _items.Products[idx].IsChecked,
-          pmtId: _items.Products[idx].SelectedPmtId
-        }
-        data.push(item)
-      }
+    if (shopIsSelect) {
       this.updateCart(data)
       this.setData({
         items: _items,
@@ -290,18 +254,6 @@ Page({
         isSelect: false
       })
     } else {
-      for (let idx in _items.Products) {
-        _items.Products[idx].IsChecked = 1
-        var item = {
-          goodsId: _items.Products[idx].GoodsId,
-          productId: _items.Products[idx].ProductId,
-          updateType: 1,
-          quantity: _items.Products[idx].Nums,
-          isChecked: _items.Products[idx].IsChecked,
-          pmtId: _items.Products[idx].SelectedPmtId
-        }
-        data.push(item)
-      }
       this.updateCart(data)
       this.setData({
         items: _items,
@@ -311,15 +263,217 @@ Page({
     }
   },
 
-  //去订单结算页面/批量删除购物车
-  _goOrderClose: function(e) {
-    var closeTitle = this.data.closeTitle
-    if (closeTitle == '结算') {
-      wx.navigateTo({
-        url: '../orderdetails/index?detail=1',
+  //全部商品的全选/全不选
+  isSelect: function(e) {
+    var isSelect = this.data.isSelect
+    var _items = this.data.items
+    var data = this.removeHandle(isSelect, _items.Products)
+    if (isSelect) {
+      this.updateCart(data)
+      this.setData({
+        items: _items,
+        shopIsSelect: false,
+        isSelect: false
+      })
+    } else {
+      this.updateCart(data)
+      this.setData({
+        items: _items,
+        shopIsSelect: true,
+        isSelect: true
       })
     }
   },
+
+  /**
+   * 剔除超出库存，未上架，已售完的选中操作
+   */
+  removeHandle: function(select, _items) {
+    var closeTitle = this.data.closeTitle
+    var data = []
+    if (select) {
+      for (let idx in _items) {
+        if (_items[idx].IsChecked == 0 && closeTitle == '结算') {
+          _items[idx].IsChecked == 0
+        } else {
+          _items[idx].IsChecked = 0
+          var item = {
+            goodsId: _items[idx].GoodsId,
+            productId: _items[idx].ProductId,
+            updateType: 1,
+            quantity: _items[idx].Nums,
+            isChecked: _items[idx].IsChecked,
+            pmtId: _items[idx].SelectedPmtId
+          }
+          data.push(item)
+        }
+      }
+    } else {
+      for (let idx in _items) {
+        if ((_items[idx].AvaliableStore == 0 || _items[idx].AvaliableStore < _items[idx].Nums || _items[idx].DownShelfStatus == 2 || _items[idx].DownShelfStatus == 0) && closeTitle == '结算') {
+          _items[idx].IsChecked = 0
+        } else {
+          _items[idx].IsChecked = 1
+          var item = {
+            goodsId: _items[idx].GoodsId,
+            productId: _items[idx].ProductId,
+            updateType: 1,
+            quantity: _items[idx].Nums,
+            isChecked: _items[idx].IsChecked,
+            pmtId: _items[idx].SelectedPmtId
+          }
+          data.push(item)
+        }
+      }
+    }
+    return data
+  },
+
+  /**
+   * 商品选中状态
+   */
+  shopSelect: function(index, _items, closeTitle) {
+    var num = 0 //可勾选商品数量
+    var noNum = 0 //不可勾选商品数量
+    if (_items.Products[index].IsChecked) {
+      _items.Products[index].IsChecked = 0
+    } else {
+      /**
+       * 库存判断如果为0则提示用户商品已售完并阻止勾选
+       * 判断商品是否上架
+       */
+      if (_items.Products[index].AvaliableStore == 0 && _items.Products[index].DownShelfStatus == 1 && closeTitle == '结算') {
+        wx.showToast({
+          title: '此商品已卖完',
+          icon: 'none'
+        })
+        _items.Products[index].IsChecked = 0
+        return
+      } else if (_items.Products[index].AvaliableStore < _items.Products[index].Nums && closeTitle == '结算') {
+        wx.showToast({
+          title: '库存不足',
+          icon: 'none'
+        })
+        _items.Products[index].IsChecked = 0
+        return
+      } else if (_items.Products[index].DownShelfStatus == 2 && closeTitle == '结算') {
+        wx.showToast({
+          title: '此商品已下架',
+          icon: 'none'
+        })
+        _items.Products[index].IsChecked = 0
+        return
+      } else if (_items.Products[index].DownShelfStatus == 0 && closeTitle == '结算') {
+        wx.showToast({
+          title: '此商品未上架',
+          icon: 'none'
+        })
+        _items.Products[index].IsChecked = 0
+        return
+      } else {
+        _items.Products[index].IsChecked = 1
+      }
+    }
+    //购物车是否选中修改
+    this.updateCart({
+      goodsId: _items.Products[index].GoodsId,
+      productId: _items.Products[index].ProductId,
+      updateType: 1,
+      isChecked: _items.Products[index].IsChecked
+    })
+    this.setData({
+      items: _items
+    })
+    for (let idx in _items.Products) {
+      if (closeTitle == '结算') {
+        if (_items.Products[idx].IsChecked) {
+          if (!_items.Products[idx].AvaliableStore == 0) {
+            num++
+          }
+        }
+        if (_items.Products[idx].AvaliableStore == 0) {
+          noNum++
+        }
+      } else {
+        if (_items.Products[idx].IsChecked) {
+          num++
+        }
+      }
+    }
+    if (num < (_items.Products.length - noNum)) {
+      this.setData({
+        isSelect: false,
+        shopIsSelect: false
+      })
+    } else {
+      this.setData({
+        isSelect: true,
+        shopIsSelect: true
+      })
+    }
+  },
+
+
+  //去订单结算页面/批量删除购物车
+  _goOrderClose: function(e) {
+    var closeTitle = this.data.closeTitle
+    var _items = this.data.items.Products
+    var self = this
+    var data = []
+    var num = 0
+
+    if (closeTitle == '结算') {
+      for (let idx in _items) {
+        if (_items[idx].IsChecked) {
+          if (!_items[idx].AvaliableStore == 0) {
+            num++
+          }
+        }
+      }
+      //判断结算的商品数量是否大于0
+      if (num) {
+        wx.navigateTo({
+          url: '../submitOrder/submitOrder',
+        })
+      } else {
+        wx.showToast({
+          title: '请选择购买商品',
+          icon: 'none'
+        })
+      }
+      console.log(num)
+
+    } else {
+      //批量删除
+      for (let idx in _items) {
+        if (_items[idx].IsChecked) {
+          var item = {
+            goodsId: _items[idx].GoodsId,
+            productId: _items[idx].ProductId,
+          }
+          data.push(item)
+        }
+      }
+      //判断删除操作的商品数量是否大于0
+      if (data.length) {
+        wx.showModal({
+          content: '确定要将该商品移出购物车吗？',
+          success: function(res) {
+            if (res.confirm) {
+              self.delCart(data)
+            }
+          }
+        })
+      } else {
+        wx.showToast({
+          title: '请选择要删除的商品',
+          icon: 'none'
+        })
+      }
+    }
+
+  },
+
 
   onLoad: function(options) {
     this.getGoods()
