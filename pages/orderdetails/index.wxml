@@ -1,7 +1,7 @@
 <import src="../template/backTop/backTop" />
 <view class='trade-successfully'>
   <view class='success-header'>
-    <view class='success-title' wx:if='{{orderDetail.status==0}}'>交易成功</view>
+    <view class='success-title' wx:if='{{orderDetail.status==1}}'>交易成功</view>
     <view>订单号：{{orderDetail.orderId}}</view>
     <view>
       <text>下单时间：{{orderDetail.createTime}}</text>
@@ -43,10 +43,10 @@
               <text style='color: #999;'>x{{item.num}}</text>
             </view>
           </view>
-          <!-- <view class='comment ' wx:if='{{orderDetail.status==0}}'>
-            <text>评价</text>
-            <text>售后</text>
-          </view> -->
+          <view class='comment ' wx:if='{{orderDetail.status==1}}'>
+            <text catchtap='goEvaluate' wx:if="{{!orderDetail.isComment}}" data-index="{{index}}">评价</text>
+            <text class='after-sale' catchtap='goAfterSale' data-index="{{index}}" data-saleAfterStatus='{{item.saleAfterStatus}}' data-afterId='{{item.afterId}}'>{{item.statusName}}</text>
+          </view>
         </view>
       </view>
     </blcok>

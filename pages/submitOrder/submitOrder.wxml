@@ -25,7 +25,9 @@
       <view>
         <text>配送方式</text>
         <text style='color:#C8C7CD;float:right;'>快递(费用:￥0元)</text>
-      </view>
+
+        
+      </view> 
       <view class='feedback'>备注留言</view>
       <view>
         <text>应付金额</text>

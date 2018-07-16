@@ -73,10 +73,16 @@ var config = {
   deletOrder: `${host}/user/deleteOrder`,
   //确认收货
   confirmOrder: `${host}/user/confirmOrder`,
+  //订单确认
+  checkoutOrder: `${host}/order/checkout`,
   //申请售后
-  afterSales: `${host}/aftersales/submit`,
+  afterSales: `${host}/user/applyAfterSale`,
   //售后列表
-  getSalesList: `${host}/aftersales/getlist`,
+  getSalesList: `${host}/user/afterSaleList`,
+  //售后详情
+  afterSaleDetail: `${host}/user/afterSaleDetail`,
+  //取消售后
+  cancelAfterSale: `${host}/user/cancelAfterSale`,
   //提交评论
   submitComment: `${host}/user/comment`,
   //评论列表

@@ -265,6 +265,7 @@
 }
 
 .comment text {
+  margin-top: 10rpx;
   display: inline-block;
   width: 94rpx;
   height: 42rpx;
@@ -274,6 +275,12 @@
   border: 1px solid #ebebeb;
   border-radius: 8rpx;
   margin-right: 10rpx;
+}
+
+.comment .after-sale {
+  margin-left: 20rpx;
+  background-color: #e41436;
+  color: #fff;
 }
 
 .trade-successfully .goods-information {
