@@ -169,26 +169,26 @@ Page({
   },
   powerDrawer: function(e) {
     var currentStatu = e.currentTarget.dataset.statu;
-    if (currentStatu=="buy"){
-      if (this.data.specData.productid==0){
-        currentStatu="open"
-        this.util(currentStatu)
-        this.setData({
-          swiperDetail: false
-        })
-      }
-      else{
-        
-      }
+    this.util(currentStatu)
+    this.setData({
+      swiperDetail: false
+    })
+  },
+  buyNow:function(e){
+    if (this.data.specData.productid == 0) {
+      wx.showToast({
+        title:"请选择规格",
+        icon:"none"
+      })
     }
     else{
-      this.util(currentStatu)
-      this.setData({
-        swiperDetail: false
+      var traItems = this.data.goodsItem.Base.GoodsId+"_"+this.data.specData.productid+"_"+this.data.showNum
+      //跳转订单确认页      
+      wx.navigateTo({
+        url: '../submitOrder/submitOrder?traItems=' + traItems
       })
     }
   },
- 
   util: function(currentStatu) {
     /* 动画部分 */
     // 第1步：创建动画实例   

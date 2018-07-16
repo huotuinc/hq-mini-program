@@ -150,6 +150,7 @@
   background-color: #fff;
   font-size: 24rpx;
   padding: 10rpx 30rpx;
+  /* height: 475rpx; */
 }
 
 .saidan-top {
@@ -173,6 +174,7 @@
 
 .saidan-content {
   line-height: 34rpx;
+  height: 68rpx;
   margin-top: 16rpx;
 }
 
@@ -183,9 +185,11 @@
 }
 
 .product-img-module image {
-  height: 160rpx;
+  height: 160rpx; 
+  width: 160rpx;
   margin: 1%;
   border-radius: 8rpx;
+
 }
 
 .product-type {
@@ -194,7 +198,7 @@
 
 .product-type_num {
   float: right;
-  padding: 10rpx 15rpx;
+  padding: 0rpx 15rpx;
   color: #999;
 }
 

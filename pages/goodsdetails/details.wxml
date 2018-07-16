@@ -33,7 +33,7 @@
       <text class='goods-item-sales_volume'>总销量：{{goodsItem.Base.SalesCount}}</text>
     </view>
     <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext="立即购买">
-      <text>请选择规格</text>
+      <text>{{specData.descName==''?"请选择规格":"已选择【"+specData.descName+"】"}}</text>
       <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text>
     </view>
   </view>
@@ -61,10 +61,6 @@
       <icon class='icon iconfont icon-dui'></icon>
       {{item}}
     </view>
-    <!-- <view>
-      <icon class='icon iconfont icon-dui'></icon>
-      正品保证
-    </view> -->
   </view>
 </view>
 <!-- 商品编号 end -->
@@ -76,37 +72,40 @@
   </view>
   <!-- 评论内容 start -->
   <view>
-    <view class='saidan-wrapper'>
-      <view class='saidan-top'>
-        <text>AP4****M8L</text>
-        <view class='star'>
-          <blcok wx:for="{{starData.starSelect}}"  wx:key="item">
-            <icon class='icon iconfont icon-xingxingxuanzhong'></icon>
-          </blcok>
+   <swiper circular="true" interval="4000" duration="500" style='height:437rpx;'>
+      <block wx:for="{{goodsItem.Base.CommentModel.CommentItems}}" wx:key="item">
+        <swiper-item>
+          <view class='saidan-wrapper'>
+            <view class='saidan-top'>
+              <text>{{item.UserLoginName}}</text>
+              <view class='star'>
+                <blcok wx:for="{{item.Score}}"  wx:key="item">
+                  <icon class='icon iconfont icon-xingxingxuanzhong'></icon>
+                </blcok>
 
-          <block wx:for="{{starData.star}}"  wx:key="item">
-            <icon class='icon iconfont icon-xingxingweixuanzhong'></icon>
-          </block>
-        </view>
-      </view>
-      <view class='saidan-bottom'>
-        <view class='saidan-content'>越来越爱行装！每一次都给足信心</view>
-        <view class='product-img-module'>
-          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="widthFix"></image>
-          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171310875168.jpg' mode="widthFix"></image>
-          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171311768985.jpg' mode="widthFix"></image>
-          <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607161555652187.jpg' mode="widthFix"></image>
-        </view>
-      </view>
-      <view class='product-type'>
-        <view class='product-type_num'>
-          <icon class='icon iconfont icon-zan-copy'></icon>
-          1
-        </view>
-      </view>
-    </view>
-
+                <block wx:for="{{5-item.Score}}"  wx:key="item">
+                  <icon class='icon iconfont icon-xingxingweixuanzhong'></icon>
+                </block>
+              </view>
+            </view>
+            <view class='saidan-bottom'>
+              <view class='saidan-content'>{{item.CommentContent}}</view>
+              <view class='product-img-module'>
+                <image src='http://res.chinaswt.cn/resource/images/wechat/8529/editor/20180607171309209360.jpg' mode="aspectFit"></image>
+              </view>
+            </view>
+            <view class='product-type'>
+              <view class='product-type_num'>
+                <icon class='icon iconfont icon-zan-copy'></icon>
+                {{item.LikeNum}}
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
+
 </view>
 <!-- 商品评论 end -->
 
@@ -141,7 +140,7 @@
     <view class='item-bar buy' data-btntext="加入购物车" bindtap="powerDrawer" data-statu="open">
       <text>加入购物车</text>
     </view>
-    <view class='item-bar share' data-btntext="立即购买" bindtap="powerDrawer" data-statu="buy">
+    <view class='item-bar share' data-btntext="立即购买" bindtap="powerDrawer" data-statu="open">
       <text>立即购买</text>
     </view>
   </view>
@@ -208,7 +207,7 @@
       </view>
     </view>
 
-    <view class='submit'>{{btnText}}</view>
+    <view class='submit' catchtap='buyNow'>{{btnText}}</view>
   </view>
 </view>
 <!-- 选择商品规格 end -->
