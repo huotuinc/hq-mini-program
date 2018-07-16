@@ -8,24 +8,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //  detail: 1,
-    backTopValue: false
-  },
-
-  actionSheetTap: function() {
-    wx.showActionSheet({
-      itemList: ['item1', 'item2', 'item3', 'item4'],
-      success: function(e) {
-        console.log(e.tapIndex)
-      }
-    })
+    backTopValue: false,
+    watchStatus: 0 //是否显示订单状态
   },
 
   //查看订单状态
   watchStatus: function(e) {
-    this.setData({
-      watchStatus: 1
-    })
+    var watchStatus = this.data.watchStatus
+    if (watchStatus) {
+      this.setData({
+        watchStatus: 0
+      })
+    } else {
+      this.setData({
+        watchStatus: 1
+      })
+    }
+
   },
 
   //获取订单详情
@@ -59,78 +58,14 @@ Page({
     })
   },
 
-  //发票抬头
-  _invoiceTitle: function(e) {
-    wx.getSetting({
-      success: function(res) {
-        if (!res.authSetting['scope.invoiceTitle']) {
-          wx.authorize({
-            scope: 'scope.invoiceTitle',
-            success: function(res) {
-              wx.chooseInvoiceTitle({
-                success: function(res) {
-                  console.log(res)
-                }
-              })
-            },
-            fail: function(err) {
-              console.log(err)
-            }
-          })
-        } else {
-          wx.chooseInvoiceTitle({
-            success: function(res) {
-              console.log(res)
-            }
-          })
-        }
-      }
-    })
-  },
-  //添加收货地址
-  _goaddAddress: function(e) {
-    wx.navigateTo({
-      url: '../addAddress/index?pid=0',
-    })
-  },
-  //选择收货地址
-  _chooseAddress: function(e) {
-    wx.navigateTo({
-      url: '../shipAddress/index',
-    })
-  },
-
-  //获取默认收货地址
-  getAddress: function(e) {
-    var self = this
-    wx.getStorage({
-      key: 'address',
-      success: function(res) {
-        self.setData({
-          address: res.data
-        })
-      },
-    })
-  },
-
-  //获取收货地址
-  getAddressList: function(e) {
-    var self = this
-    user.addressList(function(res) {
-      self.setData({
-        address: res.data.data[0]
-      })
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     this.setData({
-      detail: options.detail
+      status: options.status
     })
-    this.getAddressList()
+
     this._getOrderDetail(options.orderId)
   },
 
@@ -144,9 +79,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    this.getAddress()
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏

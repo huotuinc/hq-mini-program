@@ -40,17 +40,24 @@ Page({
     })
   },
 
-  //编辑用户信息进来先获取本地缓存存储的用户收货地址信息
+  /**
+   * 编辑用户信息进来先获取本地缓存存储的用户收货地址信息
+   */
   _getEditAddress: function(e) {
     var self = this
     wx.getStorage({
       key: 'editAddress',
       success: function(res) {
+        console.log(res)
+        var cityList = res.data.province + ',' + res.data.city + ',' + res.data.county
         self.setData({
           username: res.data.name,
           mobilePhone: res.data.mobile,
-          cityList: res.data.area,
+          province: res.data.province,
+          city: res.data.city,
+          county: res.data.county,
           address: res.data.address,
+          cityList: cityList,
           pid: res.data.pid
         })
       },
@@ -64,7 +71,13 @@ Page({
     user.updateAddress({
       id: self.data.pid || 0,
       name: self.data.username,
-      mobile: self.data.mobile
+      mobile: self.data.mobile,
+      province: self.data.province,
+      city: self.data.city,
+      county: self.data.county,
+      address: self.data.address,
+    }, function(res) {
+      console.log(res)
     })
   },
 

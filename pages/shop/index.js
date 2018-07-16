@@ -437,7 +437,7 @@ Page({
         })
       } else {
         wx.showToast({
-          title: '请选择购买商品',
+          title: '您还没选择宝贝哦',
           icon: 'none'
         })
       }

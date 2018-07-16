@@ -37,7 +37,7 @@ Page({
   },
   _goGoodsDetails: function(e) {
     wx.navigateTo({
-      url: '../orderdetails/index?detail=3&orderId='+e.currentTarget.dataset.orderid
+      url: '../orderdetails/index?orderId='+e.currentTarget.dataset.orderid
     })
   },
   //取消订单

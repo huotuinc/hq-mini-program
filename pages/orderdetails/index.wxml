@@ -1,7 +1,7 @@
 <import src="../template/backTop/backTop" />
 <view class='trade-successfully'>
   <view class='success-header'>
-    <view class='success-title'>交易成功</view>
+    <view class='success-title' wx:if='{{orderDetail.status==0}}'>交易成功</view>
     <view>订单号：{{orderDetail.orderId}}</view>
     <view>
       <text>下单时间：{{orderDetail.createTime}}</text>
@@ -25,7 +25,7 @@
 
   <view class='goods-information'>
     <view class='shop_name'>
-      <text>供应商名称/自营名称</text>
+      <text>商场自营</text>
       <text class='allOrder' style='float:right;margin-right:30rpx;'></text>
     </view>
     <blcok wx:for="{{orderDetail.goods}}" wx:for-item="item">
@@ -43,7 +43,7 @@
               <text style='color: #999;'>x{{item.num}}</text>
             </view>
           </view>
-          <!-- <view class='comment '>
+          <!-- <view class='comment ' wx:if='{{orderDetail.status==0}}'>
             <text>评价</text>
             <text>售后</text>
           </view> -->
@@ -52,56 +52,56 @@
     </blcok>
   </view>
 
-  <view class='ramark'>
+  <view class='ramark '>
     备注留言：{{orderDetail.memo}}
   </view>
 
-  <view class='payroll-working'>
-    <view class='payroll-title'>支付明细</view>
-    <view class='discounts-con'>
+  <view class='payroll-working '>
+    <view class='payroll-title '>支付明细</view>
+    <view class='discounts-con '>
       <view>
-        <view class='left'>
+        <view class='left '>
           <text>合计</text>
         </view>
-        <view class='right'>
+        <view class='right '>
           <text>￥{{orderDetail.totalMoney}}</text>
         </view>
       </view>
       <view>
-        <view class='left'>
+        <view class='left '>
           <text>抵用积分</text>
         </view>
-        <view class='right'>
+        <view class='right '>
           <text>￥{{orderDetail.cutMoney}}</text>
         </view>
       </view>
       <view>
-        <view class='left'>
+        <view class='left '>
           <text>余额支付</text>
         </view>
-        <view class='right'>
+        <view class='right '>
           <text>￥{{orderDetail.remainMoney}}</text>
         </view>
       </view>
       <view>
-        <view class='left'>
+        <view class='left '>
           <text>线上支付</text>
         </view>
-        <view class='right'>
+        <view class='right '>
           <text>￥{{orderDetail.onlineMoney}}</text>
         </view>
       </view>
     </view>
   </view>
 
-  <view class='contact-service'>联系客服</view>
+  <view class='contact-service '>联系客服</view>
 
-  <view class='logistics'>
-    <view class='logistics-title'>物流信息</view>
-    <view class='logistics-odd' wx:if="{{orderDetail.logistics.LogicNo=='' || orderDetail.logistics[0].LogicNo ==''}}">暂未查到物流信息</view>
+  <view class='logistics '>
+    <view class='logistics-title '>物流信息</view>
+    <view class='logistics-odd ' wx:if="{{orderDetail.logistics.LogicNo==' ' || orderDetail.logistics[0].LogicNo ==' '}}">暂未查到物流信息</view>
     <view wx:else>
-      <view class='logistics-odd'>{{orderDetail.logistics.LogicCompany || orderDetail.logistics[0].LogicCompany}}运单号 ：{{orderDetail.logistics.LogicNo || orderDetail.logistics[0].LogicNo}}</view>
-      <view class='logistics-item'>
+      <view class='logistics-odd '>{{orderDetail.logistics.LogicCompany || orderDetail.logistics[0].LogicCompany}}运单号 ：{{orderDetail.logistics.LogicNo || orderDetail.logistics[0].LogicNo}}</view>
+      <view class='logistics-item '>
         <view wx:for="{{orderDetail.logistics}}" wx:for-item="logistics">
           <view>{{logistics.LogicContext}}</view>
           <view>{{logistics.LogicTime}}</view>
