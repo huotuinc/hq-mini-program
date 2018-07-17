@@ -169,6 +169,10 @@ var changeAddressDefault = function(data, callback) {
   })
 }
 
+
+
+
+
 module.exports = {
   userIndex: userIndex,
   getIntegralList: getIntegralList,

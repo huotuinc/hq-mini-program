@@ -117,7 +117,9 @@ var config = {
   //订单确认
   checkout: `${host}/order/checkout`,
   //订单提交
-  submit: `${host}/order/submit`
+  submit: `${host}/order/submit`,
+  //用户钱包账户
+  walletaccount: `${host}/user/walletaccount`,
 }
 
 module.exports = config
