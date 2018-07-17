@@ -1,15 +1,15 @@
 <view class='evaluate-header'>
   <view class='header-left'>
-    <image src='{{goodsOrder.orderItemList[0].proPic}}'></image>
+    <image src='{{goodsOrder.proPic}}'></image>
   </view>
   <view class='header-right'>
-    <text>{{goodsOrder.orderItemList[0].name}}</text>
+    <text>{{goodsOrder.name}}</text>
   </view>
 </view>
 
 <view class='evaluate-title'>
   <text>留言</text>
-</view>
+</view> 
 
 <view class='evaluate-content'>
   <view class="textarea-wrp">

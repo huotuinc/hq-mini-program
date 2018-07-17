@@ -13,7 +13,7 @@ pages-------- 页面
     "pages/usercenter/index" -------------------  个人中心
     "pages/shop/index"  ------------------------  购物车
     "pages/goodsdetails/details" ---------------  商品详情
-    "pages/classify/classification" ------------  商品分类
+    "pages/classify/classification" ------------  商品分类 (暂时不用)
     "pages/search/search" ----------------------  搜索
     "pages/collectgoods/collectgoods" ----------  收藏夹
     "pages/order/order-list" -------------------  订单中心

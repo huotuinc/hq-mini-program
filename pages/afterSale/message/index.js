@@ -12,6 +12,7 @@ Page({
 
   _saleComment: function(e) {
     var self = this
+    var afterId = this.data.afterId
     var txtmemo = this.data.txtmemo
     if (!txtmemo) {
       wx.showToast({
@@ -21,7 +22,7 @@ Page({
       return
     }
     user.saleComment({
-        afterSaleId: 10,
+        afterSaleId: afterId,
         content: self.data.txtmemo
       },
       function(res) {
@@ -31,7 +32,11 @@ Page({
       }
     )
   },
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    this.setData({
+      afterId: options.afterId
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示

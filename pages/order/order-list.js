@@ -37,7 +37,7 @@ Page({
   },
   _goGoodsDetails: function(e) {
     wx.navigateTo({
-      url: '../orderdetails/index?orderId='+e.currentTarget.dataset.orderid
+      url: '../orderdetails/index?orderId=' + e.currentTarget.dataset.orderid
     })
   },
   //取消订单
@@ -111,7 +111,13 @@ Page({
 
   //评价
   _evaluateOrder: function(e) {
-    var order = e.currentTarget.dataset.order[0]
+    var goodsOrder = e.currentTarget.dataset.order[0]
+    var order = {
+      orderId: goodsOrder.orderId,
+      productId: goodsOrder.orderItemList[0].productid,
+      proPic: goodsOrder.orderItemList[0].proPic,
+      name: goodsOrder.orderItemList[0].name,
+    }
     wx.setStorage({
       key: 'goodsOrder',
       data: order,

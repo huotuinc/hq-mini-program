@@ -9,8 +9,9 @@ Page({
     pageIndex: 1
   },
   _goSaleDetail: function(e) {
+    var afterId = this.data.afterid
     wx.navigateTo({
-      url: 'MyProductDetail/index',
+      url: 'MyProductDetail/index?afterId=' + afterId,
     })
   },
   _getSalesList: function(customerId) {

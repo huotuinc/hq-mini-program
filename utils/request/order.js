@@ -108,7 +108,24 @@ var orderDetail = function(data, callback) {
       })
     }
   })
-} 
+}
+
+//订单确认
+var checkoutOrder = function(data, callback) {
+  app.request({
+    url: config.checkoutOrder,
+    data: data,
+    success: function(res) {
+      var result = res.data;
+      if (result.code == 200) {
+        callback(result.data)
+      }
+    },
+    fail: function(error) {
+      callback(error)
+    }
+  })
+}
 
 //订单确认
 var orderCheckout=function(data,callback){
@@ -148,5 +165,6 @@ module.exports = {
   commentLike: commentLike,
   orderDetail: orderDetail,
   orderCheckout: orderCheckout,
-  orderSubmit: orderSubmit
+  orderSubmit: orderSubmit,
+  checkoutOrder: checkoutOrder
 };

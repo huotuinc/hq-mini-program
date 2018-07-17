@@ -1,7 +1,8 @@
-// pages/submitOrder/submitOrder.js
+
 import { authorize} from '../../utils/common.js'
 import viewSubmitOrder from '../../utils/viewSubmitOrder.js'
 import { orderSubmit, orderCheckout } from '../../utils/request/order.js'
+
 Page({
 
   /**
@@ -66,7 +67,6 @@ Page({
         })
         //计算应付金额
         var _resultAmount= viewSubmitOrder.calAmount(self.data)
-
         self.setData({
           resultAmount: _resultAmount
         })
@@ -80,12 +80,25 @@ Page({
         self.setData({
           addressData: value,
           addressStatus: true
-        })  
+        })
       }
     } catch (e) {
-      
+
     }
 
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+ 
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
   },
   //获取收货地址
   chooseAddress:function(e){
