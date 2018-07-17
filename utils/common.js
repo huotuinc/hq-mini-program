@@ -61,3 +61,22 @@ export function isInArray(arr, value) {
   }
   return false;
 }
+/**授权 */
+export function authorize(scope,callback){
+  // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.record" 这个 scope
+  wx.getSetting({
+    success(res) {
+      if (!res.authSetting[scope]) {
+        wx.authorize({
+          scope: scope,
+          success() {
+            callback()
+          }
+        })
+      }
+      else{
+        callback()
+      }
+    }
+  })
+}

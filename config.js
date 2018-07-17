@@ -106,7 +106,12 @@ var config = {
   //购物车修改
   updateCart: `${host}/cart/update`,
   //购物车删除
-  removeCart: `${host}/cart/remove`
+  removeCart: `${host}/cart/remove`,
+
+  //订单确认
+  checkout: `${host}/order/checkout`,
+  //订单提交
+  submit: `${host}/order/submit`
 }
 
 module.exports = config

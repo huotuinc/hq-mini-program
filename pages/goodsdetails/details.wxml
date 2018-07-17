@@ -32,7 +32,7 @@
       <text class='goods-item-price' wx:if="{{specData.isUserPrice}}">￥{{goodsItem.Base.Price}}</text>
       <text class='goods-item-sales_volume'>总销量：{{goodsItem.Base.SalesCount}}</text>
     </view>
-    <view class='select-size' bindtap="powerDrawer" data-statu="open" data-btntext="立即购买">
+    <view class='select-size' bindtap="powerDrawer"  data-btnbuy='true' data-statu="open" data-btntext="立即购买">
       <text>{{specData.descName==''?"请选择规格":"已选择【"+specData.descName+"】"}}</text>
       <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text>
     </view>
@@ -137,10 +137,10 @@
     购物车
   </view>
   <view class='item-bar-right'>
-    <view class='item-bar buy' data-btntext="加入购物车" bindtap="powerDrawer" data-statu="open">
+    <view class='item-bar buy' data-btntext="加入购物车" data-btnbuy='false' bindtap="powerDrawer" data-statu="open">
       <text>加入购物车</text>
     </view>
-    <view class='item-bar share' data-btntext="立即购买" bindtap="powerDrawer" data-statu="open">
+    <view class='item-bar share' data-btntext="立即购买"  data-btnbuy='true' bindtap="powerDrawer" data-statu="open">
       <text>立即购买</text>
     </view>
   </view>
@@ -151,7 +151,7 @@
   <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
     <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
       <swiper-item>
-        <view class="swiper-item" catchtap='powerDrawer'>
+        <view class="swiper-item" catchtap='powerDrawer' data-btntext="" data-btnbuy='true'>
           <image lazy-load='true' src='{{item.PicUrl}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
         </view>
       </swiper-item>
@@ -159,10 +159,10 @@
   </swiper>
 </view> 
 
-<view class="drawer_screen drawer-option" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{swiperDetail}}"></view>
+<view class="drawer_screen drawer-option" bindtap="powerDrawer" data-btntext="" data-btnbuy='true' catchtouchmove="true" data-statu="close" wx:if="{{swiperDetail}}"></view>
 <!--点击商品主图全屏显示 end  -->
 
-<view class="drawer_screen" bindtap="powerDrawer" catchtouchmove="true" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_screen" bindtap="powerDrawer" data-btntext="" data-btnbuy='true' catchtouchmove="true" data-statu="close" wx:if="{{showModalStatus}}"></view>
 
 <!-- 选择商品规格 start -->
 <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}" catchtouchmove="true">
