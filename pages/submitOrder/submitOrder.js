@@ -270,7 +270,7 @@ Page({
     var pmtSelectData = self.data.pmtSelectData;
     var chargeCasher = self.data.chargeCasher; //积分支付 
     var payedAdvance = self.data.payedAdvance; //觅豆支付
-    if (addressData != null) {
+    if (addressData == null) {
       wx.showToast({
         title: '请选择收货地址',
         icon:"none"
@@ -304,15 +304,26 @@ Page({
         var result=ret.data;
         if(result.code==200){
             var _p={
-              timeStamp:"",
-              nonceStr:"",
-              package:"",
-              paySign:""
-            }
-            //
-            // wxpay(_p,function(res){
-
-            // })
+              timeStamp: result.data.timeStamp,
+              nonceStr: result.data.nonceStr,
+              package: result.data.package,
+              paySign: result.data.paySign
+            }      
+            //发起支付      
+            wxpay(_p,function(res){
+              console.log(res);
+              if (res.errMsg =="requestPayment:ok"){
+                wx.showToast({
+                  title: '支付成功',
+                })
+              }
+              else if (res.errMsg == "requestPayment:cancel" || res.errMsg =="requestPayment:fail"){
+                wx.showToast({
+                  title: res.err_desc,
+                  icon:"none"
+                })
+              }
+            })
         }
     });
   }

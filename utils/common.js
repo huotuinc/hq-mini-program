@@ -92,11 +92,16 @@ export function wxpay(data,callback){
     'signType': 'MD5',
     'paySign': data.paySign,
     'success': function (res) {
-      if (typeof callback =='function'){
-        callback(res);
-      }
+      // if (typeof callback =='function'){
+      //   callback(res);
+      // }
     },
     'fail': function (res) {
+      // if (typeof callback == 'function') {
+      //   callback(res);
+      // }
+    },
+    complete:function(res){
       if (typeof callback == 'function') {
         callback(res);
       }

@@ -144,8 +144,7 @@ var orderCheckout=function(data,callback){
 var orderSubmit = function (data, callback) {
   app.request({
     url: config.submit,
-    data: data,
-    method: 'get',
+    data: data,    
     success: function (res) {
       callback({
         data: res.data
