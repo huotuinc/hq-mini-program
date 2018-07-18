@@ -155,6 +155,9 @@ Page({
       }
       self.setData({
         items: res.cartGoods,
+        edit: false,
+        editTitle: '编辑',
+        closeTitle: '结算'
       })
     })
   },
@@ -244,17 +247,25 @@ Page({
     var shopIsSelect = this.data.shopIsSelect
     var _items = this.data.items
     var data = this.removeHandle(shopIsSelect, _items.Products)
-    console.log(data)
+    var self = this
 
     if (shopIsSelect) {
-      this.updateCart(data)
+      cart.batchcheck({
+        checkStatus: 0
+      }, function(res) {
+        self.getGoods()
+      })
       this.setData({
         items: _items,
         shopIsSelect: false,
         isSelect: false
       })
     } else {
-      this.updateCart(data)
+      cart.batchcheck({
+        checkStatus: 1
+      }, function(res) {
+        self.getGoods()
+      })
       this.setData({
         items: _items,
         shopIsSelect: true,
@@ -269,14 +280,22 @@ Page({
     var _items = this.data.items
     var data = this.removeHandle(isSelect, _items.Products)
     if (isSelect) {
-      this.updateCart(data)
+      cart.batchcheck({
+        checkStatus: 0
+      }, function(res) {
+        self.getGoods()
+      })
       this.setData({
         items: _items,
         shopIsSelect: false,
         isSelect: false
       })
     } else {
-      this.updateCart(data)
+      cart.batchcheck({
+        checkStatus: 1
+      }, function(res) {
+        self.getGoods()
+      })
       this.setData({
         items: _items,
         shopIsSelect: true,
@@ -447,11 +466,7 @@ Page({
       //批量删除
       for (let idx in _items) {
         if (_items[idx].IsChecked) {
-          var item = {
-            goodsId: _items[idx].GoodsId,
-            productId: _items[idx].ProductId,
-          }
-          data.push(item)
+          data.push(_items[idx].ProductId)
         }
       }
       //判断删除操作的商品数量是否大于0
@@ -460,7 +475,11 @@ Page({
           content: '确定要将该商品移出购物车吗？',
           success: function(res) {
             if (res.confirm) {
-              self.delCart(data)
+              cart.batchremove({
+                productIds: data.join(",")
+              }, function(res) {
+                self.getGoods()
+              })
             }
           }
         })

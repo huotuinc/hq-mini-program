@@ -41,7 +41,7 @@ pages-------- 页面
     "pages/usercenter/residual/index" ----------  余额
     "pages/evaluate/index" ---------------------  评价
     "pages/evaluate/conmmentList/index" --------  评论列表
-
+    "pages/afterSale/wuliu/index" --------------  物流提交
 
 utils--------- 脚本文件
 ```

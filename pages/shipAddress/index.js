@@ -71,6 +71,7 @@ Page({
       url: '../addAddress/index?pid=0',
     })
   },
+
   //获取收货地址管理列表
   _getAddressList: function() {
     var self = this
@@ -98,7 +99,6 @@ Page({
     var id = e.currentTarget.dataset.pid
     var index = e.currentTarget.dataset.index
     var editAddress = this.data.addressList
-    // console.log(editAddress[index])
     wx.setStorage({
       key: 'editAddress',
       data: editAddress[index],

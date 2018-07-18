@@ -17,7 +17,7 @@
   height: 120rpx;
 }
 
-.evaluate-title {
+.evaluate-title { 
   margin-top: 20rpx;
   margin-bottom: 10rpx;
   padding-left: 30rpx;

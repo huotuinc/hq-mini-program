@@ -1,7 +1,7 @@
 /**
  * 小程序配置文件
  */
-var host = "http://yapi.demo.qunar.com/mock/11987/api"
+var host = 'http://yapi.demo.qunar.com/mock/11987/api'
 // var host = "http://mfapi.mfmall.com"
 
 var config = {
@@ -59,7 +59,7 @@ var config = {
   getaccountlist: `${host}/user/GetAccountList`,
   //编辑提现账户
   editAccount: `${host}/user/EditAccount`,
-  //设置默认提现账户 
+  //设置默认提现账户
   setDefaultAccount: `${host}/user/SetDefaultAccount`,
   //删除提现账号
   delAccount: `${host}/user/DelAccount`,
@@ -77,12 +77,16 @@ var config = {
   checkoutOrder: `${host}/order/checkout`,
   //申请售后
   afterSales: `${host}/user/applyAfterSale`,
+  //获取申请售后
+  getApplyAfterSale: `${host}/user/getApplyAfterSale`,
   //售后列表
   getSalesList: `${host}/user/afterSaleList`,
   //售后详情
   afterSaleDetail: `${host}/user/afterSaleDetail`,
   //取消售后
   cancelAfterSale: `${host}/user/cancelAfterSale`,
+  //提交物流信息
+  submitLogistics: `${host}/user/submitLogistics`,
   //提交评论
   submitComment: `${host}/user/comment`,
   //评论列表
@@ -113,6 +117,10 @@ var config = {
   updateCart: `${host}/cart/update`,
   //购物车删除
   removeCart: `${host}/cart/remove`,
+  //购物车批量删除
+  batchremove: `${host}/cart/batchremove`,
+  //购物车批量选中
+  batchcheck: `${host}/cart/batchcheck`,
 
   //订单确认
   checkout: `${host}/order/checkout`,
@@ -123,6 +131,7 @@ var config = {
   //获取可用优惠券
   enabledCoupons: `${host}/user/GetEnabledCoupons`,
   
+
 }
 
 module.exports = config

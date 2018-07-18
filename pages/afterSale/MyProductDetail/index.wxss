@@ -1,7 +1,13 @@
+.sale-header {
+  background-color: #e41436;
+  padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .status {
-  font-size: 42rpx;
-  margin: 10rpx 30rpx;
-  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
 }
 
 .feedback {
@@ -12,8 +18,9 @@
 .feedback text {
   font-size: 24rpx;
   padding: 8rpx 28rpx;
+  background-color: #fff;
   border-radius: 10rpx;
-  border: 1px solid #e41436;
+  border: 1px solid #fff;
 }
 
 .my-product_detail {
@@ -89,7 +96,7 @@
   font-size: 24rpx;
 }
 
-.negotiate-status,.negotiate-title {
+.negotiate-status, .negotiate-title {
   width: 100%;
   height: 80rpx;
   line-height: 80rpx;
@@ -98,23 +105,57 @@
   background-color: #fff;
 }
 
-.negotiate-title{
+.negotiate-title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 6rpx;
 }
 
-.negititate-reason{
+.negititate-reason {
   margin-top: 20rpx;
   font-size: 24rpx;
 }
-.negotiate-details{
+
+.negotiate-details {
   padding: 20rpx 30rpx;
   box-sizing: border-box;
   background-color: #fff;
 }
-.negotiate-details > view{
+
+.negotiate-details > view {
   height: 48rpx;
   line-height: 48rpx;
+}
+
+.sale_img {
+  padding: 0 30rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.sale_img text {
+  display: block;
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 24rpx;
+}
+
+.sale_img image {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+
+.btn-sale {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #e41436;
+  color: #fff;
 }

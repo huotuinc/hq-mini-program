@@ -1,4 +1,4 @@
-const indexData = require('../../utils/mock/index.js')
+// const indexData = require('../../utils/mock/index.js')
 import {
   collection,
   windowHeight
@@ -176,14 +176,14 @@ Page({
 
   onLoad: function(options) {
     var self = this
-    if (app.globalData.mock) {
-      this.setData({
-        category: indexData.categoryItems,
-        // bannerItems: indexData.bannerItems,
-        specialItems: indexData.specialItems,
-        currentCategory: indexData.categoryItems[this.data.currentTab].child
-      })
-    }
+    // if (app.globalData.mock) {
+    //   this.setData({
+    //     category: indexData.categoryItems,
+    //     // bannerItems: indexData.bannerItems,
+    //     specialItems: indexData.specialItems,
+    //     currentCategory: indexData.categoryItems[this.data.currentTab].child
+    //   })
+    // }
 
     app.request({
       url: config.homeRecommendUrl,

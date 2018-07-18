@@ -1,4 +1,3 @@
-import config from '../../config.js'
 import user from '../../utils/request/user.js'
 const app = getApp();
 
@@ -9,7 +8,8 @@ Page({
     pageIndex: 1
   },
   _goSaleDetail: function(e) {
-    var afterId = this.data.afterid
+    var afterId = e.currentTarget.dataset.afterid
+
     wx.navigateTo({
       url: 'MyProductDetail/index?afterId=' + afterId,
     })
@@ -27,6 +27,7 @@ Page({
       })
     })
   },
+
   onLoad: function(options) {
     var customerId = 0
     var that = this
