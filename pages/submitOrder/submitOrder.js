@@ -312,14 +312,16 @@ Page({
             //发起支付      
             wxpay(_p,function(res){
               console.log(res);
-              if (res.errMsg =="requestPayment:ok"){
+              if (res.errMsg.indexOf("requestPayment:ok") >= 0){
                 wx.showToast({
                   title: '支付成功',
                 })
               }
-              else if (res.errMsg == "requestPayment:cancel" || res.errMsg =="requestPayment:fail"){
+              else if (res.errMsg.indexOf("requestPayment:fail") >= 0 || res.errMsg.indexOf("requestPayment:cancel")>=0){
+                //requestPayment:fail:该订单已过期，请重新下单
+                var msgs=res.errMsg.split(":");                
                 wx.showToast({
-                  title: res.err_desc,
+                  title: msgs.length ==3 ? msgs[2]:'支付失败',
                   icon:"none"
                 })
               }
