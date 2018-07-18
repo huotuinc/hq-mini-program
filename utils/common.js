@@ -80,3 +80,26 @@ export function authorize(scope,callback){
     }
   })
 }
+
+/**
+ * 微信支付
+ */
+export function wxpay(data,callback){
+  wx.requestPayment({
+    'timeStamp': data.timeStamp,
+    'nonceStr': data.nonceStr,
+    'package': data.package,
+    'signType': 'MD5',
+    'paySign': data.paySign,
+    'success': function (res) {
+      if (typeof callback =='function'){
+        callback(res);
+      }
+    },
+    'fail': function (res) {
+      if (typeof callback == 'function') {
+        callback(res);
+      }
+    }
+  })
+}

@@ -181,6 +181,20 @@ var walletaccount = function (data, callback) {
   })
 }
 
+/**
+ * 
+ */
+var enabledCoupons = function (data, callback){
+  app.request({
+    url: config.enabledCoupons,
+    data: data,
+    success: function (res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
 
 
 module.exports = {
@@ -197,5 +211,6 @@ module.exports = {
   updateAddress: updateAddress,
   deleteAddress: deleteAddress,
   changeAddressDefault: changeAddressDefault,
-  walletaccount: walletaccount
+  walletaccount: walletaccount,
+  enabledCoupons: enabledCoupons
 };

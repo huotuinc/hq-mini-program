@@ -42,3 +42,6 @@
   width: 500rpx;
   top: 10rpx;
 }
+.icon-ico2 {
+  color: #ddd;
+}
