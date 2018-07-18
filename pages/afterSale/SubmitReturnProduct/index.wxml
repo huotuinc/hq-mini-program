@@ -1,6 +1,6 @@
 <view class='header'>
   <view class='order-num'>
-    订单编号：{{orderDetail.orderid}}
+    订单编号：{{orderDetail.orderId}}
   </view>
   <view class='order-details'>
     <view>
@@ -8,17 +8,17 @@
     </view>
     <view class='order-details_title'>
       <view class='shop_title'>
-        <text>{{orderDetail.products}}</text>
+        <text>{{orderDetail.productName}}</text>
       </view>
       <view class='price_num'>
-        <text>￥{{orderDetail.price}}</text>
-        <text>x{{orderDetail.returnNum}}</text>
+        <text>￥{{orderDetail.productPrice}}</text>
+        <text>x{{orderDetail.productNum}}</text>
       </view>
     </view>
   </view>
   <view class='apply-reason'>
-    <view>订单编号：{{orderDetail.orderid}}</view>
-    <view>下单时间：{{orderDetail.createTime}}</view>
+    <view>订单编号：{{orderDetail.orderId}}</view>
+    <view>下单时间：{{orderDetail.orderTime}}</view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
@@ -46,23 +46,31 @@
       </view>
     </view>
     <view>退款明细：</view>
+    <view class="weui-cells weui-cells_after-title" wx:if='{{orderDetail.costFreight}}'>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">可退运费：</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value='{{orderDetail.costFreight}}' disabled />
+        </view>
+      </view>
+    </view>
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">可退金额：</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" value='{{orderDetail.price}}' wx:if='{{proposalIndex == 1}}' disabled />
-          <input class="weui-input" value='{{totalMoney}}' bindinput='getTotalMoney' wx:else />
+          <input class="weui-input" value='{{orderDetail.price}}' disabled />
         </view>
       </view>
     </view>
   </view>
-  <view class='rebate'>
+  <!-- <view class='rebate'>
     退款总金额：
-    <text style='color:#e41436;' wx:if='{{proposalIndex == 1}}'>{{orderDetail.totalMoney}}</text>
-    <text style='color:#e41436;' wx:else>{{totalMoney}}</text>元
-  </view>
+    <text style='color:#e41436;'>{{orderDetail.costFreight}}</text>元
+  </view> -->
   <view class='mobilePhone'>
     <view>手机号码：</view>
     <view>
@@ -72,7 +80,7 @@
   <view class='detailed-reasons'>
     <view>详细原因：</view>
     <view>
-      <textarea placeholder='请填写详细申请售后原因，申请成功后需要退货的请填写物流信息！不能超过100个字符！' bindinput='getContent'></textarea>
+      <textarea placeholder='请填写详细申请售后原因，申请成功后需要退货的请填写物流信息！不能超过100个字符！' value="{{content}}" bindinput='getContent'></textarea>
     </view>
   </view>
   <view class='pic-proof'>

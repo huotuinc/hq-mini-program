@@ -44,7 +44,7 @@
             </view>
           </view>
           <view class='comment ' wx:if='{{orderDetail.status==1}}'>
-            <text catchtap='goEvaluate' wx:if="{{!orderDetail.isComment}}" data-index="{{index}}">评价</text>
+            <!-- <text catchtap='goEvaluate' wx:if="{{!orderDetail.isComment}}" data-index="{{index}}">评价</text> -->
             <text class='after-sale' catchtap='goAfterSale' data-index="{{index}}" data-saleAfterStatus='{{item.saleAfterStatus}}' data-afterId='{{item.afterId}}'>{{item.statusName}}</text>
           </view>
         </view>

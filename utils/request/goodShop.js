@@ -54,9 +54,41 @@ var removeCart = function(data, callback) {
   })
 }
 
+//批量删除
+var batchremove = function(data, callback) {
+  app.request({
+    url: config.batchremove,
+    data: data,
+    success: function(res) {
+      if (res.data.code == 200) {
+        callback({
+          batchremove: res.data
+        })
+      }
+    }
+  })
+}
+
+//批量选中
+var batchcheck = function(data, callback) {
+  app.request({
+    url: config.batchcheck,
+    data: data,
+    success: function(res) {
+      if (res.data.code == 200) {
+        callback({
+          batchcheck: res.data
+        })
+      }
+    }
+  })
+}
+
 module.exports = {
   getCartGoods: getCartGoods,
   addCartGoods: addCartGoods,
   updateCart: updateCart,
-  removeCart: removeCart
+  removeCart: removeCart,
+  batchremove: batchremove,
+  batchcheck: batchcheck
 };

@@ -9,14 +9,14 @@
       </view>
     </view>
   </view>
-
+ 
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd"> 
+      <view class="weui-cell__hd">
         <view class="weui-label">联系方式</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" type='number' placeholder="手机号码" value='{{mobilePhone}}' bindinput="phoneChange" />
+        <input class="weui-input" type='number' maxlength='11' placeholder="手机号码" value='{{mobilePhone}}' bindinput="phoneChange" />
       </view>
     </view>
   </view>
@@ -24,23 +24,47 @@
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
-        <view class="weui-label">所在城市</view>
+        <view class="weui-label">所在省</view>
       </view>
       <view class="weui-cell__bd">
-        <picker mode="region" value="{{cityList}}" bindchange="bindRegionChange">
-          <view class="weui-input">{{cityList}}</view>
+        <picker range="{{provinceName}}" value="{{provinceSelIndex}}" bindchange="bindRegionChange">
+          <view class="weui-input">{{province|| '请选择所在省'}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells weui-cells_after-title" wx:if="{{province}}">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">所在市</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker range="{{cityName}}" value="{{citySelIndex}}" bindchange="bindRegionCity">
+          <view class="weui-input">{{city||'请选择所在市'}}</view>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells weui-cells_after-title" wx:if="{{city}}">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">所在区/县</view>
+      </view>
+      <view class="weui-cell__bd">
+        <picker range="{{districtName}}" value="{{districtSelIndex}} " bindchange="bindDistrict">
+          <view class="weui-input ">{{county||'请选择所在县/区'}}</view>
         </picker>
       </view>
     </view>
   </view>
 
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">详细地址</view>
+  <view class="weui-cells weui-cells_after-title ">
+    <view class="weui-cell weui-cell_input ">
+      <view class="weui-cell__hd ">
+        <view class="weui-label ">详细地址</view>
       </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" type='text' placeholder="详细地址需要填写楼栋层数或房间信息" value='{{address}}' bindinput="addressChange" />
+      <view class="weui-cell__bd ">
+        <input class="weui-input " type='text' placeholder="详细地址需要填写楼栋层数或房间信息 " value='{{address}}' bindinput="addressChange" />
       </view>
     </view>
   </view>

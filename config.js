@@ -77,12 +77,16 @@ var config = {
   checkoutOrder: `${host}/order/checkout`,
   //申请售后
   afterSales: `${host}/user/applyAfterSale`,
+  //获取申请售后
+  getApplyAfterSale: `${host}/user/getApplyAfterSale`,
   //售后列表
   getSalesList: `${host}/user/afterSaleList`,
   //售后详情
   afterSaleDetail: `${host}/user/afterSaleDetail`,
   //取消售后
   cancelAfterSale: `${host}/user/cancelAfterSale`,
+  //提交物流信息
+  submitLogistics: `${host}/user/submitLogistics`,
   //提交评论
   submitComment: `${host}/user/comment`,
   //评论列表
@@ -112,7 +116,11 @@ var config = {
   //购物车修改
   updateCart: `${host}/cart/update`,
   //购物车删除
-  removeCart: `${host}/cart/remove`
+  removeCart: `${host}/cart/remove`,
+  //购物车批量删除
+  batchremove: `${host}/cart/batchremove`,
+  //购物车批量选中
+  batchcheck: `${host}/cart/batchcheck`
 }
 
 module.exports = config

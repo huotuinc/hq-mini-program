@@ -12,7 +12,24 @@ var applyAfterSale = function(data, callback) {
     url: config.afterSales,
     data: data,
     success: function(res) {
-      if (res.data == 200) {
+      if (res.data.code == 200) {
+        callback({
+          data: res.data
+        })
+      }
+    }
+  })
+}
+
+/**
+ * 获取申请售后信息
+ */
+var getApplyAfterSale = function(data, callback) {
+  app.request({
+    url: config.getApplyAfterSale,
+    data: data,
+    success: function(res) {
+      if (res.data.code == 200) {
         callback({
           data: res.data
         })
@@ -30,7 +47,7 @@ var afterSaleDetail = function(data, callback) {
     data: data,
     method: 'get',
     success: function(res) {
-      if (res.code == 200) {
+      if (res.data.code == 200) {
         callback({
           data: res.data
         })
@@ -47,7 +64,24 @@ var cancelAfterSale = function(data, callback) {
     url: config.cancelAfterSale,
     data: data,
     success: function(res) {
-      if (res.code == 200) {
+      if (res.data.code == 200) {
+        callback({
+          data: res.data
+        })
+      }
+    }
+  })
+}
+
+/**
+ * 提交物流信息
+ */
+var submitLogistics = function(data, callback) {
+  app.request({
+    url: config.submitLogistics,
+    data: data,
+    success: function(res) {
+      if (res.data.code == 200) {
         callback({
           data: res.data
         })
@@ -59,5 +93,7 @@ var cancelAfterSale = function(data, callback) {
 module.exports = {
   applyAfterSale: applyAfterSale,
   afterSaleDetail: afterSaleDetail,
-  cancelAfterSale: cancelAfterSale
+  getApplyAfterSale: getApplyAfterSale,
+  cancelAfterSale: cancelAfterSale,
+  submitLogistics: submitLogistics
 };

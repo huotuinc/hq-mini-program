@@ -60,49 +60,34 @@ Page({
   },
 
   //评论商品
-  goEvaluate: function(e) {
-    var orderDetail = this.data.orderDetail
-    var index = e.currentTarget.dataset.index
-    var order = {
-      orderId: orderDetail.orderId,
-      productId: orderDetail.goods[index].productId,
-      proPic: orderDetail.goods[index].picUrl,
-      name: orderDetail.goods[index].name,
-    }
-    wx.setStorage({
-      key: 'goodsOrder',
-      data: order,
-    })
-    wx.navigateTo({
-      url: '../evaluate/index',
-    })
-  },
+  // goEvaluate: function(e) {
+  //   var orderDetail = this.data.orderDetail
+  //   var index = e.currentTarget.dataset.index
+  //   var order = {
+  //     orderId: orderDetail.orderId,
+  //     productId: orderDetail.goods[index].productId,
+  //     proPic: orderDetail.goods[index].picUrl,
+  //     name: orderDetail.goods[index].name,
+  //   }
+  //   wx.setStorage({
+  //     key: 'goodsOrder',
+  //     data: order,
+  //   })
+  //   wx.navigateTo({
+  //     url: '../evaluate/index',
+  //   })
+  // },
 
   //申请售后
   goAfterSale: function(e) {
     var index = e.currentTarget.dataset.index
     var saleAfterStatus = e.currentTarget.dataset.saleafterstatus
     var orderDetail = this.data.orderDetail
-    var afterOrder = {
-      orderid: orderDetail.orderId, //订单号
-      products: orderDetail.goods[index].name, //货品名称 
-      returnNum: orderDetail.goods[index].num, //货品数量
-      pics: orderDetail.goods[index].picUrl, // 货品图片
-      bns: orderDetail.goods[index].bns, //货号
-      mobile: orderDetail.shipMobile, //联系人手机
-      price: orderDetail.totalMoney, //退款金额
-      goodsid: orderDetail.goods[index].goodsId, //商品Id
-      afterid: orderDetail.afterId, //售后id
-      supplierid: orderDetail.goods[index].supplierId, //供应商id
-      unionorderid: orderDetail.goods[index].unionOrderId, //联合单号
-      productid: orderDetail.goods[index].productId, //货品id
-      createTime: orderDetail.createTime //下单时间
-    }
+
     var afterId = e.currentTarget.dataset.afterid
     if (saleAfterStatus == 0) {
-      wx.setStorageSync('orderDetail', afterOrder)
       wx.navigateTo({
-        url: '../afterSale/SubmitReturnProduct/index',
+        url: '../afterSale/SubmitReturnProduct/index?orderId=' + orderDetail.orderId + '&productId=' + orderDetail.goods[index].productId,
       })
     } else if (saleAfterStatus == 1 || saleAfterStatus == 2 || saleAfterStatus == 3) {
       wx.navigateTo({
