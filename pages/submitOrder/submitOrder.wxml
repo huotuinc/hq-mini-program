@@ -2,10 +2,10 @@
 <view>
   <view class="consignee-information" catchtap='chooseAddress'>
     <block wx:if="{{addressStatus}}">
-      <text class='address-userName'>收货人：<text>{{addressData.userName}}</text></text>
-      <text class='address-telNumber'>联系方式：{{addressData.telNumber}}</text>
+      <text class='address-userName'>收货人：<text>{{addressData.name}}</text></text>
+      <text class='address-telNumber'>联系方式：{{addressData.mobile}}</text>
       <text class='address-detailInfo'>收货地址：</text>
-      <text class='address-detailInfo1'>{{addressData.detailInfo}}</text>
+      <text class='address-detailInfo1'>{{addressData.province+addressData.city+addressData.county+addressData.address}}</text>
     </block>
     <block wx:if="{{!addressStatus}}">
       <view class='none-address'>请选择收货地址</view>
@@ -38,7 +38,7 @@
       </view>
       <view class='feedback1'>
         <text>备注留言</text>
-         <input class="weui-input" placeholder='备注留言' />
+        <input class="weui-input" placeholder='备注留言' value='{{memo}}' />
       </view>
       <view>
         <text>应付金额</text>
@@ -56,28 +56,28 @@
   <view class='discounts'>
     <view class='discounts-title'>优惠</view>
     <view class='discounts-con'>
-      <view>
-        <view class='left'>
-          <text>余额 </text>
-          <text style='color:#E41436;'>2000元</text>
-        </view>
-        <view class='right'>
-          <text>-￥20.00</text>
-          <icon class='icon iconfont icon-xuanzhong'></icon>
-        </view>
-      </view>
-      <view>
+
+      <view catchtap='_clickMiBean' data-type='mibean'>
         <view class='left'>
           <text>觅豆 </text>
-          <text style='color:#E41436;'>2000个</text>
+          <text style='color:#E41436;'>{{walletData.UsefulMiBean}}个</text>
         </view>
         <view class='right'>
-          <text>-￥20.00</text>
-          <icon class='icon iconfont icon-xuanzhong'></icon>
+          <text wx:if="{{payedAdvance.status}}">-{{payedAdvance.amount}}</text>
+          <icon class="icon iconfont {{payedAdvance.status?'icon-xuanzhong':'icon-ico2'}}"></icon>
+        </view>
+      </view>
+      <view catchtap='_clikcScore' data-type="score">
+        <view class='left'>
+          <text>余额 </text>
+          <text style='color:#E41436;'>{{walletData.UsefulIntegralAmount}}元</text>
+        </view>
+        <view class='right'>
+          <text wx:if="{{chargeCasher.status}}">-￥{{chargeCasher.amount}}</text>
+          <icon class="icon iconfont {{chargeCasher.status?'icon-xuanzhong':'icon-ico2'}}"></icon>
         </view>
       </view>
       <view>
-
         <view class='left'>
           <text>优惠券 </text>
           <text style='color:#E41436;'>{{pmtCount}}张</text>
@@ -95,7 +95,7 @@
   <view style='height:130rpx;'></view>
   <view class='submit'>
     <text>应付金额：￥{{resultAmount.SurplusAmount}}</text>
-    <text class='sub_btn'>提交订单</text>
+    <text catchtap='submitOrder' class='sub_btn'>提交订单</text>
   </view>
 </view>
 <template is="loading" wx:if="{{loading}}" />

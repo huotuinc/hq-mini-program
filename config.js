@@ -127,7 +127,11 @@ var config = {
   //订单提交
   submit: `${host}/order/submit`,
   //用户钱包账户
-  walletaccount: `${host}/user/walletaccount`
+  walletaccount: `${host}/user/walletaccount`,
+  //获取可用优惠券
+  enabledCoupons: `${host}/user/GetEnabledCoupons`,
+  
+
 }
 
 module.exports = config

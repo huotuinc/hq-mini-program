@@ -25,7 +25,6 @@
     "pages/afterSale/index",
     "pages/afterSale/MyProductDetail/index",
     "pages/afterSale/SubmitReturnProduct/index",
-    "pages/afterSale/wuliu/index",
     "pages/afterSale/message/index",
     "pages/bindingPhone/index",    
     "pages/usercenter/residual/index",

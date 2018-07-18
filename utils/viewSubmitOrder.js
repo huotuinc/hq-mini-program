@@ -51,8 +51,8 @@ var  viewSubmitOrder= {
     var _promotionpmtamount = data.orderInfo.PromotionPmtAmount;
     //是否使用积分支付
     if (chargeCasher.status) {
-      var _cashScore = chargeCasher.scoreUsed;
-      _cashScoreAmount = (_cashScore * _cashRate).toFixed(2);
+      _cashScoreAmount = chargeCasher.amount;
+      //_cashScoreAmount = (_cashScore * _cashRate).toFixed(2);
     }
     //是否使用余额支付
     if (payedAdvance.status) {
