@@ -1,7 +1,7 @@
 /**
  * 小程序配置文件
  */
-var host = "http://yapi.demo.qunar.com/mock/11987/api"
+var host = 'http://yapi.demo.qunar.com/mock/11987/api'
 // var host = "http://mfapi.mfmall.com"
 
 var config = {
@@ -59,7 +59,7 @@ var config = {
   getaccountlist: `${host}/user/GetAccountList`,
   //编辑提现账户
   editAccount: `${host}/user/EditAccount`,
-  //设置默认提现账户 
+  //设置默认提现账户
   setDefaultAccount: `${host}/user/SetDefaultAccount`,
   //删除提现账号
   delAccount: `${host}/user/DelAccount`,
@@ -120,7 +120,14 @@ var config = {
   //购物车批量删除
   batchremove: `${host}/cart/batchremove`,
   //购物车批量选中
-  batchcheck: `${host}/cart/batchcheck`
+  batchcheck: `${host}/cart/batchcheck`,
+
+  //订单确认
+  checkout: `${host}/order/checkout`,
+  //订单提交
+  submit: `${host}/order/submit`,
+  //用户钱包账户
+  walletaccount: `${host}/user/walletaccount`
 }
 
 module.exports = config

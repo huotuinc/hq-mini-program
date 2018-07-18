@@ -168,6 +168,20 @@ var changeAddressDefault = function(data, callback) {
     }
   })
 }
+//用户钱包账户
+var walletaccount = function (data, callback) {
+  app.request({
+    url: config.walletaccount,
+    data: data,
+    success: function (res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
+
 
 module.exports = {
   userIndex: userIndex,
@@ -182,5 +196,6 @@ module.exports = {
   addressList: addressList,
   updateAddress: updateAddress,
   deleteAddress: deleteAddress,
-  changeAddressDefault: changeAddressDefault
+  changeAddressDefault: changeAddressDefault,
+  walletaccount: walletaccount
 };

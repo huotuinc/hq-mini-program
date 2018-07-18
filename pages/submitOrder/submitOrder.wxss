@@ -1,1 +1,44 @@
 @import "../orderdetails/index.wxss";
+.consignee-information{
+  font-size: 25rpx;
+}
+
+.none-address{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+  margin-top: 50rpx;
+}
+.address-userName{
+  margin: 5rpx 5rpx 5rpx 20rpx;  
+}
+.address-userName text{
+  color: #000000;
+}
+.address-telNumber{
+  margin: 5rpx 5rpx 5rpx 20rpx; 
+}
+.address-detailInfo{
+  margin: 5rpx 5rpx 5rpx 20rpx; 
+}
+.address-detailInfo1{
+  margin: 5rpx 5rpx 5rpx 20rpx; 
+}
+.feedback1{
+  position:relative;
+  display: flex;
+  flex-direction: column;
+}
+.feedback1 text{
+  width: 150rpx;
+  position: relative; 
+}
+.feedback1 input{
+  position: absolute; 
+  right: 30rpx;
+  text-align: right;
+  width: 500rpx;
+  top: 10rpx;
+}

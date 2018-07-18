@@ -1,10 +1,9 @@
-import config from '../../config.js'
 import viewDataResponsity from '../../utils/viewDataResponsity.js'
 import {
   isInArray
 } from '../../utils/common.js'
 import goodsdetails from '../../utils/request/goodsdetails.js'
-const app = getApp();
+import { addCartGoods} from '../../utils/request/goodShop.js'
 
 Page({
 
@@ -17,6 +16,7 @@ Page({
     showModalStatus: false,
     categoryTitle: '',
     btnText: '立即购买',
+    btnBuy:true,/**按钮是否是购买状态 */
     shopNum: 1,
     backTopValue: false,
     swiperDetail: false,
@@ -171,9 +171,14 @@ Page({
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     this.setData({
+      btnText: e.currentTarget.dataset.btntext,
+      btnBuy:e.currentTarget.dataset.btnbuy,
       swiperDetail: false
     })
   },
+  /**
+   * 立即购买
+   */
   buyNow:function(e){
     if (this.data.specData.productid == 0) {
       wx.showToast({
@@ -182,11 +187,28 @@ Page({
       })
     }
     else{
-      var traItems = this.data.goodsItem.Base.GoodsId+"_"+this.data.specData.productid+"_"+this.data.showNum
-      //跳转订单确认页      
-      wx.navigateTo({
-        url: '../submitOrder/submitOrder?traItems=' + traItems
-      })
+      if(this.data.btnBuy){
+        var traItems = this.data.goodsItem.Base.GoodsId+"_"+this.data.specData.productid+"_"+this.data.showNum
+        //跳转订单确认页      
+        wx.navigateTo({
+          url: '../submitOrder/submitOrder?traItems=' + traItems
+        })
+      }
+      else{
+        //加入购物车
+        var p={
+          goodsId: this.data.goodsItem.Base.GoodsId,
+          productId: this.data.specData.productid,
+          quantity: this.data.showNum
+        }
+        addCartGoods(p,function(){
+          //添加成功
+          wx.showToast({
+            title: "加入购物车成功",
+            icon: "none"
+          })
+        });
+      }
     }
   },
   util: function(currentStatu) {
