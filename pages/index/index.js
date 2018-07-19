@@ -1,4 +1,4 @@
-import { collection, windowHeight, setRefermid } from '../../utils/common.js'
+import { collection, windowHeight, setRefermid, getRefermid } from '../../utils/common.js'
 
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
@@ -180,10 +180,11 @@ Page({
    */
   onLoad: function(options) {
     var self = this
+    var _refermid = getRefermid()
     self.setData({
-      refermid: options.refermid||0
+      refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
     })
-    setRefermid(options.refermid)
+    setRefermid(self.data.refermid)
     app.request({
       url: config.homeRecommendUrl,
       method: 'get',

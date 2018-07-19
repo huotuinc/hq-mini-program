@@ -21,9 +21,7 @@ App({
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
-  onLaunch: function(options) {
-    console.log(options);
-    setRefermid(options.refermid);
+  onLaunch: function(options) {        
     var guideUserId = options.refermid||0
     var self = this;
     wx.getSystemInfo({
