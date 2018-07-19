@@ -164,7 +164,7 @@ App({
     //移除userToken
     delete signParams['userToken'];
     delete signParams['customerId'];
-    return md5(this.raw(newParams) + this.globalData.app_secret)
+    return md5(this.raw(newParams) + this.globalData.app_secret).toUpperCase()
   },
   /**
    * 签名参数排序并拼接成字符串
