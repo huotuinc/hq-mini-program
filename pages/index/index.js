@@ -1,4 +1,4 @@
-import { collection, windowHeight } from '../../utils/common.js'
+import { collection, windowHeight, setRefermid } from '../../utils/common.js'
 
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
@@ -11,6 +11,7 @@ Page({
    */
   data: {
     loading: true,
+    refermid:0,//引导人ID
     bannerItems: [],
     scrollIntoView: 1,
     category: [],
@@ -134,7 +135,7 @@ Page({
         '../goodsdetails/details?goodsid=' +
         e.currentTarget.dataset.goodsid +
         '&categoryTitle=' +
-        e.currentTarget.dataset.title
+      e.currentTarget.dataset.title + '&refermid=' + this.data.refermid
     })
   },
   //设置tab标题滚动
@@ -179,6 +180,10 @@ Page({
    */
   onLoad: function(options) {
     var self = this
+    self.setData({
+      refermid: options.refermid||0
+    })
+    setRefermid(options.refermid)
     app.request({
       url: config.homeRecommendUrl,
       method: 'get',
@@ -285,7 +290,7 @@ Page({
     var shareData = {
       title: '健康生活每一天',
       desc: '',
-      path: '/pages/index/index?refermid='
+      path: '/pages/index/index?refermid=' + app.globalData.userId
     }
     return shareData
   },

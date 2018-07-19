@@ -1,6 +1,6 @@
 import viewDataResponsity from '../../utils/viewDataResponsity.js'
 import {
-  isInArray, setRefermid
+  isInArray, setRefermid, getRefermid
 } from '../../utils/common.js'
 import goodsdetails from '../../utils/request/goodsdetails.js'
 import { addCartGoods} from '../../utils/request/goodShop.js'
@@ -89,7 +89,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function(options) {   
     this.setData({     
       categoryTitle: options.categoryTitle || '商品详情',
       refermid: options.refermid||0
