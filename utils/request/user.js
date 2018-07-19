@@ -5,7 +5,7 @@ const app = getApp();
 var userIndex = function(callback) {
   app.request({
     url: config.userIndex,
-    method: 'get',
+    method: 'post',
     success: function(res) {
       callback({
         userItem: res.data.data

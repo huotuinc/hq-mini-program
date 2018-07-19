@@ -1,0 +1,20 @@
+<!--pages/payResult/result.wxml-->
+<view class='pay-success-tip'>
+  <view>
+    <icon type="success" size='30' />
+    <text class='pay-result-msg'>订单支付成功</text>
+  </view>
+</view>
+<view class='pay-order-info'>
+  <text>订单号</text>
+  <view>{{orderid}}</view>
+</view>
+
+<view class='pay-btn'>
+<view class='btn-recharge' style='background-color: #04be02;' bindtap='_goOrderList'>
+  查看订单
+</view>
+<view class='btn-recharge' style='background-color: #04be02;' bindtap='_goUserCenter'>
+  个人中心
+</view>
+</view>

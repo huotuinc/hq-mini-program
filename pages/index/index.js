@@ -179,44 +179,54 @@ Page({
       url: config.homeRecommendUrl,
       method: 'get',
       success: function(res) {
-        var list = res.data.data.list
-        var bannerItems = []
-        var specialItems = []
-        for (let idx in list) {
-          if (list[idx].adType == 1) {
-            bannerItems.push(list[idx])
+        try{
+          var list = res.data.data.list
+          var bannerItems = []
+          var specialItems = []
+          for (let idx in list) {
+            if (list[idx].adType == 1) {
+              bannerItems.push(list[idx])
+            }
+            if (list[idx].adType == 2) {
+              specialItems.push(list[idx])
+            }
           }
-          if (list[idx].adType ==2) {
-            specialItems.push(list[idx])
-          }
+          self.setData({
+            bannerItems: bannerItems,
+            specialItems: specialItems,
+            loading: false
+          })
         }
-        self.setData({
-          bannerItems: bannerItems,
-          specialItems: specialItems,
-          loading: false
-        })
+        catch (e) { 
+          console.debug(e)
+          }
       },
       fail: function(error) {
-        console.log(error)
+        console.debug(error)
       }
     })
 
-    app.request({
-      url: config.goodsListUrl,
-      data: {
-        page: self.data.page,
-        pageSize: self.data.pageSize
-      },
-      method: 'post',
-      success: function(res) {
-        self.setData({
-          goodsItems: res.data.list
-        })
-      },
-      fail: function(error) {
-        console.log(error)
-      }
-    })
+    try{
+      app.request({
+        url: config.goodsListUrl,
+        data: {
+          page: self.data.page,
+          pageSize: self.data.pageSize
+        },
+        method: 'post',
+        success: function (res) {
+          self.setData({
+            goodsItems: res.data.list
+          })
+        },
+        fail: function (error) {
+          console.debug(error)
+        }
+      })
+    }
+    catch(e){
+      console.debug(e)
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -108,3 +108,25 @@ export function wxpay(data,callback){
     }
   })
 }
+
+
+/**获取分享引导购买的人id */
+export function getRefermid(){
+  try {
+    var value = wx.getStorageSync("refermid");
+    if (value) {
+     return value;
+    }
+  } catch (e) {    
+  }
+  return 0;
+}
+/**设置分享引导人ID */
+export function setRefermid(value){
+  try {
+    if (value==null||typeof value =='undefined')
+      value=0
+    wx.setStorageSync('refermid', value)
+  } catch (e) {
+  }
+}
