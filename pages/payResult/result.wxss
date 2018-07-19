@@ -1,0 +1,31 @@
+.pay-success-tip{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  color: red;
+  margin-top: 50px;
+  
+}
+.pay-success-tip view{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
+}
+.pay-order-info{    
+  margin: 10px 0 10px 0;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pay-order-info view{
+   margin: 10px 0 10px 0;
+}
+
+.pay-btn{
+  display: flex;
+  flex-direction: column;   
+}
+page{
+  background-color: #ffffff;
+}

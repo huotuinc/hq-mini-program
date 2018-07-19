@@ -1,5 +1,6 @@
 import {
-  authorize, wxpay
+  authorize,
+  wxpay
 } from '../../utils/common.js'
 import viewSubmitOrder from '../../utils/viewSubmitOrder.js'
 import {
@@ -18,9 +19,9 @@ Page({
    */
   data: {
     loading: true,
-    traItems: "",//购买商品信息，格式如：123054_670422_1，多组用竖线分隔开。说明：goodsId_productId_nums
-    refermid: 0,//分享引导购买的人id
-    memo:"",
+    traItems: "", //购买商品信息，格式如：123054_670422_1，多组用竖线分隔开。说明：goodsId_productId_nums
+    refermid: 0, //分享引导购买的人id
+    memo: "",
     orderInfo: {},
     resultAmount: {},
     cashRate: 100, //兑换比例    
@@ -58,7 +59,8 @@ Page({
     var self = this;
     var traItems = options.traItems
     self.setData({
-      traItems: traItems
+      traItems: traItems,
+      refermid: options.refermid||0
     })
     //获取用户钱包
     walletaccount(null, function(ret) {
@@ -105,10 +107,10 @@ Page({
       }
     } catch (e) {}
 
-    self.loadData(); 
+    self.loadData();
   },
-  loadData:function(){
-    var self=this;
+  loadData: function() {
+    var self = this;
     var addressData = self.data.addressData;
     var areaCode = "";
     if (addressData != null) {
@@ -120,12 +122,12 @@ Page({
       couponCode: pmtSelectData.items[pmtSelectData.index].CouponCode,
       areaCode: areaCode
     }
-    self.checkout(p, function (totalPrice) {
+    self.checkout(p, function(totalPrice) {
       if (self.data.pmtCount <= 0) {
         //获取可用优惠券
         enabledCoupons({
           totalPrice: totalPrice
-        }, function (ret) {
+        }, function(ret) {
           if (ret.data.code == 200) {
             var _pmtCount = ret.data.data.length;
             var _pmtSelectData = self.data.pmtSelectData;
@@ -142,10 +144,10 @@ Page({
       }
 
       //重新计算觅豆支付
-      var _payedAdvance= self.data.payedAdvance;
-      if (_payedAdvance.status){
+      var _payedAdvance = self.data.payedAdvance;
+      if (_payedAdvance.status) {
         _payedAdvance.status = !_payedAdvance.status;
-        _payedAdvance.amount=0;
+        _payedAdvance.amount = 0;
         self.setData({
           payedAdvance: _payedAdvance
         })
@@ -190,7 +192,7 @@ Page({
       pmtSelectData: _pmtSelectData
     })
 
-    self.loadData(); 
+    self.loadData();
   },
   /**觅豆支付 */
   _clickMiBean: function() {
@@ -264,29 +266,29 @@ Page({
   /**
    * 提交订单
    */
-  submitOrder:function(e){
-    var self=this;
-    var addressData = self.data.addressData;    
+  submitOrder: function(e) {
+    var self = this;
+    var addressData = self.data.addressData;
     var pmtSelectData = self.data.pmtSelectData;
     var chargeCasher = self.data.chargeCasher; //积分支付 
     var payedAdvance = self.data.payedAdvance; //觅豆支付
     if (addressData == null) {
       wx.showToast({
         title: '请选择收货地址',
-        icon:"none"
+        icon: "none"
       })
       return;
     }
-    var cashScore=0;
-    if(chargeCasher.status){
+    var cashScore = 0;
+    if (chargeCasher.status) {
       cashScore = (parseFloat(chargeCasher.amount) * self.data.cashRate).toFixed(2);
     }
-    var miBean=0;
-    if(payedAdvance.status){
-      miBean=parseInt(payedAdvance.amount);
+    var miBean = 0;
+    if (payedAdvance.status) {
+      miBean = parseInt(payedAdvance.amount);
     }
 
-    var p={
+    var p = {
       shipName: addressData.name,
       shipMobile: addressData.mobile,
       shipAddress: addressData.address,
@@ -300,33 +302,44 @@ Page({
       refermid: self.data.refermid,
       items: self.data.traItems
     }
-    orderSubmit(p,function(ret){
-        var result=ret.data;
-        if(result.code==200){
-            var _p={
-              timeStamp: result.data.timeStamp,
-              nonceStr: result.data.nonceStr,
-              package: result.data.package,
-              paySign: result.data.paySign
-            }      
-            //发起支付      
-            wxpay(_p,function(res){
-              console.log(res);
-              if (res.errMsg.indexOf("requestPayment:ok") >= 0){
-                wx.showToast({
-                  title: '支付成功',
-                })
-              }
-              else if (res.errMsg.indexOf("requestPayment:fail") >= 0 || res.errMsg.indexOf("requestPayment:cancel")>=0){
-                //requestPayment:fail:该订单已过期，请重新下单
-                var msgs=res.errMsg.split(":");                
-                wx.showToast({
-                  title: msgs.length ==3 ? msgs[2]:'支付失败',
-                  icon:"none"
-                })
-              }
-            })
+    orderSubmit(p, function(ret) {
+      var result = ret.data;
+      if (result.code == 200) {
+        var orderid = result.data.UnionOrderId;
+        //剩余需要付的金额，当等于0时，表示已经完全抵用
+        var _surplusMoney = result.data.SurplusMoney;
+        
+        if (_surplusMoney > 0) {
+          var _p = {
+            timeStamp: result.data.timeStamp,
+            nonceStr: result.data.nonceStr,
+            package: result.data.package,
+            paySign: result.data.paySign
+          }
+          //发起支付      
+          wxpay(_p, function(res) {
+            console.log(res);
+            if (res.errMsg.indexOf("requestPayment:ok") >= 0) {
+              self._goPayResult(orderid);
+            } else if (res.errMsg.indexOf("requestPayment:fail") >= 0 || res.errMsg.indexOf("requestPayment:cancel") >= 0) {
+              //requestPayment:fail:该订单已过期，请重新下单
+              var msgs = res.errMsg.split(":");
+              wx.showToast({
+                title: msgs.length == 3 ? msgs[2] : '支付失败',
+                icon: "none"
+              })
+            }
+          })
         }
+        else{
+          self._goPayResult(orderid)
+        }
+      }
     });
+  },
+  _goPayResult:function(orderid){
+    wx.redirectTo({
+      url: '../payResult/result?orderid=' + orderid,
+    })
   }
 })

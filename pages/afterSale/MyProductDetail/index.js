@@ -95,12 +95,5 @@ Page({
    */
   onShow: function() {
     this.getAfterSaleDetail(this.data.afterId)
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
 })

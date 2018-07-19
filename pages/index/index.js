@@ -1,7 +1,4 @@
-import {
-  collection,
-  windowHeight
-} from '../../utils/common.js'
+import { collection, windowHeight } from '../../utils/common.js'
 
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
@@ -79,12 +76,13 @@ Page({
   //点击商品筛选事件
   clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset
-    if (cur.type == 4) {}
+    if (cur.type == 4) {
+    }
     this.setData({
       filterTap: cur.type
     })
   },
-  //点击收藏 
+  //点击收藏
   clickFavTab: function(e) {
     var self = this
     var item = e.currentTarget.dataset.item
@@ -92,41 +90,48 @@ Page({
     var isFav = e.target.dataset.isfav
     var _items = []
     if (isFav) {
-      collectgoods.addCollection({
-        goodsId: e.target.dataset.goodsid
-      }, function(res) {
-        wx.showToast({
-          title: '收藏成功',
-          success: function() {
-            _items = self.data.goodsItems
-            _items[index].isFav = !isFav
-            self.setData({
-              goodsItems: _items
-            })
-          }
-        })
-      })
+      collectgoods.addCollection(
+        {
+          goodsId: e.target.dataset.goodsid
+        },
+        function(res) {
+          wx.showToast({
+            title: '收藏成功',
+            success: function() {
+              _items = self.data.goodsItems
+              _items[index].isFav = !isFav
+              self.setData({
+                goodsItems: _items
+              })
+            }
+          })
+        }
+      )
     } else {
-      collectgoods.addCollection({
-        goodsId: e.target.dataset.goodsid
-      }, function(res) {
-        wx.showToast({
-          title: '取消成功',
-          success: function() {
-            _items = self.data.goodsItems
-            _items[index].isFav = !isFav
-            self.setData({
-              goodsItems: _items
-            })
-          }
-        })
-      })
+      collectgoods.addCollection(
+        {
+          goodsId: e.target.dataset.goodsid
+        },
+        function(res) {
+          wx.showToast({
+            title: '取消成功',
+            success: function() {
+              _items = self.data.goodsItems
+              _items[index].isFav = !isFav
+              self.setData({
+                goodsItems: _items
+              })
+            }
+          })
+        }
+      )
     }
   },
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goodsid=' +
+      url:
+        '../goodsdetails/details?goodsid=' +
         e.currentTarget.dataset.goodsid +
         '&categoryTitle=' +
         e.currentTarget.dataset.title
@@ -178,44 +183,52 @@ Page({
       url: config.homeRecommendUrl,
       method: 'get',
       success: function(res) {
-        var list = res.data.data.list
-        var bannerItems = []
-        var specialItems = []
-        for (let idx in list) {
-          if (list[idx].adType == 1) {
-            bannerItems.push(list[idx])
+        try {
+          var list = res.data.data.list
+          var bannerItems = []
+          var specialItems = []
+          for (let idx in list) {
+            if (list[idx].adType == 1) {
+              bannerItems.push(list[idx])
+            }
+            if (list[idx].adType == 2) {
+              specialItems.push(list[idx])
+            }
           }
-          if (list[idx].adType == 2) {
-            specialItems.push(list[idx])
-          }
+          self.setData({
+            bannerItems: bannerItems,
+            specialItems: specialItems,
+            loading: false
+          })
+        } catch (e) {
+          console.debug(e)
         }
-        self.setData({
-          bannerItems: bannerItems,
-          specialItems: specialItems,
-          loading: false
-        })
       },
       fail: function(error) {
-        console.log(error)
+        console.debug(error)
       }
     })
 
-    app.request({
-      url: config.goodsListUrl,
-      data: {
-        page: self.data.page,
-        pageSize: self.data.pageSize
-      },
-      method: 'post',
-      success: function(res) {
-        self.setData({
-          goodsItems: res.data.list
-        })
-      },
-      fail: function(error) {
-        console.log(error)
-      }
-    })
+    try {
+      app.request({
+        url: config.goodsListUrl,
+        data: {
+          page: self.data.page,
+          pageSize: self.data.pageSize
+        },
+        method: 'post',
+        success: function(res) {
+          self.setData({
+            goodsItems: res.data.list
+          })
+        },
+        fail: function(error) {
+          console.debug(error)
+        }
+      })
+    } catch (e) {
+      console.debug(e)
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -247,7 +260,8 @@ Page({
     })
     var page = this.data.page
     var _goodsItems = this.data.goodsItems
-    home.goodsList({
+    home.goodsList(
+      {
         page: page++,
         pageSize: self.data.pageSize
       },
@@ -267,7 +281,14 @@ Page({
    * 用户点击右上角分享
    */
 
-  onShareAppMessage: function() {},
+  onShareAppMessage: function() {
+    var shareData = {
+      title: '健康生活每一天',
+      desc: '',
+      path: '/pages/index/index?refermid='
+    }
+    return shareData
+  },
   /**
    * 商品列表
    */

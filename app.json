@@ -26,11 +26,12 @@
     "pages/afterSale/MyProductDetail/index",
     "pages/afterSale/SubmitReturnProduct/index",
     "pages/afterSale/message/index",
-    "pages/bindingPhone/index",    
+    "pages/bindingPhone/index",
     "pages/usercenter/residual/index",
     "pages/evaluate/index",
     "pages/evaluate/conmmentList/index",
-    "pages/scope/index"
+    "pages/scope/index",
+    "pages/payResult/result"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

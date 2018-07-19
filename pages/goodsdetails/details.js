@@ -1,6 +1,6 @@
 import viewDataResponsity from '../../utils/viewDataResponsity.js'
 import {
-  isInArray
+  isInArray, setRefermid
 } from '../../utils/common.js'
 import goodsdetails from '../../utils/request/goodsdetails.js'
 import { addCartGoods} from '../../utils/request/goodShop.js'
@@ -20,6 +20,7 @@ Page({
     shopNum: 1,
     backTopValue: false,
     swiperDetail: false,
+    refermid: 0,//分享引导购买的人id
     starData: {
       starSelect: 4,
       star: 1
@@ -41,7 +42,8 @@ Page({
     commentData:{
       num:0,
       praise:100
-    }  
+    }
+    
   },
 
   watchBigImage: function(e) {
@@ -89,8 +91,10 @@ Page({
    */
   onLoad: function(options) {
     this.setData({     
-      categoryTitle: options.categoryTitle || '商品详情'
+      categoryTitle: options.categoryTitle || '商品详情',
+      refermid: options.refermid||0
     })
+    setRefermid(options.refermid);
     wx.setNavigationBarTitle({
       title: this.data.categoryTitle,
     })
@@ -191,7 +195,7 @@ Page({
         var traItems = this.data.goodsItem.Base.GoodsId+"_"+this.data.specData.productid+"_"+this.data.showNum
         //跳转订单确认页      
         wx.navigateTo({
-          url: '../submitOrder/submitOrder?traItems=' + traItems
+          url: '../submitOrder/submitOrder?traItems=' + traItems + "&refermid=" + this.data.refermid
         })
       }
       else{
@@ -321,7 +325,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    var shareData= {
+      title: this.data.categoryTitle,
+      desc: '',
+      path: '/pages/goodsdetails/details?refermid='
+    }
+    return shareData;
   },
   /**
    * 选择规格

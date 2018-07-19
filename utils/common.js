@@ -2,7 +2,7 @@
  * 公共js
  */
 import config from '../config.js'
-const app = getApp();
+const app = getApp()
 /**
  * 设置收藏
  * @param goodsId 商品ID
@@ -10,7 +10,7 @@ const app = getApp();
  */
 export function collection(goodsId, remove) {
   if (typeof remove == undefined || remove == null) {
-    remove = false;
+    remove = false
   }
   if (remove) {
     app.request({
@@ -26,24 +26,22 @@ export function collection(goodsId, remove) {
       data: {
         ids: goodsId.toString()
       },
-      success: function(res) {
-
-      }
+      success: function(res) {}
     })
   }
 }
 
 export function windowHeight() {
-  var windowHeight = 0;
+  var windowHeight = 0
   wx.getSystemInfo({
     success: function(res) {
       var clientHeight = res.windowHeight,
         clientWidth = res.windowWidth,
-        rpxR = 750 / clientWidth;
-      windowHeight = clientHeight * rpxR;
+        rpxR = 750 / clientWidth
+      windowHeight = clientHeight * rpxR
     }
   })
-  return windowHeight;
+  return windowHeight
 }
 
 /**
@@ -54,10 +52,10 @@ export function windowHeight() {
 export function isInArray(arr, value) {
   for (var i = 0; i < arr.length; i++) {
     if (value === arr[i]) {
-      return true;
+      return true
     }
   }
-  return false;
+  return false
 }
 /**授权 */
 export function authorize(scope, callback) {
@@ -83,24 +81,24 @@ export function authorize(scope, callback) {
  */
 export function wxpay(data, callback) {
   wx.requestPayment({
-    'timeStamp': data.timeStamp,
-    'nonceStr': data.nonceStr,
-    'package': data.package,
-    'signType': 'MD5',
-    'paySign': data.paySign,
-    'success': function(res) {
+    timeStamp: data.timeStamp,
+    nonceStr: data.nonceStr,
+    package: data.package,
+    signType: 'MD5',
+    paySign: data.paySign,
+    success: function(res) {
       // if (typeof callback =='function'){
       //   callback(res);
       // }
     },
-    'fail': function(res) {
+    fail: function(res) {
       // if (typeof callback == 'function') {
       //   callback(res);
       // }
     },
     complete: function(res) {
       if (typeof callback == 'function') {
-        callback(res);
+        callback(res)
       }
     }
   })
@@ -109,11 +107,29 @@ export function wxpay(data, callback) {
 /**
  * 获取用户ID token
  */
-export function userInfo(callback) {
+export function userInfomation(callback) {
   wx.getStorage({
     key: 'login',
     success: function(res) {
       callback(res.data)
-    },
+    }
   })
+}
+
+/**获取分享引导购买的人id */
+export function getRefermid() {
+  try {
+    var value = wx.getStorageSync('refermid')
+    if (value) {
+      return value
+    }
+  } catch (e) {}
+  return 0
+}
+/**设置分享引导人ID */
+export function setRefermid(value) {
+  try {
+    if (value == null || typeof value == 'undefined') value = 0
+    wx.setStorageSync('refermid', value)
+  } catch (e) {}
 }

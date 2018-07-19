@@ -6,8 +6,6 @@ App({
    */
   globalData: {
     mock: true,
-    client_id: "wx461ef1c099dc8738",
-    client_secret: "20678f117838b053c397c919e0c61521",
     app_secret: "4165a8d240b29af3f41818d10599d0d1",
     hasLogin: false,
     loading: false,
@@ -29,7 +27,7 @@ App({
     var self = this;
     wx.getSystemInfo({
       success: function(res) {
-        console.log(res)
+        console.debug(res)
         self.globalData.osVersion = res.system;
         self.globalData.mobileType = res.model;
       },
@@ -49,6 +47,10 @@ App({
           console.log(res.data.data)
           if (!(res.data.data.token == userToken)) {
             self.getToken(guideUserId)
+          console.debug(res.data.data)
+          var _token = res.data.data.token||''
+          if (res.data.code == 200 && !(_token == userToken)) {
+            self.getToken()
           }
         }
       })
@@ -66,7 +68,7 @@ App({
       success: function(res) {
         var code = res.code
         //拿到code到服务器换取userToken等判断用用户登录信息
-        wx.request({
+        self.request({
           url: config.loginUrl,
           method: 'post',
           data: {
@@ -74,7 +76,11 @@ App({
             guideUserId: guideUserId
           },
           success: function(res) {
-            self.globalData.userToken = res.data.data.token
+            if (res.statusCode!=200){
+             console.debug(res.data);
+              return;
+            }
+            self.globalData.userToken = res.data.data.token||''
             wx.setStorageSync('login', res.data)
             wx.getSetting({
               success: function(res) {
@@ -194,7 +200,9 @@ App({
       method: options.method || 'post',
       success: function(res) {
         if (typeof options.success == 'function')
-          options.success(res);
+          {
+              options.success(res);
+          }
       },
       fail: function(err) {
         console.log('接口异常：' + options.url, err)
