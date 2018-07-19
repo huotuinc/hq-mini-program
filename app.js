@@ -22,40 +22,54 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function(options) {
-    console.log(options)
     var guideUserId = 1
     var self = this;
     wx.getSystemInfo({
       success: function(res) {
-        console.debug(res)
         self.globalData.osVersion = res.system;
         self.globalData.mobileType = res.model;
       },
+    })
+    wx.getUserInfo({
+      success: function(res) {
+        self.globalData.userInfo = res.userInfo
+        if (res.userInfo) {
+          self.request({
+            url: config.updateUserInfo,
+            method: 'post',
+            data: {
+              userId: self.globalData.userId,
+              nickName: res.userInfo.nickName,
+              userHead: res.userInfo.avatarUrl
+            },
+            success: function(res) {}
+          })
+        }
+      }
     })
 
     var loginInfo = wx.getStorageSync("login")
     if (!loginInfo) {
       this.getToken(guideUserId)
     } else {
-      var userToken = loginInfo.data.token
+      var userToken = loginInfo.data.token || ' '
       self.request({
         url: config.appInit,
         data: {
           token: userToken
         },
         success: function(res) {
-          console.log(res.data.data)
           if (!(res.data.data.token == userToken)) {
             self.getToken(guideUserId)
-          console.debug(res.data.data)
-          var _token = res.data.data.token||''
-          if (res.data.code == 200 && !(_token == userToken)) {
-            self.getToken()
+            console.debug(res.data.data)
+            var _token = res.data.data.token || ''
+            if (res.data.code == 200 && !(_token == userToken)) {
+              self.getToken()
+            }
           }
         }
       })
     }
-
   },
 
 
@@ -76,32 +90,32 @@ App({
             guideUserId: guideUserId
           },
           success: function(res) {
-            if (res.statusCode!=200){
-             console.debug(res.data);
+            console.debug(res)
+            if (res.statusCode != 200) {
+              console.debug(res.data);
               return;
             }
-            self.globalData.userToken = res.data.data.token||''
-            wx.setStorageSync('login', res.data)
-            wx.getSetting({
-              success: function(res) {
-                console.log(res)
-                if (!res.authSetting['scope.userInfo']) {
-                  wx.authorize({
-                    scope: 'scope.userInfo',
-                    success() {
-                      wx.getUserInfo({
-                        success: function(res) {
-                          console.log(res)
-                        },
-                        fail: function(err) {
-                          console.log(err)
-                        }
-                      })
-                    }
-                  })
-                }
-              }
-            })
+            // self.globalData.userToken = res.data.data.token || ''
+            // wx.setStorageSync('login', res.data)
+            // wx.getSetting({
+            //   success: function(res) {
+            //     if (!res.authSetting['scope.userInfo']) {
+            //       wx.authorize({
+            //         scope: 'scope.userInfo',
+            //         success() {
+            //           wx.getUserInfo({
+            //             success: function(res) {
+            //               console.log(res)
+            //             },
+            //             fail: function(err) {
+            //               console.log(err)
+            //             }
+            //           })
+            //         }
+            //       })
+            //     }
+            //   }
+            // })
           },
           fail: function(err) {
             console.log(err)
@@ -199,10 +213,9 @@ App({
       },
       method: options.method || 'post',
       success: function(res) {
-        if (typeof options.success == 'function')
-          {
-              options.success(res);
-          }
+        if (typeof options.success == 'function') {
+          options.success(res);
+        }
       },
       fail: function(err) {
         console.log('接口异常：' + options.url, err)

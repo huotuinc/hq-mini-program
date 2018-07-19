@@ -45,7 +45,6 @@ var afterSaleDetail = function(data, callback) {
   app.request({
     url: config.afterSaleDetail,
     data: data,
-    method: 'get',
     success: function(res) {
       if (res.data.code == 200) {
         callback({

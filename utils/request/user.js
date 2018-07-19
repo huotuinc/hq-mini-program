@@ -5,7 +5,6 @@ const app = getApp();
 var userIndex = function(callback) {
   app.request({
     url: config.userIndex,
-    method: 'post',
     success: function(res) {
       callback({
         userItem: res.data.data
@@ -18,7 +17,6 @@ var userIndex = function(callback) {
 var getIntegralList = function(data, callback) {
   app.request({
     url: config.getIntegralList,
-    method: 'get',
     data: data,
     success: function(res) {
       callback({
@@ -32,7 +30,6 @@ var getIntegralList = function(data, callback) {
 var getSalesList = function(data, callback) {
   app.request({
     url: config.getSalesList,
-    method: 'get',
     data: data,
     success: function(res) {
       callback({
@@ -46,7 +43,6 @@ var getSalesList = function(data, callback) {
 var setting = function(callback) {
   app.request({
     url: config.setting,
-    method: 'get',
     success: function(res) {
       callback({
         settingItem: res.data.data

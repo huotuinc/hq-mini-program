@@ -6,7 +6,6 @@ const app = getApp();
 var getOrderList = function(data, callback) {
   app.request({
     url: config.getOrderList,
-    method: 'get',
     data: data,
     success: function(res) {
       callback({
@@ -21,7 +20,6 @@ var closeOrder = function(data, callback) {
   app.request({
     url: config.closeOrder,
     data: data,
-    method: 'get',
     success: function(res) {
       callback({
         data: res.data
@@ -35,7 +33,6 @@ var deleteOrder = function(data, callback) {
   app.request({
     url: config.deletOrder,
     data: data,
-    method: 'get',
     success: function(res) {
       callback({
         data: res.data
@@ -101,7 +98,6 @@ var orderDetail = function(data, callback) {
   app.request({
     url: config.orderDetail,
     data: data,
-    method: 'get',
     success: function(res) {
       callback({
         data: res.data
@@ -132,7 +128,6 @@ var orderCheckout=function(data,callback){
   app.request({
     url: config.checkout,
     data:data,
-    method: 'get',
     success:function(res){
       callback({
         data: res.data

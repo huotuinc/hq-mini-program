@@ -5,7 +5,6 @@ const app = getApp();
 var myWallet = function(callback) {
   app.request({
     url: config.myWallet,
-    method: 'get',
     success: function(res) {
       callback({
         wallet: res.data
@@ -18,7 +17,6 @@ var myWallet = function(callback) {
 var applyIndex = function(callback) {
   app.request({
     url: config.applyIndex,
-    method: 'get',
     success: function(res) {
       callback({
         data: res.data
@@ -44,7 +42,6 @@ var applySubmit = function(data, callback) {
 var applyList = function(data, callback) {
   app.request({
     url: config.applyList,
-    method: 'get',
     data: data,
     success: function(res) {
       callback({
@@ -58,7 +55,6 @@ var applyList = function(data, callback) {
 var getaccountlist = function(callback) {
   app.request({
     url: config.getaccountlist,
-    method: 'get',
     success: function(res) {
       callback({
         data: res.data

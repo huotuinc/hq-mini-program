@@ -42,7 +42,6 @@ var goodsDetails = function(data, callback) {
   app.request({
     url: config.goodsDetails,
     data: data,
-    method: "get",
     success: function(res) {      
       var result = res.data;
       if (result.code == 200) {        

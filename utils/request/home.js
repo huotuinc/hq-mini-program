@@ -8,7 +8,6 @@ var homeRecommend = function(callback) {
   //获取首页推荐
   app.request({
     url: config.homeRecommendUrl,
-    method: 'get',
     success: function(res) {
       var list = res.data.list
       var bannerItems = (specialItems = [])
