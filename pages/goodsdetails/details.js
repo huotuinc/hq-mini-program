@@ -41,7 +41,8 @@ Page({
     commentData:{
       num:0,
       praise:100
-    }  
+    }
+    
   },
 
   watchBigImage: function(e) {
@@ -321,7 +322,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    var shareData= {
+      title: this.data.categoryTitle,
+      desc: '',
+      path: '/pages/goodsdetails/details?refermid='
+    }
+    return shareData;
   },
   /**
    * 选择规格

@@ -268,7 +268,14 @@ Page({
    * 用户点击右上角分享
    */
 
-  onShareAppMessage: function() {},
+  onShareAppMessage: function() {
+    var shareData = {
+      title: "健康生活每一天",
+      desc: '',
+      path: '/pages/index/index?refermid='
+    }
+    return shareData;
+  },
   /**
    * 商品列表
    */
