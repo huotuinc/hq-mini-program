@@ -1,4 +1,3 @@
-
 import {
   collection,
   windowHeight
@@ -186,7 +185,7 @@ Page({
           if (list[idx].adType == 1) {
             bannerItems.push(list[idx])
           }
-          if (list[idx].adType ==2) {
+          if (list[idx].adType == 2) {
             specialItems.push(list[idx])
           }
         }
@@ -303,5 +302,6 @@ Page({
       mask: false
     })
   },
+
   onShareAppMessage: function() {}
 })

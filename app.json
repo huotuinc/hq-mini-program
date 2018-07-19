@@ -29,7 +29,8 @@
     "pages/bindingPhone/index",    
     "pages/usercenter/residual/index",
     "pages/evaluate/index",
-    "pages/evaluate/conmmentList/index"
+    "pages/evaluate/conmmentList/index",
+    "pages/scope/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

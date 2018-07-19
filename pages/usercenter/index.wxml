@@ -1,107 +1,110 @@
-<view class="user-header" style="background-image:url('{{userItem.BackGroundModel.UserCenterImg}}')">
-  <text class='setting' catchtap='_goSetting' style='color:{{userItem.BackGroundModel.FontColor}}'>设置</text>
-  <view class='userinfo'>
-    <!-- <button style='background-image:url({{userItem.WxHeadImg}});background-size:cover;' class='userimg' open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button> -->
-     <image src='{{userItem.WxHeadImg}}' class='userimg'></image> 
-    <text class='username' style='color:{{userItem.BackGroundModel.FontColor}}'>{{userItem.WxNickName}}</text>
-    <text class='usersize'><text style=' background-color: {{userItem.BackGroundModel.TagColor}};color: {{userItem.BackGroundModel.TagFontColor}};'>{{userItem.LevelName}}</text></text>
+<import src="../template/scope/scope" />
+<template is="scope" wx:if="{{!userInfo}}" />
+<view wx:else>
+  <view class="user-header" style="background-image:url('{{userItem.BackGroundModel.UserCenterImg}}')">
+    <text class='setting' catchtap='_goSetting' style='color:{{userItem.BackGroundModel.FontColor}}'>设置</text>
+    <view class='userinfo'>
+      <image src='{{userItem.WxHeadImg}}' class='userimg'></image>
+      <text class='username' style='color:{{userItem.BackGroundModel.FontColor}}'>{{userItem.WxNickName}}</text>
+      <text class='usersize'><text style=' background-color: {{userItem.BackGroundModel.TagColor}};color: {{userItem.BackGroundModel.TagFontColor}};'>{{userItem.LevelName}}</text></text>
+    </view>
   </view>
-</view>
 
-<view class='my-order'>
-  <view class='my-order_title'>
-    <text>我的订单</text>
-    <text class='allOrder' catchtap='_goOrder'>查看全部订单</text>
-  </view>
-  <view class='my-order_classify'>
-    <view data-currentTab='1' catchtap='_goOrder'>
-      <view class='order-classift_item'>
-        <icon class='icon iconfont icon-wallet_icon'></icon>
-        <text>待付款</text>
-      </view>
-      <view class='order-classift_num' style="{{userItem.UnpaidCount==0?'display:none;':''}}">{{userItem.UnpaidCount}}</view>
+  <view class='my-order'>
+    <view class='my-order_title'>
+      <text>我的订单</text>
+      <text class='allOrder' catchtap='_goOrder'>查看全部订单</text>
     </view>
-    <view data-currentTab='2' catchtap='_goOrder'>
-      <view class='order-classift_item'>
-        <icon class='icon iconfont icon-dengdaihuankuan' style='font-size:44rpx;margin-bottom:4rpx;'></icon>
-        <text>待发货</text>
-        <view class='order-classift_num' style="{{userItem.UnDeliverCount==0?'display:none;':''}}">{{userItem.UnDeliverCount}}</view>
-      </view>
-    </view>
-    <view data-currentTab='3' catchtap='_goOrder'>
-      <view class='order-classift_item'>
-        <icon class='icon iconfont icon-daishouhuo'></icon>
-        <text>待收货</text>
-        <view class='order-classift_num' style="{{userItem.UnSendCount==0?'display:none;':''}}">{{userItem.UnSendCount}}</view>
-      </view>
-    </view>
-    <view data-currentTab='4' catchtap='_goOrder'>
-      <view class='order-classift_item'>
-        <icon class='icon iconfont icon-yisouhuo'></icon>
-        <text>已收货</text>
-      </view>
-    </view>
-    <view catchtap='_goAftersale'>
-      <view class='order-classift_item'>
-        <icon class='icon iconfont icon-navicon-wsgwjcsz'></icon>
-        <text>售后</text>
-        <view class='order-classift_num' style="{{userItem.AftermarketCount==0?'display:none;':''}}">{{userItem.AftermarketCount}}</view>
-      </view>
-    </view>
-  </view>
-</view>
-
-<view class='my-purse'>
-  <view class='my-order_title'>
-    <text>我的钱包</text>
-    <text class='allOrder' catchtap="_goWithdraw">提现</text>
-  </view>
-  <view class='my-purse_classify'>
-    <view catchtap='_goBalance'>
-      <text class='purse_num'>{{userItem.UserTempIntegral}}</text>
-      <text>待结算</text>
-    </view>
-    <view catchtap='_goResidual'>
-      <text class='purse_num'>{{userItem.UserBalance || 0}}</text>
-      <text>余额</text>
-    </view>
-    <view catchtap='_goIntegral'>
-      <text class='purse_num'>{{userItem.UserMBean}}</text>
-      <text>觅豆</text>
-    </view>
-  </view>
-</view>
-
-<view style='margin-top:20rpx; '>
-  <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx'>
-    <block wx:for="{{userItem.ADList}}" wx:key="{{item}}">
-      <swiper-item>
-        <view class="swiper-item">
-          <image lazy-load='true' src='{{item.ImgURL}}' bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
+    <view class='my-order_classify'>
+      <view data-currentTab='1' catchtap='_goOrder'>
+        <view class='order-classift_item'>
+          <icon class='icon iconfont icon-wallet_icon'></icon>
+          <text>待付款</text>
         </view>
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
-
-<view class='my-common'>
-  <view class='my-order_title'>
-    <text>常用功能</text>
+        <view class='order-classift_num' style="{{userItem.UnpaidCount==0?'display:none;':''}}">{{userItem.UnpaidCount}}</view>
+      </view>
+      <view data-currentTab='2' catchtap='_goOrder'>
+        <view class='order-classift_item'>
+          <icon class='icon iconfont icon-dengdaihuankuan' style='font-size:44rpx;margin-bottom:4rpx;'></icon>
+          <text>待发货</text>
+          <view class='order-classift_num' style="{{userItem.UnDeliverCount==0?'display:none;':''}}">{{userItem.UnDeliverCount}}</view>
+        </view>
+      </view>
+      <view data-currentTab='3' catchtap='_goOrder'>
+        <view class='order-classift_item'>
+          <icon class='icon iconfont icon-daishouhuo'></icon>
+          <text>待收货</text>
+          <view class='order-classift_num' style="{{userItem.UnSendCount==0?'display:none;':''}}">{{userItem.UnSendCount}}</view>
+        </view>
+      </view>
+      <view data-currentTab='4' catchtap='_goOrder'>
+        <view class='order-classift_item'>
+          <icon class='icon iconfont icon-yisouhuo'></icon>
+          <text>已收货</text>
+        </view>
+      </view>
+      <view catchtap='_goAftersale'>
+        <view class='order-classift_item'>
+          <icon class='icon iconfont icon-navicon-wsgwjcsz'></icon>
+          <text>售后</text>
+          <view class='order-classift_num' style="{{userItem.AftermarketCount==0?'display:none;':''}}">{{userItem.AftermarketCount}}</view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class='my-common_classify'>
-    <view catchtap='_goCollectGoods'>
-      <icon class='icon iconfont icon-wodeshoucang'></icon>
-      <text>我的收藏</text>
+
+  <view class='my-purse'>
+    <view class='my-order_title'>
+      <text>我的钱包</text>
+      <text class='allOrder' catchtap="_goWithdraw">提现</text>
     </view>
-    <view>
-      <icon class='icon iconfont icon-hongbao'></icon>
-      <text>红包优惠券</text>
-    </view>
-    <view>
-      <icon class='icon iconfont icon-kefu'></icon>
-      <text>客服</text>
+    <view class='my-purse_classify'>
+      <view catchtap='_goBalance'>
+        <text class='purse_num'>{{userItem.UserTempIntegral}}</text>
+        <text>待结算</text>
+      </view>
+      <view catchtap='_goResidual'>
+        <text class='purse_num'>{{userItem.UserBalance || 0}}</text>
+        <text>余额</text>
+      </view>
+      <view catchtap='_goIntegral'>
+        <text class='purse_num'>{{userItem.UserMBean}}</text>
+        <text>觅豆</text>
+      </view>
     </view>
   </view>
-</view>
 
-<view style=' height: 20rpx;'></view>
+  <view style='margin-top:20rpx; '>
+    <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx'>
+      <block wx:for="{{userItem.ADList}}" wx:key="{{item}}">
+        <swiper-item>
+          <view class="swiper-item">
+            <image lazy-load='true' src='{{item.ImgURL}}' bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='my-common'>
+    <view class='my-order_title'>
+      <text>常用功能</text>
+    </view>
+    <view class='my-common_classify'>
+      <view catchtap='_goCollectGoods'>
+        <icon class='icon iconfont icon-wodeshoucang'></icon>
+        <text>我的收藏</text>
+      </view>
+      <view>
+        <icon class='icon iconfont icon-hongbao'></icon>
+        <text>红包优惠券</text>
+      </view>
+      <view>
+        <icon class='icon iconfont icon-kefu'></icon>
+        <text>客服</text>
+      </view>
+    </view>
+  </view>
+
+  <view style=' height: 20rpx;'></view>
+</view>

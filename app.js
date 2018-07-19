@@ -25,6 +25,7 @@ App({
    */
   onLaunch: function(options) {
     console.log(options)
+    var guideUserId = 1
     var self = this;
     wx.getSystemInfo({
       success: function(res) {
@@ -36,7 +37,7 @@ App({
 
     var loginInfo = wx.getStorageSync("login")
     if (!loginInfo) {
-      this.getToken()
+      this.getToken(guideUserId)
     } else {
       var userToken = loginInfo.data.token
       self.request({
@@ -47,7 +48,7 @@ App({
         success: function(res) {
           console.log(res.data.data)
           if (!(res.data.data.token == userToken)) {
-            self.getToken()
+            self.getToken(guideUserId)
           }
         }
       })
@@ -59,7 +60,7 @@ App({
   /**
    * 登录获取用户登录唯一标识Token
    */
-  getToken: function() {
+  getToken: function(guideUserId) {
     var self = this
     wx.login({
       success: function(res) {
@@ -69,7 +70,8 @@ App({
           url: config.loginUrl,
           method: 'post',
           data: {
-            code: code
+            code: code,
+            guideUserId: guideUserId
           },
           success: function(res) {
             self.globalData.userToken = res.data.data.token
@@ -102,8 +104,6 @@ App({
       }
     })
   },
-
-  //修改用户得基本信息
 
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow

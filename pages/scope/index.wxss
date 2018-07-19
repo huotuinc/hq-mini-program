@@ -1,0 +1,56 @@
+.scope-con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 900rpx;
+  width: 600rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 0rpx 60rpx;
+  box-sizing: border-box;
+}
+
+.vx_img {
+  width: 100%;
+  text-align: center;
+  margin-top: 120rpx;
+}
+
+.vx_img image {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.scope_title {
+  margin-top: 60rpx;
+  font-size: 28rpx;
+  color: #b5b5b5;
+  text-align: center;
+  width: 100%;
+}
+
+.title_text {
+  font-size: 36rpx;
+  color: #000;
+  margin-bottom: 30rpx;
+}
+
+.title_state text {
+  display: block;
+}
+
+.scope_btn {
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #04be02;
+  color: #fff;
+  font-size: 36rpx;
+  margin: 30rpx 0rpx;
+}
+
+.safe_img image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 30rpx;
+}

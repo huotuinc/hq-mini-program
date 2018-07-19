@@ -8,7 +8,8 @@ Page({
     time: 0,
     timer: '',
     sendButtonText: '获取验证码',
-    vCodeColor: '1'
+    vCodeColor: '1',
+    step: 1
   },
   //获取用户输入的手机号码
   _getMobileInput: function(e) {
@@ -44,8 +45,7 @@ Page({
     if (!this.data.disabled) {
       this.data.disabled = true
       clearTimeout(this.data.timer)
-      user.sendCode(
-        {
+      user.sendCode({
           mobile: mobile
         },
         function(res) {
@@ -68,11 +68,11 @@ Page({
   _getVerificationCode: function() {
     if (this.data.time > 0) {
       this.data.time--
-      this.setData({
-        sendButtonText: `${this.data.time}秒后发送`,
-        timer: setTimeout(this._getVerificationCode, 1000),
-        vCodeColor: '2'
-      })
+        this.setData({
+          sendButtonText: `${this.data.time}秒后发送`,
+          timer: setTimeout(this._getVerificationCode, 1000),
+          vCodeColor: '2'
+        })
     } else {
       this.setData({
         disabled: false,
@@ -83,11 +83,27 @@ Page({
     }
   },
 
+  _goNextStep: function(e) {
+    var self = this
+    user.updateMobile({
+      mobile: self.data.phone,
+      code: self.data.vcode
+    }, function(res) {
+      self.setData({
+        step: 2,
+        disabled: false,
+        sendButtonText: '获取验证码',
+        vCodeColor: '1',
+        time: 0,
+        timer: '',
+      })
+    })
+  },
+
   _updateMobile: function(e) {
     var self = this
     if (this.validForm()) {
-      user.updateMobile(
-        {
+      user.updateMobile({
           mobile: self.data.mobile,
           code: self.data.vcode
         },
@@ -133,9 +149,18 @@ Page({
   },
 
   onLoad: function(options) {
-    this.setData({
-      phone: options.phone
-    })
+    if (options.phone) {
+      this.setData({
+        mobile: options.mobile,
+        phone: options.phone
+      })
+    } else {
+      this.setData({
+        // phone: options.phone,
+        step: 2
+      })
+    }
+
   },
 
   onShow: function() {}

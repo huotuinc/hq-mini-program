@@ -30,13 +30,13 @@
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
               <view class="swiper-item">
-                <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad"  mode='widthFix'></image>
+                <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad" mode='widthFix'></image>
               </view>
             </swiper-item>
           </block>
         </swiper>
       </view>
- 
+
       <view class='goods-special-area'>
         <block wx:for="{{specialItems}}" wx:key="item">
           <view class='special-box' catchtap='_goGoodsList'>
@@ -76,7 +76,7 @@
 
       <view class='trademark-goods_title'>
         <text>推荐商品</text>
-      </view> 
+      </view>
     </view>
     <!--二级类目容器start-->
     <!-- <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>

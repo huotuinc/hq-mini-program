@@ -9,7 +9,7 @@ Page({
    */
   data: {
     RealName: "去完善",
-    UserGender: ['未知', '男', '女'],
+    UserGender: ['男', '女'],
     UserBirthday: '',
     UserCardNo: '',
     UserMobile: '',
@@ -38,7 +38,7 @@ Page({
   },
   _mobilePhone: function(e) {
     wx.navigateTo({
-      url: '../bindingPhone/index?phone=' + e.target.dataset.phone
+      url: '../bindingPhone/index?mobile=' + e.target.dataset.phone + '&phone=' + this.data.phone
     })
   },
   bindDateChange: function(e) {
@@ -121,7 +121,9 @@ Page({
     }
     this.hideModal();
   },
-
+  /**
+   * 修改性别
+   */
   bindPickerChange: function(e) {
     this.setData({
       index: e.detail.value
@@ -139,10 +141,28 @@ Page({
       url: '../shipAddress/index',
     })
   },
+  /**
+   * 添加/修改密码
+   */
   _goPayPassword: function(e) {
-    wx.navigateTo({
-      url: '../payPassword/index?mobile=' + e.currentTarget.dataset.mobile,
-    })
+    var self = this
+    if (this.data.phone) {
+      wx.navigateTo({
+        url: '../payPassword/index?mobile=' + e.currentTarget.dataset.mobile + '&phone=' + this.data.phone,
+      })
+    } else {
+      wx.showModal({
+        content: '请先绑定手机号码',
+        success: function(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../bindingPhone/index?phone=' + self.data.phone
+            })
+          }
+        }
+      })
+    }
+
   },
 
   //是否开启支付密码
@@ -185,16 +205,22 @@ Page({
   _getSetting: function() {
     var self = this
     user.setting(function(res) {
+      var tel = res.settingItem.UserMobile
+      var reg = /^(\d{3})\d{4}(\d{4})$/
+      tel = tel.replace(reg, "$1****$2")
+      var userCard = res.settingItem.UserCardNo
+      userCard = userCard.substr(0, 6) + "********" + userCard.substr(-4)
       self.setData({
         RealName: res.settingItem.RealName || '去完善',
         UserSex: res.settingItem.UserSex || '未知',
         UserBirthday: res.settingItem.UserBirthday || '',
-        UserCardNo: res.settingItem.UserCardNo || '',
-        UserMobile: res.settingItem.UserMobile || '未绑定',
+        UserCardNo: userCard || '',
+        UserMobile: tel || '未绑定',
         UserWxNo: res.settingItem.UserWxNo || '',
         UserCityName: res.settingItem.UserCityName || '',
         PayPassworded: res.settingItem.PayPassworded,
-        PayPasswordStatus: res.settingItem.PayPasswordStatus
+        PayPasswordStatus: res.settingItem.PayPasswordStatus,
+        phone: res.settingItem.UserMobile
       })
     })
   },

@@ -17,7 +17,7 @@
       </view>
       <view class="weui-cell__bd">
         <picker range="{{UserGender}}" value="{{index}}" bindchange="bindPickerChange">
-          <view class="weui-input allOrder">{{UserGender[index] || UserSex}}</view>
+          <view class="weui-input allOrder">{{UserGender[index] || UserSex || '请选择性别'}}</view>
         </picker>
       </view>
     </view>

@@ -15,7 +15,7 @@
     <view class='pay-password_header header_input'>
       <view class='verification_code'>
         <input type='number' placeholder='输入验证码' bindinput='_getVcodInput'></input>
-        <text class="v-code {{vCodeColor==1?'':'get-v_code'}}" catchtap='sendCode' data-phone="{{mobile}}">{{sendButtonText}}</text>
+        <text class="v-code {{vCodeColor==1?'':'get-v_code'}}" catchtap='sendCode' data-phone="{{phone}}">{{sendButtonText}}</text>
       </view>
     </view>
   </view>

@@ -1,3 +1,13 @@
+/* @import "../payPassword/index.wxss"; */
+
+.telphone {
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+
 .bind-phone_header {
   margin: 30rpx 0;
   width: 100%;
@@ -33,7 +43,7 @@
   box-sizing: border-box;
 }
 
-.header-input_border{
+.header-input_border {
   border-bottom: 1px solid #f0eff5;
 }
 
@@ -56,6 +66,6 @@
   border-radius: 14rpx;
 }
 
-.get-v_code{
+.get-v_code {
   background-color: #808080;
 }

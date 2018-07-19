@@ -1,0 +1,19 @@
+<view class='scope-con'>
+  <view class='vx_img'>
+    <image src='../../images/logo_wechat.png'></image>
+  </view>
+  <view class='scope_title'>
+    <view class='title_text'>前往微信授权</view>
+    <view class='title_state'>
+      <text>通过微信授权登录您的个人账户</text>
+      <text>您将在我们网站享受更多服务</text>
+    </view>
+    <button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo" class='scope_btn'>微信快捷登录</button>
+    <view class='title_state'>
+      <text>官方微信授权，为交易保驾护航</text>
+    </view>
+    <view class='safe_img'>
+      <image src='../../images/g.png'></image>
+    </view>
+  </view>
+</view>

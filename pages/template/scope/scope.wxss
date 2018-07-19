@@ -1,0 +1,26 @@
+.mifang_icon {
+  margin-top: 100rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.mifang_icon .icon {
+  font-size: 160rpx;
+}
+
+.watch_more {
+  margin-top: 60rpx;
+  width: 100%;
+  text-align: center;
+  padding: 0 25%;
+  box-sizing: border-box;
+}
+
+.watch_more text {
+  display: block;
+  border: 1px solid #e41436;
+  color: #e41436;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+}

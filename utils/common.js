@@ -18,17 +18,15 @@ export function collection(goodsId, remove) {
       data: {
         goodsid: goodsId
       },
-      success: function (res) {
-      }
+      success: function(res) {}
     })
-  }
-  else {
+  } else {
     app.request({
       url: config.favoriteUrl,
       data: {
         ids: goodsId.toString()
       },
-      success: function (res) {
+      success: function(res) {
 
       }
     })
@@ -38,7 +36,7 @@ export function collection(goodsId, remove) {
 export function windowHeight() {
   var windowHeight = 0;
   wx.getSystemInfo({
-    success: function (res) {
+    success: function(res) {
       var clientHeight = res.windowHeight,
         clientWidth = res.windowWidth,
         rpxR = 750 / clientWidth;
@@ -62,7 +60,7 @@ export function isInArray(arr, value) {
   return false;
 }
 /**授权 */
-export function authorize(scope,callback){
+export function authorize(scope, callback) {
   // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.record" 这个 scope
   wx.getSetting({
     success(res) {
@@ -73,8 +71,7 @@ export function authorize(scope,callback){
             callback()
           }
         })
-      }
-      else{
+      } else {
         callback()
       }
     }
@@ -84,27 +81,39 @@ export function authorize(scope,callback){
 /**
  * 微信支付
  */
-export function wxpay(data,callback){
+export function wxpay(data, callback) {
   wx.requestPayment({
     'timeStamp': data.timeStamp,
     'nonceStr': data.nonceStr,
     'package': data.package,
     'signType': 'MD5',
     'paySign': data.paySign,
-    'success': function (res) {
+    'success': function(res) {
       // if (typeof callback =='function'){
       //   callback(res);
       // }
     },
-    'fail': function (res) {
+    'fail': function(res) {
       // if (typeof callback == 'function') {
       //   callback(res);
       // }
     },
-    complete:function(res){
+    complete: function(res) {
       if (typeof callback == 'function') {
         callback(res);
       }
     }
+  })
+}
+
+/**
+ * 获取用户ID token
+ */
+export function userInfo(callback) {
+  wx.getStorage({
+    key: 'login',
+    success: function(res) {
+      callback(res.data)
+    },
   })
 }

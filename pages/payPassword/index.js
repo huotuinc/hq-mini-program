@@ -135,7 +135,9 @@ Page({
     }
   },
   onLoad: function(options) {
+    console.log(options)
     this.setData({
+      phone: options.phone,
       mobile: options.mobile
     })
   },

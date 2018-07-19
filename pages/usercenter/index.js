@@ -73,11 +73,24 @@ Page({
       })
     })
   },
+
+  /**
+   * 前往授权页面
+   */
+  _goLogin: function(e) {
+    wx.navigateTo({
+      url: '../scope/index',
+    })
+  },
   onGotUserInfo: function(res) {
     console.log(res.detail)
   },
   onLoad: function(options) {
     // this.userIndex()
+    var userInfo = app.globalData.userInfo || ''
+    this.setData({
+      userInfo: userInfo
+    })
   },
   onShow: function() {
     this.userIndex()
