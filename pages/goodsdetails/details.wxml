@@ -32,7 +32,7 @@
       <text class='goods-item-price' wx:if="{{specData.isUserPrice}}">￥{{goodsItem.Base.Price}}</text>
       <text class='goods-item-sales_volume'>总销量：{{goodsItem.Base.SalesCount}}</text>
     </view>
-    <view class='select-size' bindtap="powerDrawer"  data-btnbuy='true' data-statu="open" data-btntext="立即购买">
+    <view class='select-size' bindtap="powerDrawer" data-btnbuy='true' data-statu="open" data-btntext="立即购买">
       <text>{{specData.descName==''?"请选择规格":"已选择【"+specData.descName+"】"}}</text>
       <text class='allOrder' style='float:right; height: 18rpx;width: 18rpx;'></text>
     </view>
@@ -41,9 +41,9 @@
   <view class='privilege'>
     <view class='promotion'>
       <block wx:for="{{goodsItem.Promotion}}" wx:key="item">
-      <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
-      <text class="tagname">{{item.TagName}}</text>
-      <text class='ellips'>{{item.Describe}}</text>
+        <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
+        <text class="tagname">{{item.TagName}}</text>
+        <text class='ellips'>{{item.Describe}}</text>
       </block>
     </view>
     <view class='moreBtn'>
@@ -72,18 +72,18 @@
   </view>
   <!-- 评论内容 start -->
   <view>
-   <swiper circular="true" interval="4000" duration="500" style='height:437rpx;'>
+    <swiper circular="true" interval="4000" duration="500" style='height:437rpx;'>
       <block wx:for="{{goodsItem.Base.CommentModel.CommentItems}}" wx:key="item">
         <swiper-item>
           <view class='saidan-wrapper'>
             <view class='saidan-top'>
               <text>{{item.UserLoginName}}</text>
               <view class='star'>
-                <blcok wx:for="{{item.Score}}"  wx:key="item">
+                <blcok wx:for="{{item.Score}}" wx:key="item">
                   <icon class='icon iconfont icon-xingxingxuanzhong'></icon>
                 </blcok>
 
-                <block wx:for="{{5-item.Score}}"  wx:key="item">
+                <block wx:for="{{5-item.Score}}" wx:key="item">
                   <icon class='icon iconfont icon-xingxingweixuanzhong'></icon>
                 </block>
               </view>
@@ -137,17 +137,13 @@
     购物车
   </view>
   <view class='item-bar-right'>
-    <view class='item-bar buy' data-btntext="加入购物车" data-btnbuy='false' bindtap="powerDrawer" data-statu="open">
-      <text>加入购物车</text>
-    </view>
-    <view class='item-bar share' data-btntext="立即购买"  data-btnbuy='true' bindtap="powerDrawer" data-statu="open">
-      <text>立即购买</text>
-    </view>
+    <button class='item-bar buy' open-type='getUserInfo' data-btntext="加入购物车" data-btnbuy='false' data-statu="open" bindgetuserinfo="powerUserDrawer">加入购物车</button>
+    <button class='item-bar share' open-type='getUserInfo' data-btntext="立即购买" data-btnbuy='true' bindgetuserinfo="powerUserDrawer" data-statu="open">立即购买</button>
   </view>
 </view>
 
 <!--点击商品主图全屏显示 begin  -->
- <view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
+<view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
   <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
     <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
       <swiper-item>
@@ -157,7 +153,7 @@
       </swiper-item>
     </block>
   </swiper>
-</view> 
+</view>
 
 <view class="drawer_screen drawer-option" bindtap="powerDrawer" data-btntext="" data-btnbuy='true' catchtouchmove="true" data-statu="close" wx:if="{{swiperDetail}}"></view>
 <!--点击商品主图全屏显示 end  -->
@@ -170,7 +166,7 @@
   <view class="drawer_content">
     <view class='size-header'>
       <view class='goods-image'>
-        <image src='{{goodsItem.Base.PicUrl}}'></image>        
+        <image src='{{goodsItem.Base.PicUrl}}'></image>
       </view>
       <view class='price-repertory_select'>
         <view style='color:#e41436;font-size:40rpx;'>￥{{specData.price}}</view>
@@ -178,21 +174,21 @@
         <view>已选择：{{specData.descName}}</view>
       </view>
     </view>
-  <!-- 规格 -->
+    <!-- 规格 -->
     <block wx:for="{{goodsItem.Base.Spec}}" wx:for-index='key' wx:key="item">
-      <view class='buy-select'>      
-          <view class='select-title'>
-            <text>{{item}}</text>
-          </view>
-          <view class='select_size'>
-            <block wx:for="{{goodsItem.Base.SpecDesc}}" wx:key="item">              
-                <text catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]}}" >{{item.SpecValue}}</text>
-                <!-- <text class='active'>S</text>
+      <view class='buy-select'>
+        <view class='select-title'>
+          <text>{{item}}</text>
+        </view>
+        <view class='select_size'>
+          <block wx:for="{{goodsItem.Base.SpecDesc}}" wx:key="item">
+            <text catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]}}">{{item.SpecValue}}</text>
+            <!-- <text class='active'>S</text>
                 <text>M</text>
                 <text>L</text>
                 <text class='no_select'>XL</text> -->
-            </block>
-          </view>
+          </block>
+        </view>
       </view>
     </block>
 
@@ -203,11 +199,11 @@
       <view class='add_minus'>
         <text catchtap='numMinus' class="{{shopNum>=2?'calculate':''}}">-</text>
         <text class='shop_number'>{{shopNum}}</text>
-        <text catchtap='numAdd'  class="{{shopNum<specData.store&&shopNum<specData.LimitBuyNum?'calculate':''}}">+</text>
+        <text catchtap='numAdd' class="{{shopNum<specData.store&&shopNum<specData.LimitBuyNum?'calculate':''}}">+</text>
       </view>
     </view>
 
-    <view class='submit' catchtap='buyNow'>{{btnText}}</view>
+    <button class='submit' open-type='getUserInfo' bindgetuserinfo='buyNow'>{{btnText}}</button>
   </view>
 </view>
 <!-- 选择商品规格 end -->

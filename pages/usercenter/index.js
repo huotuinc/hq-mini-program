@@ -72,7 +72,7 @@ Page({
       })
     })
   },
-  /**
+  /** 
    * 前往授权页面
    */
   _goLogin: function(e) {

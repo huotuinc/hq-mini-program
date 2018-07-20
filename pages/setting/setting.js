@@ -99,6 +99,14 @@ Page({
         console.log(res.code)
       })
     } else if (placeholder === '请输入身份证') {
+      var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+      if (!reg.test(excessive)) {
+        wx.showToast({
+          title: '身份证输入有误',
+          icon: 'none'
+        })
+        return
+      }
       this.setData({
         UserCardNo: excessive
       })

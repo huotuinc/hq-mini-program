@@ -94,7 +94,7 @@ Page({
     var index = e.currentTarget.dataset.index
     var isFav = e.target.dataset.isfav
     var _items = []
-    if (isFav) {
+    if (!isFav) {
       collectgoods.addCollection({
           goodsId: e.target.dataset.goodsid
         },
@@ -103,7 +103,7 @@ Page({
             title: '收藏成功',
             success: function() {
               _items = self.data.goodsItems
-              _items[index].isFav = !isFav
+              _items[index].IsFav = !isFav
               self.setData({
                 goodsItems: _items
               })
@@ -120,7 +120,7 @@ Page({
             title: '取消成功',
             success: function() {
               _items = self.data.goodsItems
-              _items[index].isFav = !isFav
+              _items[index].IsFav = !isFav
               self.setData({
                 goodsItems: _items
               })
@@ -161,9 +161,25 @@ Page({
   },
   // 跳转至收藏夹
   _goCollectGoods: function() {
-    wx.navigateTo({
-      url: '../collectgoods/collectgoods'
-    })
+    var userInfo = app.globalData.userInfo || ''
+    if (userInfo) {
+      wx.navigateTo({
+        url: '../collectgoods/collectgoods'
+      })
+    } else {
+      wx.showModal({
+        content: '授权查看更多',
+        success: function(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../scope/index',
+            })
+          }
+        }
+      })
+
+    }
+
   },
   // search搜索
   searchShop(e) {
@@ -186,32 +202,20 @@ Page({
       refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
     })
     setRefermid(self.data.refermid)
-
+    //获取首页推荐
     home.homeRecommend(function(res) {
       console.debug(res)
     })
-
-    try {
-      app.request({
-        url: config.goodsListUrl,
-        data: {
-          page: self.data.page,
-          pageSize: self.data.pageSize
-        },
-        method: 'post',
-        success: function(res) {
-          console.debug(res)
-          self.setData({
-            goodsItems: res.data.data.Rows
-          })
-        },
-        fail: function(error) {
-          console.debug(error)
-        }
+    //获取推荐商品
+    home.goodsList({
+      page: self.data.page,
+      pageSize: self.data.pageSize
+    }, function(res) {
+      self.setData({
+        goodsItems: res.goodsItems,
+        loading: false
       })
-    } catch (e) {
-      console.debug(e)
-    }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -248,6 +252,7 @@ Page({
         pageSize: self.data.pageSize
       },
       function(res) {
+        console.log(res)
         if (res.goodsItems.length > 0) {
           self.setData({
             hidden: false,

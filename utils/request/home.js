@@ -6,7 +6,7 @@ var homeRecommend = function(callback) {
   app.request({
     url: config.homeRecommendUrl,
     success: function(res) {
-      var list = res.data.list
+      var list = res.data.list || ''
       var bannerItems = []
       var specialItems = []
       for (let idx in list) {
@@ -35,7 +35,7 @@ var goodsList = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        goodsItems: res.data.list
+        goodsItems: res.data.data.Rows
       })
     },
     fail: function(error) {
@@ -50,7 +50,7 @@ var hotSearchKeyWorld = function(callback) {
     url: config.hotsearchkeyworld,
     success: function(res) {
       callback({
-        keys: res.data.keys
+        keys: res.data.data
       })
     },
     fail: function(error) {

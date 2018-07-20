@@ -12,7 +12,6 @@ var myWallet = function(callback) {
     }
   })
 }
-
 //提现界面
 var applyIndex = function(callback) {
   app.request({
@@ -24,7 +23,6 @@ var applyIndex = function(callback) {
     }
   })
 }
-
 //提现申请
 var applySubmit = function(data, callback) {
   app.request({
@@ -37,7 +35,6 @@ var applySubmit = function(data, callback) {
     }
   })
 }
-
 //提现记录
 var applyList = function(data, callback) {
   app.request({
@@ -50,7 +47,6 @@ var applyList = function(data, callback) {
     }
   })
 }
-
 //提现账户
 var getaccountlist = function(callback) {
   app.request({
@@ -62,7 +58,6 @@ var getaccountlist = function(callback) {
     }
   })
 }
-
 //设置默认的提现账号
 var setDefaultAccount = function(data, callback) {
   app.request({
@@ -75,7 +70,6 @@ var setDefaultAccount = function(data, callback) {
     }
   })
 }
-
 //删除提现账号
 var delAccount = function(data, callback) {
   app.request({
@@ -88,7 +82,6 @@ var delAccount = function(data, callback) {
     }
   })
 }
-
 //编辑提现账户
 var editAccount = function(data, callback) {
   app.request({
@@ -101,7 +94,18 @@ var editAccount = function(data, callback) {
     }
   })
 }
-
+//觅豆
+var getMiBeanList = function (data, callback) {
+  app.request({
+    url: config.getMiBeanList,
+    data: data,
+    success: function (res) {
+      callback({
+        data: res.data.data
+      })
+    }
+  })
+}
 module.exports = {
   myWallet: myWallet,
   applyIndex: applyIndex,
@@ -110,5 +114,6 @@ module.exports = {
   getaccountlist: getaccountlist,
   setDefaultAccount: setDefaultAccount,
   delAccount: delAccount,
-  editAccount: editAccount
+  editAccount: editAccount,
+  getMiBeanList: getMiBeanList
 };

@@ -128,7 +128,6 @@ Page({
       }
     })
   },
-
   //购物车获取
   getGoods: function(e) {
     var self = this
@@ -161,18 +160,15 @@ Page({
       })
     })
   },
-
   //购物车修改
   updateCart: function(data) {
     var self = this
     var _items = self.data.items.Products
-
     cart.updateCart(data, function(res) {
       console.log(res)
       // self.getGoods()
     })
   },
-
   //减少购买数量
   minus: function(e) {
     var index = e.currentTarget.dataset.index
@@ -194,7 +190,6 @@ Page({
     this.setData({
       items: _items
     })
-
     this.updateCart({
       goodsId: _items.Products[index].GoodsId,
       productId: _items.Products[index].ProductId,
@@ -218,7 +213,6 @@ Page({
     this.setData({
       items: _items
     })
-
     this.updateCart({
       goodsId: _items.Products[index].GoodsId,
       productId: _items.Products[index].ProductId,
@@ -226,7 +220,6 @@ Page({
       quantity: _items.Products[index].Nums
     })
   },
-
   //是否购买/选中
   isChecked: function(e) {
     var closeTitle = this.data.closeTitle
@@ -234,21 +227,18 @@ Page({
     var _items = this.data.items
     this.shopSelect(index, _items, closeTitle)
   },
-
   // 购物车删除
   delCart: function(data) {
     cart.removeCart(data, function(res) {
       console.log(res)
     })
   },
-
   //某商店商品全选/全不选
   shopIsSelect: function(e) {
     var shopIsSelect = this.data.shopIsSelect
     var _items = this.data.items
     var data = this.removeHandle(shopIsSelect, _items.Products)
     var self = this
-
     if (shopIsSelect) {
       cart.batchcheck({
         checkStatus: 0
@@ -273,7 +263,6 @@ Page({
       })
     }
   },
-
   //全部商品的全选/全不选
   isSelect: function(e) {
     var isSelect = this.data.isSelect
@@ -303,7 +292,6 @@ Page({
       })
     }
   },
-
   /**
    * 剔除超出库存，未上架，已售完的选中操作
    */
@@ -347,7 +335,6 @@ Page({
     }
     return data
   },
-
   /**
    * 商品选中状态
    */
@@ -431,8 +418,6 @@ Page({
       })
     }
   },
-
-
   //去订单结算页面/批量删除购物车
   _goOrderClose: function(e) {
     var closeTitle = this.data.closeTitle
@@ -440,7 +425,6 @@ Page({
     var self = this
     var data = []
     var num = 0
-
     if (closeTitle == '结算') {
       for (let idx in _items) {
         if (_items[idx].IsChecked) {
@@ -460,8 +444,6 @@ Page({
           icon: 'none'
         })
       }
-      console.log(num)
-
     } else {
       //批量删除
       for (let idx in _items) {
@@ -492,51 +474,33 @@ Page({
     }
 
   },
-
-
-  onLoad: function(options) {
-    this.getGoods()
-  },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 前往授权页面
    */
-  onReady: function() {
-
+  _goLogin: function(e) {
+    wx.navigateTo({
+      url: '../scope/index',
+    })
   },
-
+  onLoad: function(options) {},
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var userInfo = app.globalData.userInfo || ''
+    this.setData({
+      userInfo: userInfo
+    })
+    if (this.data.userInfo) {
+      this.getGoods()
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
-
-  },
-
+  onPullDownRefresh: function() {},
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
-
-  }
+  onReachBottom: function() {}
 })

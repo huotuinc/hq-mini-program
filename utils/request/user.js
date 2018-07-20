@@ -12,7 +12,6 @@ var userIndex = function(callback) {
     }
   })
 }
-
 //可/待用积分
 var getIntegralList = function(data, callback) {
   app.request({
@@ -25,7 +24,6 @@ var getIntegralList = function(data, callback) {
     }
   })
 }
-
 //售后列表
 var getSalesList = function(data, callback) {
   app.request({
@@ -33,12 +31,11 @@ var getSalesList = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        list: res.data
+        list: res.data.data
       })
     }
   })
 }
-
 //设置界面
 var setting = function(callback) {
   app.request({
@@ -50,21 +47,18 @@ var setting = function(callback) {
     }
   })
 }
-
 //修改用户基本信息
 var updateUserBaseInfo = function(data, callback) {
   app.request({
     url: config.updateUserBaseInfo,
-
     data: data,
     success: function(res) {
       callback({
-        code: res.data.code
+        code: res.data.data.code
       })
     }
   })
 }
-
 //更改手机号码
 var updateMobile = function(data, callback) {
   app.request({
@@ -72,12 +66,11 @@ var updateMobile = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
 }
-
 //是否开启支付保护
 var updatePayPasswordStatus = function(data, callback) {
   app.request({
@@ -85,12 +78,11 @@ var updatePayPasswordStatus = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data.code
+        data: res.data.code.data
       })
     }
   })
 }
-
 //买家留言
 var saleComment = function(data, callback) {
   app.request({
@@ -98,12 +90,11 @@ var saleComment = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
 }
-
 //发送验证码
 var sendCode = function(data, callback) {
   app.request({
@@ -111,19 +102,18 @@ var sendCode = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
 }
-
 //收货地址管理
 var addressList = function(callback) {
   app.request({
     url: config.addressList,
     success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
@@ -135,7 +125,7 @@ var updateAddress = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
@@ -147,7 +137,7 @@ var deleteAddress = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
@@ -159,40 +149,35 @@ var changeAddressDefault = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
 }
 //用户钱包账户
-var walletaccount = function (data, callback) {
+var walletaccount = function(data, callback) {
   app.request({
     url: config.walletaccount,
     data: data,
-    success: function (res) {
+    success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
 }
-
-/**
- * 
- */
-var enabledCoupons = function (data, callback){
+//获取可用优惠券
+var enabledCoupons = function(data, callback) {
   app.request({
     url: config.enabledCoupons,
     data: data,
-    success: function (res) {
+    success: function(res) {
       callback({
-        data: res.data
+        data: res.data.data
       })
     }
   })
 }
-
-
 module.exports = {
   userIndex: userIndex,
   getIntegralList: getIntegralList,

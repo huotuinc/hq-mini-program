@@ -1,3 +1,5 @@
+@import '../template/scope/scope.wxss';
+
 .no-shopping {
   width: 100%;
   padding-top: 40%;

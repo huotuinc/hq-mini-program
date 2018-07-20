@@ -73,7 +73,6 @@ App({
     }
   },
 
-
   /**
    * 登录获取用户登录唯一标识Token
    */
@@ -85,7 +84,6 @@ App({
         //拿到code到服务器换取userToken等判断用用户登录信息
         self.request({
           url: config.loginUrl,
-          method: 'post',
           data: {
             code: code,
             guideUserId: guideUserId

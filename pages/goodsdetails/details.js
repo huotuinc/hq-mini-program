@@ -1,10 +1,14 @@
 import viewDataResponsity from '../../utils/viewDataResponsity.js'
 import {
-  isInArray, setRefermid, getRefermid
+  isInArray,
+  setRefermid,
+  getRefermid
 } from '../../utils/common.js'
 import goodsdetails from '../../utils/request/goodsdetails.js'
-import { addCartGoods} from '../../utils/request/goodShop.js'
-
+import {
+  addCartGoods
+} from '../../utils/request/goodShop.js'
+const app = getApp()
 Page({
 
   /**
@@ -16,34 +20,35 @@ Page({
     showModalStatus: false,
     categoryTitle: '',
     btnText: '立即购买',
-    btnBuy:true,/**按钮是否是购买状态 */
+    btnBuy: true,
+    /**按钮是否是购买状态 */
     shopNum: 1,
     backTopValue: false,
     swiperDetail: false,
-    refermid: 0,//分享引导购买的人id
+    refermid: 0, //分享引导购买的人id
     starData: {
       starSelect: 4,
       star: 1
     },
-    specData:{
+    specData: {
       specStatus: {},
       props: {},
       step: 0,
       specCount: 0,
       selectProduct: null,
-      productid: 0,      
+      productid: 0,
       descName: '',
-      price:0,
-      store:0,
-      SaleTag:'',
-      isUserPrice:true,
-      LimitBuyNum:0
+      price: 0,
+      store: 0,
+      SaleTag: '',
+      isUserPrice: true,
+      LimitBuyNum: 0
     },
-    commentData:{
-      num:0,
-      praise:100
+    commentData: {
+      num: 0,
+      praise: 100
     }
-    
+
   },
 
   watchBigImage: function(e) {
@@ -81,7 +86,7 @@ Page({
   },
 
   //去评论列表页面
-  _goCommentList:function(e){
+  _goCommentList: function(e) {
     wx.navigateTo({
       url: '../evaluate/conmmentList/index?goodsid=1',
     })
@@ -90,65 +95,62 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var _refermid= getRefermid()    
-    this.setData({     
-      categoryTitle: options.categoryTitle || '商品详情',
+    var _refermid = getRefermid()
+    this.setData({
       refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
     })
     setRefermid(this.data.refermid);
-    wx.setNavigationBarTitle({
-      title: this.data.categoryTitle,
-    })
-
     var self = this
     var data = {
       goodsid: options.goodsid
     }
-    goodsdetails.goodsDetails(data, function(data) {      
-      if (data!=null){
-
-        data.Base.SubTitle=data.Base.SubTitle || ''
+    goodsdetails.goodsDetails(data, function(data) {
+      if (data != null) {
+        wx.setNavigationBarTitle({
+          title: data.Base.Name,
+        })
+        data.Base.SubTitle = data.Base.SubTitle || ''
 
         viewDataResponsity.init(data);
-        var _specCount=0;
+        var _specCount = 0;
         //用于判断每组规格的选中状态
-        var _specStatus={}
-        for (var s in data.Base.Spec){                    
-          _specCount++          
-          _specStatus[s] = _specStatus[s]||{}
-          for (var x in data.Base.SpecDesc){
+        var _specStatus = {}
+        for (var s in data.Base.Spec) {
+          _specCount++
+          _specStatus[s] = _specStatus[s] || {}
+          for (var x in data.Base.SpecDesc) {
             var item = data.Base.SpecDesc[x];
-            if (item.SpecId==s){
-              _specStatus[s][item.SpecValueId]=''
+            if (item.SpecId == s) {
+              _specStatus[s][item.SpecValueId] = ''
             }
           }
         }
 
         var _specData = self.data.specData
         _specData.specCount = _specCount
-        _specData.specStatus=_specStatus 
-        _specData.store = data.Base.Store    
+        _specData.specStatus = _specStatus
+        _specData.store = data.Base.Store
         //判断是否限购
         _specData.LimitBuyNum = data.Base.LimitBuyNum
         if (data.Base.LimitBuyNum == 0)
           _specData.LimitBuyNum = data.Base.Store
         //获取用户价格
-        _specData.price = viewDataResponsity.getUserPrice(0)   
+        _specData.price = viewDataResponsity.getUserPrice(0)
         //如果用户价格和商品价格一致的话,则隐藏销售价格
-        if(_specData.price==viewDataResponsity.goodPrice)
-          _specData.isUserPrice=false;
+        if (_specData.price == viewDataResponsity.goodPrice)
+          _specData.isUserPrice = false;
         var tags = data.SaleTag || ''
         _specData.SaleTag = tags.split(',')
 
         //好评度
-        if (data.Base.CommentModel!=null){
+        if (data.Base.CommentModel != null) {
           var _commentData = self.data.commentData;
           _commentData.num = data.Base.CommentModel.CommentNum
-          _commentData.praise = ((data.Base.CommentModel.CommentScore*100) /(_commentData.num*5)).toFixed(0)
+          _commentData.praise = ((data.Base.CommentModel.CommentScore * 100) / (_commentData.num * 5)).toFixed(0)
         }
 
         self.setData({
-          goodsItem:data,
+          goodsItem: data,
           loading: false,
           specData: _specData,
           commentData: _commentData
@@ -177,42 +179,67 @@ Page({
     this.util(currentStatu)
     this.setData({
       btnText: e.currentTarget.dataset.btntext,
-      btnBuy:e.currentTarget.dataset.btnbuy,
+      btnBuy: e.currentTarget.dataset.btnbuy,
       swiperDetail: false
     })
+  },
+  powerUserDrawer: function(e) {
+    var userInfo = app.globalData.userInfo || ''
+    if (userInfo) {
+      var currentStatu = e.currentTarget.dataset.statu;
+      this.util(currentStatu)
+      this.setData({
+        btnText: e.currentTarget.dataset.btntext,
+        btnBuy: e.currentTarget.dataset.btnbuy,
+        swiperDetail: false
+      })
+    } else {
+      app.globalData.userInfo = e.detail.userInfo
+    }
+
   },
   /**
    * 立即购买
    */
-  buyNow:function(e){
+  buyNow: function(e) {
+    var self = this
+    var userInfo = app.globalData.userInfo || ''
     if (this.data.specData.productid == 0) {
       wx.showToast({
-        title:"请选择规格",
-        icon:"none"
+        title: "请选择规格",
+        icon: "none"
       })
-    }
-    else{
-      if(this.data.btnBuy){
-        var traItems = this.data.goodsItem.Base.GoodsId+"_"+this.data.specData.productid+"_"+this.data.showNum
-        //跳转订单确认页      
-        wx.navigateTo({
-          url: '../submitOrder/submitOrder?traItems=' + traItems + "&refermid=" + this.data.refermid
-        })
-      }
-      else{
-        //加入购物车
-        var p={
-          goodsId: this.data.goodsItem.Base.GoodsId,
-          productId: this.data.specData.productid,
-          quantity: this.data.showNum
-        }
-        addCartGoods(p,function(){
-          //添加成功
-          wx.showToast({
-            title: "加入购物车成功",
-            icon: "none"
+    } else {
+      if (userInfo) {
+        if (this.data.btnBuy == 'true') {
+          var traItems = this.data.goodsItem.Base.GoodsId + "_" + this.data.specData.productid + "_" + this.data.showNum
+          //跳转订单确认页      
+          wx.navigateTo({
+            url: '../submitOrder/submitOrder?traItems=' + traItems + "&refermid=" + this.data.refermid
           })
-        });
+          return
+        } else {
+          //加入购物车
+          var p = {
+            goodsId: this.data.goodsItem.Base.GoodsId,
+            productId: this.data.specData.productid,
+            quantity: this.data.showNum
+          }
+          addCartGoods(p, function() {
+            //添加成功
+            wx.showToast({
+              title: "加入购物车成功",
+              icon: "none",
+              success: function(res) {
+                self.setData({
+                  showModalStatus: false
+                })
+              }
+            })
+          });
+        }
+      } else {
+        app.globalData.userInfo = e.detail.userInfo
       }
     }
   },
@@ -273,7 +300,7 @@ Page({
 
   numAdd: function(e) {
     var num = this.data.shopNum
-    if (num < this.data.specData.store && num < this.data.specData.LimitBuyNum){
+    if (num < this.data.specData.store && num < this.data.specData.LimitBuyNum) {
       num += 1
       this.setData({
         shopNum: num
@@ -326,7 +353,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-    var shareData= {
+    var shareData = {
       title: this.data.categoryTitle,
       desc: '',
       path: '/pages/goodsdetails/details?refermid='
@@ -336,9 +363,9 @@ Page({
   /**
    * 选择规格
    */
-  spec_selected:function(e){    
+  spec_selected: function(e) {
     var item = e.currentTarget.dataset.item;
-    var _item= this.data.goodsItem;
+    var _item = this.data.goodsItem;
     var _specData = this.data.specData
     var spec = {
       SpecId: item.SpecId,
@@ -348,56 +375,54 @@ Page({
     if (_specData.specStatus[item.SpecId][spec.SpecValueId] == 'no_select')
       return
     _specData.props[item.SpecId] = spec;
-    _specData.descName= item.SpecValue
+    _specData.descName = item.SpecValue
 
     _item.Base.PicUrl = item.GoodsImageIds[0]
 
     if (_specData.step < _specData.specCount) {
       _specData.step++
-    }   
-   
+    }
+
     //当选择了最后一个规格时，得到选择的货品
     if (_specData.step == _specData.specCount) {
-      var pros = viewDataResponsity.getSelectProduct(_specData.props, _specData.specCount)   
-      _specData.selectProduct=pros
+      var pros = viewDataResponsity.getSelectProduct(_specData.props, _specData.specCount)
+      _specData.selectProduct = pros
       _specData.productid = pros.ProductId
       _specData.store = pros.Store
       if (_specData.LimitBuyNum == 0 || _specData.LimitBuyNum > _specData.store || _specData.LimitBuyNum == _item.Base.Store)
         _specData.LimitBuyNum = pros.Store
 
       //判断当前选择的库存是否超出限制
-      if (this.data.shopNum > _specData.LimitBuyNum)
-      {
+      if (this.data.shopNum > _specData.LimitBuyNum) {
         this.setData({
           shopNum: _specData.LimitBuyNum
-        }) 
+        })
       }
 
-      _specData.price = viewDataResponsity.getUserPrice(pros.ProductId)   
+      _specData.price = viewDataResponsity.getUserPrice(pros.ProductId)
 
       //如果用户价格和商品价格一致的话,则隐藏销售价格
       if (_specData.price == viewDataResponsity.goodPrice)
         _specData.isUserPrice = false
       else
         _specData.isUserPrice = true
-        
+
     }
     //设置规格的选中状态
-    for (var key in _specData.specStatus)
-    {
+    for (var key in _specData.specStatus) {
       var item = _specData.specStatus[key];
-      if (key == spec.SpecId){
-        for (var k in item){
-          item[k]='';
+      if (key == spec.SpecId) {
+        for (var k in item) {
+          item[k] = '';
         }
-        _specData.specStatus[key][spec.SpecValueId] ='active'
+        _specData.specStatus[key][spec.SpecValueId] = 'active'
         break;
       }
     }
 
     this.setData({
-      goodsItem: _item,      
+      goodsItem: _item,
       specData: _specData
-    }) 
-  }  
+    })
+  }
 })

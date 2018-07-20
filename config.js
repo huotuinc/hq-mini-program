@@ -13,7 +13,7 @@ var config = {
   //判断Token是否过期
   appInit: `${host}/user/appInit`,
   // 首页推荐
-  homeRecommendUrl: `${host}/goods/recommend`,
+  homeRecommendUrl: `${host}/other/recommend`,
   // 商品列表
   goodsListUrl: `${host}/goods/list`,
   // 商品类目
@@ -32,7 +32,7 @@ var config = {
   myCollection: `${host}/user/myCollection`,
 
   //热门搜索关键字
-  hotsearchkeyworld: `${host}/goods/hotsearchkeyworld`,
+  hotsearchkeyworld: `${host}/goods/GetHotKeyWord`,
   //商品详情
   goodsDetails: `${host}/goods/detail`,
   //个人中心
@@ -132,8 +132,8 @@ var config = {
   walletaccount: `${host}/user/walletaccount`,
   //获取可用优惠券
   enabledCoupons: `${host}/user/GetEnabledCoupons`,
-  
-
+  //获取觅豆
+  getMiBeanList: `${host}/user/GetMiBeanList`
 }
 
 module.exports = config
