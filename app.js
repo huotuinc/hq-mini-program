@@ -6,13 +6,13 @@ App({
    */
   globalData: {
     mock: true,
-    app_secret: "4165a8d240b29af3f41818d10599d0d1",
+    app_secret: "3ab0d4e6a8bf9b5b1cb1d38d00bcf339",
     hasLogin: false,
     loading: false,
     unionid: null,
     mobileType: '',
     hwid: '',
-    osType: 0,
+    osType: 1,
     osVersion: '',
     userId: 0,
     userToken: '',
@@ -21,8 +21,9 @@ App({
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
-  onLaunch: function(options) {        
-    var guideUserId = options.refermid||0
+  onLaunch: function(options) {
+    console.log(options);
+    var guideUserId = options.refermid || 0
     var self = this;
     wx.getSystemInfo({
       success: function(res) {
@@ -97,25 +98,7 @@ App({
             }
             // self.globalData.userToken = res.data.data.token || ''
             // wx.setStorageSync('login', res.data)
-            // wx.getSetting({
-            //   success: function(res) {
-            //     if (!res.authSetting['scope.userInfo']) {
-            //       wx.authorize({
-            //         scope: 'scope.userInfo',
-            //         success() {
-            //           wx.getUserInfo({
-            //             success: function(res) {
-            //               console.log(res)
-            //             },
-            //             fail: function(err) {
-            //               console.log(err)
-            //             }
-            //           })
-            //         }
-            //       })
-            //     }
-            //   }
-            // })
+
           },
           fail: function(err) {
             console.log(err)
@@ -203,6 +186,7 @@ App({
       url: options.url,
       data: options.data,
       header: {
+        'content-type': 'application/x-www-form-urlencoded',
         appVersion: "1.0.0",
         hwid: self.globalData.hwid,
         osVersion: self.globalData.osVersion,

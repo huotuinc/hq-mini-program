@@ -1,4 +1,9 @@
-import { collection, windowHeight, setRefermid, getRefermid } from '../../utils/common.js'
+import {
+  collection,
+  windowHeight,
+  setRefermid,
+  getRefermid
+} from '../../utils/common.js'
 
 import config from '../../config.js'
 import home from '../../utils/request/home.js'
@@ -11,7 +16,7 @@ Page({
    */
   data: {
     loading: true,
-    refermid:0,//引导人ID
+    refermid: 0, //引导人ID
     bannerItems: [],
     scrollIntoView: 1,
     category: [],
@@ -77,8 +82,7 @@ Page({
   //点击商品筛选事件
   clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset
-    if (cur.type == 4) {
-    }
+    if (cur.type == 4) {}
     this.setData({
       filterTap: cur.type
     })
@@ -91,8 +95,7 @@ Page({
     var isFav = e.target.dataset.isfav
     var _items = []
     if (isFav) {
-      collectgoods.addCollection(
-        {
+      collectgoods.addCollection({
           goodsId: e.target.dataset.goodsid
         },
         function(res) {
@@ -109,8 +112,7 @@ Page({
         }
       )
     } else {
-      collectgoods.addCollection(
-        {
+      collectgoods.addCollection({
           goodsId: e.target.dataset.goodsid
         },
         function(res) {
@@ -131,11 +133,10 @@ Page({
   //商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url:
-        '../goodsdetails/details?goodsid=' +
+      url: '../goodsdetails/details?goodsid=' +
         e.currentTarget.dataset.goodsid +
         '&categoryTitle=' +
-      e.currentTarget.dataset.title + '&refermid=' + this.data.refermid
+        e.currentTarget.dataset.title + '&refermid=' + this.data.refermid
     })
   },
   //设置tab标题滚动
@@ -185,34 +186,9 @@ Page({
       refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
     })
     setRefermid(self.data.refermid)
-    app.request({
-      url: config.homeRecommendUrl,
-      method: 'get',
-      success: function(res) {
-        try {
-          var list = res.data.data.list
-          var bannerItems = []
-          var specialItems = []
-          for (let idx in list) {
-            if (list[idx].adType == 1) {
-              bannerItems.push(list[idx])
-            }
-            if (list[idx].adType == 2) {
-              specialItems.push(list[idx])
-            }
-          }
-          self.setData({
-            bannerItems: bannerItems,
-            specialItems: specialItems,
-            loading: false
-          })
-        } catch (e) {
-          console.debug(e)
-        }
-      },
-      fail: function(error) {
-        console.debug(error)
-      }
+
+    home.homeRecommend(function(res) {
+      console.debug(res)
     })
 
     try {
@@ -224,8 +200,9 @@ Page({
         },
         method: 'post',
         success: function(res) {
+          console.debug(res)
           self.setData({
-            goodsItems: res.data.list
+            goodsItems: res.data.data.Rows
           })
         },
         fail: function(error) {
@@ -266,8 +243,7 @@ Page({
     })
     var page = this.data.page
     var _goodsItems = this.data.goodsItems
-    home.goodsList(
-      {
+    home.goodsList({
         page: page++,
         pageSize: self.data.pageSize
       },
