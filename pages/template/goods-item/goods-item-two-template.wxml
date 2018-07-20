@@ -9,12 +9,12 @@
           <text class='goods-item-two-title'>{{item.Name}}</text>
         </view>
         <view class='goods-item-two-text1'>
-          <text class='goods-item-price'>￥{{item.Price}}</text> 
+          <text class='goods-item-price'>￥{{item.MktPrice}}</text> 
           <text class='goods-item-sales_volume'>销量{{item.Sales}}件</text>
         </view>
       </view>
       <view class='goods-item-two-text2'>
-        <text class='coupon-price'>￥{{item.finalPrice}}</text>
+        <text class='coupon-price'>￥{{item.Price}}</text>
         <icon catchtap='clickFavTab' data-goodsid='{{item.goodsId}}' data-isFav='{{item.isFav}}' data-item='{{item}}' data-index='{{index}}' class="icon iconfont {{item.isFav?'icon-heart':'icon-xin'}}"></icon>
       </view>
 

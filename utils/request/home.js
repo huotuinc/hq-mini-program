@@ -2,21 +2,19 @@ import config from '../../config.js'
 const app = getApp()
 
 var homeRecommend = function(callback) {
-  if (typeof callback != 'function') {
-    return
-  }
   //获取首页推荐
   app.request({
     url: config.homeRecommendUrl,
     success: function(res) {
       var list = res.data.list
-      var bannerItems = (specialItems = [])
-      for (let item in list) {
-        if (item.adType == 1) {
-          bannerItems.push(item)
+      var bannerItems = []
+      var specialItems = []
+      for (let idx in list) {
+        if (list[idx].adType == 1) {
+          bannerItems.push(list[idx])
         }
-        if (item.adType == 2) {
-          specialItems.push(item)
+        if (list[idx].adType == 2) {
+          specialItems.push(list[idx])
         }
       }
       callback({
@@ -25,7 +23,7 @@ var homeRecommend = function(callback) {
       })
     },
     fail: function(error) {
-      callback( error)
+      callback(error)
     }
   })
 }
@@ -56,7 +54,7 @@ var hotSearchKeyWorld = function(callback) {
       })
     },
     fail: function(error) {
-      callback( error)
+      callback(error)
     }
   })
 }
