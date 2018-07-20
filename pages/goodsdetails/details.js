@@ -89,12 +89,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {   
+  onLoad: function(options) {
+    var _refermid= getRefermid()    
     this.setData({     
       categoryTitle: options.categoryTitle || '商品详情',
-      refermid: options.refermid||0
+      refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
     })
-    setRefermid(options.refermid);
+    setRefermid(this.data.refermid);
     wx.setNavigationBarTitle({
       title: this.data.categoryTitle,
     })
