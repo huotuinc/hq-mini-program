@@ -172,7 +172,6 @@ Page({
     }
 
   },
-
   //是否开启支付密码
   passwordStatus: function(e) {
     var self = this
@@ -192,7 +191,6 @@ Page({
         }
       })
     }
-
     if (status == 0) {
       user.updatePayPasswordStatus({
         status: status
@@ -230,6 +228,18 @@ Page({
         PayPasswordStatus: res.settingItem.PayPasswordStatus,
         phone: res.settingItem.UserMobile
       })
+    })
+  },
+  //清楚缓存
+  clearStorge: function(e) {
+    wx.removeStorage({
+      key: 'historyList',
+      success: function(res) {
+        wx.showToast({
+          title: '清除成功',
+          icon: 'success'
+        })
+      },
     })
   },
   onLoad: function(options) {},

@@ -1,5 +1,5 @@
 
-<block wx:for="{{itemList.list}}" wx:key="item">
+<block wx:for="{{itemList}}" wx:key="item">
   <view class='sale-item' data-afterId="{{item.afterid}}" catchtap='_goSaleDetail'>
     <view class='item-header'>
       <text>订单号：{{item.orderid}}</text>

@@ -5,10 +5,10 @@
     <icon class='icon iconfont icon-x' catchtap='clearInput'></icon>
     <text class='cancel' catchtap='cancelSearch'>取消</text>
   </view>
- 
+
   <view class='line_view'></view>
 
-  <view>
+  <view wx:if='{{historyList.length}}'>
     <view class='recently-search'>
       <view>
         <icon class='icon iconfont icon-shijian-tianchong'></icon>

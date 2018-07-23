@@ -22,8 +22,9 @@ Page({
       customerId: customerId
     }
     user.getSalesList(data, function(res) {
+      console.log(res)
       self.setData({
-        itemList: res.list.data
+        itemList: res.list
       })
     })
   },

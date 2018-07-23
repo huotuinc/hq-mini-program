@@ -90,5 +90,5 @@ Page({
     if (this.data.userInfo) {
       this.userIndex()
     }
-  }
+  },
 })

@@ -65,7 +65,7 @@
 </view>
 <!-- 商品编号 end -->
 <!-- 商品评论 start -->
-<view style='margin-top:2rpx;'>
+<view style='margin-top:2rpx;' wx:if='{{commentData.num}}'>
   <view class='comment' catchtap='_goCommentList'>
     <text>评价（{{commentData.num}}）</text>
     <text class='allOrder'>好评度{{commentData.praise}}%</text>

@@ -2,7 +2,7 @@
   <blcok wx:for="{{itemList.Items}}" wx:key="item">
     <view class='balance-con_item'>
       <view class='item-left'>
-        <text class='income'>{{item.ChangeIntegral}}</text>
+        <text class="{{(item.ChangeIntegral>0)?'income':'font_color'}}">{{item.ChangeIntegral}}</text>
       </view>
       <view class='item-right'>
         <text class='item-right_title'>{{item.ChangeDesc}}</text>

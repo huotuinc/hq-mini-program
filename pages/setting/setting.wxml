@@ -97,7 +97,7 @@
     <text>收货地址</text>
     <text class='allOrder'></text>
   </view>
-  <view>
+  <view catchtap='clearStorge'>
     <text>清除缓存</text>
     <text class='allOrder'></text>
   </view>

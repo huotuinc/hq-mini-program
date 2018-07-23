@@ -31,29 +31,15 @@ App({
         self.globalData.mobileType = res.model;
       },
     })
-    wx.getUserInfo({
-      success: function(res) {
-        self.globalData.userInfo = res.userInfo
-        if (res.userInfo) {
-          self.request({
-            url: config.updateUserInfo,
-            method: 'post',
-            data: {
-              userId: self.globalData.userId,
-              nickName: res.userInfo.nickName,
-              userHead: res.userInfo.avatarUrl
-            },
-            success: function(res) {}
-          })
-        }
-      }
-    })
 
     var loginInfo = wx.getStorageSync("login")
+    self.globalData.userToken = loginInfo.token
+    self.globalData.userId = loginInfo.userId
     if (!loginInfo) {
       this.getToken(guideUserId)
     } else {
-      var userToken = loginInfo.data.token || ' '
+      self.updataUserInfo(self.globalData.userId)
+      var userToken = loginInfo.token || 0
       self.request({
         url: config.appInit,
         data: {
@@ -62,11 +48,6 @@ App({
         success: function(res) {
           if (!(res.data.data.token == userToken)) {
             self.getToken(guideUserId)
-            console.debug(res.data.data)
-            var _token = res.data.data.token || ''
-            if (res.data.code == 200 && !(_token == userToken)) {
-              self.getToken()
-            }
           }
         }
       })
@@ -89,14 +70,10 @@ App({
             guideUserId: guideUserId
           },
           success: function(res) {
-            console.debug(res)
-            if (res.statusCode != 200) {
-              console.debug(res.data);
-              return;
-            }
-            // self.globalData.userToken = res.data.data.token || ''
-            // wx.setStorageSync('login', res.data)
-
+            self.globalData.userToken = res.data.data.token
+            self.globalData.userId = res.data.data.userId
+            wx.setStorageSync('login', res.data.data)
+            self.updataUserInfo(res.data.data.userId)
           },
           fail: function(err) {
             console.log(err)
@@ -106,6 +83,29 @@ App({
     })
   },
 
+  /** 
+   * 修改用户信息
+   */
+  updataUserInfo: function (userId) {
+    var self = this
+    wx.getUserInfo({
+      success: function(res) {
+        self.globalData.userInfo = res.userInfo
+        if (res.userInfo) {
+          self.request({
+            url: config.updateUserInfo,
+            method: 'post',
+            data: {
+              userId: userId,
+              nickName: res.userInfo.nickName,
+              userHead: res.userInfo.avatarUrl
+            },
+            success: function(res) {}
+          })
+        }
+      }
+    })
+  },
   /**
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */

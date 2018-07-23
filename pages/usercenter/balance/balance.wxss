@@ -18,6 +18,10 @@
 .income{
   color: #31c000;
 }
+.font_color{
+  color: #e41436;
+}
+
 .expense{
   color: #ff0000;
 }

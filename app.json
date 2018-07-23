@@ -31,7 +31,8 @@
     "pages/evaluate/index",
     "pages/evaluate/conmmentList/index",
     "pages/scope/index",
-    "pages/payResult/result"
+    "pages/payResult/result",
+    "pages/transferPage/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
