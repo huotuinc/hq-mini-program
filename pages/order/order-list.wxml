@@ -1,3 +1,4 @@
+<import src="../template/shuju/shuju" />
 <view class='top-container'>
   <view class='order-status-tab'>
     <block wx:for="{{orderStatus}}" wx:key="{{item}}">
@@ -7,70 +8,74 @@
 </view>
 
 <view class='separator2'></view>
+<view>
+  <view wx:if="{{!itemList.Rows.length}}">
+    <template is="shuju" />
+  </view>
 
-<view class='order-list-container' bindscrolltolower="onReachBottom">
-
-  <block wx:for="{{itemList.Rows}}" wx:key="*this" wx:for-item="item">
-    <view>
-      <view class='order-item'>
-        <view class='item-info-1'>
-          <view class='left'>联合单号：{{item.unionOrderId}}</view>
-          <view class='right'>{{item.PayStatusStr}}</view>
-        </view>
-        <block wx:for="{{item.subOrderList}}" wx:for-item="suborder" wx:key="*this">
-          <view class='item-info-2'>
-            <view class='my-order_title'>
-              <text>{{suborder.supplierName}}</text>
-              <text class='allOrder'>{{suborder.ShipStatusStr}}</text>
-            </view>
-            <block wx:for="{{suborder.orderItemList}}" wx:for-item="goodsItem" wx:key="*this">
-              <view class='my-order_con' catchtap='_goGoodsDetails' data-orderId="{{suborder.orderId}}" data-customerId="{{item.customerId}}">
-                <view>
-                  <image src='{{goodsItem.proPic}}'></image>
-                </view>
-                <view class='goods_title'>
-                  <view class='title_con'>
-                    <text>{{goodsItem.name}}</text>
-                  </view>
-                  <view class='price_num'>
-                    <text>￥{{goodsItem.amount}}</text>
-                    <text style='color: #999;'>x{{goodsItem.num}}</text>
-                  </view>
-                </view>
+  <view class='order-list-container' bindscrolltolower="onReachBottom" wx:else>
+    <block wx:for="{{itemList.Rows}}" wx:key="*this" wx:for-item="item">
+      <view>
+        <view class='order-item'>
+          <view class='item-info-1'>
+            <view class='left'>联合单号：{{item.unionOrderId}}</view>
+            <view class='right'>{{item.PayStatusStr}}</view>
+          </view>
+          <block wx:for="{{item.subOrderList}}" wx:for-item="suborder" wx:key="*this">
+            <view class='item-info-2'>
+              <view class='my-order_title'>
+                <text>{{suborder.supplierName}}</text>
+                <text class='allOrder'>{{suborder.ShipStatusStr}}</text>
               </view>
-            </block>
+              <block wx:for="{{suborder.orderItemList}}" wx:for-item="goodsItem" wx:key="*this">
+                <view class='my-order_con' catchtap='_goGoodsDetails' data-orderId="{{suborder.orderId}}" data-customerId="{{item.customerId}}">
+                  <view>
+                    <image src='{{goodsItem.proPic}}'></image>
+                  </view>
+                  <view class='goods_title'>
+                    <view class='title_con'>
+                      <text>{{goodsItem.name}}</text>
+                    </view>
+                    <view class='price_num'>
+                      <text>￥{{goodsItem.amount}}</text>
+                      <text style='color: #999;'>x{{goodsItem.num}}</text>
+                    </view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </block>
+          <view class='separator3'></view>
+          <view class='item-info-3'>
+            <text style='color:#ccc;'>{{item.createTime}}</text>
+            <view>
+              <text>共{{item.proNums}}件商品 合计￥</text>
+              <text style='color: #E41436;'>{{item.finalAmount}} </text>
+            </view>
           </view>
-        </block>
-        <view class='separator3'></view>
-        <view class='item-info-3'>
-          <text style='color:#ccc;'>{{item.createTime}}</text>
-          <view>
-            <text>共{{item.proNums}}件商品 合计￥</text>
-            <text style='color: #E41436;'>{{item.finalAmount}} </text>
+          <view class='item-info-4' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && (item.status == 0 || item.status == -1) }}">
+            <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == 0}}">
+              <view class='cancel' catchtap='_cancelOrder' data-order='{{item.subOrderList}}'>取消订单</view>
+              <view class=' payment' catchtap='_payOrder' data-order='{{item.subOrderList}}'>支付订单</view>
+            </view>
+            <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == -1}}">
+              <view class=' payment' catchtap='_deleteOrder' data-order='{{item.subOrderList}}'>删除订单</view>
+            </view>
           </view>
-        </view>
-        <view class='item-info-4' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && (item.status == 0 || item.status == -1) }}">
-          <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == 0}}">
-            <view class='cancel' catchtap='_cancelOrder' data-order='{{item.subOrderList}}'>取消订单</view>
-            <view class=' payment' catchtap='_payOrder' data-order='{{item.subOrderList}}'>支付订单</view>
-          </view>
-          <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == -1}}">
-            <view class=' payment' catchtap='_deleteOrder' data-order='{{item.subOrderList}}'>删除订单</view>
-          </view>
-        </view>
 
-        <view class='item-info-4' wx:if="{{ item.subOrderList[0].shipStatus ==1 }}">
-          <view class=' operation' wx:if="{{item.subOrderList[0].IsComment == 0 }}">
-            <view class=' cancel' catchtap='_saleOrder' data-order='{{item.subOrderList}}'>售后</view>
-            <view class=' payment' catchtap='_evaluateOrder' data-order='{{item.subOrderList}}'>评价</view>
-          </view>
-          <view class=' operation' wx:if="{{item.subOrderList[0].subreceiveStatus !=1}}">
-            <view class='cancel' catchtap='' data-order='{{item.subOrderList}}'>查看物流</view>
-            <view class=' payment' catchtap='_confirmOrder' data-order='{{item.subOrderList}}'>确认收货</view>
+          <view class='item-info-4' wx:if="{{ item.subOrderList[0].shipStatus ==1 }}">
+            <view class=' operation' wx:if="{{item.subOrderList[0].IsComment == 0 }}">
+              <view class=' cancel' catchtap='_saleOrder' data-order='{{item.subOrderList}}'>售后</view>
+              <view class=' payment' catchtap='_evaluateOrder' data-order='{{item.subOrderList}}'>评价</view>
+            </view>
+            <view class=' operation' wx:if="{{item.subOrderList[0].subreceiveStatus !=1}}">
+              <view class='cancel' catchtap='' data-order='{{item.subOrderList}}'>查看物流</view>
+              <view class=' payment' catchtap='_confirmOrder' data-order='{{item.subOrderList}}'>确认收货</view>
+            </view>
           </view>
         </view>
       </view>
-    </view>
-  </block>
+    </block>
 
+  </view>
 </view>

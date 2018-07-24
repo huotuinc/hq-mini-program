@@ -1,20 +1,17 @@
-<view class='balance-con'>
-  <view class='balance-con_item'>
-    <view class='item-left'>
-      <text class='income'>34</text>
+<import src="../../template/shuju/shuju" />
+<view wx:if="{{!itemList.Items.length}}">
+  <template is="shuju" />
+</view>
+<view class='balance-con' wx:else>
+  <blcok wx:for="{{itemList.Items}}" wx:key="item">
+    <view class='balance-con_item'>
+      <view class='item-left'>
+        <text class="{{(item.ChangeIntegral>0)?'income':'font_color'}}">{{item.ChangeMiBean}}</text>
+      </view>
+      <view class='item-right'>
+        <text class='item-right_title'>{{item.ChangeDesc}}</text>
+        <text class='time'>时间：{{item.ChangeTime}}</text>
+      </view>
     </view>
-    <view class='item-right'>
-      <text class='item-right_title'>签到</text>
-      <text class='time'>时间：2018-06-08 17：04：05</text>
-    </view>
-  </view>
-  <view class='balance-con_item'>
-    <view class='item-left'>
-      <text class='expense'>+300</text>
-    </view>
-    <view class='item-right'>
-      <text>会员注册送积分</text>
-      <text class='time'>时间：2018-03-28 17：04：05</text>
-    </view>
-  </view>
+  </blcok>
 </view>

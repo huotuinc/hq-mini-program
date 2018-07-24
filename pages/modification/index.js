@@ -28,7 +28,7 @@ Page({
   },
 
   //获取支付宝账号
-  _getAccountInfo: function(e) {
+  _getZfbInfo: function(e) {
     this.setData({
       AccountInfo: e.detail.value
     })
@@ -58,14 +58,42 @@ Page({
         AccountType: self.data.accountType,
         AccountId: self.data.AccountId || '0'
       }, function(res) {
-        console.log(res)
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '编辑成功',
+            success: function() {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+        }
       })
     } else {
       wallet.editAccount({
         AccountType: self.data.accountType,
         AccountId: self.data.AccountId || '0'
       }, function(res) {
-        console.log(res)
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '编辑成功',
+            success: function() {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+        }
       })
     }
   },
@@ -107,7 +135,6 @@ Page({
    */
   onLoad: function(options) {
     var self = this
-    console.log(options)
     if (options.AccountId) {
       this._getAccountInfo()
     } else {
@@ -116,46 +143,5 @@ Page({
       })
     }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  }
+  onShow: function() {}
 })

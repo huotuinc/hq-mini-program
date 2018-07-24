@@ -54,7 +54,7 @@
         <picker range="{{districtName}}" value="{{districtSelIndex}} " bindchange="bindDistrict">
           <view class="weui-input ">{{county||'请选择所在县/区'}}</view>
         </picker>
-      </view>
+      </view> 
     </view>
   </view>
 

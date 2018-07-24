@@ -1,20 +1,28 @@
-<view class='address-item'>
-  <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{addressList}}" wx:for-item="item">
-    <view class='item' data-pid='{{item.pid}}' catchtap='_setDefaultAddress' data-address="{{item}}">
-      <view>
-        <view class='item-left'>
-          <icon class='icon iconfont icon-ico2'></icon>
+<import src="../template/shuju/shuju" />
+<view wx:if="{{!addressList.length}}">
+  <template is="shuju" />
+</view>
+
+
+<view>
+  <view class='address-item'>
+    <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{addressList}}" wx:for-item="item">
+      <view class='item' data-pid='{{item.pid}}' catchtap='_setDefaultAddress' data-address="{{item}}">
+        <view>
+          <view class='item-left'>
+            <icon class='icon iconfont icon-ico2'></icon>
+          </view>
+          <view class="item-center">
+            <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>{{item.name}} {{item.mobile}}</text>
+            <text style='font-size:28rpx;'>{{item.province}}{{item.city}}{{item.county}} {{item.address}}</text>
+          </view>
         </view>
-        <view class="item-center">
-          <text style=' color: #000;font-weight: 800;margin-bottom:10rpx;'>{{item.name}} {{item.mobile}}</text>
-          <text style='font-size:28rpx;'>{{item.province}}{{item.city}}{{item.county}} {{item.address}}</text>
+        <view class='iten-right' data-pid='{{item.pid}}' data-index="{{index}}" catchtap='_editAddress'>
+          <text>编辑</text>
         </view>
       </view>
-      <view class='iten-right' data-pid='{{item.pid}}' data-index="{{index}}" catchtap='_editAddress'>
-        <text>编辑</text>
-      </view>
+      <view class="del" catchtap="del" data-pid='{{item.pid}}'>删除</view>
     </view>
-    <view class="del" catchtap="del" data-pid='{{item.pid}}'>删除</view>
   </view>
 </view>
 

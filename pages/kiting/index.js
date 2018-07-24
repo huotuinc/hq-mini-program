@@ -20,7 +20,6 @@ Page({
     })
   },
   applyNum: function(e) {
-    // console.log(e.detail.value)
     this.setData({
       applyNum: e.detail.value
     })
@@ -43,6 +42,11 @@ Page({
         title: '起提金额不足',
         icon: 'none'
       })
+    } else if (realityIntegral <= 0) {
+      wx.showToast({
+        title: '请输入提现金额',
+        icon: 'none'
+      })
     } else {
       if (realityIntegral > userIntegral) {
         wx.showToast({
@@ -55,8 +59,7 @@ Page({
           content: '确认提现之后，预计24个小时之内可以到账',
           success: function(res) {
             if (res.confirm) {
-              wallet.applySubmit(
-                {
+              wallet.applySubmit({
                   AccountId: accountId,
                   ApplyMoney: realityIntegral
                 },
@@ -68,25 +71,17 @@ Page({
       }
     }
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
+
+  onShow: function() {
     var self = this
     wallet.applyIndex(function(res) {
-      self.setData({
-        applyData: res.data.data
-      })
+      if (res.data.code == 200) {
+        var data = res.data.data
+        data.UserIntegral = res.data.data.UserIntegral / 100
+        self.setData({
+          applyData: data
+        })
+      }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {}
+  }
 })

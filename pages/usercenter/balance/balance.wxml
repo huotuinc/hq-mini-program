@@ -1,4 +1,9 @@
-<view class='balance-con'>
+<import src="../../template/shuju/shuju" />
+<view wx:if="{{!itemList.Items.length}}">
+  <template is="shuju" />
+</view>
+
+<view class='balance-con' wx:else>
   <blcok wx:for="{{itemList.Items}}" wx:key="item">
     <view class='balance-con_item'>
       <view class='item-left'>

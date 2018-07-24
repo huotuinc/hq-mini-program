@@ -141,44 +141,47 @@ Page({
     var index = e.currentTarget.dataset.index
     var isFav = e.target.dataset.isfav
     var _items = []
-    if (isFav) {
+    if (!isFav) {
       collectgoods.addCollection({
-        goodsId: e.target.dataset.goodsid
-      }, function(res) {
-        wx.showToast({
-          title: '收藏成功',
-          success: function() {
-            _items = self.data.goodsItems
-            _items[index].isFav = !isFav
-            self.setData({
-              goodsItems: _items
-            })
-          }
-        })
-      })
+          goodsId: e.target.dataset.goodsid
+        },
+        function(res) {
+          wx.showToast({
+            title: '收藏成功',
+            success: function() {
+              _items = self.data.goodsItems
+              _items[index].IsFav = !isFav
+              self.setData({
+                goodsItems: _items
+              })
+            }
+          })
+        }
+      )
     } else {
       collectgoods.addCollection({
-        goodsId: e.target.dataset.goodsid
-      }, function(res) {
-        wx.showToast({
-          title: '取消成功',
-          success: function() {
-            _items = self.data.goodsItems
-            _items[index].isFav = !isFav
-            self.setData({
-              goodsItems: _items
-            })
-          }
-        })
-      })
+          goodsId: e.target.dataset.goodsid
+        },
+        function(res) {
+          wx.showToast({
+            title: '取消成功',
+            success: function() {
+              _items = self.data.goodsItems
+              _items[index].IsFav = !isFav
+              self.setData({
+                goodsItems: _items
+              })
+            }
+          })
+        }
+      )
     }
   },
   //商品详情页面
   goodsDetails: function(e) {
+    console.log(e.currentTarget.dataset.goodsid)
     wx.navigateTo({
-      url: '../goodsdetails/details?goods_id=' + e.currentTarget.dataset.goodsId +
-        '&categoryTitle=' +
-        e.currentTarget.dataset.title
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsid
     })
   },
 
@@ -191,7 +194,10 @@ Page({
     goodsList.goodsList(data, function(res) {
       self.setData({
         goodsItems: res.goodsItems,
-        loading: false
+        loading: false,
+        brandIds: [], //商品品牌搜索ID
+        tags: [], //商品分类搜索ID
+        catIds: [] //商品标签搜索ID
       })
     })
   },

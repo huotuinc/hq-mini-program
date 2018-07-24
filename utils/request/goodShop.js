@@ -8,6 +8,7 @@ var getCartGoods = function(callback) {
   app.request({
     url: config.getCart,
     success: function(res) {
+      console.log(res.data)
       callback({
         cartGoods: res.data.data
       })

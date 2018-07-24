@@ -1,13 +1,3 @@
-<!-- <view wx:if="!{{phone=='未绑定'}}" class='bind-phone_header'>
-  <text>手机号</text>
-  <text>{{phone}}</text>
-</view>
-
-
-
-<view class='btn-recharge' style='background-color: #04be02;' bindtap='_updateMobile'>
-  确定
-</view> -->
 
 <view wx:if="{{step==1}}">
   <view>

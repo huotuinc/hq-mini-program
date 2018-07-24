@@ -1,0 +1,9 @@
+<template name='shuju'>
+  <view class='shuju'>
+    <view class='shopping-cart'>
+      <icon class='icon iconfont icon-wushuju'></icon>
+      <view class='text'>暂无数据</view>
+    </view>
+  </view>
+</template>
+

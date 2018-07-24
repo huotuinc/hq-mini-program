@@ -1,3 +1,4 @@
+@import '../template/shuju/shuju.wxss';
 page {
   background-color: #fff;
 }

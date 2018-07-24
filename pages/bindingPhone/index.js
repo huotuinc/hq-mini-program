@@ -49,16 +49,20 @@ Page({
           mobile: mobile
         },
         function(res) {
-          var verifyCode = res.data.data.verifyCode
           wx.showToast({
             title: '验证码发送成功',
-            icon: 'none',
+            icon: 'success',
             success: function() {
-              self.setData({
-                time: 60,
-                verifyCode: verifyCode
-              })
-              self._getVerificationCode()
+              if (res.data.code == 200) {
+                self.setData({
+                  time: 60
+                })
+                self._getVerificationCode()
+              } else {
+                wx.showToast({
+                  title: res.data.msg
+                })
+              }
             }
           })
         }
@@ -108,14 +112,22 @@ Page({
           code: self.data.vcode
         },
         function(res) {
-          wx.showToast({
-            title: '绑定手机成功',
-            success: function() {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          })
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: '绑定手机成功',
+              success: function() {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            })
+          } else {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            })
+          }
+
         }
       )
     }
@@ -131,14 +143,6 @@ Page({
     }
 
     if (!this.data.vcode) {
-      wx.showToast({
-        title: '验证码错误',
-        icon: 'none'
-      })
-      return false
-    }
-
-    if (!(this.data.vcode == this.data.verifyCode)) {
       wx.showToast({
         title: '验证码错误',
         icon: 'none'

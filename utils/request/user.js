@@ -66,7 +66,7 @@ var updateMobile = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data.data
+        data: res.data
       })
     }
   })
@@ -102,7 +102,7 @@ var sendCode = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data.data
+        data: res.data
       })
     }
   })
@@ -113,7 +113,7 @@ var addressList = function(callback) {
     url: config.addressList,
     success: function(res) {
       callback({
-        data: res.data.data
+        data: res.data
       })
     }
   })
@@ -125,7 +125,7 @@ var updateAddress = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data.data
+        data: res.data
       })
     }
   })

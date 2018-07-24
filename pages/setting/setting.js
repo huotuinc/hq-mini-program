@@ -215,15 +215,14 @@ Page({
       var reg = /^(\d{3})\d{4}(\d{4})$/
       tel = tel.replace(reg, "$1****$2")
       var userCard = res.settingItem.UserCardNo
-      userCard = userCard.substr(0, 6) + "********" + userCard.substr(-4)
       self.setData({
         RealName: res.settingItem.RealName || '去完善',
         UserSex: res.settingItem.UserSex || '未知',
-        UserBirthday: res.settingItem.UserBirthday || '',
-        UserCardNo: userCard || '',
+        UserBirthday: res.settingItem.UserBirthday || '请选择生日',
+        UserCardNo: userCard || '请完善身份证信息',
         UserMobile: tel || '未绑定',
-        UserWxNo: res.settingItem.UserWxNo || '',
-        UserCityName: res.settingItem.UserCityName || '',
+        UserWxNo: res.settingItem.UserWxNo || '绑定微信号',
+        UserCityName: res.settingItem.UserCityName || '请选择城市',
         PayPassworded: res.settingItem.PayPassworded,
         PayPasswordStatus: res.settingItem.PayPasswordStatus,
         phone: res.settingItem.UserMobile

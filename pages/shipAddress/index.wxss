@@ -1,3 +1,4 @@
+@import '../template/shuju/shuju.wxss';
 .address-item {
   border-top: 1px solid #f2f2f2;
   font-size: 28rpx;

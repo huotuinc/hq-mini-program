@@ -9,7 +9,7 @@
 <view class='modification-information' wx:if="{{accountType == 1}}">
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
+      <view class="weui-cell__hd"> 
         <view class="weui-label">姓名</view>
       </view>
       <view class="weui-cell__bd">
@@ -23,7 +23,7 @@
         <view class="weui-label">支付宝账号</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" type='text' placeholder="请输入支付宝账号" value='{{AccountInfo}}' bindinput='_getAccountInfo' />
+        <input class="weui-input" type='text' placeholder="请输入支付宝账号" value='{{AccountInfo}}' bindinput='_getZfbInfo' />
       </view>
     </view>
   </view>

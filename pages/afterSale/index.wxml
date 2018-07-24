@@ -1,22 +1,28 @@
+<import src="../template/shuju/shuju" />
+<view wx:if="{{!itemList.length}}">
+  <template is="shuju" />
+</view>
 
-<block wx:for="{{itemList}}" wx:key="item">
-  <view class='sale-item' data-afterId="{{item.afterid}}" catchtap='_goSaleDetail'>
-    <view class='item-header'>
-      <text>订单号：{{item.orderid}}</text>
-      <text style='color:#E41436;'>{{item.afterstatusStr}}</text>
-    </view>
-    <view class='item-content'>
-      <view>
-        <image src='{{item.pimg}}'></image>
+<view wx:else>
+  <block wx:for="{{itemList}}" wx:key="item">
+    <view class='sale-item' data-afterId="{{item.afterid}}" catchtap='_goSaleDetail'>
+      <view class='item-header'>
+        <text>订单号：{{item.orderid}}</text>
+        <text style='color:#E41436;'>{{item.afterstatusStr}}</text>
       </view>
-      <view class='content-text'>
-        <text>{{item.pname}}</text>
-        <text>数量：{{item.pnum}}</text>
-        <text>退款金额：{{item.aftermoney}}</text>
+      <view class='item-content'>
+        <view>
+          <image src='{{item.pimg}}'></image>
+        </view>
+        <view class='content-text'>
+          <text>{{item.pname}}</text>
+          <text>数量：{{item.pnum}}</text>
+          <text>退款金额：{{item.aftermoney}}</text>
+        </view>
+      </view>
+      <view class='item-time'>
+        申请时间 ：{{item.aftertime}}
       </view>
     </view>
-    <view class='item-time'>
-      申请时间 ：{{item.aftertime}}
-    </view>
-  </view>
-</block>
+  </block>
+</view>

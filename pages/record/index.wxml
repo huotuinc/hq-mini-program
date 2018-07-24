@@ -1,4 +1,15 @@
-<view class="record">
+<import src="../template/shuju/shuju" />
+<view wx:if="{{!applyList.length}}">
+    <view class='shuju'>
+    <view class='shopping-cart'>
+      <icon class='icon iconfont icon-wushuju'></icon>
+      <view class='text'>暂无提现记录</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="record" wx:else>
   <block wx:for="{{applyList}}" wx:key="item">
     <view class='record-item'>
       <view class='item-left'>

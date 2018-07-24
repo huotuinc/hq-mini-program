@@ -76,9 +76,12 @@ Page({
   _getAddressList: function() {
     var self = this
     user.addressList(function(res) {
-      self.setData({
-        addressList: res.data.data
-      })
+      if (res.data.code == 200) {
+        self.setData({
+          addressList: res.data.data
+        })
+      }
+
     })
   },
   //设置默认收货地址

@@ -1,1 +1,2 @@
 @import "../balance/balance.wxss";
+@import '../../template/shuju/shuju.wxss';

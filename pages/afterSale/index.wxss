@@ -1,3 +1,4 @@
+@import '../template/shuju/shuju.wxss';
 .sale-item {
   margin-top: 20rpx;
   border-bottom: 1px solid #ddd;

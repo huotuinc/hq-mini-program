@@ -12,9 +12,10 @@ Page({
       PageIndex: self.data.PageIndex,
       PageSize: self.data.PageSize
     }, function(res) {
+      self.setData({
+        itemList: res.data
+      })
       console.log(res)
     })
-  },
-  onPullDownRefresh: function() {},
-  onReachBottom: function() {}
+  }
 })

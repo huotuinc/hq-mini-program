@@ -11,7 +11,7 @@
     </view>
   </view>
   <view class="weui-cells weui-cells_after-title" catchtap='_showGender'>
-    <view class="weui-cell weui-cell_input">
+    <view class="weui-cell weui-cell_input"> 
       <view class="weui-cell__hd">
         <view class="weui-label">性别</view>
       </view>
