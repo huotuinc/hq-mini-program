@@ -202,9 +202,19 @@ Page({
       refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
     })
     setRefermid(self.data.refermid)
+
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    var self = this
     //获取首页推荐
     home.homeRecommend(function(res) {
-      console.debug(res)
+      self.setData({
+        bannerItems: res.bannerItems,
+        specialItems: res.specialItems
+      })
     })
     //获取推荐商品
     home.goodsList({
@@ -217,16 +227,6 @@ Page({
       })
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-
-  onReady: function() {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -234,11 +234,25 @@ Page({
 
   onPullDownRefresh: function() {
     wx.stopPullDownRefresh()
+    var self = this
+    //获取首页推荐
+    home.homeRecommend(function(res) {
+      self.setData({
+        bannerItems: res.bannerItems,
+        specialItems: res.specialItems
+      })
+    })
+    //获取推荐商品
+    home.goodsList({
+      page: self.data.page,
+      pageSize: self.data.pageSize
+    }, function(res) {
+      self.setData({
+        goodsItems: res.goodsItems,
+        loading: false
+      })
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
 
   onReachBottom: function() {
     var self = this

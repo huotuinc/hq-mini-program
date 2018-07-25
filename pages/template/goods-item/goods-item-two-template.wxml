@@ -9,12 +9,12 @@
           <text class='goods-item-two-title'>{{item.Name}}</text>
         </view>
         <view class='goods-item-two-text1'>
-          <text class='goods-item-price'>￥{{item.MktPrice}}</text>
+          <text class='goods-item-price' wx:if="{{item.Price != item.UserPrice}}">￥{{item.Price}}</text>
           <text class='goods-item-sales_volume'>销量{{item.Sales}}件</text>
         </view>
       </view>
       <view class='goods-item-two-text2'>
-        <text class='coupon-price'>￥{{item.Price}}</text>
+        <text class='coupon-price'>￥{{item.UserPrice>=0? item.UserPrice:item.Price}}</text>
         <icon catchtap='clickFavTab' data-goodsid='{{item.GoodsId}}' data-isFav='{{item.IsFav}}' data-item='{{item}}' data-index='{{index}}' class="icon iconfont {{item.IsFav?'icon-xin':'icon-heart'}}"></icon>
       </view>
 

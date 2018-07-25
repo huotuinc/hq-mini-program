@@ -118,11 +118,10 @@ Page({
     wx.getStorage({
       key: 'AccountItem',
       success: function(res) {
-        var AccountInfo = res.data.AccountInfo
-        var account = AccountInfo.split("-")
+        var account = res.data.Account
         self.setData({
           RealName: res.data.RealName,
-          AccountInfo: account[1] || '',
+          AccountInfo: account || '',
           accountType: res.data.AccountType,
           AccountId: res.data.AccountId
         })
