@@ -93,14 +93,22 @@ Page({
       mobile: self.data.phone,
       code: self.data.vcode
     }, function(res) {
-      self.setData({
-        step: 2,
-        disabled: false,
-        sendButtonText: '获取验证码',
-        vCodeColor: '1',
-        time: 0,
-        timer: '',
-      })
+      if (res.data.code == 200) {
+        self.setData({
+          step: 2,
+          disabled: false,
+          sendButtonText: '获取验证码',
+          vCodeColor: '1',
+          time: 0,
+          timer: '',
+        })
+      } else {
+        wx.showToast({
+          title: res.data.data,
+          icon: 'none'
+        })
+      }
+
     })
   },
 

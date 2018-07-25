@@ -133,7 +133,9 @@ var config = {
   //获取可用优惠券
   enabledCoupons: `${host}/user/GetEnabledCoupons`,
   //获取觅豆
-  getMiBeanList: `${host}/user/GetMiBeanList`
+  getMiBeanList: `${host}/user/GetMiBeanList`,
+  //支付密码判断
+  judgePayWord: `${host}/user/JudgePayWord`
 }
 
 module.exports = config

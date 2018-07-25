@@ -28,10 +28,6 @@ Page({
     })
   },
 
-  onLoad: function(options) {
-    this._getMyCollection()
-  },
-
   //手指触摸动作开始 记录起点X坐标
   touchstart: function(e) {
     //开始触摸时 重置所有删除
@@ -91,10 +87,6 @@ Page({
   //删除事件
   del: function(e) {
     var self = this
-    // this.data.hotItems.splice(e.currentTarget.dataset.index, 1)
-    // this.setData({
-    //   hotItems: this.data.hotItems
-    // })
     wx.showModal({
       title: '',
       content: '您确定要删除吗',
@@ -122,7 +114,7 @@ Page({
     var index = e.currentTarget.dataset.index
     var _items = this.data.hotItems
     _items[index].isFav = !item.isFav
-    this.setData({ 
+    this.setData({
       hotItems: _items
     })
     let num = 0
@@ -179,28 +171,8 @@ Page({
       url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsid
     })
   },
-
-  onReady: function() {
-
-  },
-
+  onLoad: function(options) {},
   onShow: function() {
-
+    this._getMyCollection()
   },
-
-  onHide: function() {
-
-  },
-
-  onUnload: function() {
-
-  },
-
-  onPullDownRefresh: function() {
-
-  },
-
-  onReachBottom: function() {
-
-  }
 })

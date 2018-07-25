@@ -75,9 +75,9 @@
     </view>
 
     <view style='margin-top:20rpx; '>
-      <block wx:if="{{userItem.ADList}}">
+      <block wx:if="{{userItem.ADLists}}">
         <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx'>
-          <block wx:for="{{userItem.ADList}}" wx:key="{{item}}">
+          <block wx:for="{{userItem.ADLists}}" wx:key="{{item}}">
             <swiper-item>
               <view class="swiper-item">
                 <image lazy-load='true' src='{{item.ImgURL}}' bindload="imageLoad" style='height:{{imgHeight}}rpx;width:100%'></image>
