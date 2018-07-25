@@ -176,7 +176,7 @@ Page({
   //跳转商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
-      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsId
+      url: '../goodsdetails/details?goodsid=' + e.currentTarget.dataset.goodsid
     })
   },
 

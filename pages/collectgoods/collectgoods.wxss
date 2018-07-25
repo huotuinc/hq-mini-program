@@ -1,4 +1,5 @@
 @import '../template/collect/collect-template.wxss';
+@import '../template/shuju/shuju.wxss';
 
 .collect-footer {
   position: fixed;

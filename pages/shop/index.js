@@ -18,7 +18,7 @@ Page({
   //编辑操作
   _editHandle: function(e) {
     var editHandle = e.target.dataset.edittile
-    var _items = this.data.items.Products
+    var _items = this.data.items.Products || ''
     if (editHandle == '编辑') {
       var num = 0
       for (let idx in _items) {

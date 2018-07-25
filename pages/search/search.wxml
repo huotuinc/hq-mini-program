@@ -9,7 +9,7 @@
   <view class='line_view'></view>
 
   <view wx:if='{{historyList.length}}'>
-    <view class='recently-search'>
+    <view class='recently-search'> 
       <view>
         <icon class='icon iconfont icon-shijian-tianchong'></icon>
         <text>最近搜索</text>
@@ -25,7 +25,7 @@
     </view>
   </view>
 
-  <view>
+  <view wx:if="{{hotsearchkeyworld.length}}">
     <view class='hot-search'>
       <icon class='icon iconfont icon-hot'></icon>
       <text>热门搜索</text>

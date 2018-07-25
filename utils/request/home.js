@@ -50,7 +50,7 @@ var hotSearchKeyWorld = function(callback) {
     url: config.hotsearchkeyworld,
     success: function(res) {
       callback({
-        keys: res.data.data
+        data: res.data
       })
     },
     fail: function(error) {

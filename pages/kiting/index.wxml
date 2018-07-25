@@ -1,4 +1,4 @@
-<view class='kiting-information' catchtap='_goAccount' data-accountId='{{applyData.AccountId}}' wx:if="{{!applyData.UserRealName == null}}">
+<view class='kiting-information' catchtap='_goAccount' data-accountId='{{applyData.AccountId}}' wx:if="{{!applyData.AccountId>=0}}">
   <view>{{applyData.UserRealName}}</view>
   <view>{{applyData.AccountInfo}}</view>
 </view>

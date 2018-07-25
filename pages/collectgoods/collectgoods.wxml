@@ -1,18 +1,24 @@
 <import src="../template/collect/collect-template.wxml" />
-
-<view class='collect-con' style='padding-top:6rpx;padding-bottom:92rpx;'>
-  <block wx:for="{{hotItems}}" wx:key="item">
-    <template is="goodsItem" data="{{item,index}}" />
-  </block>
+<import src="../template/shuju/shuju" />
+<view wx:if="{{!hotItems.length}}">
+  <template is="shuju" />
 </view>
 
-<view class='collect-footer '>
-  <view class='select-footer_icon'  catchtap='checkedAll'>
-    <icon class="icon iconfont {{!checked?'icon-ico2':'icon-guanbi'}}"></icon>
-    <text>{{ checkedTitle }}</text>
+<view wx:else>
+  <view class='collect-con' style='padding-top:6rpx;padding-bottom:92rpx;'>
+    <block wx:for="{{hotItems}}" wx:key="item">
+      <template is="goodsItem" data="{{item,index}}" />
+    </block>
   </view>
-  <view class='footer-operate'>
-    <text  class='footer-del' >批量删除</text>
-    <text class='footer-share'>立即分享</text>
-  </view>
-</view>  
+
+  <!-- <view class='collect-footer '>
+    <view class='select-footer_icon' catchtap='checkedAll'>
+      <icon class="icon iconfont {{!checked?'icon-ico2':'icon-guanbi'}}"></icon>
+      <text>{{ checkedTitle }}</text>
+    </view>
+    <view class='footer-operate'>
+      <text class='footer-del'>批量删除</text>
+      <text class='footer-share'>立即分享</text>
+    </view>
+  </view> -->
+</view>

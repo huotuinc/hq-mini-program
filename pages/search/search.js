@@ -70,8 +70,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var self = this
     home.hotSearchKeyWorld(function(res) {
-      console.log(res.keys)
+      if (res.data.code == 200) {
+        var key = res.data.data
+        if (key.length) {
+          self.setData({
+            hotsearchkeyworld:key.split(",")
+          })
+        }
+      }
+
     })
     var that = this
     wx.getStorage({

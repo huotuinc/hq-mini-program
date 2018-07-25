@@ -78,9 +78,11 @@ Page({
       icon: 'loading',
       success: function() {
         wallet.getaccountlist(function(res) {
-          self.setData({
-            accountList: res.data.data.list
-          })
+          if (res.data.code == 200) {
+            self.setData({
+              accountList: res.data.data
+            })
+          }
           wx.hideToast()
         })
       }
@@ -93,13 +95,15 @@ Page({
         AccountId: e.currentTarget.dataset.accountid
       },
       function(res) {
-        self.getAccountList()
+        if (res.data.code == 200) {
+          self.getAccountList()
+        }
       }
     )
   },
 
   onLoad: function(options) {
-    // this.getAccountList()
+    // this.getAccountList()0
   },
 
   onShow: function() {
