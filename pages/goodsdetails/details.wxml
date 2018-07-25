@@ -21,7 +21,7 @@
     <view class='send-specification'>
       <text>{{goodsItem.Base.SubTitle}}</text>
     </view>
-    <view class='product-trademark'>
+    <view wx:if="{{goodsItem.Base.BrandName}}" class='product-trademark'>
       品牌：
       <text>{{goodsItem.Base.BrandName}}</text>
     </view>
@@ -38,7 +38,7 @@
     </view>
   </view>
 
-  <view class='privilege'>
+  <view wx:if="{{goodsItem.Promotion.length>0}}" class='privilege'>
     <view class='promotion'>
       <block wx:for="{{goodsItem.Promotion}}" wx:key="item">
         <text style='color:#acacac;margin-right:18rpx; font-size:28rpx;'>促销</text>
@@ -182,7 +182,7 @@
         </view>
         <view class='select_size'>
           <block wx:for="{{goodsItem.Base.SpecDesc}}" wx:key="item">
-            <text catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]}}">{{item.SpecValue}}</text>
+            <text wx:if="{{item.SpecId==key}}" catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]}}">{{item.SpecValue}}</text>
             <!-- <text class='active'>S</text>
                 <text>M</text>
                 <text>L</text>

@@ -183,6 +183,7 @@ Page({
   },
   //更改优惠券
   bindPickerChange: function(e) {
+    if (this.data.loading)return;
     var self = this;
     var _index = e.detail.value;
     var _pmtSelectData = self.data.pmtSelectData;
@@ -196,6 +197,7 @@ Page({
   },
   /**觅豆支付 */
   _clickMiBean: function() {
+    if (this.data.loading) return;
     var self = this;
     var payedAdvance = self.data.payedAdvance; //觅豆支付
     //如果已经开启积分支付，则关闭
@@ -231,6 +233,7 @@ Page({
   },
   /**积分支付 */
   _clikcScore: function() {
+    if (this.data.loading) return;
     var self = this;
     var chargeCasher = self.data.chargeCasher; //积分支付    
     //如果已经开启积分支付，则关闭
@@ -267,6 +270,7 @@ Page({
    * 提交订单
    */
   submitOrder: function(e) {
+    if (this.data.loading) return;
     var self = this;
     var addressData = self.data.addressData;
     var pmtSelectData = self.data.pmtSelectData;
@@ -337,7 +341,7 @@ Page({
       }
     });
   },
-  _goPayResult:function(orderid){
+  _goPayResult:function(orderid){    
     wx.redirectTo({
       url: '../payResult/result?orderid=' + orderid,
     })
