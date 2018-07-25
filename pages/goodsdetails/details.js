@@ -212,7 +212,7 @@ Page({
     } else {
       if (userInfo) {
         if (this.data.btnBuy == 'true') {
-          var traItems = this.data.goodsItem.Base.GoodsId + "_" + this.data.specData.productid + "_" + this.data.showNum
+          var traItems = this.data.goodsItem.Base.GoodsId + "_" + this.data.specData.productid + "_" + this.data.shopNum
           //跳转订单确认页      
           wx.navigateTo({
             url: '../submitOrder/submitOrder?traItems=' + traItems + "&refermid=" + this.data.refermid
@@ -223,7 +223,7 @@ Page({
           var p = {
             goodsId: this.data.goodsItem.Base.GoodsId,
             productId: this.data.specData.productid,
-            quantity: this.data.showNum
+            quantity: this.data.shopNum
           }
           addCartGoods(p, function() {
             //添加成功
@@ -375,7 +375,7 @@ Page({
     if (_specData.specStatus[item.SpecId][spec.SpecValueId] == 'no_select')
       return
     _specData.props[item.SpecId] = spec;
-    _specData.descName = item.SpecValue
+    _specData.descName =item.SpecValue
 
     _item.Base.PicUrl = item.GoodsImageIds[0]
 
