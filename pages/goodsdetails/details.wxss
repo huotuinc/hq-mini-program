@@ -270,7 +270,9 @@
   display: inline-block;
   line-height: 99rpx;
   font-size: 30rpx;
-  border-radius: 0;
+  border-radius: 0 !important;
+   border-right: none !important;
+   border: none !important;
 }
 
 .icon-kefu, .icon-shouye, .icon-goumai {
