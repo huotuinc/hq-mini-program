@@ -198,6 +198,16 @@ Page({
     }
 
   },
+  showLoading:function(){
+    this.setData({
+      loading:true
+    })
+  },
+  hideLoading: function () {
+    this.setData({
+      loading: false
+    })
+  },
   /**
    * 立即购买
    */
@@ -225,6 +235,7 @@ Page({
             productId: this.data.specData.productid,
             quantity: this.data.shopNum
           }
+          self.showLoading()
           addCartGoods(p, function() {
             //添加成功
             wx.showToast({
@@ -234,6 +245,7 @@ Page({
                 self.setData({
                   showModalStatus: false
                 })
+                self.hideLoading()
               }
             })
           });
@@ -356,7 +368,7 @@ Page({
     var shareData = {
       title: this.data.categoryTitle,
       desc: '',
-      path: '/pages/goodsdetails/details?refermid='
+      path: '/pages/goodsdetails/details?refermid=' + app.globalData.userId
     }
     return shareData;
   },
