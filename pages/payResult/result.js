@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderid:""    
+    orderid:"",
+    resultType: "success",//success  ,cancel
+    resultMsg:"支付成功"
   },
 
   /**
@@ -13,7 +15,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      orderid: options.orderid
+      orderid: options.orderid,
+      resultType: options.success ? "success" :"cancel",
+      resultMsg: options.success ? "订单支付成功" : "订单支付失败"
     })
   },
   _goOrderList:function(){

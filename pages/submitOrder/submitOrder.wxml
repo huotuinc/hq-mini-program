@@ -60,7 +60,7 @@
       <view catchtap='_clickMiBean' data-type='mibean'>
         <view class='left'>
           <text>觅豆 </text>
-          <text style='color:#E41436;'>{{walletData.UsefulMiBean}}个</text>
+          <text style='color:#E41436;'>{{walletData.UsefulMiBean||0}}个</text>
         </view>
         <view class='right'>
           <text wx:if="{{payedAdvance.status}}">-{{payedAdvance.amount}}</text>
@@ -70,14 +70,14 @@
       <view catchtap='_clikcScore' data-type="score">
         <view class='left'>
           <text>余额 </text>
-          <text style='color:#E41436;'>{{walletData.UsefulIntegralAmount}}元</text>
+          <text style='color:#E41436;'>{{walletData.UsefulIntegralAmount||0}}元</text>
         </view>
         <view class='right'>
           <text wx:if="{{chargeCasher.status}}">-￥{{chargeCasher.amount}}</text>
           <icon class="icon iconfont {{chargeCasher.status?'icon-xuanzhong':'icon-ico2'}}"></icon>
         </view>
       </view>
-      <view>
+      <view wx:if="{{pmtSelectData.array.length>1}}">
         <view class='left'>
           <text>优惠券 </text>
           <text style='color:#E41436;'>{{pmtCount}}张</text>

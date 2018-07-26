@@ -434,3 +434,6 @@
   display: block;
   width: 100%;
 }
+.price-repertory_select{
+  padding-right: 10rpx;
+}

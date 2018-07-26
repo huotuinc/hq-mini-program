@@ -113,7 +113,7 @@ Page({
     var self = this;
     var addressData = self.data.addressData;
     var areaCode = "";
-    if (addressData != null) {
+    if (addressData != null && addressData.provinceCode && addressData.cityCode && addressData.countyCode) {
       areaCode = addressData.provinceCode + '/' + addressData.cityCode + '/' + addressData.countyCode;
     }
     var pmtSelectData = self.data.pmtSelectData;
@@ -175,6 +175,7 @@ Page({
   },
   //获取收货地址
   chooseAddress: function(e) {
+    if (this.data.loading) return;
     var self = this;
 
     wx.navigateTo({
@@ -199,6 +200,8 @@ Page({
   _clickMiBean: function() {
     if (this.data.loading) return;
     var self = this;
+    var _amount = self.data.walletData.UsefulMiBean;
+    if (!_amount || _amount <= 0) return;
     var payedAdvance = self.data.payedAdvance; //觅豆支付
     //如果已经开启积分支付，则关闭
     if (payedAdvance.status) {
@@ -218,10 +221,12 @@ Page({
       var _resultAmount = viewSubmitOrder.calAmount(self.data)
       //获取用户可使用的觅豆
       var _amount = self.data.walletData.UsefulMiBean;
-      if (_resultAmount.SurplusAmount >= _amount) {
-        payedAdvance.amount = _amount;
-      } else {
-        payedAdvance.amount = _resultAmount.SurplusAmount;
+      if (_amount && _amount>0){
+        if (_resultAmount.SurplusAmount >= _amount) {
+          payedAdvance.amount = _amount;
+        } else {
+          payedAdvance.amount = _resultAmount.SurplusAmount;
+        }
       }
       payedAdvance.amount = parseFloat(payedAdvance.amount).toFixed(0);
       _resultAmount.SurplusAmount = _resultAmount.SurplusAmount - payedAdvance.amount;
@@ -235,6 +240,9 @@ Page({
   _clikcScore: function() {
     if (this.data.loading) return;
     var self = this;
+
+    var _amount = self.data.walletData.UsefulIntegralAmount;
+    if (!_amount || _amount<=0)return;
     var chargeCasher = self.data.chargeCasher; //积分支付    
     //如果已经开启积分支付，则关闭
     if (chargeCasher.status) {
@@ -251,12 +259,13 @@ Page({
     } else {
       //如果没有开启积分支付，则获取应付金额
       var _resultAmount = viewSubmitOrder.calAmount(self.data)
-      //获取用户可使用的积分等值金额
-      var _amount = self.data.walletData.UsefulIntegralAmount;
-      if (_resultAmount.SurplusAmount >= _amount) {
-        chargeCasher.amount = _amount;
-      } else {
-        chargeCasher.amount = _resultAmount.SurplusAmount;
+      //获取用户可使用的积分等值金额     
+      if (_amount && _amount>0){
+        if (_resultAmount.SurplusAmount >= _amount) {
+          chargeCasher.amount = _amount;
+        } else {
+          chargeCasher.amount = _resultAmount.SurplusAmount;
+        }
       }
       chargeCasher.status = !chargeCasher.status
       _resultAmount.SurplusAmount = _resultAmount.SurplusAmount - chargeCasher.amount;
@@ -276,7 +285,7 @@ Page({
     var pmtSelectData = self.data.pmtSelectData;
     var chargeCasher = self.data.chargeCasher; //积分支付 
     var payedAdvance = self.data.payedAdvance; //觅豆支付
-    if (addressData == null) {
+    if (!addressData || !addressData.mobile) {
       wx.showToast({
         title: '请选择收货地址',
         icon: "none"
@@ -324,7 +333,7 @@ Page({
           wxpay(_p, function(res) {
             console.log(res);
             if (res.errMsg.indexOf("requestPayment:ok") >= 0) {
-              self._goPayResult(orderid);
+              self._goPayResult(orderid, true);
             } else if (res.errMsg.indexOf("requestPayment:fail") >= 0 || res.errMsg.indexOf("requestPayment:cancel") >= 0) {
               //requestPayment:fail:该订单已过期，请重新下单
               var msgs = res.errMsg.split(":");
@@ -332,18 +341,26 @@ Page({
                 title: msgs.length == 3 ? msgs[2] : '支付失败',
                 icon: "none"
               })
+
+              self._goPayResult(orderid,false)
             }
           })
         }
         else{
-          self._goPayResult(orderid)
+          self._goPayResult(orderid,true)
         }
+      }
+      else{
+        wx.showToast({
+          title:'支付失败',
+          icon: "none"
+        })
       }
     });
   },
-  _goPayResult:function(orderid){    
+  _goPayResult: function (orderid, success){    
     wx.redirectTo({
-      url: '../payResult/result?orderid=' + orderid,
+      url: '../payResult/result?orderid=' + orderid + "&success=" + success,
     })
   }
 })
