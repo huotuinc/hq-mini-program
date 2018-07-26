@@ -71,6 +71,18 @@ var updateMobile = function(data, callback) {
     }
   })
 }
+//验证码检测
+var checkCode = function(data, callback) {
+  app.request({
+    url: config.checkCode,
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
 //修改支付密码
 var updatePayPassword = function(data, callback) {
   app.request({
@@ -192,11 +204,11 @@ var enabledCoupons = function(data, callback) {
   })
 }
 //判断支付密码是否正确
-var JudgePayWord = function(data,callbak){
+var JudgePayWord = function(data, callbak) {
   app.request({
     url: config.judgePayWord,
     data: data,
-    success: function (res) {
+    success: function(res) {
       callback({
         data: res.data.data
       })
@@ -220,5 +232,6 @@ module.exports = {
   changeAddressDefault: changeAddressDefault,
   walletaccount: walletaccount,
   enabledCoupons: enabledCoupons,
-  JudgePayWord: JudgePayWord
+  JudgePayWord: JudgePayWord,
+  checkCode: checkCode
 };

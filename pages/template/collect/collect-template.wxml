@@ -1,5 +1,5 @@
 <template name="goodsItem">
-  <view class="goods-item-container touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-goodsId='{{item.pid}}' data-item='{{item}}' data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" catchtap='clickFavTab'>
+  <view class="goods-item-container touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-goodsId='{{item.goodId}}' data-item='{{item}}' data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" catchtap='clickFavTab'>
     <view class='item'>
       <view class='goods-item-left'>
         <!-- <view class='select-icon'>
@@ -15,22 +15,22 @@
           <text>{{item.goodsName}}</text>
         </view>
         <view>
-          <!-- <view>
+          <view>
             <view class='old_shoucang'>
-              <text class='oldprice'>￥{{item.MktPrice}}</text>
+              <text class='oldprice' wx:if='{{item.mktPrice != item.price}}'>￥{{item.mktPrice}}</text>
             </view>
-          </view> -->
+          </view>
           <view>
             <view class='new-ticket_sales'>
               <view class='new-price_ticket'>
                 <text class='price'>￥{{item.price}}</text>
-                <!-- <text class='sales_volume'>销量{{item.Sales}}件</text> -->
+                <text class='sales_volume'>销量{{item.sales}}件</text>
               </view>
             </view>
           </view>
         </view>
       </view>
     </view>
-    <view class="del" catchtap="del" data-index="{{index}}" data-goodsid='{{item.pid}}'>删除</view>
+    <view class="del" catchtap="del" data-index="{{index}}" data-goodsid='{{item.goodId}}'>删除</view>
   </view>
 </template>

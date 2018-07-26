@@ -92,17 +92,17 @@ Page({
       content: '您确定要删除吗',
       success: function(res) {
         if (res.confirm) {
-          console.log(1)
           collectgoods.addCollection({
             goodsId: e.currentTarget.dataset.goodsid
           }, function(res) {
-            // console.log(res.data)
-            wx.showToast({
-              title: '删除成功',
-              success: function(res) {
-                self._getMyCollection()
-              }
-            })
+            if (res.data.code == 200) {
+              wx.showToast({
+                title: '删除成功',
+                success: function(res) {
+                  self._getMyCollection()
+                }
+              })
+            }
           })
         }
       }

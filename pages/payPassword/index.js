@@ -83,9 +83,9 @@ Page({
     var self = this
     if (step == 1) {
       var code = self.data.vcode
-      var mobile = self.data.mobile
+      var mobile = self.data.phone
       if (code) {
-        user.updateMobile({
+        user.checkCode({
           mobile: mobile,
           code: code
         }, function(res) {

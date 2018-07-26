@@ -47,6 +47,8 @@ var config = {
   updateMobile: `${host}/user/updateMobile`,
   //是否开启支付保护
   updatePayPasswordStatus: `${host}/user/updatePayPasswordStatus`,
+  //验证码检测
+  checkCode: `${host}/user/checkCode`,
   //修改支付密码
   updatePayPassword: `${host}/user/updatePayPassword`,
   //我的钱包

@@ -9,7 +9,7 @@ var getCartGoods = function(callback) {
     url: config.getCart,
     success: function(res) {
       callback({
-        cartGoods: res.data.data
+        data: res.data
       })
     }
   })
