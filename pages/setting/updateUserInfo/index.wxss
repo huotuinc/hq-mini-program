@@ -1,0 +1,15 @@
+pages {
+  background-color: #f5f5f5;
+}
+
+.update-user_info {
+  padding: 50rpx 30rpx 0;
+  font-size: 28rpx;
+}
+
+.update-user_info input {
+  height: 90rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}

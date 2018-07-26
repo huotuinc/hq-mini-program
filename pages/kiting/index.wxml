@@ -1,11 +1,11 @@
-<view class='kiting-information' catchtap='_goAccount' data-accountId='{{applyData.AccountId}}' wx:if="{{!applyData.AccountId>=0}}">
+<view class='kiting-information' catchtap='_goAccount' data-accountId='{{applyData.AccountId}}' wx:if="{{applyData.AccountId}}">
   <view>{{applyData.UserRealName}}</view>
   <view>{{applyData.AccountInfo}}</view>
 </view>
 
 <view class='kiting-information' catchtap='_goAccount' data-accountId='{{applyData.AccountId}}' wx:else>
   <view>选择提现账户</view>
-</view>
+</view> 
 
 <view style='height:10rpx;background-color:#F0EFF5;'></view>
 <view class='operate'>

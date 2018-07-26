@@ -71,7 +71,12 @@ Page({
     var baseMoney = Number(this.data.applyData.BaseMoney)
     var realityIntegral = Number(this.data.applyNum)
     var accountId = this.data.applyData.AccountId
-    if (realityIntegral < baseMoney) {
+    if (!accountId) {
+      wx.showToast({
+        title: '请选择提现账号',
+        icon: 'none'
+      })
+    } else if (realityIntegral < baseMoney) {
       wx.showToast({
         title: '起提金额不足',
         icon: 'none'

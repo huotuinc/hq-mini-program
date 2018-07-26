@@ -19,21 +19,18 @@ Page({
     showModal: false
   },
   _prefect: function(e) {
-    this.setData({
-      showModal: true,
-      placeholder: "请输入姓名"
+    wx.navigateTo({
+      url: './updateUserInfo/index?type=1&content=' + e.currentTarget.dataset.content,
     })
   },
   _idCard: function(e) {
-    this.setData({
-      showModal: true,
-      placeholder: "请输入身份证"
+    wx.navigateTo({
+      url: './updateUserInfo/index?type=4&content=' + e.currentTarget.dataset.content,
     })
   },
   _wxNumber: function(e) {
-    this.setData({
-      showModal: true,
-      placeholder: "请输入微信号"
+    wx.navigateTo({
+      url: './updateUserInfo/index?type=5&content=' + e.currentTarget.dataset.content,
     })
   },
   _mobilePhone: function(e) {
@@ -49,11 +46,20 @@ Page({
       type: 3,
       content: e.detail.value
     }, function(res) {
-      console.log(res.code)
+      if (res.data.code == 200) {
+        wx.showToast({
+          title: '修改成功',
+          icon: 'success'
+        })
+      } else {
+        wx.showToast({
+          title: '网络出错了...',
+          icon: 'none'
+        })
+      }
     })
   },
   bindRegionChange: function(e) {
-    console.log(e)
     this.setData({
       UserCityName: e.detail.value
     })
@@ -61,73 +67,18 @@ Page({
       type: 6,
       content: e.detail.value
     }, function(res) {
-      console.log(res.code)
-    })
-  },
-  hideModal: function() {
-    this.setData({
-      showModal: false
-    });
-  },
-  CancelGender: function(e) {
-    this.setData({
-      showGender: false
-    })
-  },
-  onCancel: function() {
-    this.hideModal();
-  },
-  inputChange: function(e) {
-    var newName = e.detail.value
-    this.setData({
-      excessive: newName
-    })
-  },
-
-  //修改用户基本信息
-  onConfirm: function() {
-    var excessive = this.data.excessive
-    var placeholder = this.data.placeholder
-    if (placeholder === '请输入姓名') {
-      this.setData({
-        RealName: excessive
-      })
-      user.updateUserBaseInfo({
-        type: 1,
-        content: excessive
-      }, function(res) {
-        console.log(res.code)
-      })
-    } else if (placeholder === '请输入身份证') {
-      var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
-      if (!reg.test(excessive)) {
+      if (res.data.code == 200) {
         wx.showToast({
-          title: '身份证输入有误',
+          title: '修改成功',
+          icon: 'success'
+        })
+      } else {
+        wx.showToast({
+          title: '网络出错了...',
           icon: 'none'
         })
-        return
       }
-      this.setData({
-        UserCardNo: excessive
-      })
-      user.updateUserBaseInfo({
-        type: 4,
-        content: excessive
-      }, function(res) {
-        console.log(res.code)
-      })
-    } else if (placeholder === '请输入微信号') {
-      this.setData({
-        UserWxNo: excessive
-      })
-      user.updateUserBaseInfo({
-        type: 5,
-        content: excessive
-      }, function(res) {
-        console.log(res.code)
-      })
-    }
-    this.hideModal();
+    })
   },
   /**
    * 修改性别
@@ -141,7 +92,17 @@ Page({
       type: 2,
       content: gender
     }, function(res) {
-      console.log(res.code)
+      if (res.data.code == 200) {
+        wx.showToast({
+          title: '修改成功',
+          icon: 'success'
+        })
+      } else {
+        wx.showToast({
+          title: '网络出错了...',
+          icon: 'none'
+        })
+      }
     })
   },
   _goAddress: function(e) {
@@ -246,6 +207,5 @@ Page({
 
   onShow: function(e) {
     this._getSetting()
-    this.onConfirm(e)
   },
 })

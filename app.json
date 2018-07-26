@@ -8,6 +8,7 @@
     "pages/collectgoods/collectgoods",
     "pages/order/order-list",
     "pages/setting/setting",
+    "pages/setting/updateUserInfo/index",
     "pages/goodslist/goods-list",
     "pages/usercenter/withdraw/withdraw",
     "pages/usercenter/balance/balance",

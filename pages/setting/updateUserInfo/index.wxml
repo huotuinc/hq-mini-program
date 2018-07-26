@@ -1,0 +1,13 @@
+<view class='update-user_info'>
+
+  <input class="weui-input" wx:if="{{type == 1}}" auto-focus placeholder="{{placeholder}}" value='{{content}}' bindinput='getContent' />
+
+  <input class="weui-input" wx:if="{{type == 4}}" auto-focus placeholder="{{placeholder}}" value='{{content}}' bindinput='getContent' />
+
+  <input class="weui-input" wx:if="{{type == 5}}" auto-focus placeholder="{{placeholder}}" value='{{content}}' bindinput='getContent' />
+
+</view>
+
+<view class='btn-recharge' style='background-color: #04be02;' catchtap='updateUserInfo'>
+  提交
+</view>

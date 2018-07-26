@@ -54,7 +54,7 @@ var updateUserBaseInfo = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        code: res.data.data.code
+        data: res.data
       })
     }
   })

@@ -1,6 +1,6 @@
 <text class='class_title'>基础信息</text>
 <view class='information'>
-  <view class="weui-cells weui-cells_after-title" catchtap='_prefect'>
+  <view class="weui-cells weui-cells_after-title" catchtap='_prefect' data-content="{{RealName}}">
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
         <view class="weui-label">姓名</view>
@@ -11,7 +11,7 @@
     </view>
   </view>
   <view class="weui-cells weui-cells_after-title" catchtap='_showGender'>
-    <view class="weui-cell weui-cell_input"> 
+    <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
         <view class="weui-label">性别</view>
       </view>
@@ -34,7 +34,7 @@
       </view>
     </view>
   </view>
-  <view class="weui-cells weui-cells_after-title" catchtap='_idCard'>
+  <view class="weui-cells weui-cells_after-title" catchtap='_idCard' data-content="{{UserCardNo}}">
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
         <view class="weui-label">身份证</view>
@@ -54,7 +54,7 @@
       </view>
     </view>
   </view>
-  <view class="weui-cells weui-cells_after-title" catchtap='_wxNumber'>
+  <view class="weui-cells weui-cells_after-title" catchtap='_wxNumber' data-content="{{UserWxNo}}">
     <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
         <view class="weui-label">绑定微信号</view>
@@ -104,17 +104,3 @@
 </view>
 
 <view style='height:20rpx;'></view>
-
-
-<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal || showGender}}"></view>
-<view class="modal-dialog" wx:if="{{showModal}}">
-  <view class="modal-content">
-    <view class="modal-input">
-      <input type="text" auto-focus bindinput="inputChange" class="input" placeholder="{{placeholder}}"></input>
-    </view>
-  </view>
-  <view class="modal-footer">
-    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
-    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
-  </view>
-</view>
