@@ -47,6 +47,8 @@ var config = {
   updateMobile: `${host}/user/updateMobile`,
   //是否开启支付保护
   updatePayPasswordStatus: `${host}/user/updatePayPasswordStatus`,
+  //验证码检测
+  checkCode: `${host}/user/checkCode`,
   //修改支付密码
   updatePayPassword: `${host}/user/updatePayPassword`,
   //我的钱包
@@ -133,7 +135,9 @@ var config = {
   //获取可用优惠券
   enabledCoupons: `${host}/user/GetEnabledCoupons`,
   //获取觅豆
-  getMiBeanList: `${host}/user/GetMiBeanList`
+  getMiBeanList: `${host}/user/GetMiBeanList`,
+  //支付密码判断
+  judgePayWord: `${host}/user/JudgePayWord`
 }
 
 module.exports = config

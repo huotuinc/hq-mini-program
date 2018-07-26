@@ -83,15 +83,23 @@ Page({
     var self = this
     if (step == 1) {
       var code = self.data.vcode
-      var mobile = self.data.mobile
+      var mobile = self.data.phone
       if (code) {
-        user.updateMobile({
+        user.checkCode({
           mobile: mobile,
           code: code
         }, function(res) {
-          self.setData({
-            step: 2
-          })
+          console.log(res)
+          if (res.data.code == 200) {
+            self.setData({
+              step: 2
+            })
+          } else {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            })
+          }
         })
       } else {
         wx.showToast({
@@ -124,10 +132,20 @@ Page({
         })
         return
       }
-      this.setData({
-        step: 3
+      user.updatePayPassword({
+        payPassword: newPwd
+      }, function(res) {
+        if (res.data.code == 200) {
+          this.setData({
+            step: 3
+          })
+        } else {
+          wx.showToast({
+            title: res.data.data,
+            icon: 'none'
+          })
+        }
       })
-
     } else {
       wx.navigateBack({
         delta: 1

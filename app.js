@@ -33,8 +33,8 @@ App({
     })
 
     var loginInfo = wx.getStorageSync("login")
-    self.globalData.userToken = loginInfo.token
-    self.globalData.userId = loginInfo.userId
+    self.globalData.userToken = loginInfo.token || ''
+    self.globalData.userId = loginInfo.userId || ''
     if (!loginInfo) {
       this.getToken(guideUserId)
     } else {
@@ -86,7 +86,7 @@ App({
   /** 
    * 修改用户信息
    */
-  updataUserInfo: function (userId) {
+  updataUserInfo: function(userId) {
     var self = this
     wx.getUserInfo({
       success: function(res) {

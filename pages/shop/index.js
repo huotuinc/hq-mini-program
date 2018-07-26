@@ -134,30 +134,37 @@ Page({
     cart.getCartGoods(function(res) {
       var num = 0
       var noNum = 0
-      for (let idx in res.cartGoods.Products) {
-        if (res.cartGoods.Products[idx].IsChecked) {
-          num++
-        } else {
-          noNum++
+      if (res.data.code == 200) {
+        var cartGoods = res.data.data
+        if (!cartGoods) {
+          return
         }
-      }
-      if (num < (res.cartGoods.Products.length - noNum)) {
+        for (let idx in cartGoods.Products) {
+          if (cartGoods.Products[idx].IsChecked) {
+            num++
+          } else {
+            noNum++
+          }
+        }
+        if (num < (cartGoods.Products.length - noNum)) {
+          self.setData({
+            isSelect: false,
+            shopIsSelect: false
+          })
+        } else {
+          self.setData({
+            isSelect: true,
+            shopIsSelect: true
+          })
+        }
         self.setData({
-          isSelect: false,
-          shopIsSelect: false
-        })
-      } else {
-        self.setData({
-          isSelect: true,
-          shopIsSelect: true
+          items: cartGoods,
+          edit: false,
+          editTitle: '编辑',
+          closeTitle: '结算'
         })
       }
-      self.setData({
-        items: res.cartGoods,
-        edit: false,
-        editTitle: '编辑',
-        closeTitle: '结算'
-      })
+
     })
   },
   //购物车修改

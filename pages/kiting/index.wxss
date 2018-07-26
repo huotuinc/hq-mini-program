@@ -72,7 +72,7 @@ page {
 }
 
 .kiting_other {
-  font-size:24rpx;
+  font-size: 24rpx;
 }
 
 .watch_record {
@@ -108,4 +108,107 @@ page {
   position: absolute;
   right: 30rpx;
   top: 45%;
+}
+
+.wallets-password {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.wallets-password .input-content-wrap {
+  position: absolute;
+  top: 200rpx;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 600rpx;
+  margin-left: -300rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  z-index: 1000;
+}
+
+.wallets-password .input-content-wrap .top {
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+  border-bottom: 2rpx solid #ddd;
+  justify-content: space-around;
+}
+
+.wallets-password .input-content-wrap .top .close {
+  font-size: 44rpx;
+  color: #999;
+  font-weight: 100;
+}
+
+.wallets-password .input-content-wrap .top .forget {
+  color: #00a2ff;
+  font-size: 22rpx;
+}
+
+.wallets-password .input-content-wrap .actual_fee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  height: 100rpx;
+  margin: 0 23rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.wallets-password .input-content-wrap .actual_fee span {
+  font-size: 24rpx;
+}
+
+.wallets-password .input-content-wrap .actual_fee text {
+  font-size: 36rpx;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150rpx;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap .password_dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  box-sizing: border-box;
+  width: 90rpx;
+  height: 90rpx;
+  border: 2rpx solid #ddd;
+  border-left: none 0;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap .password_dot:nth-child(1) {
+  border-left: 2rpx solid #ddd;
+}
+
+.wallets-password .input-content-wrap .input-password-wrap .password_dot i {
+  background: #000;
+  border-radius: 50%;
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.wallets-password .input-content {
+  position: absolute;
+  opacity: 0;
+  left: -100%;
+  top: 600rpx;
+  background: #f56;
+  z-index: -999;
+}
+
+.wallets-password .input-content.active {
+  z-index: -99;
 }

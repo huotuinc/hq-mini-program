@@ -31,8 +31,8 @@
   </view>
   <view class='pay-password_header header_input'>
     <view class='password_code'>
-      <input type='password' placeholder='设置支付密码' bindinput='_getNewPwd'></input>
-      <input type='password' placeholder='确认支付密码' bindinput='_getConfirmPwd'></input>
+      <input type='password' placeholder='设置支付密码' bindinput='_getNewPwd' maxlength='6'></input>
+      <input type='password' placeholder='确认支付密码' bindinput='_getConfirmPwd' maxlength='6'></input>
     </view>
   </view>
 
@@ -51,8 +51,8 @@
 </view>
 
 <view class='explain'>
-  <view>提示</view>
+  <view>提示：</view>
   <view>
-    <text>提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示提示</text>
+    <text>支付密码用于账户余额、积分等支付验证。让您的资金账户更加安全。</text>
   </view>
 </view>

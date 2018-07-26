@@ -176,11 +176,12 @@ Page({
   passwordStatus: function(e) {
     var self = this
     var status = e.currentTarget.dataset.passwordstatus
+
     if (status == 1) {
       user.updatePayPasswordStatus({
-        status: status
+        status: 0
       }, function(res) {
-        if (res.data == 200) {
+        if (res.data.code == 200) {
           self.setData({
             PayPasswordStatus: 0
           })
@@ -193,9 +194,9 @@ Page({
     }
     if (status == 0) {
       user.updatePayPasswordStatus({
-        status: status
+        status: 1
       }, function(res) {
-        if (res.data == 200) {
+        if (res.data.code == 200) {
           self.setData({
             PayPasswordStatus: 1
           })

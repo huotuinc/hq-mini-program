@@ -71,6 +71,31 @@ var updateMobile = function(data, callback) {
     }
   })
 }
+//验证码检测
+var checkCode = function(data, callback) {
+  app.request({
+    url: config.checkCode,
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+//修改支付密码
+var updatePayPassword = function(data, callback) {
+  app.request({
+    url: config.updatePayPassword,
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
+
 //是否开启支付保护
 var updatePayPasswordStatus = function(data, callback) {
   app.request({
@@ -78,7 +103,7 @@ var updatePayPasswordStatus = function(data, callback) {
     data: data,
     success: function(res) {
       callback({
-        data: res.data.code.data
+        data: res.data
       })
     }
   })
@@ -178,6 +203,18 @@ var enabledCoupons = function(data, callback) {
     }
   })
 }
+//判断支付密码是否正确
+var JudgePayWord = function(data, callbak) {
+  app.request({
+    url: config.judgePayWord,
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data.data
+      })
+    }
+  })
+}
 module.exports = {
   userIndex: userIndex,
   getIntegralList: getIntegralList,
@@ -186,6 +223,7 @@ module.exports = {
   setting: setting,
   updateMobile: updateMobile,
   updateUserBaseInfo: updateUserBaseInfo,
+  updatePayPassword: updatePayPassword,
   updatePayPasswordStatus: updatePayPasswordStatus,
   sendCode: sendCode,
   addressList: addressList,
@@ -193,5 +231,7 @@ module.exports = {
   deleteAddress: deleteAddress,
   changeAddressDefault: changeAddressDefault,
   walletaccount: walletaccount,
-  enabledCoupons: enabledCoupons
+  enabledCoupons: enabledCoupons,
+  JudgePayWord: JudgePayWord,
+  checkCode: checkCode
 };

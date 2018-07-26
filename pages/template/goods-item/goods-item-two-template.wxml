@@ -9,7 +9,7 @@
           <text class='goods-item-two-title'>{{item.Name}}</text>
         </view>
         <view class='goods-item-two-text1'>
-          <text class='goods-item-price' wx:if="{{item.Price != item.UserPrice}}">￥{{item.Price}}</text>
+          <text class='goods-item-price' wx:if="{{item.Price != item.UserPrice && item.UserPrice>=0}}">￥{{item.Price}}</text>
           <text class='goods-item-sales_volume'>销量{{item.Sales}}件</text>
         </view>
       </view>
