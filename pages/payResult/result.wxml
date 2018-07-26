@@ -1,8 +1,8 @@
 <!--pages/payResult/result.wxml-->
 <view class='pay-success-tip'>
   <view>
-    <icon type="success" size='30' />
-    <text class='pay-result-msg'>订单支付成功</text>
+    <icon type="{{resultType}}" size='30' />
+    <text class='pay-result-msg'>{{resultMsg}}</text>
   </view>
 </view>
 <view class='pay-order-info'>
