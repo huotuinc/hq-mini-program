@@ -175,6 +175,7 @@ Page({
   },
   //获取收货地址
   chooseAddress: function(e) {
+    if (this.data.loading) return;
     var self = this;
 
     wx.navigateTo({

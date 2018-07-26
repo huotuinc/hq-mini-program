@@ -387,7 +387,8 @@ Page({
     if (_specData.specStatus[item.SpecId][spec.SpecValueId] == 'no_select')
       return
     _specData.props[item.SpecId] = spec;
-    _specData.descName =item.SpecValue
+    if (!_specData.descName)
+      _specData.descName =item.SpecValue
 
     _item.Base.PicUrl = item.GoodsImageIds[0]
 
@@ -401,6 +402,7 @@ Page({
       _specData.selectProduct = pros
       _specData.productid = pros.ProductId
       _specData.store = pros.Store
+      _specData.descName = pros.Pdt_Desc
       if (_specData.LimitBuyNum == 0 || _specData.LimitBuyNum > _specData.store || _specData.LimitBuyNum == _item.Base.Store)
         _specData.LimitBuyNum = pros.Store
 
