@@ -59,8 +59,24 @@ var hotSearchKeyWorld = function(callback) {
   })
 }
 
+//预览小店
+var storeInfo = function(callback){
+  app.request({
+    url: config.storeInfo,
+    success: function (res) {
+      callback({
+        data: res.data
+      })
+    },
+    fail: function (error) {
+      callback(error)
+    }
+  })
+}
+
 module.exports = {
   homeRecommend: homeRecommend,
   goodsList: goodsList,
-  hotSearchKeyWorld: hotSearchKeyWorld
+  hotSearchKeyWorld: hotSearchKeyWorld,
+  storeInfo: storeInfo
 }

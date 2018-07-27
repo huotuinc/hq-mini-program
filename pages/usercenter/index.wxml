@@ -1,7 +1,7 @@
 <import src="../template/scope/scope" />
 <template is="scope" wx:if="{{!userInfo}}" />
 <view wx:else>
-  <view class="user-header" style="background-image:url('{{userItem.BackGroundModel.UserCenterImg ||defaultBg}}')">
+  <view class="user-header" style="background-image:url('{{userItem.BackGroundModel.UserCenterImg ||defaultBg}}');background-color:#fff;">
     <text class='setting' catchtap='_goSetting' style='color:{{userItem.BackGroundModel.FontColor}}'>设置</text>
     <view class='userinfo'>
       <image src='{{userItem.WxHeadImg || userInfo.avatarUrl}}' class='userimg'></image>
@@ -96,7 +96,7 @@
           <icon class='icon iconfont icon-wodeshoucang'></icon>
           <text>我的收藏</text>
         </view>
-        <view catchtap=''>
+        <view catchtap='_goCouponURL'>
           <icon class='icon iconfont icon-hongbao'></icon>
           <text>红包优惠券</text>
         </view>

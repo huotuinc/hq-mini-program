@@ -124,6 +124,10 @@ Page({
             wx.showToast({
               title: '绑定手机成功',
               success: function() {
+                wx.setStorage({
+                  key: 'userTelInfo',
+                  data: self.data.mobile,
+                })
                 wx.navigateBack({
                   delta: 1
                 })
@@ -168,7 +172,6 @@ Page({
       })
     } else {
       this.setData({
-        // phone: options.phone,
         step: 2
       })
     }

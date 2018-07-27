@@ -23,6 +23,12 @@ Page({
       url: '../balance/balance'
     })
   },
+  //前往红包优惠券页面
+  _goCouponURL: function(e) {
+    wx.navigateTo({
+      url: '../coupon/index',
+    })
+  },
   //提现界面
   _goKitting: function(e) {
     wx.navigateTo({

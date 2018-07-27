@@ -4,6 +4,7 @@ const app = getApp();
 
 Page({
   data: {
+
   },
   //计算轮播图的高度
   imageLoad: function(e) {
@@ -62,13 +63,29 @@ Page({
       url: '../afterSale/index',
     })
   },
+  //前往红包页面
+  _goCouponURL: function(e) {
+    wx.navigateTo({
+      url: './coupon/index',
+    })
+  },
   //页面渲染的API请求
   userIndex: function() {
     var self = this
     user.userIndex(function(res) {
-      self.setData({
-        userItem: res.userItem
-      })
+      if (res.data.code == 200) {
+        self.setData({
+          userItem: res.data.data
+        })
+        wx.setStorage({
+          key: 'userTelInfo',
+          data: res.data.data.UserName,
+        })
+        wx.setStorage({
+          key: 'CouponURL',
+          data: res.data.data.CouponURL,
+        })
+      }
     })
   },
   /** 
@@ -79,8 +96,7 @@ Page({
       url: '../scope/index',
     })
   },
-  onLoad: function(options) {
-  },
+  onLoad: function(options) {},
   onShow: function(options) {
     var userInfo = app.globalData.userInfo || ''
     this.setData({

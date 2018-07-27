@@ -48,7 +48,6 @@ Page({
       num: 0,
       praise: 100
     }
-
   },
 
   watchBigImage: function(e) {
@@ -198,12 +197,12 @@ Page({
     }
 
   },
-  showLoading:function(){
+  showLoading: function() {
     this.setData({
-      loading:true
+      loading: true
     })
   },
-  hideLoading: function () {
+  hideLoading: function() {
     this.setData({
       loading: false
     })
@@ -388,7 +387,7 @@ Page({
       return
     _specData.props[item.SpecId] = spec;
     if (!_specData.descName)
-      _specData.descName =item.SpecValue
+      _specData.descName = item.SpecValue
 
     _item.Base.PicUrl = item.GoodsImageIds[0]
 

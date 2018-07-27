@@ -34,8 +34,9 @@ Page({
       applyNum: userIntegral
     })
   },
-  //获取钱包密码
+  //获取钱包密码 
   set_wallets_password: function(e) {
+    var self = this
     this.setData({
       wallets_password: e.detail.value
     })
@@ -43,9 +44,45 @@ Page({
       user.JudgePayWord({
         PassWord: md5(this.data.wallets_password)
       }, function(res) {
-        console.log(res)
+        if (res.data.code == 200) {
+          self.setData({
+            isFocus: false, //失去焦点
+            wallets_password_flag: false,
+            wallets_password: ''
+          })
+          wallet.applySubmit({
+            AccountId: self.data.applyData.AccountId,
+            ApplyMoney: Number(self.data.applyNum),
+          }, function(res) {
+            console.log(res)
+            if (res.data.code == 200) {
+              wx.showToast({
+                title: '提现申请成功',
+                success: function() {
+                  self.getApply()
+                }
+              })
+            } else {
+              wx.showToast({
+                title: res.data.data,
+                icon: 'none'
+              })
+            }
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+        }
       })
     }
+  },
+  //忘记密码
+  modify_password: function(e) {
+    wx.navigateTo({
+      url: '../payPassword/index'
+    })
   },
 
   set_Focus: function() { //聚焦input
@@ -93,10 +130,23 @@ Page({
           icon: 'none'
         })
       } else {
-        self.setData({
-          wallets_password_flag: true,
-          isFocus: true
-        })
+        if (this.data.applyData.IsSettingPayWord) {
+          self.setData({
+            wallets_password_flag: true,
+            isFocus: true
+          })
+        } else {
+          wx.showModal({
+            content: '请先设置支付密码',
+            success: function(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '../payPassword/index'
+                })
+              }
+            }
+          })
+        }
       }
     }
   },
@@ -116,6 +166,20 @@ Page({
     })
   },
   onShow: function() {
+    var self = this
+    wx.getStorage({
+      key: 'userTelInfo',
+      success: function(res) {
+        var mobile = res.data
+        var reg = /^(\d{3})\d{4}(\d{4})$/
+        mobile = mobile.replace(reg, "$1****$2")
+        var phone = res.data
+        self.setData({
+          mobile: mobile,
+          phone: phone
+        })
+      },
+    })
     this.getApply()
   }
 })

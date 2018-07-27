@@ -42,6 +42,10 @@ pages-------- 页面
     "pages/evaluate/index" ---------------------  评价
     "pages/evaluate/conmmentList/index" --------  评论列表
     "pages/afterSale/wuliu/index" --------------  物流提交
+    "pages/scope/index" ------------------------  授权页面
+    "pages/payResult/result" -------------------  支付成功
+    "pages/transferPage/index" -----------------  中转页面
+    "pages/usercenter/coupon/index" ------------  红包优惠券
 
 utils--------- 脚本文件
 ```

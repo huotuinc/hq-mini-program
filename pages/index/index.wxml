@@ -22,6 +22,15 @@
     </view> -->
   </view>
   <view style='padding-top: 82rpx;'></view>
+  <view class='my_store' wx:if='{{storeInfo}}'>
+    <view class='my-store_left'>
+      <image src='{{storeInfo.logo}}'></image>
+    </view>
+    <view class='my-store_right'>
+      <view class='my-store_name'>{{storeInfo.shareTitle}}</view>
+      <text>{{storeInfo.shareContent}}</text>
+    </view>
+  </view>
   <view class='home-body'>
     <!--主题/广告等模块-->
     <view class='home-index {{currentTab!=0?"home-index-display":""}}'>

@@ -143,8 +143,8 @@
 </view>
 
 <!--点击商品主图全屏显示 begin  -->
-<view wx:if="{{swiperDetail}}" animation="{{swiperAnimation}}" class='swiper-detail' style='height:{{imgHeight}}rpx;'>
-  <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436">
+<view class="swiper-detail" wx:if="{{swiperDetail}}" style="height:{{imgHeight}}rpx;">
+  <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;' indicator-color="#fff" indicator-active-color="#e41436" class="{{swiperDetail?'swiper_item':'swiper_item-none'}}">
     <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
       <swiper-item>
         <view class="swiper-item" catchtap='powerDrawer' data-btntext="" data-btnbuy='true'>
@@ -183,10 +183,6 @@
         <view class='select_size'>
           <block wx:for="{{goodsItem.Base.SpecDesc}}" wx:key="item">
             <text wx:if="{{item.SpecId==key}}" catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]}}">{{item.SpecValue}}</text>
-            <!-- <text class='active'>S</text>
-                <text>M</text>
-                <text>L</text>
-                <text class='no_select'>XL</text> -->
           </block>
         </view>
       </view>

@@ -46,7 +46,7 @@
     <text>支付密码设置成功！</text>
   </view>
   <view class='btn-recharge' catchtap='_goNextStep'>
-    返回设置中心
+    返回
   </view>
 </view>
 

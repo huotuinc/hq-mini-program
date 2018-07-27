@@ -177,9 +177,7 @@ Page({
           }
         }
       })
-
     }
-
   },
   // search搜索
   searchShop(e) {
@@ -190,6 +188,20 @@ Page({
   _goList: function(e) {
     wx.navigateTo({
       url: '../goodslist/goods-list'
+    })
+  },
+  //小店预览
+  storeInfo: function() {
+    var self = this
+    home.storeInfo(function(res) {
+      if (res.data.code == 200) {
+        self.setData({
+          storeInfo: res.data.data
+        })
+        wx.setNavigationBarTitle({
+          title: res.data.data.name,
+        })
+      }
     })
   },
   /**
@@ -209,6 +221,7 @@ Page({
    */
   onShow: function() {
     var self = this
+    this.storeInfo()
     //获取首页推荐
     home.homeRecommend(function(res) {
       self.setData({

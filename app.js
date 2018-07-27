@@ -46,8 +46,10 @@ App({
           token: userToken
         },
         success: function(res) {
-          if (!(res.data.data.token == userToken)) {
-            self.getToken(guideUserId)
+          if (res.data.data.code == 200) {
+            if (!(res.data.data.token == userToken)) {
+              self.getToken(guideUserId)
+            }
           }
         }
       })

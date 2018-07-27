@@ -11,7 +11,7 @@
     <text>待结算</text>
     <text class='withdraw_num'>{{wallet.UserTempIntegral}}</text>
   </view>
-  <view>
+  <view catchtap='_goCouponURL'>
     <text>优惠券</text>
     <text class='withdraw_num'>{{wallet.CouponNum || 0}}张</text>
   </view>

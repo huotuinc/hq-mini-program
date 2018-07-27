@@ -7,6 +7,40 @@ page {
   background-color: #fff;
 }
 
+.my_store {
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  background-color: #e41436;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.my_store .my-store_left image {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+  margin-right: 15rpx;
+  border: 1px solid #fff;
+}
+
+.my-store_right .my-store_name {
+  font-size: 32rpx;
+  margin-bottom: 6rpx;
+}
+
+.my-store_right>text {
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .home-category {
   width: 100%;
   height: 88rpx;
@@ -197,4 +231,3 @@ page {
   font-size: 24rpx;
   color: #666;
 }
-

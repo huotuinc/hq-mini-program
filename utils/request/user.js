@@ -7,7 +7,7 @@ var userIndex = function(callback) {
     url: config.userIndex,
     success: function(res) {
       callback({
-        userItem: res.data.data
+        data: res.data
       })
     }
   })
@@ -204,13 +204,13 @@ var enabledCoupons = function(data, callback) {
   })
 }
 //判断支付密码是否正确
-var JudgePayWord = function(data, callbak) {
+var JudgePayWord = function(data, callback) {
   app.request({
     url: config.judgePayWord,
     data: data,
     success: function(res) {
       callback({
-        data: res.data.data
+        data: res.data
       })
     }
   })

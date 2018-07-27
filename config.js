@@ -1,7 +1,7 @@
 /**
  * 小程序配置文件
  */
-//var host = 'http://yapi.demo.qunar.com/mock/11987/api'
+// var host = 'http://yapi.demo.qunar.com/mock/11987/api'
 var host = "http://mfapi.mifangtest.com"
 
 var config = {
@@ -137,7 +137,9 @@ var config = {
   //获取觅豆
   getMiBeanList: `${host}/user/GetMiBeanList`,
   //支付密码判断
-  judgePayWord: `${host}/user/JudgePayWord`
+  judgePayWord: `${host}/user/JudgePayWord`,
+  //预览小店
+  storeInfo: `${host}/store/info`
 }
 
 module.exports = config

@@ -33,7 +33,8 @@
     "pages/evaluate/conmmentList/index",
     "pages/scope/index",
     "pages/payResult/result",
-    "pages/transferPage/index"
+    "pages/transferPage/index",
+    "pages/usercenter/coupon/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

@@ -153,11 +153,36 @@ Page({
     }
   },
   onLoad: function(options) {
-    console.log(options)
     this.setData({
-      phone: options.phone,
-      mobile: options.mobile
+      phone: options.phone || '',
+      mobile: options.mobile || ''
     })
   },
-  onShow: function() {}
+  onShow: function() {
+    var self = this
+    var mobile = wx.getStorageSync('userTelInfo')
+    if (mobile) {
+      var reg = /^(\d{3})\d{4}(\d{4})$/
+      self.setData({
+        mobile: mobile.replace(reg, "$1****$2"),
+        phone: mobile
+      })
+    } else {
+      wx.showModal({
+        content: '请先绑定手机号',
+        success: function(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../bindingPhone/index?phone='
+            })
+          }
+          if (res.cancel) {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
+      })
+    }
+  }
 })

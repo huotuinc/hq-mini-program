@@ -131,7 +131,6 @@ Page({
         }
       })
     }
-
   },
   //是否开启支付密码
   passwordStatus: function(e) {
@@ -193,14 +192,12 @@ Page({
   },
   //清楚缓存
   clearStorge: function(e) {
-    wx.removeStorage({
-      key: 'historyList',
-      success: function(res) {
-        wx.showToast({
-          title: '清除成功',
-          icon: 'success'
-        })
-      },
+    wx.showToast({
+      title: '清除成功',
+      icon: 'success',
+      success: function() {
+        wx.clearStorage()
+      }
     })
   },
   onLoad: function(options) {},
