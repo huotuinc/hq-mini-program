@@ -21,8 +21,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("onShow")
-    var host = "http://mfapi.mfmall.com"
+    console.log("onShow")    
     try {
       var value = wx.getStorageSync('service_goods_details')
       if (value) {
@@ -38,7 +37,7 @@ Page({
     var price = options.price || ''    
     var goodsId = options.goodsId||''
     this.setData({
-      serviceUrl: host + "/service?userid=" + userId + "&title=" + title + "&price=" + price + "&goodsId="+goodsId
+      serviceUrl: config.host + "/service?userid=" + userId + "&title=" + title + "&price=" + price + "&goodsId="+goodsId
     })
   }
 })
