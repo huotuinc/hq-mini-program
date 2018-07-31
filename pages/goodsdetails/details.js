@@ -50,13 +50,13 @@ Page({
     }
   },
 
-  watchBigImage: function(e) {
+  watchBigImage: function (e) {
     this.setData({
       swiperDetail: true
     })
   },
 
-  imageLoad: function(e) {
+  imageLoad: function (e) {
     var $width = e.detail.width
     var $height = e.detail.height
     this.setData({
@@ -66,7 +66,7 @@ Page({
   },
 
   // 监听滚动条坐标
-  onPageScroll: function(e) {
+  onPageScroll: function (e) {
     //console.log(e)
     var that = this
     var scrollTop = e.scrollTop
@@ -77,7 +77,7 @@ Page({
   },
 
   // 滚动到顶部
-  backTop: function() {
+  backTop: function () {
     // 控制滚动
     wx.pageScrollTo({
       scrollTop: 0
@@ -85,7 +85,7 @@ Page({
   },
 
   //去评论列表页面
-  _goCommentList: function(e) {
+  _goCommentList: function (e) {
     wx.navigateTo({
       url: '../evaluate/conmmentList/index?goodsid=1',
     })
@@ -93,7 +93,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var _refermid = getRefermid()
     this.setData({
       refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
@@ -103,15 +103,15 @@ Page({
     var data = {
       goodsid: options.goodsid
     }
-    goodsdetails.goodsDetails(data, function(data) {
+    goodsdetails.goodsDetails(data, function (data) {
       if (data != null) {
         wx.setNavigationBarTitle({
           title: data.Base.Name,
         })
         data.Base.SubTitle = data.Base.SubTitle || ''
 
-        for (var k in data.Base.ItemImages){
-          if (data.Base.ItemImages[k].PicUrl.indexOf('http://')<0)
+        for (var k in data.Base.ItemImages) {
+          if (data.Base.ItemImages[k].PicUrl.indexOf('http://') < 0)
             data.Base.ItemImages[k].PicUrl = data.Base.resourcesUrl + data.Base.ItemImages[k].PicUrl;
         }
 
@@ -164,12 +164,12 @@ Page({
     })
   },
 
-  _goService: function(e) {
-    viewDataResponsity.init(this.data.goodsItem);        
-    var _details={
-      title:encodeURI(this.data.goodsItem.Base.Name) || '',
+  _goService: function (e) {
+    viewDataResponsity.init(this.data.goodsItem);
+    var _details = {
+      title: encodeURI(this.data.goodsItem.Base.Name) || '',
       price: viewDataResponsity.getUserPrice(0),
-      goodsId: this.data.goodsItem.Base.GoodsId||0      
+      goodsId: this.data.goodsItem.Base.GoodsId || 0
     }
     try {
       wx.setStorageSync('service_goods_details', _details)
@@ -181,17 +181,17 @@ Page({
       url: '../service/index'
     })
   },
-  _goIndex: function(e) {
+  _goIndex: function (e) {
     wx.switchTab({
       url: '../index/index',
     })
   },
-  _goShop: function(e) {
+  _goShop: function (e) {
     wx.switchTab({
       url: '../shop/index',
     })
   },
-  powerDrawer: function(e) {
+  powerDrawer: function (e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     this.setData({
@@ -200,7 +200,7 @@ Page({
       swiperDetail: false
     })
   },
-  powerUserDrawer: function(e) {
+  powerUserDrawer: function (e) {
     var userInfo = app.globalData.userInfo || ''
     if (userInfo) {
       var currentStatu = e.currentTarget.dataset.statu;
@@ -215,12 +215,12 @@ Page({
     }
 
   },
-  showLoading: function() {
+  showLoading: function () {
     this.setData({
       loading: true
     })
   },
-  hideLoading: function() {
+  hideLoading: function () {
     this.setData({
       loading: false
     })
@@ -228,21 +228,41 @@ Page({
   /**
    * 立即购买
    */
-  buyNow: function(e) {
+  buyNow: function (e) {
     var self = this
     var userInfo = app.globalData.userInfo || ''
-    if (this.data.specData.productid == 0) {
+
+    if (self.data.shopNum<=0){
+      wx.showToast({
+        title: "货品已卖完",
+        icon: "none"
+      })
+      return;
+    }
+
+    if (self.data.specData.productid == 0 && self.data.goodsItem.Base.PdtDesc.length > 1) {
       wx.showToast({
         title: "请选择规格",
         icon: "none"
       })
     } else {
+
+      if (self.data.specData.productid == 0){
+        var pdt = self.data.goodsItem.Base.PdtDesc
+        var _specData = self.data.specData;
+        _specData.productid = pdt[0].ProductId
+        self.setData({
+          specData: _specData
+        })
+      }
       if (userInfo) {
-        if (this.data.btnBuy == 'true') {
-          var traItems = this.data.goodsItem.Base.GoodsId + "_" + this.data.specData.productid + "_" + this.data.shopNum
+        
+        
+        if (self.data.btnBuy == 'true') {
+          var traItems = self.data.goodsItem.Base.GoodsId + "_" + self.data.specData.productid + "_" + self.data.shopNum
           //跳转订单确认页      
           wx.navigateTo({
-            url: '../submitOrder/submitOrder?traItems=' + traItems + "&refermid=" + this.data.refermid
+            url: '../submitOrder/submitOrder?traItems=' + traItems + "&refermid=" + self.data.refermid
           })
           return
         } else {
@@ -253,12 +273,12 @@ Page({
             quantity: this.data.shopNum
           }
           self.showLoading()
-          addCartGoods(p, function() {
+          addCartGoods(p, function () {
             //添加成功
             wx.showToast({
               title: "加入购物车成功",
               icon: "none",
-              success: function(res) {
+              success: function (res) {
                 self.setData({
                   showModalStatus: false
                 })
@@ -272,7 +292,7 @@ Page({
       }
     }
   },
-  util: function(currentStatu) {
+  util: function (currentStatu) {
     /* 动画部分 */
     // 第1步：创建动画实例   
     var animation = wx.createAnimation({
@@ -293,7 +313,7 @@ Page({
     })
 
     // 第5步：设置定时器到指定时候后，执行第二组动画  
-    setTimeout(function() {
+    setTimeout(function () {
       // 执行第二组动画：Y轴不偏移，停  
       animation.translateY(0).step()
       // 给数据对象储存的第一组动画，更替为执行完第二组动画的动画对象  
@@ -317,7 +337,7 @@ Page({
     }
   },
 
-  numMinus: function(e) {
+  numMinus: function (e) {
     var num = this.data.shopNum
     if (num > 1) {
       num -= 1
@@ -327,7 +347,7 @@ Page({
     }
   },
 
-  numAdd: function(e) {
+  numAdd: function (e) {
     var num = this.data.shopNum
     if (num < this.data.specData.store && num < this.data.specData.LimitBuyNum) {
       num += 1
@@ -339,49 +359,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function(e) {
+  onShow: function (e) {
     this.numMinus(e)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
     var shareData = {
       title: this.data.categoryTitle,
       desc: '',
@@ -392,7 +412,7 @@ Page({
   /**
    * 选择规格
    */
-  spec_selected: function(e) {
+  spec_selected: function (e) {
     var item = e.currentTarget.dataset.item;
     var _item = this.data.goodsItem;
     var _specData = this.data.specData
