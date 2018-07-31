@@ -6,7 +6,7 @@ var homeRecommend = function(callback) {
   app.request({
     url: config.homeRecommendUrl,
     success: function(res) {
-      var list = res.data.list || ''
+      var list = res.data.data || ''
       var bannerItems = []
       var specialItems = []
       for (let idx in list) {
