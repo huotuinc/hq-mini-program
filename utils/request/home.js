@@ -34,9 +34,11 @@ var goodsList = function(data, callback) {
     url: config.goodsListUrl,
     data: data,
     success: function(res) {
-      callback({
-        goodsItems: res.data.data.Rows
-      })
+      if (res.data.code == 200) {
+        callback({
+          goodsItems: res.data.data.Rows
+        })
+      }
     },
     fail: function(error) {
       callback(error)
@@ -60,15 +62,15 @@ var hotSearchKeyWorld = function(callback) {
 }
 
 //预览小店
-var storeInfo = function(callback){
+var storeInfo = function(callback) {
   app.request({
     url: config.storeInfo,
-    success: function (res) {
+    success: function(res) {
       callback({
         data: res.data
       })
     },
-    fail: function (error) {
+    fail: function(error) {
       callback(error)
     }
   })
