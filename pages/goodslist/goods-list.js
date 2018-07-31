@@ -80,7 +80,7 @@ Page({
         this.getGoodsList({
           page: this.data.page,
           pageSize: this.data.pageSize,
-          orderType: this.data.orderType
+          orderType: 1
         })
       } else {
         this.setData({
@@ -89,7 +89,7 @@ Page({
         this.getGoodsList({
           page: this.data.page,
           pageSize: this.data.pageSize,
-          orderType: this.data.orderType
+          orderType: 2
         })
       }
     } else if (cur == 2) {
@@ -99,7 +99,7 @@ Page({
       this.getGoodsList({
         page: this.data.page,
         pageSize: this.data.pageSize,
-        orderType: this.data.orderType
+        orderType: 3
       })
     } else if (cur == 3) {
       if (orderId == 1) {
@@ -109,7 +109,7 @@ Page({
         this.getGoodsList({
           page: this.data.page,
           pageSize: this.data.pageSize,
-          orderType: this.data.orderType
+          orderType: 5
         })
       } else {
         this.setData({
@@ -118,7 +118,7 @@ Page({
         this.getGoodsList({
           page: this.data.page,
           pageSize: this.data.pageSize,
-          orderType: this.data.orderType
+          orderType: 6
         })
       }
     } else if (cur == 4) {
@@ -207,6 +207,9 @@ Page({
   onLoad: function(options) {
     var that = this
     var keyword = options.keyword
+    this.setData({
+      keyword: options.keyword
+    })
     this.getGoodsList({
       page: that.data.page,
       pageSize: that.data.pageSize,
@@ -409,7 +412,11 @@ Page({
     this.getGoodsList({
       page: this.data.page,
       pageSize: this.data.pageSize,
-      orderType: this.data.orderType
+      orderType: this.data.orderType,
+      keyword: this.data.keyword,
+      brandIds: this.data.brandIds || '',
+      catIds: this.data.catIds || '',
+      tags: this.data.tags || ''
     })
     wx.stopPullDownRefresh();
   },
@@ -424,7 +431,11 @@ Page({
     goodsList.goodsList({
         page: page++,
         pageSize: self.data.pageSize,
-        orderType: self.data.orderType
+        orderType: self.data.orderType,
+        keyword: this.data.keyword,
+        brandIds: this.data.brandIds || '',
+        catIds: this.data.catIds || '',
+        tags: this.data.tags || ''
       },
       function(res) {
         if (res.goodsItems.length > 0) {

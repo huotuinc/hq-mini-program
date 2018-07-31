@@ -274,19 +274,18 @@ Page({
     this.setData({
       hidden: true
     })
-    var page = this.data.page
+    var page = this.data.page+1
     var _goodsItems = this.data.goodsItems
     home.goodsList({
-        page: page++,
+        page: page,
         pageSize: self.data.pageSize
       },
       function(res) {
-        console.log(res)
         if (res.goodsItems.length > 0) {
           self.setData({
             hidden: false,
             goodsItems: _goodsItems.concat(res.goodsItems),
-            page: page++
+            page: page
           })
         }
       }
