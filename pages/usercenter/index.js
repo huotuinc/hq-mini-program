@@ -106,4 +106,12 @@ Page({
       this.userIndex()
     }
   },
+  /**
+   * 客服
+   */
+  _goService:function(e){
+    wx.switchTab({
+      url: '../service/index',
+    })
+  }
 })

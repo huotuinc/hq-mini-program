@@ -100,7 +100,7 @@
           <icon class='icon iconfont icon-hongbao'></icon>
           <text>红包优惠券</text>
         </view>
-        <view>
+        <view catchtap='_goService'>
           <icon class='icon iconfont icon-kefu'></icon>
           <text>客服</text>
         </view>

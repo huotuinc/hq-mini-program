@@ -165,8 +165,20 @@ Page({
   },
 
   _goService: function(e) {
+    viewDataResponsity.init(this.data.goodsItem);        
+    var _details={
+      title:encodeURI(this.data.goodsItem.Base.Name) || '',
+      price: viewDataResponsity.getUserPrice(0),
+      goodsId: this.data.goodsItem.Base.GoodsId||0      
+    }
+    try {
+      wx.setStorageSync('service_goods_details', _details)
+    } catch (e) {
+    }
+
+
     wx.switchTab({
-      url: '../service/index',
+      url: '../service/index'
     })
   },
   _goIndex: function(e) {
