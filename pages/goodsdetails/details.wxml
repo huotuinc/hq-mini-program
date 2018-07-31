@@ -6,8 +6,8 @@
       <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
         <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
           <swiper-item>
-            <view class="swiper-item">
-              <image lazy-load='true' src='{{item.PicUrl}}' bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+            <view class="swiper-item">                        
+              <image lazy-load='true' src="{{item.PicUrl}}" bindload="imageLoad" mode='widthFix' style='width:100%'></image>
             </view>
           </swiper-item>
         </block>

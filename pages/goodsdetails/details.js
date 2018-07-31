@@ -110,6 +110,12 @@ Page({
         })
         data.Base.SubTitle = data.Base.SubTitle || ''
 
+        for (var k in data.Base.ItemImages){
+          if (data.Base.ItemImages[k].PicUrl.indexOf('http://')<0)
+            data.Base.ItemImages[k].PicUrl = data.Base.resourcesUrl + data.Base.ItemImages[k].PicUrl;
+        }
+
+
         viewDataResponsity.init(data);
         var _specCount = 0;
         //用于判断每组规格的选中状态
