@@ -54,7 +54,6 @@ Page({
             AccountId: self.data.applyData.AccountId,
             ApplyMoney: Number(self.data.applyNum),
           }, function(res) {
-            console.log(res)
             if (res.data.code == 200) {
               wx.showToast({
                 title: '提现申请成功',

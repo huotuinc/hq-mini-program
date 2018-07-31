@@ -1,5 +1,9 @@
 import config from '../../config.js'
 import cart from '../../utils/request/goodShop.js'
+import {
+  setRefermid,
+  getRefermid
+} from '../../utils/common.js'
 var app = getApp()
 
 Page({
@@ -430,12 +434,14 @@ Page({
     var closeTitle = this.data.closeTitle
     var _items = this.data.items.Products
     var self = this
+    var traItems = []
     var data = []
     var num = 0
     if (closeTitle == '结算') {
       for (let idx in _items) {
         if (_items[idx].IsChecked) {
           if (!_items[idx].AvaliableStore == 0) {
+            traItems.push(_items[idx].GoodsId__items[idx].ProductId__items[idx].Nums)
             num++
           }
         }
@@ -443,7 +449,7 @@ Page({
       //判断结算的商品数量是否大于0
       if (num) {
         wx.navigateTo({
-          url: '../submitOrder/submitOrder',
+          url: '../submitOrder/submitOrder?traItems=' + traItems.join("|") + "&refermid=" + this.data.refermid
         })
       } else {
         wx.showToast({
@@ -489,7 +495,13 @@ Page({
       url: '../scope/index',
     })
   },
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    var _refermid = getRefermid()
+    this.setData({
+      refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
+    })
+    setRefermid(this.data.refermid);
+  },
   /**
    * 生命周期函数--监听页面显示
    */

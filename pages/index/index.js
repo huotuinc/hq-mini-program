@@ -198,9 +198,11 @@ Page({
         self.setData({
           storeInfo: res.data.data
         })
-        wx.setNavigationBarTitle({
-          title: res.data.data.name,
-        })
+        if (res.data.data) {
+          wx.setNavigationBarTitle({
+            title: res.data.data.name,
+          })
+        }
       }
     })
   },
