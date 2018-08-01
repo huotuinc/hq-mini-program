@@ -10,6 +10,7 @@ Page({
   data: {
     categoryTitle: '',
     accountType: 1,
+    disabled: false
   },
 
   //切换提现方式选择
@@ -37,64 +38,75 @@ Page({
   //提交提现账户
   _saveAccount: function(e) {
     var self = this
-    if (this.data.accountType == 1) {
-      if (!this.data.RealName) {
-        wx.showToast({
-          title: '请输入姓名',
-          icon: 'none'
-        })
-        return
-      }
-      if (!this.data.AccountInfo) {
-        wx.showToast({
-          title: '请输入支付宝账号',
-          icon: 'none'
-        })
-        return
-      }
-      wallet.editAccount({
-        RealName: self.data.RealName || '',
-        AccountInfo: self.data.AccountInfo || '',
-        AccountType: self.data.accountType,
-        AccountId: self.data.AccountId || '0'
-      }, function(res) {
-        if (res.data.code == 200) {
+    if (!this.data.disabled) {
+      this.setData({
+        disabled: true
+      })
+      if (this.data.accountType == 1) {
+        if (!this.data.RealName) {
           wx.showToast({
-            title: '编辑成功',
-            success: function() {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          })
-        } else {
-          wx.showToast({
-            title: res.data.msg,
+            title: '请输入姓名',
             icon: 'none'
           })
+          return
         }
-      })
-    } else {
-      wallet.editAccount({
-        AccountType: self.data.accountType,
-        AccountId: self.data.AccountId || '0'
-      }, function(res) {
-        if (res.data.code == 200) {
+        if (!this.data.AccountInfo) {
           wx.showToast({
-            title: '编辑成功',
-            success: function() {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          })
-        } else {
-          wx.showToast({
-            title: res.data.msg,
+            title: '请输入支付宝账号',
             icon: 'none'
           })
+          return
         }
-      })
+        wallet.editAccount({
+          RealName: self.data.RealName || '',
+          AccountInfo: self.data.AccountInfo || '',
+          AccountType: self.data.accountType,
+          AccountId: self.data.AccountId || '0'
+        }, function(res) {
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: '编辑成功',
+              success: function() {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            })
+          } else {
+            self.setData({
+              disabled: false
+            })
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            })
+          }
+        })
+      } else {
+        wallet.editAccount({
+          AccountType: self.data.accountType,
+          AccountId: self.data.AccountId || '0'
+        }, function(res) {
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: '编辑成功',
+              success: function() {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            })
+          } else {
+            self.setData({
+              disabled: false
+            })
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none'
+            })
+          }
+        })
+      }
     }
   },
 
@@ -142,5 +154,9 @@ Page({
       })
     }
   },
-  onShow: function() {}
+  onShow: function() {
+    this.setData({
+      nickName: app.globalData.userInfo.nickName
+    })
+  }
 })

@@ -125,7 +125,8 @@ var config = {
   batchremove: `${host}/cart/batchremove`,
   //购物车批量选中
   batchcheck: `${host}/cart/batchcheck`,
-
+  //支付订单
+  payOrder: `${host}/Order/AgainPayOrder`,
   //订单确认
   checkout: `${host}/order/checkout`,
   //订单提交

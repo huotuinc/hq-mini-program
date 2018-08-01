@@ -17,9 +17,14 @@ Page({
       pageIndex: this.data.pageIndex
     }
     wallet.getIntegralList(data, function(res) {
-      // console.log(res.data)
+      var data = res.data
+      for (let idx in data.Items) {
+        data.Items[idx].ChangeIntegral = (data.Items[idx].ChangeIntegral) / 100
+      }
+      data.SumExportIntegral = (data.SumExportIntegral) / 100
+      data.SumImportIntegral = (data.SumImportIntegral) / 100
       self.setData({
-        itemList: res.data,
+        itemList: data,
         loading: false
       })
     })

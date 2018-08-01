@@ -3,13 +3,12 @@ import wallet from '../../../utils/request/user.js'
 const app = getApp();
 
 Page({
-
   data: {
     pageSize: 10,
     SearchType: 1,
     pageIndex: 1,
     loading: true
-  }, 
+  },
   _getIntegralList: function() {
     var self = this
     var data = {
@@ -18,8 +17,12 @@ Page({
       pageIndex: this.data.pageIndex
     }
     wallet.getIntegralList(data, function(res) {
+      var data = res.data
+      for (let idx in data.Items) {
+        data.Items[idx].ChangeIntegral = (data.Items[idx].ChangeIntegral) / 100
+      }
       self.setData({
-        itemList: res.data,
+        itemList: data,
         loading: false
       })
     })

@@ -17,7 +17,6 @@ Page({
         itemList: res.data,
         loading: false
       })
-      console.log(res)
     })
   }
 })

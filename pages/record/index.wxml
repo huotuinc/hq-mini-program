@@ -1,6 +1,7 @@
 <import src="../template/shuju/shuju" />
-<view wx:if="{{!applyList.length}}">
-    <view class='shuju'>
+<import src="../template/loading/loading.wxml" />
+<view wx:if="{{!applyList.length && !loading}}">
+  <view class='shuju'>
     <view class='shopping-cart'>
       <icon class='icon iconfont icon-wushuju'></icon>
       <view class='text'>暂无提现记录</view>
@@ -24,3 +25,4 @@
     </view>
   </block>
 </view>
+<template is="loading" wx:if="{{loading}}" />

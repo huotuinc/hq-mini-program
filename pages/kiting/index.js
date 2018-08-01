@@ -52,7 +52,7 @@ Page({
           })
           wallet.applySubmit({
             AccountId: self.data.applyData.AccountId,
-            ApplyMoney: Number(self.data.applyNum),
+            ApplyMoney: Number(self.data.applyNum) * 100,
           }, function(res) {
             if (res.data.code == 200) {
               wx.showToast({
@@ -63,7 +63,7 @@ Page({
               })
             } else {
               wx.showToast({
-                title: res.data.data,
+                title: res.data.msg,
                 icon: 'none'
               })
             }

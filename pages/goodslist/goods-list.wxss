@@ -1,22 +1,69 @@
 @import '../template/goods-item/goods-item-two-template.wxss';
-@import '../template/search/search-template.wxss';
 
 page {
   background-color: #fff;
 }
 
- .goods_list-content {
-  -webkit-animation-name: fadeIn; 
-  -webkit-animation-duration: 3s; 
-  -webkit-animation-iteration-count: 1; 
-  -webkit-animation-delay: 0s; 
-} 
+.goods_list-content {
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+}
 
 .goods-list_header {
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 1001;
+}
+
+.search_header {
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 38px;
+  color: #acacac;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+  padding-right: 128rpx;
+  box-sizing: border-box;
+}
+
+.search_header input {
+  border: 1px solid #e41436;
+  height: 40px;
+  padding-left: 60rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-top-left-radius: 8rpx;
+  border-bottom-left-radius: 8rpx;
+  line-height: 40rpx;
+  position: relative;
+}
+
+.search_header .icon-sousuo {
+  position: absolute;
+  left: 50rpx;
+  top: 10rpx;
+  font-size: 18px;
+  z-index: 10;
+  vertical-align: middle;
+}
+
+.cancel {
+  background-color: #e41436;
+  display: block;
+  width: 96rpx;
+  height: 40px;
+  position: absolute;
+  right: 32rpx;
+  top: 0;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  line-height: 40px;
+  border-top-right-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
 }
 
 .index_header {

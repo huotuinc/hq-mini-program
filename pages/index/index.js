@@ -44,6 +44,39 @@ Page({
     })
   },
 
+  _goodsDetilList: function(e) {
+    var index = e.currentTarget.dataset.index
+    var bannerItems = this.data.bannerItems
+    if (bannerItems[index].linktype == 0) {
+      wx.navigateTo({
+        url: '../goodsdetails/details?goodsid=' +
+          bannerItems[index].linkdata + '&refermid=' + this.data.refermid
+      })
+    } else if (bannerItems[index].linktype == 1) {
+      wx.navigateTo({
+        url: '../ goodslist / goods-list?keyword=' + bannerItems[index].linkdata
+      })
+    }
+
+  },
+
+  _goodsDetilList2: function(e) {
+    var idx = e.currentTarget.dataset.idx
+    var specialItems = this.data.specialItems
+    if (specialItems[idx].linktype == 0) {
+      wx.navigateTo({
+        url: '../goodsdetails/details?goodsid=' +
+          specialItems[idx].linktype + '&refermid=' + this.data.refermid
+      })
+    } else {
+      var key = specialItems[idx].linkdata || ''
+      wx.navigateTo({
+        url: '../goodslist/goods-list?keyword=' + key
+      })
+    }
+
+  },
+
   // 监听滚动条坐标
   onPageScroll: function(e) {
     //console.log(e)
@@ -134,9 +167,7 @@ Page({
   goodsDetails: function(e) {
     wx.navigateTo({
       url: '../goodsdetails/details?goodsid=' +
-        e.currentTarget.dataset.goodsid +
-        '&categoryTitle=' +
-        e.currentTarget.dataset.title + '&refermid=' + this.data.refermid
+        e.currentTarget.dataset.goodsid + '&refermid=' + this.data.refermid
     })
   },
   //设置tab标题滚动

@@ -3,39 +3,73 @@ import wallet from '../../utils/request/withdraw.js'
 const app = getApp()
 
 Page({
-  data: {},
+  data: {
+    pageIndex: 1,
+    pageSize: 10,
+    loading: true
+  },
   onLoad: function(options) {
     var self = this
-    wallet.applyList(
-      {
+    wallet.applyList({
         pageIndex: 1,
         pageSize: 10
       },
       function(res) {
         self.setData({
-          applyList: res.data.data.list
+          applyList: res.data.data.list,
+          loading: false
         })
       }
     )
   },
+  getApplyList: function(e) {
+    var self = this
+    wallet.applyList({
+        pageIndex: self.data.pageIndex,
+        pageSize: self.data.pageSize
+      },
+      function(res) {
+        self.setData({
+          applyList: res.data.data.list,
+          loading: false
+        })
+      }
+    )
+  },
+  onShow: function() {
+    this.getApplyList()
+  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {},
+  onReachBottom: function() {
+    this.setData({
+      loading: true
+    })
+    var page = this.data.pageIndex + 1
+    var self = this
+    var applyList = this.data.applyList
+    wallet.applyList({
+        pageIndex: page,
+        pageSize: self.data.pageSize
+      },
+      function(res) {
+        if (res.data.data.lost.length > 0) {
+          self.setData({
+            applyList: applyList.concat(res.data.data.list),
+            loading: false,
+            pageIndex: page,
+            loading: false
+          })
+        } else {
+          self.setData({
+            loading: false
+          })
+          wx.showToast({
+            title: '没有更多啦...',
+            icon: 'none'
+          })
+        }
+      }
+    )
+  }
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {}
 })

@@ -22,7 +22,8 @@ Page({
     citySelIndex: '',
     districtName: [],
     districtCode: [],
-    districtSelIndex: ''
+    districtSelIndex: '',
+    disabled: false
   },
   //获取姓名
   nameChange: function(e) {
@@ -172,24 +173,32 @@ Page({
   addAddress: function(e) {
     var self = this
     if (this.isEmpty()) {
-      user.updateAddress({
-        id: self.data.pid || 0,
-        name: self.data.username,
-        mobile: self.data.mobilePhone,
-        province: self.data.province,
-        city: self.data.city,
-        county: self.data.county,
-        address: self.data.address,
-        provinceCode: self.data.codeProvince,
-        cityCode: self.data.codeCity,
-        countyCode: self.data.codeCounty
-      }, function(res) {
-        if (res.data.code == 200) {
-          wx.navigateBack({
-            delta: 1
-          })
-        }
-      })
+      if (!this.data.disabled) {
+        self.setData({
+          disabled: true
+        })
+        user.updateAddress({
+          id: self.data.pid || 0,
+          name: self.data.username,
+          mobile: self.data.mobilePhone,
+          province: self.data.province,
+          city: self.data.city,
+          county: self.data.county,
+          address: self.data.address,
+          provinceCode: self.data.codeProvince,
+          cityCode: self.data.codeCity,
+          countyCode: self.data.codeCounty
+        }, function(res) {
+          if (res.data.code == 200) {
+            self.setData({
+              disabled: false
+            })
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        })
+      }
     }
   },
   /**
@@ -249,13 +258,21 @@ Page({
       content: '是否确定删除改地址？',
       success: function(res) {
         if (res.confirm) {
-          user.deleteAddress({
-            id: self.data.pid
-          }, function(req) {
-            wx.navigateBack({
-              delta: 1
+          if (!self.data.disabled) {
+            self.setData({
+              disabled: true
             })
-          })
+            user.deleteAddress({
+              id: self.data.pid
+            }, function(req) {
+              self.setData({
+                disabled: false
+              })
+              wx.navigateBack({
+                delta: 1
+              })
+            })
+          }
         }
       }
     })

@@ -1,9 +1,5 @@
 import config from '../../config.js'
 import cart from '../../utils/request/goodShop.js'
-import {
-  setRefermid,
-  getRefermid
-} from '../../utils/common.js'
 var app = getApp()
 
 Page({
@@ -496,11 +492,11 @@ Page({
     })
   },
   onLoad: function(options) {
-    var _refermid = getRefermid()
+    var _refermid = wx.getStorageSync('refermid')
     this.setData({
-      refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
+      refermid: _refermid
     })
-    setRefermid(this.data.refermid);
+
   },
   /**
    * 生命周期函数--监听页面显示

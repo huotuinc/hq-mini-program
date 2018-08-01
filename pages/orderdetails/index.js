@@ -9,23 +9,7 @@ Page({
    */
   data: {
     backTopValue: false,
-    orderDetail: [],
-    watchStatus: 0 //是否显示订单状态
-  },
-
-  //查看订单状态
-  watchStatus: function(e) {
-    var watchStatus = this.data.watchStatus
-    if (watchStatus) {
-      this.setData({
-        watchStatus: 0
-      })
-    } else {
-      this.setData({
-        watchStatus: 1
-      })
-    }
-
+    orderDetail: []
   },
 
   //获取订单详情
@@ -94,6 +78,13 @@ Page({
         url: '../afterSale/MyProductDetail/index?afterId=' + orderDetail.goods[index].afterId,
       })
     }
+  },
+
+  //联系客服
+  _goService:function(){
+    wx.switchTab({
+      url: '../service/index',
+    })
   },
 
   /**

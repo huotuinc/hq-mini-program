@@ -5,9 +5,8 @@
     <view>订单号：{{orderDetail.orderId}}</view>
     <view>
       <text>下单时间：{{orderDetail.createTime}}</text>
-      <text style='float:right' catchtap='watchStatus'>【订单状态】</text>
     </view>
-    <view wx:if="{{watchStatus == 1}}">
+    <view>
       <text>订单状态：【{{orderDetail.payStatus == 0?'未付款':'已付款'}}】【{{orderDetail.shipStatus == 0?'未发货':'已发货'}}】</text>
     </view>
   </view>
@@ -94,11 +93,11 @@
     </view>
   </view>
 
-  <view class='contact-service '>联系客服</view>
+  <view class='contact-service ' catchtap='_goService'>联系客服</view>
 
   <view class='logistics '>
     <view class='logistics-title '>物流信息</view>
-    <view class='logistics-odd ' wx:if="{{orderDetail.logistics.LogicNo==' ' || orderDetail.logistics[0].LogicNo ==' '}}">暂未查到物流信息</view>
+    <view class='logistics-odd ' wx:if="{{!orderDetail.logistics.length>0}}">暂未查到物流信息</view>
     <view wx:else>
       <view class='logistics-odd '>{{orderDetail.logistics.LogicCompany || orderDetail.logistics[0].LogicCompany}}运单号 ：{{orderDetail.logistics.LogicNo || orderDetail.logistics[0].LogicNo}}</view>
       <view class='logistics-item '>
