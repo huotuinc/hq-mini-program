@@ -6,7 +6,7 @@ Page({
    */
   data: {
     orderid:"",
-    resultType: "success",//success  ,cancel
+    resultType: "success",//success  ,clear
     resultMsg:"支付成功"
   },
 
@@ -16,8 +16,11 @@ Page({
   onLoad: function (options) {
     this.setData({
       orderid: options.orderid,
-      resultType: options.success ? "success" :"cancel",
-      resultMsg: options.success ? "订单支付成功" : "订单支付失败"
+      resultType: options.success == "true" ? "success" :"clear",
+      resultMsg: options.success == "true"  ? "订单支付成功" : "订单支付失败"
+    })
+    wx.setNavigationBarTitle({
+      title: options.success == "true" ? "订单支付成功" : "订单支付失败"
     })
   },
   _goOrderList:function(){

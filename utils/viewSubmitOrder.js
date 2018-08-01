@@ -29,7 +29,7 @@ var  viewSubmitOrder= {
       resultAmount -= _CashScoreAmount;
     }
     if (_PayedAdvance) {
-      resultAmount -= _PayedAdvance;
+      resultAmount -= (_PayedAdvance / 100).toFixed(2);
     }
     if (_ShipAmount) {
       resultAmount += _ShipAmount;
