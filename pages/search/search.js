@@ -76,7 +76,7 @@ Page({
         var key = res.data.data
         if (key.length) {
           self.setData({
-            hotsearchkeyworld:key.split(",")
+            hotsearchkeyworld: key.split(",")
           })
         }
       }

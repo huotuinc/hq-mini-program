@@ -38,8 +38,11 @@ Page({
   onShow: function() {
     var self = this
     wallet.myWallet(function(res) {
+      var data = res.wallet.data
+      data.UserIntegral = (data.UserIntegral) / 100
+      data.UserTempIntegral = (data.UserTempIntegral) / 100
       self.setData({
-        wallet: res.wallet.data
+        wallet: data
       })
     })
   },

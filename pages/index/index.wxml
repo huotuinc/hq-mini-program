@@ -38,7 +38,7 @@
         <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
-              <view class="swiper-item">
+              <view class="swiper-item" catchtap='_goodsDetilList' data-index='{{index}}'>
                 <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad" mode='widthFix'></image>
               </view>
             </swiper-item>
@@ -48,7 +48,7 @@
 
       <view class='goods-special-area'>
         <block wx:for="{{specialItems}}" wx:key="item">
-          <view class='special-box' catchtap='_goGoodsList'>
+          <view class='special-box' catchtap='_goodsDetilList2' data-idx='{{index}}'>
             <view class='box2 item{{index}}'>
               <image src='{{item.pictureUrl}}' mode='widthFix'></image>
             </view>

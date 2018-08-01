@@ -87,6 +87,7 @@
         </swiper>
       </block>
     </view>
+    
     <view class='my-common'>
       <view class='my-order_title'>
         <text>常用功能</text>

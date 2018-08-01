@@ -1,8 +1,7 @@
 import {
-  windowHeight
+  windowHeight,
+  wxpay
 } from '../../utils/common.js'
-// const order = require('../../utils/mock/order.js')
-
 import orderList from '../../utils/request/order.js'
 const app = getApp();
 Page({
@@ -43,12 +42,43 @@ Page({
       url: '../orderdetails/index?orderId=' + e.currentTarget.dataset.orderid
     })
   },
+  //支付订单
+  _payOrder: function(e) {
+    var self = this
+    var orderId = e.currentTarget.dataset.order
+    orderList.payOrder({
+      unionOrderId: orderId,
+      payType: 301
+    }, function(res) {
+      if (res.data.code == 200) {
+        var data = res.data.data
+        wxpay(data, function(req) {
+          // console.log(req);
+          if (req.errMsg.indexOf("requestPayment:ok") >= 0) {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success',
+              success: function() {
+                self._getOrderList()
+              }
+            })
+          } else if (req.errMsg.indexOf("requestPayment:fail") >= 0 || req.errMsg.indexOf("requestPayment:cancel") >= 0) {
+            //requestPayment:fail:该订单已过期，请重新下单
+            var msgs = req.errMsg.split(":");
+            wx.showToast({
+              title: msgs.length == 3 ? msgs[2] : '支付失败',
+              icon: "none"
+            })
+          }
+        })
+      }
+    })
+  },
   //取消订单
   _cancelOrder: function(e) {
     var self = this
     var orderStatus = this.data.currentTab
     var orderId = e.currentTarget.dataset.order
-    console.log(e, orderStatus, orderId)
     wx.showModal({
       content: '您确认要取消当前订单吗？',
       success: function(res) {
@@ -80,7 +110,7 @@ Page({
   _deleteOrder: function(e) {
     var self = this
     var orderStatus = this.data.currentTab
-    var orderId = e.currentTarget.dataset.order[0].orderId
+    var orderId = e.currentTarget.dataset.order
     wx.showModal({
       content: '您确认要删除当前订单吗？',
       success: function(res) {
@@ -111,6 +141,10 @@ Page({
         }
       })
     })
+  },
+  //售后
+  _saleOrder: function(e) {
+
   },
 
   //评价

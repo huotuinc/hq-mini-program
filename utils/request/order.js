@@ -124,11 +124,11 @@ var checkoutOrder = function(data, callback) {
 }
 
 //订单确认
-var orderCheckout=function(data,callback){
+var orderCheckout = function(data, callback) {
   app.request({
     url: config.checkout,
-    data:data,
-    success:function(res){
+    data: data,
+    success: function(res) {
       callback({
         data: res.data
       })
@@ -136,11 +136,11 @@ var orderCheckout=function(data,callback){
   })
 }
 //订单提交
-var orderSubmit = function (data, callback) {
+var orderSubmit = function(data, callback) {
   app.request({
     url: config.submit,
-    data: data,    
-    success: function (res) {
+    data: data,
+    success: function(res) {
       callback({
         data: res.data
       })
@@ -148,6 +148,18 @@ var orderSubmit = function (data, callback) {
   })
 }
 
+//支付订单
+var payOrder = function(data, callback) {
+  app.request({
+    url: config.payOrder,
+    data: data,
+    success: function(res) {
+      callback({
+        data: res.data
+      })
+    }
+  })
+}
 
 module.exports = {
   getOrderList: getOrderList,
@@ -160,5 +172,6 @@ module.exports = {
   orderDetail: orderDetail,
   orderCheckout: orderCheckout,
   orderSubmit: orderSubmit,
-  checkoutOrder: checkoutOrder
+  checkoutOrder: checkoutOrder,
+  payOrder: payOrder
 };

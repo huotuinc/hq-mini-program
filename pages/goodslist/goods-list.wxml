@@ -1,11 +1,15 @@
 <import src="../template/goods-item/goods-item-two-template.wxml" />
-<import src="../template/search/search-template" />
 <import src="../template/backTop/backTop" />
 <import src="../template/loading/loading.wxml" />
 
 <view>
   <view class='goods-list_header'>
-    <template is="search-header" />
+    <view class="search_header">
+      <icon class='icon iconfont icon-sousuo'></icon>
+      <input type='text' placeholder='输入商品名称' bindconfirm="confirmSearch" bindinput="bindSearchInput" value='{{keyword}}'></input>
+      <text class='cancel' catchtap='confirmSearch'>搜索</text>
+    </view>
+
     <view class="category-goods-filter">
       <view class='filter-item {{filterTap==1 ?"active":""}}' bindtap='clickfilterTap' data-type='1' data-order='{{order}}' data-msg='新品'>
         新品
@@ -31,6 +35,7 @@
   </view>
   <view class=" separator'}}"></view>
   <view class='goods_list-content'>
+    <view wx:if="{{!goodsItems.length>0}}" style="width:100%;text-align:center;">暂时没有查到商品</view>
     <block wx:for="{{goodsItems}}" wx:key="item">
       <template is="itemTwo" data="{{item,index}}" />
     </block>

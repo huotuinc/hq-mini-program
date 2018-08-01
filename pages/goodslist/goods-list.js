@@ -39,6 +39,16 @@ Page({
     })
   },
 
+  bindSearchInput: function(e) {
+    this.setData({
+      keyword: e.detail.value
+    })
+  },
+
+  confirmSearch: function(e) {
+    this.getGoodsList()
+  },
+
   // 监听滚动条坐标
   onPageScroll: function(e) {
     var that = this
@@ -167,7 +177,7 @@ Page({
   },
 
   //获取商品列表
-  getGoodsList: function(e, data) {
+  getGoodsList: function() {
     this.setData({
       loading: true
     })

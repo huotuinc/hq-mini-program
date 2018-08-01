@@ -26,7 +26,7 @@
           <block wx:for="{{item.subOrderList}}" wx:for-item="suborder" wx:key="*this">
             <view class='item-info-2'>
               <view class='my-order_title'>
-                <text>{{suborder.supplierName}}</text>
+                <text>{{suborder.supplierName?suborder.supplierName:"商场自营"}}</text>
                 <text class='allOrder'>{{suborder.ShipStatusStr}}</text>
               </view>
               <block wx:for="{{suborder.orderItemList}}" wx:for-item="goodsItem" wx:key="*this">
@@ -58,20 +58,20 @@
           <view class='item-info-4' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && (item.status == 0 || item.status == -1) }}">
             <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == 0}}">
               <view class='cancel' catchtap='_cancelOrder' data-order='{{item.unionOrderId}}'>取消订单</view>
-              <view class=' payment' catchtap='_payOrder' data-order='{{item.subOrderList}}'>支付订单</view>
+              <view class=' payment' catchtap='_payOrder' data-order='{{item.unionOrderId}}'>支付订单</view>
             </view>
             <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == -1}}">
-              <view class=' payment' catchtap='_deleteOrder' data-order='{{item.subOrderList}}'>删除订单</view>
+              <view class=' payment' catchtap='_deleteOrder' data-order='{{item.unionOrderId}}'>删除订单</view>
             </view>
           </view>
 
           <view class='item-info-4' wx:if="{{ item.subOrderList[0].shipStatus ==1 }}">
             <view class=' operation' wx:if="{{item.subOrderList[0].IsComment == 0 }}">
-              <view class=' cancel' catchtap='_saleOrder' data-order='{{item.subOrderList}}'>售后</view>
+              <!-- <view class=' cancel' catchtap='_saleOrder' data-order='{{item.subOrderList}}'>售后</view> -->
               <view class=' payment' catchtap='_evaluateOrder' data-order='{{item.subOrderList}}'>评价</view>
             </view>
             <view class=' operation' wx:if="{{item.subOrderList[0].subreceiveStatus !=1}}">
-              <view class='cancel' catchtap='' data-order='{{item.subOrderList}}'>查看物流</view>
+              <!-- <view class='cancel' catchtap='' data-order='{{item.subOrderList}}'>查看物流</view> -->
               <view class=' payment' catchtap='_confirmOrder' data-order='{{item.subOrderList}}'>确认收货</view>
             </view>
           </view>
