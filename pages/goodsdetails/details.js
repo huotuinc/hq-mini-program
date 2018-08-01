@@ -114,7 +114,8 @@ Page({
           if (data.Base.ItemImages[k].PicUrl.indexOf('http://') < 0)
             data.Base.ItemImages[k].PicUrl = data.Base.resourcesUrl + data.Base.ItemImages[k].PicUrl;
         }
-
+        if (data.Base.PicUrl.indexOf('http://') < 0)
+          data.Base.PicUrl = data.Base.resourcesUrl + data.Base.PicUrl;
 
         viewDataResponsity.init(data);
         var _specCount = 0;
