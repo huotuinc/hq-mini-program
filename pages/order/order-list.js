@@ -118,7 +118,21 @@ Page({
           orderList.deleteOrder({
             orderId: orderId
           }, function(req) {
-            self._getOrderList(orderStatus)
+            wx.showToast({
+              title: '删除中...',
+              icon: 'loading',
+              success: function() {
+                if (req.data.code == 200) {
+                  wx.showToast({
+                    title: '删除成功',
+                    icon: 'success',
+                    success: function() {
+                      self._getOrderList(orderStatus)
+                    }
+                  })
+                }
+              }
+            })
           })
         }
       }
@@ -141,10 +155,6 @@ Page({
         }
       })
     })
-  },
-  //售后
-  _saleOrder: function(e) {
-
   },
 
   //评价
@@ -190,22 +200,34 @@ Page({
     })
     this._getOrderList(options.currenttab)
   },
-
-  onShow: function() {
-
-  },
+  onShow: function() {},
 
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    // console.log('circle 下一页');
-    // var _orders = this.data.orders;
-    // _orders[this.data.currentTab] = _orders[this.data.currentTab].concat(order.list)
-    // this.setData({
-    //   orders: _orders
-    // })
+    this.setData({
+      loading: true
+    })
+    var self = this
+    var page = this.data.pageIndex + 1
+    var orderList = this.data.itemList
+    var orderStatus = this.data.currentTab
+    var data = {
+      pageSize: this.data.pageSize,
+      pageIndex: page,
+      orderStatus: orderStatus,
+    }
+    orderList.getOrderList(data, function(res) {
+      if (res.data.data.length > 0) {
+        self.setData({
+          itemList: orderStatus.concat(res.data.data),
+          loading: false,
+          pageIndex: page
+        })
+      }
+    })
   }
 
 })

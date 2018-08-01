@@ -36,7 +36,7 @@
         <view class="weui-label">微信昵称</view>
       </view>
       <view class="weui-cell__bd">
-        <input class="weui-input" type='text' disabled value='星期八' />
+        <input class="weui-input" type='text' disabled value='{{nickName}}' />
       </view>
     </view>
   </view>
