@@ -67,6 +67,7 @@
           <icon class="icon iconfont {{payedAdvance.status?'icon-xuanzhong':'icon-ico2'}}"></icon>
         </view>
       </view>
+      <block wx:if="{{orderInfo.TotalCashScoreEnabled>0}}">
       <view catchtap='_clikcScore' data-type="score">
         <view class='left'>
           <text>余额 </text>
@@ -77,6 +78,7 @@
           <icon class="icon iconfont {{chargeCasher.status?'icon-xuanzhong':'icon-ico2'}}"></icon>
         </view>
       </view>
+      </block>
       <view wx:if="{{pmtSelectData.array.length>1}}">
         <view class='left'>
           <text>优惠券 </text>

@@ -240,7 +240,14 @@ Page({
     var self = this;
 
     var _amount = self.data.walletData.UsefulIntegralAmount;
+    //获取最高可抵用的积分
+    var _TotalCashScoreEnabled = self.orderInfo.TotalCashScoreEnabled/100;
     if (!_amount || _amount<=0)return;
+    if (_TotalCashScoreEnabled <= 0) return;
+    if (_amount > _TotalCashScoreEnabled){
+      _amount = _TotalCashScoreEnabled;
+    }
+
     var chargeCasher = self.data.chargeCasher; //积分支付    
     //如果已经开启积分支付，则关闭
     if (chargeCasher.status) {
@@ -292,7 +299,7 @@ Page({
     }
     var cashScore = 0;
     if (chargeCasher.status) {
-      cashScore = (parseFloat(chargeCasher.amount) * self.data.cashRate).toFixed(2);
+      cashScore = (parseFloat(chargeCasher.amount) * self.data.cashRate).toFixed(0);
     }
     var miBean = 0;
     if (payedAdvance.status) {
