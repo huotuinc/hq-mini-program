@@ -11,6 +11,7 @@ import {
   walletaccount,
   enabledCoupons
 } from '../../utils/request/user.js'
+import config from '../../config.js'
 
 Page({
 
@@ -55,27 +56,32 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var self = this;
     var traItems = options.traItems
     self.setData({
       traItems: traItems,
-      refermid: options.refermid||0
+      refermid: options.refermid || 0
     })
     //获取用户钱包
-    walletaccount(null, function(ret) {
-        self.setData({
-          walletData: ret.data
-        })
+    walletaccount(null, function (ret) {
+      self.setData({
+        walletData: ret.data
+      })
     })
 
   },
   /**获取订单确认数据 */
-  checkout: function(p, callback) {
+  checkout: function (p, callback) {
     var self = this;
-    orderCheckout(p, function(res) {
+    orderCheckout(p, function (res) {
       var result = res.data;
       if (result.code == 200) {
+
+        for (var k in result.data.Products) {
+          if (result.data.Products[k].ThumbnailPic.indexOf('http://') < 0)
+            result.data.Products[k].ThumbnailPic = config.host + result.data.Products[k].ThumbnailPic;
+        }
         self.setData({
           orderInfo: result.data,
           loading: false
@@ -93,7 +99,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     var self = this;
     try {
       var value = wx.getStorageSync('address')
@@ -103,11 +109,11 @@ Page({
           addressStatus: true
         })
       }
-    } catch (e) {}
+    } catch (e) { }
 
     self.loadData();
   },
-  loadData: function() {
+  loadData: function () {
     var self = this;
     var addressData = self.data.addressData;
     var areaCode = "";
@@ -120,12 +126,12 @@ Page({
       couponCode: pmtSelectData.items[pmtSelectData.index].CouponCode,
       areaCode: areaCode
     }
-    self.checkout(p, function(totalPrice) {
+    self.checkout(p, function (totalPrice) {
       if (self.data.pmtCount <= 0) {
         //获取可用优惠券
         enabledCoupons({
           totalPrice: totalPrice
-        }, function(ret) {
+        }, function (ret) {
           if (ret.data.code == 200) {
             var _pmtCount = ret.data.data.length;
             var _pmtSelectData = self.data.pmtSelectData;
@@ -168,11 +174,11 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
   //获取收货地址
-  chooseAddress: function(e) {
+  chooseAddress: function (e) {
     if (this.data.loading) return;
     var self = this;
 
@@ -181,8 +187,8 @@ Page({
     })
   },
   //更改优惠券
-  bindPickerChange: function(e) {
-    if (this.data.loading)return;
+  bindPickerChange: function (e) {
+    if (this.data.loading) return;
     var self = this;
     var _index = e.detail.value;
     var _pmtSelectData = self.data.pmtSelectData;
@@ -195,7 +201,7 @@ Page({
     self.loadData();
   },
   /**觅豆支付 */
-  _clickMiBean: function() {
+  _clickMiBean: function () {
     if (this.data.loading) return;
     var self = this;
     var _amount = self.data.walletData.UsefulMiBean;
@@ -219,15 +225,15 @@ Page({
       var _resultAmount = viewSubmitOrder.calAmount(self.data)
       //获取用户可使用的觅豆
       var _amount = self.data.walletData.UsefulMiBean;
-      if (_amount && _amount>0){
-        if (_resultAmount.SurplusAmount >= _amount/100) {
+      if (_amount && _amount > 0) {
+        if (_resultAmount.SurplusAmount >= _amount / 100) {
           payedAdvance.amount = _amount;
         } else {
-          payedAdvance.amount = _resultAmount.SurplusAmount*100;
+          payedAdvance.amount = _resultAmount.SurplusAmount * 100;
         }
       }
       payedAdvance.amount = parseFloat(payedAdvance.amount).toFixed(0);
-      _resultAmount.SurplusAmount = _resultAmount.SurplusAmount - payedAdvance.amount/100;
+      _resultAmount.SurplusAmount = (_resultAmount.SurplusAmount - payedAdvance.amount / 100).toFixed(2);
       self.setData({
         payedAdvance: payedAdvance,
         resultAmount: _resultAmount
@@ -235,12 +241,19 @@ Page({
     }
   },
   /**积分支付 */
-  _clikcScore: function() {
+  _clikcScore: function () {
     if (this.data.loading) return;
     var self = this;
 
     var _amount = self.data.walletData.UsefulIntegralAmount;
-    if (!_amount || _amount<=0)return;
+    //获取最高可抵用的积分
+    var _TotalCashScoreEnabled = self.orderInfo.TotalCashScoreEnabled / 100;
+    if (!_amount || _amount <= 0) return;
+    if (_TotalCashScoreEnabled <= 0) return;
+    if (_amount > _TotalCashScoreEnabled) {
+      _amount = _TotalCashScoreEnabled;
+    }
+
     var chargeCasher = self.data.chargeCasher; //积分支付    
     //如果已经开启积分支付，则关闭
     if (chargeCasher.status) {
@@ -258,7 +271,7 @@ Page({
       //如果没有开启积分支付，则获取应付金额
       var _resultAmount = viewSubmitOrder.calAmount(self.data)
       //获取用户可使用的积分等值金额     
-      if (_amount && _amount>0){
+      if (_amount && _amount > 0) {
         if (_resultAmount.SurplusAmount >= _amount) {
           chargeCasher.amount = _amount;
         } else {
@@ -266,7 +279,7 @@ Page({
         }
       }
       chargeCasher.status = !chargeCasher.status
-      _resultAmount.SurplusAmount = _resultAmount.SurplusAmount - chargeCasher.amount;
+      _resultAmount.SurplusAmount =( _resultAmount.SurplusAmount - chargeCasher.amount).toFixed(2);
       self.setData({
         chargeCasher: chargeCasher,
         resultAmount: _resultAmount
@@ -276,7 +289,7 @@ Page({
   /**
    * 提交订单
    */
-  submitOrder: function(e) {
+  submitOrder: function (e) {
     if (this.data.loading) return;
     var self = this;
     var addressData = self.data.addressData;
@@ -292,7 +305,7 @@ Page({
     }
     var cashScore = 0;
     if (chargeCasher.status) {
-      cashScore = (parseFloat(chargeCasher.amount) * self.data.cashRate).toFixed(2);
+      cashScore = (parseFloat(chargeCasher.amount) * self.data.cashRate).toFixed(0);
     }
     var miBean = 0;
     if (payedAdvance.status) {
@@ -313,13 +326,13 @@ Page({
       refermid: self.data.refermid,
       items: self.data.traItems
     }
-    orderSubmit(p, function(ret) {
+    orderSubmit(p, function (ret) {
       var result = ret.data;
       if (result.code == 200) {
         var orderid = result.data.UnionOrderId;
         //剩余需要付的金额，当等于0时，表示已经完全抵用
         var _surplusMoney = result.data.SurplusAmount;
-        
+
         if (_surplusMoney > 0) {
           var _p = {
             timeStamp: result.data.timeStamp,
@@ -328,7 +341,7 @@ Page({
             paySign: result.data.paySign
           }
           //发起支付      
-          wxpay(_p, function(res) {
+          wxpay(_p, function (res) {
             console.log(res);
             if (res.errMsg.indexOf("requestPayment:ok") >= 0) {
               self._goPayResult(orderid, true);
@@ -340,23 +353,23 @@ Page({
                 icon: "none"
               })
 
-              self._goPayResult(orderid,false)
+              self._goPayResult(orderid, false)
             }
           })
         }
-        else{
-          self._goPayResult(orderid,true)
+        else {
+          self._goPayResult(orderid, true)
         }
       }
-      else{
+      else {
         wx.showToast({
-          title:'支付失败',
+          title: '支付失败',
           icon: "none"
         })
       }
     });
   },
-  _goPayResult: function (orderid, success){    
+  _goPayResult: function (orderid, success) {
     wx.redirectTo({
       url: '../payResult/result?orderid=' + orderid + "&success=" + success,
     })
