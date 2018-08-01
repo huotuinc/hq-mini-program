@@ -1,7 +1,7 @@
 <!--pages/payResult/result.wxml-->
 <view class='pay-success-tip'>
   <view>
-    <icon type="{{resultType}}" size='30' />
+    <icon type="{{resultType}}" size='30' color='red' />
     <text class='pay-result-msg'>{{resultMsg}}</text>
   </view>
 </view>

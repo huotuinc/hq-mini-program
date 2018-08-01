@@ -241,7 +241,7 @@ Page({
       return;
     }
 
-    if (self.data.specData.productid == 0 && self.data.goodsItem.Base.PdtDesc.length > 1) {
+    if (self.data.specData.productid == 0 && self.data.goodsItem.Base.SpecDesc.length > 0) {
       wx.showToast({
         title: "请选择规格",
         icon: "none"

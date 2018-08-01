@@ -5,12 +5,20 @@
   font-size: 30px;
   color: red;
   margin-top: 50px;
-  
+
 }
 .pay-success-tip view{
   display: inline-block;
   vertical-align: middle;
   padding: 0;
+  position: relative;
+}
+.pay-success-tip view icon{
+  position: absolute;
+  top:10rpx;
+}
+.pay-success-tip view text{
+  padding-left:70rpx;
 }
 .pay-order-info{    
   margin: 10px 0 10px 0;
