@@ -134,7 +134,7 @@ Page({
         var _specData = self.data.specData
         _specData.specCount = _specCount
         _specData.specStatus = _specStatus
-        _specData.store = data.Base.Store
+        _specData.store = data.Base.Store        
         //判断是否限购
         _specData.LimitBuyNum = data.Base.LimitBuyNum
         if (data.Base.LimitBuyNum == 0)
@@ -158,6 +158,7 @@ Page({
           goodsItem: data,
           loading: false,
           specData: _specData,
+          shopNum: data.Base.Store <= 0 ? 0 : self.data.shopNum,
           commentData: _commentData
         })
       }
