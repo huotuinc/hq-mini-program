@@ -89,7 +89,6 @@ Page({
           mobile: mobile,
           code: code
         }, function(res) {
-          console.log(res)
           if (res.data.code == 200) {
             self.setData({
               step: 2
@@ -135,8 +134,9 @@ Page({
       user.updatePayPassword({
         payPassword: newPwd
       }, function(res) {
+        console.log(res)
         if (res.data.code == 200) {
-          this.setData({
+          self.setData({
             step: 3
           })
         } else {

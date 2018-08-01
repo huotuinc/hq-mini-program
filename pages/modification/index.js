@@ -13,6 +13,17 @@ Page({
     disabled: false
   },
 
+  getAccountList: function() {
+    var self = this
+    wallet.getaccountlist(function(res) {
+      if (res.data.code == 200) {
+        self.setData({
+          accountList: res.data.data
+        })
+      }
+    })
+  },
+
   //切换提现方式选择
   _switchType: function(e) {
     var account = e.target.dataset.accounttype
@@ -38,74 +49,89 @@ Page({
   //提交提现账户
   _saveAccount: function(e) {
     var self = this
-    if (!this.data.disabled) {
-      this.setData({
-        disabled: true
+    var accountList = this.data.accountList
+    if (accountList.length >= 2) {
+      wx.showModal({
+        content: '超出提现账户，请处理后再添加',
+        success: function(res) {
+          if (res.confirm) {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
+        }
       })
-      if (this.data.accountType == 1) {
-        if (!this.data.RealName) {
-          wx.showToast({
-            title: '请输入姓名',
-            icon: 'none'
-          })
-          return
-        }
-        if (!this.data.AccountInfo) {
-          wx.showToast({
-            title: '请输入支付宝账号',
-            icon: 'none'
-          })
-          return
-        }
-        wallet.editAccount({
-          RealName: self.data.RealName || '',
-          AccountInfo: self.data.AccountInfo || '',
-          AccountType: self.data.accountType,
-          AccountId: self.data.AccountId || '0'
-        }, function(res) {
-          if (res.data.code == 200) {
+      return
+    } else {
+      if (!this.data.disabled) {
+        this.setData({
+          disabled: true
+        })
+        if (this.data.accountType == 1) {
+          if (!this.data.RealName) {
             wx.showToast({
-              title: '编辑成功',
-              success: function() {
-                wx.navigateBack({
-                  delta: 1
-                })
-              }
-            })
-          } else {
-            self.setData({
-              disabled: false
-            })
-            wx.showToast({
-              title: res.data.msg,
+              title: '请输入姓名',
               icon: 'none'
             })
+            return
           }
-        })
-      } else {
-        wallet.editAccount({
-          AccountType: self.data.accountType,
-          AccountId: self.data.AccountId || '0'
-        }, function(res) {
-          if (res.data.code == 200) {
+          if (!this.data.AccountInfo) {
             wx.showToast({
-              title: '编辑成功',
-              success: function() {
-                wx.navigateBack({
-                  delta: 1
-                })
-              }
-            })
-          } else {
-            self.setData({
-              disabled: false
-            })
-            wx.showToast({
-              title: res.data.msg,
+              title: '请输入支付宝账号',
               icon: 'none'
             })
+            return
           }
-        })
+          wallet.editAccount({
+            RealName: self.data.RealName || '',
+            AccountInfo: self.data.AccountInfo || '',
+            AccountType: self.data.accountType,
+            AccountId: self.data.AccountId || '0'
+          }, function(res) {
+            if (res.data.code == 200) {
+              wx.showToast({
+                title: '编辑成功',
+                success: function() {
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                }
+              })
+            } else {
+              self.setData({
+                disabled: false
+              })
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none'
+              })
+            }
+          })
+        } else {
+          wallet.editAccount({
+            AccountType: self.data.accountType,
+            AccountId: self.data.AccountId || '0'
+          }, function(res) {
+            if (res.data.code == 200) {
+              wx.showToast({
+                title: '编辑成功',
+                success: function() {
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                }
+              })
+            } else {
+              self.setData({
+                disabled: false
+              })
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'none'
+              })
+            }
+          })
+        }
       }
     }
   },
@@ -155,6 +181,7 @@ Page({
     }
   },
   onShow: function() {
+    this.getAccountList()
     this.setData({
       nickName: app.globalData.userInfo.nickName
     })

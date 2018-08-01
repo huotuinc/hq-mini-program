@@ -47,5 +47,5 @@
 </view>
 
 <view class='btn-recharge btn-delete' catchtap='_delectAccount' wx:if='{{AccountId}}'>
-  删除地址
+  删除账户
 </view>

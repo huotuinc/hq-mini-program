@@ -201,7 +201,15 @@ Page({
     this._getOrderList(options.currenttab)
   },
   onShow: function() {},
-
+  
+  onPullDownRefresh: function() {
+    self.setData({
+      loading: true
+    })
+    wx.stopPullDownRefresh()
+    var orderStatus = this.data.currentTab
+    this._getOrderList()
+  },
 
   /**
    * 页面上拉触底事件的处理函数
@@ -212,7 +220,7 @@ Page({
     })
     var self = this
     var page = this.data.pageIndex + 1
-    var orderList = this.data.itemList
+    var itemList = this.data.itemList
     var orderStatus = this.data.currentTab
     var data = {
       pageSize: this.data.pageSize,
@@ -222,7 +230,7 @@ Page({
     orderList.getOrderList(data, function(res) {
       if (res.data.data.length > 0) {
         self.setData({
-          itemList: orderStatus.concat(res.data.data),
+          itemList: itemList.concat(res.data.data),
           loading: false,
           pageIndex: page
         })
