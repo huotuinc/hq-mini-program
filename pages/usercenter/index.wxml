@@ -75,7 +75,7 @@
     </view>
 
     <view style='margin-top:20rpx; '>
-      <block wx:if="{{userItem.ADLists}}">
+      <block wx:if="{{userItem.ADLists.length>0}}">
         <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx'>
           <block wx:for="{{userItem.ADLists}}" wx:key="{{item}}">
             <swiper-item>

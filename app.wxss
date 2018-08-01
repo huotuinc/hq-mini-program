@@ -3,7 +3,7 @@
 @import 'common/weui.wxss';
 
 page {
-  font-family: Helvetica, STHeiti STXihei, Microsoft YaHei, Arial;
+  font-family: Helvetica, STHeiti STXihei,Microsoft JhengHei, Microsoft YaHei, Arial;
   font-weight: normal;
   background-color: #f0eff5;
 }
