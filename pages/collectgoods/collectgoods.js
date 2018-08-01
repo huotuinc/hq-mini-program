@@ -8,9 +8,9 @@ Page({
     checkedTitle: '已选 （0）',
     page: 1,
     pageSize: 20,
-    hotItems: [],
     startX: 0, //开始坐标
-    startY: 0
+    startY: 0,
+    loading: true
   },
 
   //获取我的收藏数据
@@ -23,7 +23,8 @@ Page({
 
     collectgoods.myCollection(data, function(res) {
       self.setData({
-        hotItems: res.data.data
+        hotItems: res.data.data,
+        loading: false
       })
     })
   },

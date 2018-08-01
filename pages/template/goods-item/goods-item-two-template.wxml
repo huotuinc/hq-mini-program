@@ -3,7 +3,8 @@
     <view class='item-box'>
       <view>
         <view class='goods-item-pic'>
-          <image src='{{item.PicUrl}}'></image>
+          <image src='{{item.PicUrl }}' binderror="binderrorimg" data-errorimg="{{index}}" ></image>
+          <!-- <image src='../../images/avator.png'  wx:else></image> -->
         </view>
         <view class='goods-item-tow-text'>
           <text class='goods-item-two-title'>{{item.Name}}</text>

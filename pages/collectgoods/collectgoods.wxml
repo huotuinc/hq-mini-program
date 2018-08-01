@@ -1,6 +1,8 @@
 <import src="../template/collect/collect-template.wxml" />
 <import src="../template/shuju/shuju" />
-<view wx:if="{{!hotItems.length}}">
+<import src="../template/loading/loading.wxml" />
+
+<view wx:if="{{!hotItems.length &&  !loading}}">
   <template is="shuju" />
 </view>
 
@@ -22,3 +24,5 @@
     </view>
   </view> -->
 </view>
+
+<template is="loading" wx:if="{{loading}}" />

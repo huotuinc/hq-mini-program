@@ -1,4 +1,6 @@
 <import src="../template/shuju/shuju" />
+<import src="../template/loading/loading.wxml" />
+
 <view class='top-container'>
   <view class='order-status-tab'>
     <block wx:for="{{orderStatus}}" wx:key="{{item}}">
@@ -9,7 +11,7 @@
 
 <view class='separator2'></view>
 <view>
-  <view wx:if="{{!itemList.Rows.length}}">
+  <view wx:if="{{!itemList.Rows.length && !loading}}">
     <template is="shuju" />
   </view>
 
@@ -55,7 +57,7 @@
           </view>
           <view class='item-info-4' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && (item.status == 0 || item.status == -1) }}">
             <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == 0}}">
-              <view class='cancel' catchtap='_cancelOrder' data-order='{{item.subOrderList}}'>取消订单</view>
+              <view class='cancel' catchtap='_cancelOrder' data-order='{{item.unionOrderId}}'>取消订单</view>
               <view class=' payment' catchtap='_payOrder' data-order='{{item.subOrderList}}'>支付订单</view>
             </view>
             <view class=' operation' wx:if="{{(item.payStatus==0 || item.payStatus ==3) && item.status == -1}}">
@@ -79,3 +81,5 @@
 
   </view>
 </view>
+
+<template is="loading" wx:if="{{loading}}" />

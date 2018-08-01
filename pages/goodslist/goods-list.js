@@ -12,6 +12,7 @@ Page({
     loading: true,
     filterTap: 1,
     order: 2,
+    salesOrder: 1,
     orderType: 1, //排序方式
     page: 1, //页码
     loadPage: 2, //加载页码
@@ -59,79 +60,59 @@ Page({
   clickfilterTap: function(e) {
     var cur = e.currentTarget.dataset.type;
     var orderId = e.currentTarget.dataset.order
-    if (orderId == 2 && cur == this.data.filterTap) {
-      this.setData({
-        order: 1,
-        filterTap: cur
-      })
-    } else {
-      this.setData({
-        order: 2,
-        filterTap: cur
-      })
-    }
-
+    this.setData({
+      filterTap: cur
+    })
     //改变排序方式
     if (cur == 1) {
       if (orderId == 1) {
         this.setData({
+          order: 2,
           orderType: 1
         })
-        this.getGoodsList({
-          page: this.data.page,
-          pageSize: this.data.pageSize,
-          orderType: 1
-        })
+        this.getGoodsList()
       } else {
         this.setData({
+          order: 1,
           orderType: 2
         })
-        this.getGoodsList({
-          page: this.data.page,
-          pageSize: this.data.pageSize,
-          orderType: 2
-        })
+        this.getGoodsList()
       }
     } else if (cur == 2) {
-      this.setData({
-        orderType: 3
-      })
-      this.getGoodsList({
-        page: this.data.page,
-        pageSize: this.data.pageSize,
-        orderType: 3
-      })
+      if (this.data.salesOrder == 1) {
+        this.setData({
+          orderType: 3,
+          salesOrder: 2
+        })
+        this.getGoodsList()
+      } else {
+        this.setData({
+          orderType: 4,
+          salesOrder: 1
+        })
+        this.getGoodsList()
+      }
+
     } else if (cur == 3) {
       if (orderId == 1) {
         this.setData({
+          order: 2,
           orderType: 5
         })
-        this.getGoodsList({
-          page: this.data.page,
-          pageSize: this.data.pageSize,
-          orderType: 5
-        })
+        this.getGoodsList()
       } else {
         this.setData({
+          order: 1,
           orderType: 6
         })
-        this.getGoodsList({
-          page: this.data.page,
-          pageSize: this.data.pageSize,
-          orderType: 6
-        })
+        this.getGoodsList()
       }
     } else if (cur == 4) {
       this.setData({
         orderType: 0
       })
-      this.getGoodsList({
-        page: this.data.page,
-        pageSize: this.data.pageSize,
-        orderType: this.data.orderType
-      })
+      this.getGoodsList()
     }
-
   },
 
   //点击收藏/取消收藏
@@ -186,18 +167,23 @@ Page({
   },
 
   //获取商品列表
-  getGoodsList: function(data) {
+  getGoodsList: function(e, data) {
     this.setData({
       loading: true
     })
     var self = this
-    goodsList.goodsList(data, function(res) {
+    goodsList.goodsList({
+      page: this.data.page,
+      pageSize: this.data.pageSize,
+      orderType: this.data.orderType,
+      keyword: this.data.keyword,
+      brandIds: this.data.brandIds.join(",") || '',
+      catIds: this.data.catIds.join(",") || '',
+      tags: this.data.tags.join(",") || ''
+    }, function(res) {
       self.setData({
         goodsItems: res.goodsItems,
         loading: false,
-        brandIds: [], //商品品牌搜索ID
-        tags: [], //商品分类搜索ID
-        catIds: [] //商品标签搜索ID
       })
     })
   },
@@ -210,12 +196,7 @@ Page({
     this.setData({
       keyword: options.keyword
     })
-    this.getGoodsList({
-      page: that.data.page,
-      pageSize: that.data.pageSize,
-      orderType: that.data.orderType,
-      keyword: keyword
-    })
+    this.getGoodsList({})
     this.setData({
       categoryTitle: options.categoryTitle || '商品列表',
     })
@@ -234,9 +215,14 @@ Page({
       }
     })
   },
-
   //筛选
   powerDrawer: function(e) {
+    this.setData({
+      brandIds: [], //商品品牌搜索ID
+      tags: [], //商品分类搜索ID
+      catIds: [], //商品标签搜索ID
+      keyword: ''
+    })
     var self = this
     var currentStatu = e.currentTarget.dataset.statu;
     if (currentStatu == "open") {
@@ -379,14 +365,7 @@ Page({
     var catIds = this.data.catIds.join(',')
     var tags = this.data.tags.join(',')
     if (brandIds || catIds || tags) {
-      this.getGoodsList({
-        page: this.data.page,
-        pageSize: this.data.pageSize,
-        orderType: this.data.orderType,
-        brandIds: brandIds || '',
-        catIds: catIds || '',
-        tags: tags || ''
-      })
+      this.getGoodsList()
     } else {
       wx.showToast({
         title: '请选择筛选条件',
@@ -397,27 +376,13 @@ Page({
     this.setData({
       showModalStatus: false
     })
-
-
-  },
-
-  onShow: function() {
-
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    this.getGoodsList({
-      page: this.data.page,
-      pageSize: this.data.pageSize,
-      orderType: this.data.orderType,
-      keyword: this.data.keyword,
-      brandIds: this.data.brandIds || '',
-      catIds: this.data.catIds || '',
-      tags: this.data.tags || ''
-    })
+    this.getGoodsList({})
     wx.stopPullDownRefresh();
   },
 
@@ -429,13 +394,13 @@ Page({
     var page = this.data.loadPage
     var _goodsItems = this.data.goodsItems
     goodsList.goodsList({
-        page: page++,
-        pageSize: self.data.pageSize,
-        orderType: self.data.orderType,
+        page: page,
+        pageSize: this.data.pageSize,
+        orderType: this.data.orderType,
         keyword: this.data.keyword,
-        brandIds: this.data.brandIds || '',
-        catIds: this.data.catIds || '',
-        tags: this.data.tags || ''
+        brandIds: this.data.brandIds.join(",") || '',
+        catIds: this.data.catIds.join(",") || '',
+        tags: this.data.tags.join(",") || ''
       },
       function(res) {
         if (res.goodsItems.length > 0) {
@@ -452,5 +417,13 @@ Page({
         }
       }
     )
-  }
+  },
+  binderrorimg: function(e) {
+    var idx = e.target.dataset.errorimg //获取循环的下标
+    var goodList = this.data.goodsItems
+    goodList[idx].PicUrl = '../../images/avator.png'
+    this.setData({
+      goodList: goodList
+    })
+  },
 })

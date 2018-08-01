@@ -3,7 +3,8 @@ const app = getApp()
 Page({
   data: {
     PageIndex: 1,
-    PageSize: 10
+    PageSize: 10,
+    loading: true
   },
 
   onShow: function() {
@@ -13,7 +14,8 @@ Page({
       PageSize: self.data.PageSize
     }, function(res) {
       self.setData({
-        itemList: res.data
+        itemList: res.data,
+        loading: false
       })
       console.log(res)
     })

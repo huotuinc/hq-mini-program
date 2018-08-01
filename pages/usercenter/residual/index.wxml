@@ -1,15 +1,16 @@
 <import src="../../template/shuju/shuju" />
-<view wx:if="{{!itemList.Items.length}}">
+<import src="../../template/loading/loading.wxml" />
+<view wx:if="{{!itemList.Items.length && !loading}}">
   <template is="shuju" />
 </view>
 <view wx:else>
   <view class='balance'>
     <view class='balance-header'>
       <text>总收入：</text>
-      <text class='income'>{{itemList.SumExportIntegral}}元</text>
+      <text class='income'>{{itemList.SumImportIntegral}}元</text>
       <text> / </text>
       <text>总支出：</text>
-      <text class='expense'>{{itemList.SumImportIntegral}}元</text>
+      <text class='expense'>{{itemList.SumExportIntegral}}元</text>
     </view>
   </view>
   <view style='height:60rpx;'></view>
@@ -28,3 +29,5 @@
     </blcok>
   </view>
 </view>
+
+<template is="loading" wx:if="{{loading}}" />

@@ -1,5 +1,7 @@
 <import src="../../template/shuju/shuju" />
-<view wx:if="{{!itemList.Items.length}}">
+<import src="../../template/loading/loading.wxml" />
+
+<view wx:if="{{!itemList.Items.length && !loading}}">
   <template is="shuju" />
 </view>
 
@@ -16,3 +18,5 @@
     </view>
   </blcok>
 </view>
+
+<template is="loading" wx:if="{{loading}}" />

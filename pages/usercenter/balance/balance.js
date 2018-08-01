@@ -7,8 +7,9 @@ Page({
   data: {
     pageSize: 10,
     SearchType: 1,
-    pageIndex: 1
-  },
+    pageIndex: 1,
+    loading: true
+  }, 
   _getIntegralList: function() {
     var self = this
     var data = {
@@ -18,24 +19,14 @@ Page({
     }
     wallet.getIntegralList(data, function(res) {
       self.setData({
-        itemList: res.data
+        itemList: res.data,
+        loading: false
       })
-    }) 
-  },
-  onLoad: function(options) {
-    var that = this
-    wx.showToast({
-      title: '努力加载中...',
-      icon: 'loading',
-      success: function() {
-        that._getIntegralList()
-        wx.hideToast()
-      }
     })
   },
 
   onShow: function() {
-
+    this._getIntegralList()
   },
 
 })

@@ -121,7 +121,7 @@ page {
   transform: translateX(0);
 }
 
- .item {
+.item {
   width: 100%;
   padding: 30rpx;
   background-color: #fff;

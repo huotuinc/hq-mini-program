@@ -64,7 +64,7 @@
           <text>待结算</text>
         </view>
         <view catchtap='_goResidual'>
-          <text class='purse_num'>{{userItem.UserBalance || 0}}</text>
+          <text class='purse_num'>{{userItem.UserIntegral || 0}}</text>
           <text>余额</text>
         </view>
         <view catchtap='_goIntegral'>

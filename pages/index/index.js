@@ -274,7 +274,7 @@ Page({
     this.setData({
       hidden: true
     })
-    var page = this.data.page+1
+    var page = this.data.page + 1
     var _goodsItems = this.data.goodsItems
     home.goodsList({
         page: page,
@@ -338,6 +338,13 @@ Page({
       mask: false
     })
   },
-
+  binderrorimg: function(e) {
+    var idx = e.target.dataset.errorimg //获取循环的下标
+    var goodList = this.data.goodsItems
+    goodList[idx].PicUrl = '../../images/avator.png'
+    this.setData({
+      goodList: goodList
+    })
+  },
   onShareAppMessage: function() {}
 })

@@ -271,8 +271,8 @@
   line-height: 99rpx;
   font-size: 30rpx;
   border-radius: 0 !important;
-  border-right: none !important;
   border: none !important;
+  position: static !important;
 }
 
 .icon-kefu, .icon-shouye, .icon-goumai {
@@ -399,6 +399,7 @@
 }
 
 .submit {
+  border-radius: 0 !important;
   width: 100%;
   height: 95rpx;
   color: #fff;
@@ -428,7 +429,7 @@
 }
 
 .swiper_item {
-  animation: scaleImg .5s ease;
+  animation: scaleImg 0.5s ease;
 }
 
 @keyframes scaleImg {
@@ -444,7 +445,7 @@
 }
 
 .swiper_item-none {
-  animation: scaleNoImg .5s ease;
+  animation: scaleNoImg 0.5s ease;
 }
 
 @keyframes scaleNoImg {

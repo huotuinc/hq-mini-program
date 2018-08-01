@@ -13,9 +13,10 @@ Page({
   data: {
     currentTab: 0,
     winHeight: windowHeight(),
-    orderStatus: ["全部", "待付款", "代发货", "待收货", "已收货"],
+    orderStatus: ["全部", "待付款", "待发货", "待收货", "已收货"],
     pageIndex: 1,
-    pageSize: 20
+    pageSize: 20,
+    loading: true
   },
   //类目切换
   swichNav: function(e) {
@@ -25,7 +26,9 @@ Page({
     }
     this._getOrderList(cur)
     this.setData({
-      currentTab: cur
+      currentTab: cur,
+      loading: true,
+      itemList: ''
     })
   },
 
@@ -44,7 +47,8 @@ Page({
   _cancelOrder: function(e) {
     var self = this
     var orderStatus = this.data.currentTab
-    var orderId = e.currentTarget.dataset.order[0].orderId
+    var orderId = e.currentTarget.dataset.order
+    console.log(e, orderStatus, orderId)
     wx.showModal({
       content: '您确认要取消当前订单吗？',
       success: function(res) {
@@ -52,14 +56,14 @@ Page({
           orderList.closeOrder({
             orderId: orderId
           }, function(req) {
-            console.log(req)
             wx.showLoading({
               title: '取消中...',
               icon: 'loading',
               success: function() {
-                if (req) {
+                if (req.data.code == 200) {
                   wx.showLoading({
                     title: '取消成功',
+                    icon: 'success'
                   })
                   self._getOrderList(orderStatus)
                   wx.hideLoading()
@@ -136,7 +140,8 @@ Page({
     }
     orderList.getOrderList(data, function(res) {
       self.setData({
-        itemList: res.data.data
+        itemList: res.data.data,
+        loading: false
       })
     })
   },
@@ -149,43 +154,13 @@ Page({
     this.setData({
       currentTab: options.currenttab
     })
-
-    wx.showLoading({
-      title: '正在加载...',
-      success: function() {
-        self._getOrderList(options.currenttab)
-        wx.hideLoading()
-      }
-    })
+    this._getOrderList(options.currenttab)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
 
   /**
    * 页面上拉触底事件的处理函数

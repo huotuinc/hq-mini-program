@@ -5,7 +5,8 @@ Page({
 
   data: {
     pageSize: 10,
-    pageIndex: 1
+    pageIndex: 1,
+    loading: true
   },
   _goSaleDetail: function(e) {
     var afterId = e.currentTarget.dataset.afterid
@@ -22,27 +23,14 @@ Page({
       customerId: customerId
     }
     user.getSalesList(data, function(res) {
-      console.log(res)
       self.setData({
-        itemList: res.list
+        itemList: res.list,
+        loading: false
       })
     })
   },
-
-  onLoad: function(options) {
-    var customerId = 0
-    var that = this
-    wx.showToast({
-      title: '努力加载中...',
-      icon: 'loading',
-      success: function() {
-        that._getSalesList(customerId)
-        wx.hideToast()
-      }
-    })
-  },
-
   onShow: function() {
-
+    var customerId = app.globalData.customerId
+    this._getSalesList(customerId)
   }
 })

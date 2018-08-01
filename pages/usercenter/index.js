@@ -74,9 +74,13 @@ Page({
     var self = this
     user.userIndex(function(res) {
       if (res.data.code == 200) {
+        var data = res.data.data
+        data.UserIntegral = (data.UserIntegral) / 100
+        data.UserTempIntegral = (data.UserTempIntegral) / 100
         self.setData({
-          userItem: res.data.data
+          userItem: data
         })
+
         wx.setStorage({
           key: 'userTelInfo',
           data: res.data.data.UserName,
@@ -109,7 +113,7 @@ Page({
   /**
    * 客服
    */
-  _goService:function(e){
+  _goService: function(e) {
     wx.switchTab({
       url: '../service/index',
     })
