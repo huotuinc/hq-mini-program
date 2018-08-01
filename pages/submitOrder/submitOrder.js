@@ -64,11 +64,9 @@ Page({
     })
     //获取用户钱包
     walletaccount(null, function(ret) {
-      if (ret.data.code == 200) {
         self.setData({
-          walletData: ret.data.data
+          walletData: ret.data
         })
-      }
     })
 
   },
@@ -222,14 +220,14 @@ Page({
       //获取用户可使用的觅豆
       var _amount = self.data.walletData.UsefulMiBean;
       if (_amount && _amount>0){
-        if (_resultAmount.SurplusAmount >= _amount) {
+        if (_resultAmount.SurplusAmount >= _amount/100) {
           payedAdvance.amount = _amount;
         } else {
-          payedAdvance.amount = _resultAmount.SurplusAmount;
+          payedAdvance.amount = _resultAmount.SurplusAmount*100;
         }
       }
       payedAdvance.amount = parseFloat(payedAdvance.amount).toFixed(0);
-      _resultAmount.SurplusAmount = _resultAmount.SurplusAmount - payedAdvance.amount;
+      _resultAmount.SurplusAmount = _resultAmount.SurplusAmount - payedAdvance.amount/100;
       self.setData({
         payedAdvance: payedAdvance,
         resultAmount: _resultAmount
