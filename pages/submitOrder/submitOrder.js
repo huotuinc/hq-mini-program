@@ -320,7 +320,7 @@ Page({
       if (result.code == 200) {
         var orderid = result.data.UnionOrderId;
         //剩余需要付的金额，当等于0时，表示已经完全抵用
-        var _surplusMoney = result.data.SurplusMoney;
+        var _surplusMoney = result.data.SurplusAmount;
         
         if (_surplusMoney > 0) {
           var _p = {
