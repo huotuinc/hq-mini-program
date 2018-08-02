@@ -171,12 +171,6 @@ Page({
 
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
   //获取收货地址
   chooseAddress: function (e) {
     if (this.data.loading) return;
@@ -303,6 +297,9 @@ Page({
       })
       return;
     }
+    self.setData({
+      loading:true
+    })
     var cashScore = 0;
     if (chargeCasher.status) {
       cashScore = (parseFloat(chargeCasher.amount) * self.data.cashRate).toFixed(0);
@@ -341,8 +338,7 @@ Page({
             paySign: result.data.paySign
           }
           //发起支付      
-          wxpay(_p, function (res) {
-            console.log(res);
+          wxpay(_p, function (res) {            
             if (res.errMsg.indexOf("requestPayment:ok") >= 0) {
               self._goPayResult(orderid, true);
             } else if (res.errMsg.indexOf("requestPayment:fail") >= 0 || res.errMsg.indexOf("requestPayment:cancel") >= 0) {
@@ -363,8 +359,11 @@ Page({
       }
       else {
         wx.showToast({
-          title: '支付失败',
+          title: result.msg,
           icon: "none"
+        })
+        self.setData({
+          loading: false
         })
       }
     });
