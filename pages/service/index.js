@@ -14,14 +14,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log("onLoad")
+  onLoad: function (options) {    
   },
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    console.log("onShow")    
+  onShow: function () {    
     try {
       var value = wx.getStorageSync('service_goods_details')
       if (value) {
@@ -36,8 +34,9 @@ Page({
     var title = options.title || ''
     var price = options.price || ''    
     var goodsId = options.goodsId||''
+    var orderId = options.orderId||''
     this.setData({
-      serviceUrl: config.host + "/service?userid=" + userId + "&title=" + title + "&price=" + price + "&goodsId="+goodsId
+      serviceUrl: config.host + "/service?userid=" + userId + "&title=" + title + "&price=" + price + "&goodsId=" + goodsId + "&orderId=" + orderId
     })
   }
 })
