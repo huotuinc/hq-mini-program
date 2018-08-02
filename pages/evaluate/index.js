@@ -64,7 +64,7 @@
    _submitEvaluate: function(e) {
      var productId = this.data.goodsOrder.productId
      var orderId = this.data.goodsOrder.orderId
-     // var goodsId = this.data
+     var goodsId = this.data.goodsOrder.goodsId
      var score = this.data.starData.starSelect
      var content = this.data.content
      var imgs = this.data.imageList
@@ -85,6 +85,7 @@
      order.submitEvaluate({
        productId: productId,
        orderId: orderId,
+       goodsId: goodsId,
        content: content,
        imgs: imgs,
        score: score

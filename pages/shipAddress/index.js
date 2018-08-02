@@ -6,7 +6,8 @@ Page({
 
   data: {
     startX: 0, //开始坐标
-    startY: 0
+    startY: 0,
+    loading: true
   },
 
   //手指触摸动作开始 记录起点X坐标
@@ -78,7 +79,8 @@ Page({
     user.addressList(function(res) {
       if (res.data.code == 200) {
         self.setData({
-          addressList: res.data.data
+          addressList: res.data.data,
+          loading: false
         })
       }
 

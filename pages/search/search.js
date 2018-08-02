@@ -30,16 +30,24 @@ Page({
   confirmSearch: function(e) {
     let searchList = []
     var that = this
-    searchList.push(this.data.inputSearch)
-    //对搜索记录去重并且按搜索先后顺序进行排序
-    this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
-    wx.setStorage({
-      key: 'historyList',
-      data: that.data.historyList
-    })
-    wx.navigateTo({
-      url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyword=' + this.data.inputSearch
-    })
+    var str = this.data.inputSearch
+    for (let idx in str) {
+      if (str.indexOf(" ") != -1) {
+        str = str.replace(" ", "")
+      }
+    }
+    if (str){
+      searchList.push(str)
+      //对搜索记录去重并且按搜索先后顺序进行排序
+      this.data.historyList = Array.from(new Set(searchList.concat(this.data.historyList)))
+      wx.setStorage({
+        key: 'historyList',
+        data: that.data.historyList
+      })
+      wx.navigateTo({
+        url: '../goodslist/goods-list?search=1&categoryTitle=搜索结果&keyword=' + this.data.inputSearch
+      })
+    }
   },
 
   clearHistory: function(e) {

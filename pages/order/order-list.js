@@ -148,30 +148,17 @@ Page({
       orderId: orderId
     }, function(res) {
       wx.hideLoading({
-        title: '正在加载...',
+        title: 'loading...',
+        icon: 'loading',
         success: function() {
-          self._getOrderList()
-          wx.hideLoading(orderStatus)
+          var currentTab = 4
+          self.setData({
+            currentTab: currentTab
+          })
+          self._getOrderList(currentTab)
+          wx.hideLoading()
         }
       })
-    })
-  },
-
-  //评价
-  _evaluateOrder: function(e) {
-    var goodsOrder = e.currentTarget.dataset.order[0]
-    var order = {
-      orderId: goodsOrder.orderId,
-      productId: goodsOrder.orderItemList[0].productid,
-      proPic: goodsOrder.orderItemList[0].proPic,
-      name: goodsOrder.orderItemList[0].name,
-    }
-    wx.setStorage({
-      key: 'goodsOrder',
-      data: order,
-    })
-    wx.navigateTo({
-      url: '../evaluate/index',
     })
   },
   //获取订单列表
@@ -195,13 +182,14 @@ Page({
    */
   onLoad: function(options) {
     var self = this
+    var currenttab = options.currenttab || 0
     this.setData({
-      currentTab: options.currenttab
+      currentTab: currenttab
     })
-    this._getOrderList(options.currenttab)
+    this._getOrderList(currenttab)
   },
   onShow: function() {},
-  
+
   onPullDownRefresh: function() {
     self.setData({
       loading: true
@@ -233,6 +221,14 @@ Page({
           itemList: itemList.concat(res.data.data),
           loading: false,
           pageIndex: page
+        })
+      } else {
+        self.setData({
+          loading: false,
+        })
+        wx.showToast({
+          title: '没有更多记录...',
+          icon: 'none'
         })
       }
     })

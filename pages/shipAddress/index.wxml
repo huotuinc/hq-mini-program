@@ -1,5 +1,7 @@
 <import src="../template/shuju/shuju" />
-<view wx:if="{{!addressList.length}}">
+<import src="../template/loading/loading.wxml" />
+
+<view wx:if="{{!addressList.length && !loading}}">
   <template is="shuju" />
 </view>
 
@@ -25,6 +27,8 @@
     </view>
   </view>
 </view>
+
+<template is="loading" wx:if="{{loading}}" />
 
 <view style='height:100rpx;'></view>
 <view class='add_address' catchtap='_goAddAddress'>

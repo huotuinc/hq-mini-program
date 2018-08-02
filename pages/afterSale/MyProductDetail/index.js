@@ -18,7 +18,7 @@ Page({
   _goSubmitReturnProduct: function(e) {
     var saleDetail = this.data.saleDetail
     wx.navigateTo({
-      url: '../SubmitReturnProduct/index?orderId=' + saleDetail.OrderId + '&productId=' + saleDetail.ProductId+ '&afterId=' + saleDetail.AfterId,
+      url: '../SubmitReturnProduct/index?orderId=' + saleDetail.OrderId + '&productId=' + saleDetail.ProductId + '&afterId=' + saleDetail.AfterId,
     })
   },
 
@@ -48,7 +48,6 @@ Page({
         }
       }
     })
-
   },
 
   /**
@@ -66,7 +65,7 @@ Page({
   getAfterSaleDetail: function(afterId) {
     var self = this
     afterSale.afterSaleDetail({
-      afterId: afterId
+      afterSaleId: afterId
     }, function(res) {
       var saleDetail = res.data.data
       for (let idx in saleDetail.AfterItems) {
@@ -87,7 +86,6 @@ Page({
     this.setData({
       afterId: options.afterId
     })
-    this.getAfterSaleDetail(options.afterId)
   },
 
   /**

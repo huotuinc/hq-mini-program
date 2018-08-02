@@ -46,6 +46,22 @@ Page({
   },
 
   confirmSearch: function(e) {
+    let searchList = []
+    var str = this.data.keyword
+    for (let idx in str) {
+      if (str.indexOf(" ") != -1) {
+        str = str.replace(" ", "")
+      }
+    }
+    if (str) {
+      searchList.push(str)
+      var historyList = wx.getStorageSync('historyList')
+      historyList = Array.from(new Set(searchList.concat(historyList)))
+      wx.setStorage({
+        key: 'historyList',
+        data: historyList
+      })
+    }
     this.getGoodsList()
   },
 

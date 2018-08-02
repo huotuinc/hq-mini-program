@@ -15,7 +15,7 @@
     <view class='record-item'>
       <view class='item-left'>
         <text class='money_name'>{{item.ApplyMoney}}元</text>
-        <text class="{{item.ApplyStatus =='等待审核' || item.ApplyStatus=='审核失败' ? 'item-status' :''}}">{{item.ApplyStatus}}</text>
+        <text class="{{item.ApplyStatus =='审核中,请耐心等待！' || item.ApplyStatus=='审核失败' ? 'item-status' :''}}">{{item.ApplyStatus}}</text>
       </view>
       <view class='item-right'>
         <text class='money_name'>{{item.RealName}}</text>

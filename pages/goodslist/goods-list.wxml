@@ -35,7 +35,7 @@
   </view>
   <view class=" separator'}}"></view>
   <view class='goods_list-content'>
-    <view wx:if="{{!goodsItems.length>0}}" style="width:100%;text-align:center;">暂时没有查到商品</view>
+    <view wx:if="{{!goodsItems.length>0 && !loading}}" style="width:100%;text-align:center;">暂时没有查到商品</view>
     <block wx:for="{{goodsItems}}" wx:key="item">
       <template is="itemTwo" data="{{item,index}}" />
     </block>

@@ -8,20 +8,6 @@ Page({
     pageSize: 10,
     loading: true
   },
-  onLoad: function(options) {
-    var self = this
-    wallet.applyList({
-        pageIndex: 1,
-        pageSize: 10
-      },
-      function(res) {
-        self.setData({
-          applyList: res.data.data.list,
-          loading: false
-        })
-      }
-    )
-  },
   getApplyList: function(e) {
     var self = this
     wallet.applyList({
@@ -29,10 +15,12 @@ Page({
         pageSize: self.data.pageSize
       },
       function(res) {
-        self.setData({
-          applyList: res.data.data.list,
-          loading: false
-        })
+        if (res.data.code == 200) {
+          self.setData({
+            applyList: res.data.data,
+            loading: false
+          })
+        }
       }
     )
   },
@@ -52,21 +40,23 @@ Page({
         pageSize: self.data.pageSize
       },
       function(res) {
-        if (res.data.data.lost.length > 0) {
-          self.setData({
-            applyList: applyList.concat(res.data.data.list),
-            loading: false,
-            pageIndex: page,
-            loading: false
-          })
-        } else {
-          self.setData({
-            loading: false
-          })
-          wx.showToast({
-            title: '没有更多啦...',
-            icon: 'none'
-          })
+        if (res.data.code == 200) {
+          if (res.data.data.lost.length > 0) {
+            self.setData({
+              applyList: applyList.concat(res.data.data),
+              loading: false,
+              pageIndex: page,
+              loading: false
+            })
+          } else {
+            self.setData({
+              loading: false
+            })
+            wx.showToast({
+              title: '没有更多啦...',
+              icon: 'none'
+            })
+          }
         }
       }
     )
