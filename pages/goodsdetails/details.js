@@ -171,7 +171,8 @@ Page({
     var _details = {
       title: encodeURI(this.data.goodsItem.Base.Name) || '',
       price: viewDataResponsity.getUserPrice(0),
-      goodsId: this.data.goodsItem.Base.GoodsId || 0
+      goodsId: this.data.goodsItem.Base.GoodsId || 0,
+      orderId:''
     }
     try {
       wx.setStorageSync('service_goods_details', _details)
