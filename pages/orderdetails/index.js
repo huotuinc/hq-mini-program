@@ -78,24 +78,6 @@ Page({
       url: '../evaluate/index',
     })
   },
-  // _goService: function() {
-  //   // var _details = {
-  //   //   title: encodeURI(this.data.goodsItem.Base.Name) || '',
-  //   //   price: viewDataResponsity.getUserPrice(0),
-  //   //   goodsId: this.data.goodsItem.Base.GoodsId || 0,
-  //   //   orderId: ''
-  //   // }
-  //   // try {
-  //   //   wx.setStorageSync('service_goods_details', _details)
-  //   // } catch (e) {
-  //   // }
-  //   // wx.switchTab({
-  //   //   url: '../service/index'
-  //   // })
-  //   wx.switchTab({
-  //     url: '../service/index',
-  //   })
-  // },
   onLoad: function(options) {
     this.setData({
       orderId: options.orderId
