@@ -33,7 +33,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           afterSale.cancelAfterSale({
-            afterId: afterId
+            afterSaleId: afterId
           }, function(res) {
             if (res.data.code == 200) {
               wx.showToast({

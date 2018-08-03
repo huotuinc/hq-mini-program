@@ -41,7 +41,7 @@ Page({
       },
       function(res) {
         if (res.data.code == 200) {
-          if (res.data.data.lost.length > 0) {
+          if (res.data.data.length > 0) {
             self.setData({
               applyList: applyList.concat(res.data.data),
               loading: false,

@@ -152,7 +152,7 @@ Page({
         if (data.Base.CommentModel != null) {
           var _commentData = self.data.commentData;
           _commentData.num = data.Base.CommentModel.CommentNum
-          _commentData.praise = ((data.Base.CommentModel.CommentScore / (_commentData.num * 5) * 100)).toFixed(1)
+          _commentData.praise = ((data.Base.CommentModel.CommentScore / (_commentData.num * 5) * 100))
 
           //评论列表
           var commentItems = data.Base.CommentModel.CommentItems
@@ -162,8 +162,6 @@ Page({
             }
           }
         }
-
-
         self.setData({
           goodsItem: data,
           loading: false,

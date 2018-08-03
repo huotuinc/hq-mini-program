@@ -144,21 +144,26 @@ Page({
     var self = this
     var orderStatus = this.data.currentTab
     var orderId = e.currentTarget.dataset.order[0].orderId
-    orderList.confirmOrder({
-      orderId: orderId
-    }, function(res) {
-      wx.hideLoading({
-        title: 'loading...',
-        icon: 'loading',
-        success: function() {
-          var currentTab = 4
-          self.setData({
-            currentTab: currentTab
+    wx.showModal({
+      content: '您确认收货吗？',
+      success: function(res) {
+        self.setData({
+          loading: true
+        })
+        if (res.confirm) {
+          orderList.confirmOrder({
+            orderId: orderId
+          }, function(res) {
+            if (res.data.code == 200) {
+              var currentTab = 4
+              self.setData({
+                currentTab: currentTab
+              })
+              self._getOrderList(currentTab)
+            }
           })
-          self._getOrderList(currentTab)
-          wx.hideLoading()
         }
-      })
+      }
     })
   },
   //获取订单列表
