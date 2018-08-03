@@ -87,7 +87,7 @@ Page({
   //去评论列表页面
   _goCommentList: function(e) {
     wx.navigateTo({
-      url: '../evaluate/conmmentList/index?goodsid=1',
+      url: '../evaluate/conmmentList/index?goodsid=' + this.data.goodsItem.Base.GoodsId,
     })
   },
   /**
@@ -152,15 +152,25 @@ Page({
         if (data.Base.CommentModel != null) {
           var _commentData = self.data.commentData;
           _commentData.num = data.Base.CommentModel.CommentNum
-          _commentData.praise = ((data.Base.CommentModel.CommentScore * 100)).toFixed(1)
+          _commentData.praise = ((data.Base.CommentModel.CommentScore / (_commentData.num * 5) * 100)).toFixed(1)
+
+          //评论列表
+          var commentItems = data.Base.CommentModel.CommentItems
+          if (commentItems.length > 0) {
+            for (let idx in commentItems) {
+              commentItems[idx].ImgList = commentItems[idx].ImgList.split(",")
+            }
+          }
         }
+
 
         self.setData({
           goodsItem: data,
           loading: false,
           specData: _specData,
           shopNum: data.Base.Store <= 0 ? 0 : self.data.shopNum,
-          commentData: _commentData
+          commentData: _commentData,
+          commentItems: commentItems
         })
       }
     })
@@ -395,7 +405,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     var self = this
     var shareData = {
       title: self.data.categoryTitle,

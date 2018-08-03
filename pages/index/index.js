@@ -79,7 +79,6 @@ Page({
 
   // 监听滚动条坐标
   onPageScroll: function(e) {
-    //console.log(e)
     var that = this
     var scrollTop = e.scrollTop
     var backTopValue = scrollTop > 500 ? true : false
@@ -247,7 +246,6 @@ Page({
       refermid: _refermid == 0 ? (options.refermid || 0) : _refermid
     })
     setRefermid(self.data.refermid)
-
   },
   /**
    * 生命周期函数--监听页面显示

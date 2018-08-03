@@ -43,8 +43,9 @@
 }
 
 .product-img-module image {
-  /* height: 160rpx; */
-  width: 100%;
+  height: 160rpx;
+  width: 160rpx;
+  margin: 1%;
   border-radius: 8rpx;
 }
 

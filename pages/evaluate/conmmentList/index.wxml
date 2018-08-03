@@ -1,3 +1,6 @@
+<import src="../../template/loading/loading.wxml" />
+<template is="loading" wx:if="{{loading}}" />
+
 <view class="comment-list">
   <blcok wx:for="{{commentList}}" wx:key="*this" wx:for-item="item">
     <view>
@@ -16,8 +19,8 @@
         <view class='saidan-bottom'>
           <view class='saidan-content'>{{item.content}}</view>
           <view class='product-img-module'>
-            <view class='image-center' wx:for="{{item.commentImages}}" wx:key="*this" wx:for-item="img">
-              <image src='{{img}}'></image>
+            <view class='image-center' wx:for='{{item.commentImages}}' wx:key="*this" wx:for-item="img">
+              <image src='{{img}}' mode="aspectFit"></image>
             </view>
           </view>
         </view>
