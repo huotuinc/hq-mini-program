@@ -6,7 +6,7 @@
       <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
         <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
           <swiper-item>
-            <view class="swiper-item">                        
+            <view class="swiper-item">
               <image lazy-load='true' src="{{item.PicUrl}}" bindload="imageLoad" mode='widthFix' style='width:100%'></image>
             </view>
           </swiper-item>
@@ -137,8 +137,10 @@
     购物车
   </view>
   <view class='item-bar-right'>
-    <button class='item-bar buy' open-type='getUserInfo' data-btntext="加入购物车" data-btnbuy='false' data-statu="open" bindgetuserinfo="powerUserDrawer">加入购物车</button>
-    <button class='item-bar share' open-type='getUserInfo' data-btntext="立即购买" data-btnbuy='true' bindgetuserinfo="powerUserDrawer" data-statu="open">立即购买</button>
+    <!-- <button class='item-bar buy' open-type='getUserInfo' data-btntext="加入购物车" data-btnbuy='false' data-statu="open" bindgetuserinfo="powerUserDrawer">加入购物车</button>
+    <button class='item-bar share' open-type='getUserInfo' data-btntext="立即购买" data-btnbuy='true' bindgetuserinfo="powerUserDrawer" data-statu="open">立即购买</button> -->
+    <view class='item-bar buy' data-btntext="加入购物车" data-btnbuy='false' data-statu="open" catchtap="powerUserDrawer">加入购物车</view>
+    <view class='item-bar share' data-btntext="立即购买" data-btnbuy='true' catchtap="powerUserDrawer" data-statu="open">立即购买</view>
   </view>
 </view>
 
