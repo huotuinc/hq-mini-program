@@ -241,7 +241,7 @@ Page({
 
     var _amount = self.data.walletData.UsefulIntegralAmount;
     //获取最高可抵用的积分
-    var _TotalCashScoreEnabled = self.orderInfo.TotalCashScoreEnabled / 100;
+    var _TotalCashScoreEnabled = self.data.orderInfo.TotalCashScoreEnabled / 100;
     if (!_amount || _amount <= 0) return;
     if (_TotalCashScoreEnabled <= 0) return;
     if (_amount > _TotalCashScoreEnabled) {

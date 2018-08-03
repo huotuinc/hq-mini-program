@@ -403,10 +403,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var self = this
+    console.debug(self)
     var shareData = {
-      title: this.data.categoryTitle,
+      title: self.data.categoryTitle,
       desc: '',
-      path: '/pages/goodsdetails/details?refermid=' + app.globalData.userId
+      path: '/pages/goodsdetails/details?refermid=' + app.globalData.userId + "&goodsid=" + self.data.goodsItem.Base.GoodsId
     }
     return shareData;
   },
