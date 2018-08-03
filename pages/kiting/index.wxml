@@ -5,7 +5,7 @@
 
 <view class='kiting-information' catchtap='_goAccount' data-accountId='{{applyData.AccountId}}' wx:else>
   <view>选择提现账户</view>
-</view> 
+</view>
 
 <view style='height:10rpx;background-color:#F0EFF5;'></view>
 <view class='operate'>
@@ -30,9 +30,10 @@
   <view class='state'>
     <view style=' font-weight:600;'>提现说明:</view>
     <view>
-      <text>1.普通会员积分只能用于商城消费抵扣，不能用于提现。</text>
+      <text>1.起提金额为{{applyData.BaseMoney}}元</text>
+      <text>2.每月提现次数为{{applyData.MonthCount}}次</text>
+    </view>
   </view>
-</view>
 </view>
 
 <view wx:if="{{wallets_password_flag}}" class="wallets-password">

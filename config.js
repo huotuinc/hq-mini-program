@@ -98,7 +98,7 @@ var config = {
   //评论点赞
   commentLike: `${host}/user/commentLike`,
   //买家留言提交
-  saleComment: `${host}/aftersales/leaveMessage`,
+  saleComment: `${host}/user/leaveMessage`,
   //物流提交
   savelogic: `${host}/aftersales/savelogic`,
   //发送验证码
@@ -140,7 +140,9 @@ var config = {
   //支付密码判断
   judgePayWord: `${host}/user/JudgePayWord`,
   //预览小店
-  storeInfo: `${host}/store/info`
+  storeInfo: `${host}/store/info`,
+  //图片上传
+  uploadPicture: `${host}/other/uploadPicture`
 }
 
 module.exports = config

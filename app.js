@@ -208,5 +208,33 @@ App({
       }
     })
     return requestTask;
+  },
+
+  uploadFile: function(data, callback) {
+    var self = this
+    wx.uploadFile({
+      url: config.uploadPicture,
+      filePath: data,
+      name: 'file',
+      header: {
+        "Content-Type": "multipart/form-data",
+      },
+      success: function(res) {
+        if (res.statusCode == 200) {
+          callback({
+            data: res.data
+          })
+        } else {
+          wx.showToast({
+            title: '上传图片过大',
+            icon: 'none'
+          })
+        }
+
+      },
+      fail: function(err) {
+        console.log(err)
+      }
+    })
   }
 })

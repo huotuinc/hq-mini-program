@@ -18,7 +18,7 @@ export function collection(goodsId, remove) {
       data: {
         goodsid: goodsId
       },
-      success: function (res) { }
+      success: function(res) {}
     })
   } else {
     app.request({
@@ -26,7 +26,7 @@ export function collection(goodsId, remove) {
       data: {
         ids: goodsId.toString()
       },
-      success: function (res) { }
+      success: function(res) {}
     })
   }
 }
@@ -34,7 +34,7 @@ export function collection(goodsId, remove) {
 export function windowHeight() {
   var windowHeight = 0
   wx.getSystemInfo({
-    success: function (res) {
+    success: function(res) {
       var clientHeight = res.windowHeight,
         clientWidth = res.windowWidth,
         rpxR = 750 / clientWidth
@@ -86,15 +86,15 @@ export function wxpay(data, callback) {
     package: data.package,
     signType: 'MD5',
     paySign: data.paySign,
-    success: function (res) {
-      if (typeof callback == 'function') {       
-          callback(res);        
+    success: function(res) {
+      if (typeof callback == 'function') {
+        callback(res);
       }
     },
-    fail: function (res) {
+    fail: function(res) {
 
     },
-    complete: function (res) {
+    complete: function(res) {
       if (typeof callback == 'function') {
         if (res.errMsg.indexOf("requestPayment:ok") < 0) {
           callback(res)
@@ -110,7 +110,7 @@ export function wxpay(data, callback) {
 export function userInfomation(callback) {
   wx.getStorage({
     key: 'login',
-    success: function (res) {
+    success: function(res) {
       callback(res.data)
     }
   })
@@ -123,7 +123,7 @@ export function getRefermid() {
     if (value) {
       return value
     }
-  } catch (e) { }
+  } catch (e) {}
   return 0
 }
 /**设置分享引导人ID */
@@ -131,5 +131,5 @@ export function setRefermid(value) {
   try {
     if (value == null || typeof value == 'undefined') value = 0
     wx.setStorageSync('refermid', value)
-  } catch (e) { }
+  } catch (e) {}
 }

@@ -12,11 +12,9 @@ var applyAfterSale = function(data, callback) {
     url: config.afterSales,
     data: data,
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          data: res.data
-        })
-      }
+      callback({
+        data: res.data
+      })
     }
   })
 }
@@ -29,11 +27,9 @@ var getApplyAfterSale = function(data, callback) {
     url: config.getApplyAfterSale,
     data: data,
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          data: res.data
-        })
-      }
+      callback({
+        data: res.data
+      })
     }
   })
 }
@@ -46,11 +42,9 @@ var afterSaleDetail = function(data, callback) {
     url: config.afterSaleDetail,
     data: data,
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          data: res.data
-        })
-      }
+      callback({
+        data: res.data
+      })
     }
   })
 }
@@ -63,11 +57,9 @@ var cancelAfterSale = function(data, callback) {
     url: config.cancelAfterSale,
     data: data,
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          data: res.data
-        })
-      }
+      callback({
+        data: res.data
+      })
     }
   })
 }
@@ -80,11 +72,9 @@ var submitLogistics = function(data, callback) {
     url: config.submitLogistics,
     data: data,
     success: function(res) {
-      if (res.data.code == 200) {
-        callback({
-          data: res.data
-        })
-      }
+      callback({
+        data: res.data
+      })
     }
   })
 }

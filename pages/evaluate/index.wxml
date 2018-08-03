@@ -9,7 +9,7 @@
 
 <view class='evaluate-title'>
   <text>留言</text>
-</view> 
+</view>
 
 <view class='evaluate-content'>
   <view class="textarea-wrp">
@@ -30,9 +30,8 @@
 </view>
 
 <view class='evaluate-title'>
-  <text>上传图片（最多8张）</text>
+  <text>上传图片</text>
 </view>
-
 <view class='pic-proof'>
   <view class="weui-cells">
     <view class="weui-cell">
@@ -42,9 +41,9 @@
           </view>
           <view class="weui-uploader__bd">
             <view class="weui-uploader__files">
-              <block wx:for="{{imageList}}" wx:for-item="image">
+              <block wx:for="{{imgLists}}" wx:for-item="image">
                 <view class="weui-uploader__file">
-                  <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
+                  <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}"></image>
                 </view>
               </block>
             </view>

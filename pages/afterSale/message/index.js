@@ -26,9 +26,23 @@ Page({
         content: self.data.txtmemo
       },
       function(res) {
-        wx.showToast({
-          title: '发送成功'
-        })
+        console.log(res)
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '发送成功',
+            success: function() {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          })
+        } else {
+          wx.showToast({
+            title: '网络异常..',
+            icon: 'none'
+          })
+        }
+
       }
     )
   },

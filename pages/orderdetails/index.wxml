@@ -7,7 +7,7 @@
       <text>下单时间：{{orderDetail.createTime}}</text>
     </view>
     <view>
-      <text>订单状态：【{{orderDetail.payStatus == 0?'未付款':'已付款'}}】【{{orderDetail.shipStatus == 0?'未发货':'已发货'}}】</text>
+      <text>订单状态：【{{orderDetail.payStatus == 0?'未付款':(orderDetail.payStatus == 3?'部分付款':'已付款')}}】【{{orderDetail.shipStatus == 0?'未发货':'已发货'}}】</text>
     </view>
   </view>
 
@@ -42,8 +42,8 @@
               <text style='color: #999;'>x{{item.num}}</text>
             </view>
           </view>
-          <view class='comment ' wx:if='{{orderDetail.payStatus!=0}}'>
-            <text catchtap='goEvaluate' wx:if="{{!item.isComment}}" data-order='{{item}}' data-orderId="{{orderDetail.orderId}}">评价</text>
+          <view class='comment ' wx:if='{{orderDetail.payStatus !=0}}'>
+            <text catchtap='goEvaluate' wx:if="{{!item.isComment && orderDetail.payStatus !=3}}" data-order='{{item}}' data-orderId="{{orderDetail.orderId}}">评价</text>
             <text class='after-sale' catchtap='goAfterSale' data-index="{{index}}" data-saleAfterStatus='{{item.saleAfterStatus}}' data-afterId='{{item.afterId}}'>{{item.statusName}}</text>
           </view>
         </view>
@@ -101,7 +101,7 @@
     </view>
   </view>
 
-  <view class='contact-service ' catchtap='_goService'>联系客服</view>
+  <!-- <view class='contact-service ' catchtap='_goService'>联系客服</view> -->
 
   <view class='logistics '>
     <view class='logistics-title '>物流信息</view>

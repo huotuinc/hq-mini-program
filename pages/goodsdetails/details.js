@@ -178,8 +178,6 @@ Page({
       wx.setStorageSync('service_goods_details', _details)
     } catch (e) {
     }
-
-
     wx.switchTab({
       url: '../service/index'
     })

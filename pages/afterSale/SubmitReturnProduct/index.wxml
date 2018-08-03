@@ -84,7 +84,7 @@
     </view>
   </view>
   <view class='pic-proof'>
-    <view>图片举证：(最多5张)</view>
+    <view>图片举证</view>
     <view class="weui-cells">
       <view class="weui-cell">
         <view class="weui-cell__bd">
@@ -93,7 +93,7 @@
             </view>
             <view class="weui-uploader__bd">
               <view class="weui-uploader__files">
-                <block wx:for="{{imageList}}" wx:for-item="image">
+                <block wx:for="{{imgLists}}" wx:for-item="image">
                   <view class="weui-uploader__file">
                     <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
                   </view>

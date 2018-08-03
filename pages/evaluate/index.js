@@ -1,18 +1,18 @@
  import order from '../../utils/request/order.js'
  const app = getApp();
-
  Page({
 
    /**
     * 页面的初始数据
     */
    data: {
-     countIndex: 7,
-     count: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+     count: 1,
      starData: {
        starSelect: 0,
        star: 5
-     }
+     },
+     imgs: [],
+     imageList: []
    },
    //输入评论
    _getInputMessage: function(e) {
@@ -43,20 +43,34 @@
    //上传图片
    chooseImage: function() {
      var that = this
+     var imgList = []
+     var img = []
      wx.chooseImage({
-       count: this.data.count[this.data.countIndex],
+       count: this.data.count,
        success: function(res) {
-         that.setData({
-           imageList: res.tempFilePaths
-         })
+         var tempFilePaths = res.tempFilePaths
+         if (tempFilePaths.length == 1) {
+           app.uploadFile(tempFilePaths[0], function(req) {
+             var data = JSON.parse(req.data)
+             that.setData({
+               fullUrl: data.data.fullUrl,
+               tempFilePaths: tempFilePaths[0]
+             })
+             imgList.push(tempFilePaths[0].toString())
+             img.push(data.data.fullUrl)
+             that.data.imageList = imgList.concat(that.data.imageList)
+             that.data.imgs = img.concat(that.data.imgs)
+             that.setData({
+               imgLists: that.data.imageList
+             })
+           })
+         } else {
+           wx.showToast({
+             title: '单次只能上传一张图片',
+             icon: 'none'
+           })
+         }
        }
-     })
-   },
-   previewImage: function(e) {
-     var current = e.target.dataset.src
-     wx.previewImage({
-       current: current,
-       urls: this.data.imageList
      })
    },
 
@@ -67,7 +81,7 @@
      var goodsId = this.data.goodsOrder.goodsId
      var score = this.data.starData.starSelect
      var content = this.data.content
-     var imgs = this.data.imageList
+     var imgs = this.data.imgs
      if (!content) {
        wx.showToast({
          title: '请输入您的评价',
@@ -87,7 +101,7 @@
        orderId: orderId,
        goodsId: goodsId,
        content: content,
-       imgs: imgs,
+       imgs: imgs.join(",") || '',
        score: score
      }, function(res) {
        wx.showToast({

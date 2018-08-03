@@ -9,9 +9,9 @@ Page({
   data: {
     proposal: ['我要退款', '我要退货并退款'], //申请售后的方式
     pursueReason: ['跟卖家协商,双方同意', '买错,不想要了', '商品质量有问题', '没有收到货', '其他原因'], //售后原因
-    imageList: [], //图片举证
-    countIndex: 4,
-    count: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    imgs: [],
+    imageList: [],
+    count: 1,
     proposalIndex: '',
     idx: ''
   },
@@ -42,20 +42,35 @@ Page({
   //选择图片举证
   chooseImage: function() {
     var that = this
+    var imgList = []
+    var img = []
+    var num = this.data.num
     wx.chooseImage({
-      count: this.data.count[this.data.countIndex],
+      count: this.data.count,
       success: function(res) {
-        that.setData({
-          imageList: res.tempFilePaths
-        })
+        var tempFilePaths = res.tempFilePaths
+        if (tempFilePaths.length == 1) {
+          app.uploadFile(tempFilePaths[0], function(req) {
+            var data = JSON.parse(req.data)
+            that.setData({
+              fullUrl: data.data.fullUrl,
+              tempFilePaths: tempFilePaths[0]
+            })
+            imgList.push(tempFilePaths[0].toString())
+            img.push(data.data.fullUrl)
+            that.data.imageList = imgList.concat(that.data.imageList)
+            that.data.imgs = img.concat(that.data.imgs)
+            that.setData({
+              imgLists: that.data.imageList
+            })
+          })
+        } else {
+          wx.showToast({
+            title: '单次只能上传一张图片',
+            icon: 'none'
+          })
+        }
       }
-    })
-  },
-  previewImage: function(e) {
-    var current = e.target.dataset.src
-    wx.previewImage({
-      current: current,
-      urls: this.data.imageList
     })
   },
 
@@ -80,7 +95,8 @@ Page({
         proposalIndex: res.data.data.selectWay,
         idx: res.data.data.selectReason,
         content: res.data.data.content,
-        imageList: imageList || ''
+        imgLists: imageList || '',
+        imgs: imageList || ''
       })
     })
   },
@@ -96,7 +112,7 @@ Page({
         pics: orderDetail.pics, // 货品图片
         bns: orderDetail.bns, //货号
         content: this.data.content, //售后详细原因
-        imgs: this.data.imageList.join(","), //图片举证
+        imgs: this.data.imgs.join(",") || '', //图片举证
         mobile: orderDetail.mobile, //联系人手机
         price: orderDetail.price, //退款金额
         goodsid: orderDetail.goodsId, //商品Id
@@ -110,7 +126,17 @@ Page({
         costfreight: orderDetail.costFreight //结算金额-所占运费
       }
       afterSale.applyAfterSale(data, function(res) {
-        console.log(res)
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '申请成功',
+            icon: 'success',
+            success: function() {
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          })
+        }
       })
     }
   },

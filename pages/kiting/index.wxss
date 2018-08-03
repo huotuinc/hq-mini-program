@@ -93,6 +93,7 @@ page {
 
 .state text {
   line-height: 1.6;
+  display: block;
 }
 
 .kiting-information::after {

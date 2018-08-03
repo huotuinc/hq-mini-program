@@ -61,7 +61,6 @@ Page({
   },
   // 评论
   goEvaluate: function(e) {
-    // console.log(e.currentTarget.dataset.order)
     var orderId = e.currentTarget.dataset.orderid
     var goodsOrder = e.currentTarget.dataset.order
     var order = {
@@ -79,11 +78,24 @@ Page({
       url: '../evaluate/index',
     })
   },
-  _goService: function() {
-    wx.switchTab({
-      url: '../service/index',
-    })
-  },
+  // _goService: function() {
+  //   // var _details = {
+  //   //   title: encodeURI(this.data.goodsItem.Base.Name) || '',
+  //   //   price: viewDataResponsity.getUserPrice(0),
+  //   //   goodsId: this.data.goodsItem.Base.GoodsId || 0,
+  //   //   orderId: ''
+  //   // }
+  //   // try {
+  //   //   wx.setStorageSync('service_goods_details', _details)
+  //   // } catch (e) {
+  //   // }
+  //   // wx.switchTab({
+  //   //   url: '../service/index'
+  //   // })
+  //   wx.switchTab({
+  //     url: '../service/index',
+  //   })
+  // },
   onLoad: function(options) {
     this.setData({
       orderId: options.orderId
