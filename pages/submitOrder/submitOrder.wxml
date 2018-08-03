@@ -38,7 +38,7 @@
       </view>
       <view class='feedback1'>
         <text>备注留言</text>
-        <input class="weui-input" placeholder='备注留言' value='{{memo}}' />
+        <input class="weui-input" placeholder='备注留言' value='{{memo}}' bindinput='memoChange' />
       </view>
       <view>
         <text>应付金额</text>
