@@ -123,11 +123,6 @@
   background-color: #fff;
 }
 
-.negotiate-details > view {
-  height: 48rpx;
-  line-height: 48rpx;
-}
-
 .sale_img {
   padding: 0 30rpx;
   background-color: #fff;
