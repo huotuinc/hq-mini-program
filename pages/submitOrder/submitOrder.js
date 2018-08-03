@@ -280,6 +280,12 @@ Page({
       })
     }
   },
+  //获取姓名
+  memoChange: function (e) {
+    this.setData({
+      memo: e.detail.value
+    })
+  },
   /**
    * 提交订单
    */
