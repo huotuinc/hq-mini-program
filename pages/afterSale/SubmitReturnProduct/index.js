@@ -168,13 +168,6 @@ Page({
       })
       return false
     }
-    if (!this.data.imageList) {
-      wx.showToast({
-        title: '请上传图片举证',
-        icon: 'none'
-      })
-      return false
-    }
     return true
   },
   /**

@@ -8,8 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    countIndex: 4,
-    count: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    imgs: [],
+    imageList: [],
+    count: 1
   },
   /**
    * 选择物流公司
@@ -54,12 +55,33 @@ Page({
    */
   chooseImage: function() {
     var that = this
+    var imgList = []
+    var img = []
     wx.chooseImage({
-      count: this.data.count[this.data.countIndex],
+      count: this.data.count,
       success: function(res) {
-        that.setData({
-          imgs: res.tempFilePaths
-        })
+        var tempFilePaths = res.tempFilePaths
+        if (tempFilePaths.length == 1) {
+          app.uploadFile(tempFilePaths[0], function(req) {
+            var data = JSON.parse(req.data)
+            that.setData({
+              fullUrl: data.data.fullUrl,
+              tempFilePaths: tempFilePaths[0]
+            })
+            imgList.push(tempFilePaths[0].toString())
+            img.push(data.data.fullUrl)
+            that.data.imageList = imgList.concat(that.data.imageList)
+            that.data.imgs = img.concat(that.data.imgs)
+            that.setData({
+              imgLists: that.data.imageList
+            })
+          })
+        } else {
+          wx.showToast({
+            title: '单次只能上传一张图片',
+            icon: 'none'
+          })
+        }
       }
     })
   },
@@ -86,7 +108,9 @@ Page({
    * 物流提交
    */
   _submitLogistics: function(e) {
-    if (this.isEmpty()) {
+    var disable = true
+    if (this.isEmpty() && disable) {
+      disable = false
       var data = {}
       data.afterSaleId = this.data.afterSaleId //售后单号
       data.logicompany = this.data.logicompany //物流公司
@@ -95,7 +119,18 @@ Page({
       data.txtmemo = this.data.txtmemo //备注留言
       data.imgs = this.data.imgs.join(",") //图片举证
       afterSale.submitLogistics(data, function(res) {
-        console.log(res)
+        // console.log(res)
+        if (res.data.code == 200) {
+          wx.navigateBack({
+            delta: 1
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+        }
+        disable = true
       })
     }
   },
@@ -133,13 +168,6 @@ Page({
     if (!txtmemo) {
       wx.showToast({
         title: '请填写备注信息',
-        icon: 'none'
-      })
-      return false
-    }
-    if (!imgs) {
-      wx.showToast({
-        title: '请上传图片举证',
         icon: 'none'
       })
       return false

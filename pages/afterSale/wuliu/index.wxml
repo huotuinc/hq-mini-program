@@ -46,7 +46,7 @@
 </view>
 
 <view class='evaluate-title'>
-  <text>图片举证（最多5张）</text>
+  <text>图片举证</text>
 </view>
 <view class='pic-proof'>
   <view class="weui-cells">
@@ -57,7 +57,7 @@
           </view>
           <view class="weui-uploader__bd">
             <view class="weui-uploader__files">
-              <block wx:for="{{imgs}}" wx:for-item="image">
+              <block wx:for="{{imgLists}}" wx:for-item="image">
                 <view class="weui-uploader__file">
                   <image class="weui-uploader__img" src="{{image}}" data-src="{{image}}" bindtap="previewImage"></image>
                 </view>
