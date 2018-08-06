@@ -17,7 +17,7 @@ Page({
     order.commentList(
       {
         pageIndex: self.data.pageIndex,
-        pageSize: self.data.pageIndex,
+        pageSize: self.data.pageSize,
         goodsId: self.data.goodsId
       },
       function(res) {

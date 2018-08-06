@@ -176,12 +176,12 @@ Page({
   onLoad: function(options) {
     console.log(options)
     this.setData({
-      afterId: options.afterId || ' '
+      afterId: options.afterId || ''
     })
     this.getOrderSale({
       orderId: options.orderId,
       productId: options.productId,
-      afterId: options.afterId || ' '
+      afterId: options.afterId || ''
     })
   }
 })

@@ -1,15 +1,15 @@
 <view class="withdraw">
   <view catchtap='_goUserMBean'>
     <text>觅豆</text>
-    <text class='withdraw_num'>{{wallet.UserMBean}}</text>
+    <text class='withdraw_num'>{{wallet.UserMBean || 0}}</text>
   </view>
   <view catchtap='_goResidual'>
     <text>余额</text>
-    <text class='withdraw_num'>{{wallet.UserIntegral}}</text>
+    <text class='withdraw_num'>{{wallet.UserIntegral || 0}}</text>
   </view>
   <view catchtap='_goBalance'>
     <text>待结算</text>
-    <text class='withdraw_num'>{{wallet.UserTempIntegral}}</text>
+    <text class='withdraw_num'>{{wallet.UserTempIntegral || 0}}</text>
   </view>
   <view catchtap='_goCouponURL'>
     <text>优惠券</text>

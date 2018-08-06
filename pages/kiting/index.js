@@ -10,7 +10,8 @@ Page({
    */
   data: {
     applyNum: '',
-    wallets_password_flag: false //密码输入遮罩
+    wallets_password_flag: false, //密码输入遮罩
+    applyData: {}
   },
   _goRecord: function(e) {
     wx.navigateTo({
@@ -29,7 +30,7 @@ Page({
   },
 
   _integrallAll: function(e) {
-    var userIntegral = this.data.applyData.UserIntegral
+    var userIntegral = this.data.applyData.UserIntegral || 0
     this.setData({
       applyNum: userIntegral
     })
@@ -103,7 +104,7 @@ Page({
 
   withdrawBtn: function(e) {
     var self = this
-    var userIntegral = Number(this.data.applyData.UserIntegral)
+    var userIntegral = Number(this.data.applyData.UserIntegral) || 0
     var baseMoney = Number(this.data.applyData.BaseMoney)
     var realityIntegral = Number(this.data.applyNum)
     var accountId = this.data.applyData.AccountId
@@ -149,6 +150,7 @@ Page({
       }
     }
   },
+
   /**
    * 获取提现界面信息
    */

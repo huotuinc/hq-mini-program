@@ -11,7 +11,7 @@
         <text>{{orderDetail.productName}}</text>
       </view>
       <view class='price_num'>
-        <text>￥{{orderDetail.productPrice}}</text>
+        <text>￥{{orderDetail.price}}</text>
         <text>x{{orderDetail.productNum}}</text>
       </view>
     </view>
