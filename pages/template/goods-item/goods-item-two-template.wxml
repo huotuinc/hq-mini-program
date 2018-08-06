@@ -2,7 +2,7 @@
   <view class="goods-item-two" bindtap='goodsDetails' data-goodsId='{{item.GoodsId}}'>
     <view class='item-box'>
       <view>
-        <view class='goods-item-pic'>
+        <view class='goods-item-pic' style="background-image:url(../../images/avator.png);background-repeat:no-repeat;background-size:100% 330rpx">
           <image src='{{item.PicUrl }}' binderror="binderrorimg" data-errorimg="{{index}}"></image>
           <!-- <image src='../../images/avator.png'  wx:else></image> -->
         </view>

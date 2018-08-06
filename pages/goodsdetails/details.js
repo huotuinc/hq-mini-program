@@ -2,7 +2,8 @@ import viewDataResponsity from '../../utils/viewDataResponsity.js'
 import {
   isInArray,
   setRefermid,
-  getRefermid
+  getRefermid,
+  windowWidth
 } from '../../utils/common.js'
 import goodsdetails from '../../utils/request/goodsdetails.js'
 import {
@@ -59,6 +60,9 @@ Page({
   imageLoad: function(e) {
     var $width = e.detail.width
     var $height = e.detail.height
+    var w = windowWidth()*2;
+    if ($height < w)
+      $height = w;
     this.setData({
       imgHeight: $height,
       imagewidth: $width

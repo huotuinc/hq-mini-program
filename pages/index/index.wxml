@@ -9,17 +9,6 @@
 <view class='home-container'>
   <view class='home-top'>
     <template is="search-header" />
-    <!-- <view class='home-category' tag="类目" style='display:none; height:0;'>
-      <scroll-view scroll-x="true" class="tab-h" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
-        <block wx:for="{{category}}" wx:key="item">
-          <view class="tab-item {{currentTab==index?'active':''}}" data-item="{{item}}" data-current="{{index}}" bindtap="swichNav">{{item.title}}</view>
-        </block>
-        <view class='tab-item tab-item-none'></view>
-      </scroll-view>
-      <view class='icon-more-box' catchtap='showAllCategory'>
-        <icon class='icon iconfont icon-gengduocaidan-copy icon-more'></icon>
-      </view>
-    </view> -->
   </view>
   <view style='padding-top: 82rpx;'></view>
   <view class='my_store' wx:if='{{storeInfo}}'>
@@ -34,7 +23,7 @@
   <view class='home-body'>
     <!--主题/广告等模块-->
     <view class='home-index {{currentTab!=0?"home-index-display":""}}'>
-      <view class="page-section page-section-spacing swiper">
+      <view class="page-section page-section-spacing swiper  animation-fadeIn">
         <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
@@ -55,65 +44,17 @@
           </view>
         </block>
       </view>
-
-      <!-- <view class='home-goods-items' style='display:none;'>
-        <view class='goodsItem_title'>
-          限时购
-          <text>{{ clock.hs?clock.hs:"00" }}</text> :
-          <text>{{ clock.ms?clock.ms:"00" }}</text> :
-          <text>{{ clock.ss?clock.ss:"00" }}</text>
-        </view>
-        <block wx:for="{{hotItems}}" wx:key="item">
-          <template is="goodsItem" data="{{item,index}}" />
-        </block>
-      </view>
-
-      <view style='display:none;'>
-        <view class='trademark-goods_title'>
-          <text>品牌制造商直供</text>
-        </view>
-        <block>
-          <view class='trademark-scroll'>
-            <scroll-view scroll-x="true" bindscroll="scroll" style='width:100%; white-space:nowrap;'>
-              <block wx:for="{{goodsItems}}" wx:key="item">
-                <template is="trademarkGoods" data="{{item,index}}"></template>
-              </block>
-            </scroll-view>
-          </view>
-        </block>
-      </view>-->
-
       <view class='trademark-goods_title' wx:if="{{goodsItems.length}}">
         <text>推荐商品</text>
       </view>
     </view>
-    <!--二级类目容器start-->
-    <!-- <view class='category-two {{currentTab!=0?"category-two-show":"category-two-display"}}'>
-      <template is="categoryTwoTemplate" data="{{currentCategory,filterTap}}" />
-    </view> -->
-    <!--二级类目容器end-->
     <!--商品列表-->
-    <view class='home-goods-item-two'>
+    <view class='home-goods-item-two '>
       <block wx:for="{{goodsItems}}" wx:key="item">
         <template is="itemTwo" data="{{item,index}}" />
       </block>
     </view>
   </view>
-
-  <!-- <view wx:if="{{mask}}" class='category-more'>
-    <view class='category-more-title'>
-      <text>全部分类</text>
-      <icon class='icon iconfont icon-x' style='float:right;margin-right:50rpx;' catchtap='hideAllCategory'></icon>
-    </view>
-    <view class='category-more-b'>
-      <block wx:for="{{category}}" wx:key="item">
-        <view class='category-more-box'>
-          <view class="category-more-item" data-item="{{item}}" bindtap="_goGoodsList">{{item.title}}</view>
-        </view>
-      </block>
-    </view>
-  </view>
-  <view wx:if="{{mask}}" class='mask' bindtouchstart='maskTouchStart' style='height:{{windowHeight}}rpx'></view> -->
 </view>
 
 <view class="body-view" wx:if="{{hidden}}">

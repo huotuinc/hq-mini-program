@@ -1,13 +1,13 @@
 <import src="../template/backTop/backTop" />
 <import src="../template/loading/loading.wxml" />
 <view>
-  <view class='goods-details-main-pic' catchtap='watchBigImage'>
+  <view class='goods-details-main-pic animation-fadeIn' catchtap='watchBigImage'>
     <view style='height:{{imgHeight}}rpx;'>
       <swiper indicator-dots="true" circular="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
         <block wx:for="{{goodsItem.Base.ItemImages}}" wx:key="item">
           <swiper-item>
             <view class="swiper-item">
-              <image lazy-load='true' src="{{item.PicUrl}}" bindload="imageLoad" mode='widthFix' style='width:100%'></image>
+              <image lazy-load='true' src="{{item.PicUrl}}" bindload="imageLoad" mode='widthFix' style='width:100%;'></image>
             </view>
           </swiper-item>
         </block>

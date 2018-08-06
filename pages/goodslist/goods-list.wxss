@@ -5,10 +5,6 @@ page {
 }
 
 .goods_list-content {
-  -webkit-animation-name: fadeIn;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-delay: 0s;
 }
 
 .goods-list_header {
