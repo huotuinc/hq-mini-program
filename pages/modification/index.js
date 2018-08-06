@@ -49,7 +49,7 @@ Page({
   //提交提现账户
   _saveAccount: function(e) {
     var self = this
-    var accountList = this.data.accountList
+    var accountList = this.data.accountList || []
     if (accountList.length >= 2 && !this.data.AccountId) {
       wx.showModal({
         content: '超出提现账户，请处理后再添加',
@@ -61,7 +61,6 @@ Page({
           }
         }
       })
-      return
     } else {
       if (!this.data.disabled) {
         this.setData({
