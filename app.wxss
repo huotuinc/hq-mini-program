@@ -143,3 +143,12 @@ page {
     opacity: 1; /*结尾状态 透明度为1*/
   }
 }
+
+
+
+.animation-fadeIn{
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+}

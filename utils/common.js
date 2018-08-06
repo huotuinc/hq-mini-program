@@ -44,6 +44,17 @@ export function windowHeight() {
   return windowHeight
 }
 
+
+export function windowWidth(){
+  var windowWidth = 0
+  wx.getSystemInfo({
+    success: function (res) {
+        windowWidth = res.windowWidth
+    }
+  })
+  return windowWidth
+}
+
 /**
  * 使用循环的方式判断一个元素是否存在于一个数组中
  * @param {Object} arr 数组
