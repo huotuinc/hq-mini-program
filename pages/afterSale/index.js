@@ -15,12 +15,12 @@ Page({
       url: 'MyProductDetail/index?afterId=' + afterId,
     })
   },
-  _getSalesList: function(customerId) {
+  _getSalesList: function() {
     var self = this
+    this.data.loading = true
     var data = {
       pageSize: this.data.pageSize,
       pageIndex: this.data.pageIndex,
-      customerId: customerId
     }
     user.getSalesList(data, function(res) {
       self.setData({
@@ -30,7 +30,40 @@ Page({
     })
   },
   onShow: function() {
-    var customerId = app.globalData.customerId
-    this._getSalesList(customerId)
+    this._getSalesList()
+  },
+  onPullDownRefresh: function() {
+    wx.stopPullDownRefresh()
+    this._getSalesList()
+  },
+  onReachBottom: function() {
+    this.setData({
+      loading: true
+    })
+    var self = this
+    var page = this.data.pageIndex + 1
+    var itemList = this.data.itemList
+
+    var data = {
+      pageSize: this.data.pageSize,
+      pageIndex: page
+    }
+    user.getSalesList(data, function(res) {
+      if (res.list.length > 0) {
+        self.setData({
+          itemList: itemList.concat(res.list),
+          loading: false,
+          pageIndex: page
+        })
+      } else {
+        self.setData({
+          loading: false,
+        })
+        wx.showToast({
+          title: '没有更多记录...',
+          icon: 'none'
+        })
+      }
+    })
   }
 })

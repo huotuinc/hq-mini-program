@@ -13,7 +13,7 @@
         <text style='color:#E41436;'>{{item.afterstatusStr}}</text>
       </view>
       <view class='item-content'>
-        <view>
+        <view  style="background-image:url(../../images/avator.png);background-repeat:no-repeat;background-size:120rpx">
           <image src='{{item.pimg}}'></image>
         </view>
         <view class='content-text'>

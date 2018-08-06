@@ -95,8 +95,8 @@ Page({
         proposalIndex: res.data.data.selectWay,
         idx: res.data.data.selectReason,
         content: res.data.data.content,
-        imgLists: imageList || '',
-        imgs: imageList || ''
+        // imgLists: imageList || '',
+        // imgs: imageList || ''
       })
     })
   },
@@ -118,7 +118,7 @@ Page({
         goodsid: orderDetail.goodsId, //商品Id
         selectway: this.data.proposalIndex, //售后方式
         selectreason: this.data.idx, //售后原因
-        afterid: this.data.afterId || '', //售后id
+        afterid: this.data.afterId, //售后id
         supplierid: orderDetail.supplierid || 0, //供应商id
         unionorderid: orderDetail.unionOrderid, //联合单号
         itemid: 0, //订单itemId(供应商使用)
@@ -175,10 +175,13 @@ Page({
    */
   onLoad: function(options) {
     console.log(options)
+    this.setData({
+      afterId: options.afterId || ' '
+    })
     this.getOrderSale({
       orderId: options.orderId,
       productId: options.productId,
-      afterId: options.afterId || ''
+      afterId: options.afterId || ' '
     })
   }
 })
