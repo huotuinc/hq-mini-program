@@ -157,7 +157,11 @@ Page({
     wallet.applyIndex(function(res) {
       if (res.data.code == 200) {
         var data = res.data.data
-        data.UserIntegral = res.data.data.UserIntegral / 100
+        if (data.UserIntegral) {
+          data.UserIntegral = data.UserIntegral / 100
+        } else {
+          data.UserIntegral = 0
+        }
         self.setData({
           applyData: data
         })

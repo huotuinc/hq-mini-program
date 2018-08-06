@@ -35,18 +35,23 @@ Page({
   //点赞
   _commentLike: function(e) {
     var self = this
-    order.commentLike({
-      commentId: e.target.dataset.commentid
-    }, function(res) {
-      if (res.data.code == 200) {
-        self._getCommentList()
-      } else {
-        wx.showToast({
-          title: '您已经赞过了...',
-          icon: 'none'
-        })
-      }
-    })
+    var disabled = true
+    if (disabled) {
+      disabled = false
+      order.commentLike({
+        commentId: e.currentTarget.dataset.commentid
+      }, function(res) {
+        if (res.data.code == 200) {
+          self._getCommentList()
+        } else {
+          wx.showToast({
+            title: '您已经赞过了...',
+            icon: 'none'
+          })
+        }
+        disabled = true
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
