@@ -29,7 +29,6 @@ Page({
     filterTap: 1,
     mask: false,
     windowHeight: windowHeight(),
-    loadingTitle: '加载中...',
     hidden: false,
     backTopValue: false,
     page: 1,
@@ -301,7 +300,7 @@ Page({
   onReachBottom: function() {
     var self = this
     this.setData({
-      hidden: true
+      loading: true
     })
     var page = this.data.page + 1
     var _goodsItems = this.data.goodsItems
@@ -312,9 +311,17 @@ Page({
       function(res) {
         if (res.goodsItems.length > 0) {
           self.setData({
-            hidden: false,
+            loading: false,
             goodsItems: _goodsItems.concat(res.goodsItems),
             page: page
+          })
+        } else {
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'none'
+          })
+          self.setData({
+            loading: false
           })
         }
       }

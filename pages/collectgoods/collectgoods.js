@@ -136,7 +136,6 @@ Page({
       })
     }
   },
-
   // 全选全部选
   checkedAll: function(e) {
     var _items = this.data.hotItems
@@ -165,7 +164,6 @@ Page({
       })
     }
   },
-
   //跳转商品详情页面
   goodsDetails: function(e) {
     wx.navigateTo({
@@ -176,4 +174,38 @@ Page({
   onShow: function() {
     this._getMyCollection()
   },
+
+  onReachBottom: function() {
+    var self = this
+    this.setData({
+      loading: true
+    })
+    var page = this.data.page + 1
+    var _hotItems = this.data.hotItems
+    collectgoods.myCollection({
+        page: page,
+        pageSize: self.data.pageSize
+      },
+      function(res) {
+        if (res.data.code == 200) {
+          if (res.data.data.length > 0) {
+            self.setData({
+              loading: false,
+              goodsItems: _hotItems.concat(res.data.data),
+              page: page
+            })
+          } else {
+            self.setData({
+              loading: false
+            })
+            wx.showToast({
+              title: '没有更多数据',
+              icon: 'none'
+            })
+          }
+        }
+      }
+    )
+  },
+
 })

@@ -56,10 +56,6 @@
     </view>
   </view>
 </view>
-
-<view class="body-view" wx:if="{{hidden}}">
-  {{loadingTitle}}
-</view>
 <template is="backTop" wx:if="{{backTopValue ==true}}" />
 
 <template is="loading" wx:if="{{loading}}" />
