@@ -14,8 +14,7 @@ Page({
   //获取评论列表
   _getCommentList: function(e) {
     var self = this
-    order.commentList(
-      {
+    order.commentList({
         pageIndex: self.data.pageIndex,
         pageSize: self.data.pageSize,
         goodsId: self.data.goodsId
@@ -24,7 +23,9 @@ Page({
         if (res.data.code == 200) {
           var commentList = res.data.data
           for (let idx in commentList) {
-            commentList[idx].commentImages = commentList[idx].commentImages.split(',')
+            if (commentList[idx].commentImages) {
+              commentList[idx].commentImages = commentList[idx].commentImages.split(',')
+            }
           }
           self.setData({
             commentList: commentList,
@@ -40,8 +41,7 @@ Page({
     var disabled = true
     if (disabled) {
       disabled = false
-      order.commentLike(
-        {
+      order.commentLike({
           commentId: e.currentTarget.dataset.commentid
         },
         function(res) {
@@ -77,8 +77,7 @@ Page({
     var self = this
     var page = this.data.pageIndex + 1
     var _commentList = this.data.commentList
-    order.commentList(
-      {
+    order.commentList({
         pageIndex: page,
         pageSize: self.data.pageIndex,
         goodsId: self.data.goodsId
@@ -87,7 +86,7 @@ Page({
         if (res.data.code == 200) {
           var commentList = res.data.data
           if (commentList.length > 0) {
-            for (let idx in commentList) {
+            if (commentList[idx].commentImages) {
               commentList[idx].commentImages = commentList[idx].commentImages.split(',')
             }
             self.setData({

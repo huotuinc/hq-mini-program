@@ -289,7 +289,6 @@ Page({
         for (let item in data) {
           data[item].isSelect = false
         }
-        console.log(data)
         self.setData({
           goodsBrands: data
         })

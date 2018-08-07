@@ -60,7 +60,7 @@ Page({
   imageLoad: function(e) {
     var $width = e.detail.width
     var $height = e.detail.height
-    var w = windowWidth()*2;
+    var w = windowWidth() * 2;
     if ($height < w)
       $height = w;
     this.setData({
@@ -156,7 +156,7 @@ Page({
         if (data.Base.CommentModel != null) {
           var _commentData = self.data.commentData;
           _commentData.num = data.Base.CommentModel.CommentNum
-          _commentData.praise = ((data.Base.CommentModel.CommentScore / (_commentData.num * 5) * 100))
+          _commentData.praise = ((data.Base.CommentModel.CommentScore / (_commentData.num * 5) * 100)).toFixed(0)
 
           //评论列表
           var commentItems = data.Base.CommentModel.CommentItems

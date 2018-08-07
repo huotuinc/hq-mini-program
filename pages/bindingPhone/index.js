@@ -175,7 +175,6 @@ Page({
         step: 2
       })
     }
-
   },
 
   onShow: function() {}
