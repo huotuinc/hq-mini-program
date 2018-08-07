@@ -27,7 +27,7 @@ page{
 .search_header .icon-sousuo {
   position: absolute;
   left: 50rpx;
-  top: 16rpx;
+  top: 2%;
   font-size: 18px;
   z-index: 10;
   vertical-align: middle;
@@ -61,7 +61,7 @@ page{
 
 .line_view{
   width: 100%;
-  margin-top: 10rpx;
+  margin-top: 25rpx;
   height: 1px;
   background-color: #f1f1f1;
 }

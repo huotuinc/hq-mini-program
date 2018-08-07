@@ -38,8 +38,9 @@ Page({
   imageLoad: function(e) {
     var $width = e.detail.width
     var $height = e.detail.height
+    var ratio = $width / $height
     this.setData({
-      imgHeight: $height
+      imgHeight: $height / ratio
     })
   },
 
@@ -53,7 +54,7 @@ Page({
       })
     } else if (bannerItems[index].linktype == 1) {
       wx.navigateTo({
-        url: '../ goodslist / goods-list?keyword=' + bannerItems[index].linkdata
+        url: '../goodslist/goods-list?keyword=' + bannerItems[index].linkdata
       })
     }
 

@@ -43,7 +43,7 @@
             </view>
           </view>
           <view class='comment ' wx:if='{{orderDetail.payStatus !=0}}'>
-            <text catchtap='goEvaluate' wx:if="{{!item.isComment && orderDetail.payStatus !=3}}" data-order='{{item}}' data-orderId="{{orderDetail.orderId}}">评价</text>
+            <text catchtap='goEvaluate' wx:if="{{!item.isComment && orderDetail.shipStatus !=0}}" data-order='{{item}}' data-orderId="{{orderDetail.orderId}}">评价</text>
             <text class='after-sale' catchtap='goAfterSale' data-index="{{index}}" data-saleAfterStatus='{{item.saleAfterStatus}}' data-afterId='{{item.afterId}}'>{{item.statusName}}</text>
           </view>
         </view>
