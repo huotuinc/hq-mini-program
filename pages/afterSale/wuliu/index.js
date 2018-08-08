@@ -108,9 +108,7 @@ Page({
    * 物流提交
    */
   _submitLogistics: function(e) {
-    var disable = true
-    if (this.isEmpty() && disable) {
-      disable = false
+    if (this.isEmpty()) {
       var data = {}
       data.afterSaleId = this.data.afterSaleId //售后单号
       data.logicompany = this.data.logicompany //物流公司
@@ -119,7 +117,7 @@ Page({
       data.txtmemo = this.data.txtmemo //备注留言
       data.imgs = this.data.imgs.join(",") //图片举证
       afterSale.submitLogistics(data, function(res) {
-        // console.log(res)
+        console.log(res)
         if (res.data.code == 200) {
           wx.navigateBack({
             delta: 1
@@ -130,7 +128,6 @@ Page({
             icon: 'none'
           })
         }
-        disable = true
       })
     }
   },
