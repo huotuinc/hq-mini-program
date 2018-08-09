@@ -12,8 +12,7 @@ Page({
     imgs: [],
     imageList: [],
     count: 1,
-    proposalIndex: '',
-    idx: ''
+    disable: true
   },
   //获取售后方式的索引
   bindProposalChange: function(e) {
@@ -77,6 +76,7 @@ Page({
   //获取要售后的商品
   getOrderSale: function(data) {
     var self = this
+    var afterId = this.data.afterId
     afterSale.getApplyAfterSale(data, function(res) {
       if (res.data.data.imgs) {
         var imageList = res.data.data.imgs.split(",")
@@ -86,25 +86,63 @@ Page({
           proposal: ['我要退款', '我要退货并退款'], //申请售后的方式
         })
       } else {
+        if (afterId) {
+          self.setData({
+            proposal: ['我要退款'], //申请售后的方式
+            proposalIndex: 0,
+          })
+        } else {
+          self.setData({
+            proposal: ['我要退款'], //申请售后的方式
+          })
+        }
+      }
+      if (afterId) {
+        if (res.data.data.isShip) {
+          self.setData({
+            proposal: ['我要退款', '我要退货并退款'], //申请售后的方式
+            proposalIndex: res.data.data.selectWay
+          })
+        } else {
+          self.setData({
+            proposal: ['我要退款'], //申请售后的方式
+            proposalIndex: 0,
+          })
+        }
         self.setData({
-          proposal: ['我要退款'], //申请售后的方式
+          orderDetail: res.data.data,
+          idx: res.data.data.selectReason,
+          content: res.data.data.content,
+        })
+      } else {
+        if (res.data.data.isShip) {
+          self.setData({
+            proposal: ['我要退款', '我要退货并退款'], //申请售后的方式
+          })
+        } else {
+          self.setData({
+            proposal: ['我要退款'], //申请售后的方式
+          })
+        }
+        self.setData({
+          orderDetail: res.data.data,
+          proposalIndex: -1,
+          idx: -1
         })
       }
-      self.setData({
-        orderDetail: res.data.data,
-        proposalIndex: res.data.data.selectWay,
-        idx: res.data.data.selectReason,
-        content: res.data.data.content,
-        // imgLists: imageList || '',
-        // imgs: imageList || ''
-      })
+
     })
   },
 
   //提交申请
   submitSale: function() {
+    var self = this
     var orderDetail = this.data.orderDetail
-    if (this.isEmpty()) {
+    var disable = this.data.disable
+    if (this.isEmpty() && disable) {
+      this.setData({
+        disable: false
+      })
       var data = {
         orderid: orderDetail.orderId, //订单号
         products: orderDetail.productName, //货品名称 
@@ -126,6 +164,9 @@ Page({
         costfreight: orderDetail.costFreight //结算金额-所占运费
       }
       afterSale.applyAfterSale(data, function(res) {
+        self.setData({
+          disable: true
+        })
         if (res.data.code == 200) {
           wx.showToast({
             title: '申请成功',
@@ -136,6 +177,11 @@ Page({
               })
             }
           })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
       })
     }
@@ -145,16 +191,14 @@ Page({
    * 验证申请方式和申请原因 以及详细原因 是否选择或者填写
    */
   isEmpty: function() {
-    var selectway = this.data.proposalIndex
-    var selectreason = this.data.idx
-    if (selectway == '') {
+    if (!(this.data.proposalIndex >= 0)) {
       wx.showToast({
         title: '请选择申请方式',
         icon: 'none'
       })
       return false
     }
-    if (selectreason == '') {
+    if (!(this.data.idx >= 0)) {
       wx.showToast({
         title: '请选择申请原因',
         icon: 'none'
