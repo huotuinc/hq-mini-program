@@ -7,7 +7,7 @@
   width: 100%;
   height: 330rpx;
 }
- 
+
 .item-box {
   padding: 10px;
 }
@@ -20,6 +20,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  height: 80rpx;
 }
 
 .goods-item-two-text1 {
@@ -29,20 +30,21 @@
 
 .goods-item-two .icon-heart, .goods-item-two .icon-xin {
   float: right;
-  font-size: 36rpx;  
+  font-size: 36rpx;
   margin-top: -5rpx;
 }
-.goods-item-two .icon-heart{
- color: #acacac;
+
+.goods-item-two .icon-heart {
+  color: #acacac;
 }
-.goods-item-two .icon-xin{
- color: #E41436;
+
+.goods-item-two .icon-xin {
+  color: #e41436;
 }
 
 .goods-item-two-text2 text {
   color: #000;
   font-size: 26rpx;
-  
 }
 
 .goods-item-two-text2 {
@@ -53,7 +55,7 @@
 }
 
 .goods-item-two-text2 .coupon-price {
-  color: #E41436;
+  color: #e41436;
   font-size: 40rpx;
 }
 
@@ -75,25 +77,26 @@
   font-size: 24rpx;
   text-decoration: line-through;
 }
-.goods-item-coupon{
-  margin-top:  -6rpx;
+
+.goods-item-coupon {
+  margin-top: -6rpx;
 }
 
 .goods-item-coupon-text {
-   padding: 0 8rpx 0 5rpx; 
-   /* height: 35rpx;  */
-   /* line-height: 35rpx;  */
-   /* text-align: center;  */
-   display: inline-block; 
+  padding: 0 8rpx 0 5rpx;
+  /* height: 35rpx;  *//* line-height: 35rpx;  *//* text-align: center;  */
+  display: inline-block;
   font-size: 20rpx;
-  background-color: #E41436;
+  background-color: #e41436;
   color: #fff;
   border-radius: 6rpx;
 }
-.goods-item_integral{
+
+.goods-item_integral {
   font-size: 24rpx;
   color: #666;
 }
+
 .goods-item-sales_volume {
   font-size: 24rpx;
   color: #acacac;
