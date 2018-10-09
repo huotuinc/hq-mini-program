@@ -72,10 +72,12 @@ App({
             guideUserId: guideUserId
           },
           success: function(res) {
-            self.globalData.userToken = res.data.data.token
-            self.globalData.userId = res.data.data.userId
-            wx.setStorageSync('login', res.data.data)
-            self.updataUserInfo(res.data.data.userId)
+            if (res.data.code == 200) {
+              self.globalData.userToken = res.data.data.token
+              self.globalData.userId = res.data.data.userId
+              wx.setStorageSync('login', res.data.data)
+              self.updataUserInfo(res.data.data.userId)
+            }
           },
           fail: function(err) {
             console.log(err)
