@@ -48,10 +48,10 @@ Page({
     var index = e.currentTarget.dataset.index
     var saleAfterStatus = e.currentTarget.dataset.saleafterstatus
     var orderDetail = this.data.orderDetail
-    var afterId = e.currentTarget.dataset.afterid
+    var afterId = e.currentTarget.dataset.afterid || ''
     if (saleAfterStatus == 0) {
       wx.navigateTo({
-        url: '../afterSale/SubmitReturnProduct/index?orderId=' + orderDetail.orderId + '&productId=' + orderDetail.goods[index].productId,
+        url: '../afterSale/SubmitReturnProduct/index?orderId=' + orderDetail.orderId + '&productId=' + orderDetail.goods[index].productId + '&afterId=' + afterId,
       })
     } else if (saleAfterStatus == 1 || saleAfterStatus == 2 || saleAfterStatus == 3) {
       wx.navigateTo({

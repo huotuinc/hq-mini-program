@@ -19,8 +19,7 @@
   font-size: 32rpx;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  height: 80rpx;
+  -webkit-line-clamp: 1;
 }
 
 .goods-item-two-text1 {

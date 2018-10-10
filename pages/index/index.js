@@ -38,9 +38,9 @@ Page({
   imageLoad: function(e) {
     var $width = e.detail.width
     var $height = e.detail.height
-    var ratio = $width / $height
+    // var ratio = $width / $height
     this.setData({
-      imgHeight: $height / ratio
+      imgHeight: $height 
     })
   },
 
