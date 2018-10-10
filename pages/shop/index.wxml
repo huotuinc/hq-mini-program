@@ -4,7 +4,7 @@
 <template is="scope" wx:if="{{!userInfo}}" />
 
 <view wx:else>
-  <view class='no-shopping' wx:if="{{!items.length}}">
+  <view class='no-shopping' wx:if="{{!items.Products}}">
     <view class='shopping-cart'>
       <icon class='icon iconfont icon-03'></icon>
       <view class='text'>您的购物车空空如也</view>
