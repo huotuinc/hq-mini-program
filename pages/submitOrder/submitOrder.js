@@ -94,6 +94,9 @@ Page({
         if (typeof callback == 'function')
           callback(result.data.TotalPrice);
       }
+      else if(result.code==1000){
+        self._goLogin();
+      }
     })
   },
   /**
@@ -378,5 +381,13 @@ Page({
     wx.redirectTo({
       url: '../payResult/result?orderid=' + orderid + "&success=" + success,
     })
-  }
+  },
+  /** 
+   * 前往授权页面
+   */
+  _goLogin: function (e) {
+    wx.navigateTo({
+      url: '../scope/index',
+    })
+  },
 })
