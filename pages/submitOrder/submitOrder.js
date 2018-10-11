@@ -8,6 +8,9 @@ import {
   orderCheckout
 } from '../../utils/request/order.js'
 import {
+  batchremove
+} from '../../utils/request/goodShop.js'
+import {
   walletaccount,
   enabledCoupons
 } from '../../utils/request/user.js'
@@ -56,7 +59,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var self = this;
     var traItems = options.traItems
     self.setData({
@@ -64,7 +67,7 @@ Page({
       refermid: options.refermid || 0
     })
     //获取用户钱包
-    walletaccount(null, function (ret) {
+    walletaccount(null, function(ret) {
       self.setData({
         walletData: ret.data
       })
@@ -72,9 +75,9 @@ Page({
 
   },
   /**获取订单确认数据 */
-  checkout: function (p, callback) {
+  checkout: function(p, callback) {
     var self = this;
-    orderCheckout(p, function (res) {
+    orderCheckout(p, function(res) {
       var result = res.data;
       if (result.code == 200) {
 
@@ -93,8 +96,7 @@ Page({
         })
         if (typeof callback == 'function')
           callback(result.data.TotalPrice);
-      }
-      else if(result.code==1000){
+      } else if (result.code == 1000) {
         self._goLogin();
       }
     })
@@ -102,7 +104,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var self = this;
     try {
       var value = wx.getStorageSync('address')
@@ -112,11 +114,11 @@ Page({
           addressStatus: true
         })
       }
-    } catch (e) { }
+    } catch (e) {}
 
     self.loadData();
   },
-  loadData: function () {
+  loadData: function() {
     var self = this;
     var addressData = self.data.addressData;
     var areaCode = "";
@@ -129,12 +131,12 @@ Page({
       couponCode: pmtSelectData.items[pmtSelectData.index].CouponCode,
       areaCode: areaCode
     }
-    self.checkout(p, function (totalPrice) {
+    self.checkout(p, function(totalPrice) {
       if (self.data.pmtCount <= 0) {
         //获取可用优惠券
         enabledCoupons({
           totalPrice: totalPrice
-        }, function (ret) {
+        }, function(ret) {
           if (ret.data.code == 200) {
             var _pmtCount = ret.data.data.length;
             var _pmtSelectData = self.data.pmtSelectData;
@@ -175,7 +177,7 @@ Page({
     })
   },
   //获取收货地址
-  chooseAddress: function (e) {
+  chooseAddress: function(e) {
     if (this.data.loading) return;
     var self = this;
 
@@ -184,7 +186,7 @@ Page({
     })
   },
   //更改优惠券
-  bindPickerChange: function (e) {
+  bindPickerChange: function(e) {
     if (this.data.loading) return;
     var self = this;
     var _index = e.detail.value;
@@ -198,7 +200,7 @@ Page({
     self.loadData();
   },
   /**觅豆支付 */
-  _clickMiBean: function () {
+  _clickMiBean: function() {
     if (this.data.loading) return;
     var self = this;
     var _amount = self.data.walletData.UsefulMiBean;
@@ -238,7 +240,7 @@ Page({
     }
   },
   /**积分支付 */
-  _clikcScore: function () {
+  _clikcScore: function() {
     if (this.data.loading) return;
     var self = this;
 
@@ -276,7 +278,7 @@ Page({
         }
       }
       chargeCasher.status = !chargeCasher.status
-      _resultAmount.SurplusAmount =( _resultAmount.SurplusAmount - chargeCasher.amount).toFixed(2);
+      _resultAmount.SurplusAmount = (_resultAmount.SurplusAmount - chargeCasher.amount).toFixed(2);
       self.setData({
         chargeCasher: chargeCasher,
         resultAmount: _resultAmount
@@ -284,7 +286,7 @@ Page({
     }
   },
   //获取姓名
-  memoChange: function (e) {
+  memoChange: function(e) {
     this.setData({
       memo: e.detail.value
     })
@@ -292,7 +294,7 @@ Page({
   /**
    * 提交订单
    */
-  submitOrder: function (e) {
+  submitOrder: function(e) {
     if (this.data.loading) return;
     var self = this;
     var addressData = self.data.addressData;
@@ -307,7 +309,7 @@ Page({
       return;
     }
     self.setData({
-      loading:true
+      loading: true
     })
     var cashScore = 0;
     if (chargeCasher.status) {
@@ -332,7 +334,16 @@ Page({
       refermid: self.data.refermid,
       items: self.data.traItems
     }
-    orderSubmit(p, function (ret) {
+    var items_id = self.data.traItems.split('|')
+    var products_id=[]
+    for(let idx in items_id){
+      var product_id = items_id[idx].split('_')[1]
+      products_id.push(product_id)
+    }
+    batchremove({ productIds: products_id.join(',')},function(res){
+      console.log(res)
+    })
+    orderSubmit(p, function(ret) {
       var result = ret.data;
       if (result.code == 200) {
         var orderid = result.data.UnionOrderId;
@@ -347,7 +358,7 @@ Page({
             paySign: result.data.paySign
           }
           //发起支付      
-          wxpay(_p, function (res) {            
+          wxpay(_p, function(res) {
             if (res.errMsg.indexOf("requestPayment:ok") >= 0) {
               self._goPayResult(orderid, true);
             } else if (res.errMsg.indexOf("requestPayment:fail") >= 0 || res.errMsg.indexOf("requestPayment:cancel") >= 0) {
@@ -361,12 +372,10 @@ Page({
               self._goPayResult(orderid, false)
             }
           })
-        }
-        else {
+        } else {
           self._goPayResult(orderid, true)
         }
-      }
-      else {
+      } else {
         wx.showToast({
           title: result.msg,
           icon: "none"
@@ -377,7 +386,7 @@ Page({
       }
     });
   },
-  _goPayResult: function (orderid, success) {
+  _goPayResult: function(orderid, success) {
     wx.redirectTo({
       url: '../payResult/result?orderid=' + orderid + "&success=" + success,
     })
@@ -385,7 +394,7 @@ Page({
   /** 
    * 前往授权页面
    */
-  _goLogin: function (e) {
+  _goLogin: function(e) {
     wx.navigateTo({
       url: '../scope/index',
     })

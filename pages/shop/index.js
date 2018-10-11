@@ -12,7 +12,9 @@ Page({
     editTitle: '编辑',
     closeTitle: '结算',
     isSelect: false, //商品是否全选
-    shopIsSelect: false //某供应商的商品是否全选
+    shopIsSelect: false ,//某供应商的商品是否全选
+    loading:true,
+    lock:true //商品数量修改限制锁
   },
 
   //编辑操作
@@ -139,7 +141,9 @@ Page({
         var cartGoods = res.data.data == null ? {} : res.data.data 
         if (!res.data.data) {
           self.setData({
-            items: cartGoods
+            items: cartGoods,
+            loading: false,
+            lock: true
           })
           return
         }else{
@@ -163,9 +167,11 @@ Page({
           }
           self.setData({
             items: cartGoods,
-            edit: false,
-            editTitle: '编辑',
-            closeTitle: '结算'
+            loading:false,
+            lock:true
+            // edit: false,
+            // editTitle: '编辑',
+            // closeTitle: '结算'
           })
         }
       }
@@ -175,9 +181,11 @@ Page({
   //购物车修改
   updateCart: function(data) {
     var self = this
+    this.setData({
+      loading: true
+    })
     var _items = self.data.items.Products
     cart.updateCart(data, function(res) {
-      // console.log(res)
       self.getGoods()
     })
   },
@@ -185,52 +193,62 @@ Page({
   minus: function(e) {
     var index = e.currentTarget.dataset.index
     var _items = this.data.items
-    if (_items.Products[index].Nums <= 1) {
-      if (_items.Products[index].AvaliableStore > 1) {
-        _items.Products[index].Nums = 1
-        wx.showToast({
-          title: '亲不能再少了',
-          icon: 'none'
-        })
+    if(this.data.lock){
+      this.setData({
+        lock: false
+      })
+      if (_items.Products[index].Nums <= 1) {
+        if (_items.Products[index].AvaliableStore > 1) {
+          _items.Products[index].Nums = 1
+          wx.showToast({
+            title: '亲不能再少了',
+            icon: 'none'
+          })
+        } else {
+          _items.Products[index].Nums = 1
+        }
+        return
       } else {
-        _items.Products[index].Nums = 1
+        _items.Products[index].Nums--
       }
-      return
-    } else {
-      _items.Products[index].Nums--
+      this.setData({
+        items: _items
+      })
+      this.updateCart({
+        goodsId: _items.Products[index].GoodsId,
+        productId: _items.Products[index].ProductId,
+        updateType: 0,
+        quantity: _items.Products[index].Nums
+      })
     }
-    this.setData({
-      items: _items
-    })
-    this.updateCart({
-      goodsId: _items.Products[index].GoodsId,
-      productId: _items.Products[index].ProductId,
-      updateType: 0,
-      quantity: _items.Products[index].Nums
-    })
   },
   //增加购买数量
   addnus: function(e) {
     var index = e.currentTarget.dataset.index
     var _items = this.data.items
-    if (_items.Products[index].Nums >= _items.Products[index].AvaliableStore) {
-      wx.showToast({
-        title: '库存不足',
-        icon: 'none'
+    if(this.data.lock){
+     this.setData({
+       lock:false
+     })
+      if (_items.Products[index].Nums >= _items.Products[index].AvaliableStore) {
+        wx.showToast({
+          title: '库存不足',
+          icon: 'none'
+        })
+        return
+      } else {
+        _items.Products[index].Nums++
+      }
+      this.setData({
+        items: _items
       })
-      return
-    } else {
-      _items.Products[index].Nums++
+      this.updateCart({
+        goodsId: _items.Products[index].GoodsId,
+        productId: _items.Products[index].ProductId,
+        updateType: 0,
+        quantity: _items.Products[index].Nums
+      })
     }
-    this.setData({
-      items: _items
-    })
-    this.updateCart({
-      goodsId: _items.Products[index].GoodsId,
-      productId: _items.Products[index].ProductId,
-      updateType: 0,
-      quantity: _items.Products[index].Nums
-    })
   },
   //是否购买/选中
   isChecked: function(e) {
@@ -242,6 +260,9 @@ Page({
   // 购物车删除
   delCart: function(data) {
     var that = this
+    this.setData({
+      loading: true
+    })
     cart.removeCart(data, function(res) {
       that.getGoods()
     })
@@ -252,6 +273,9 @@ Page({
     var _items = this.data.items
     var data = this.removeHandle(shopIsSelect, _items.Products)
     var self = this
+    this.setData({
+      loading: true
+    })
     if (shopIsSelect) {
       cart.batchcheck({
         checkStatus: 0
@@ -478,6 +502,9 @@ Page({
               cart.batchremove({
                 productIds: data.join(",")
               }, function(res) {
+                self.setData({
+                  loading: true
+                })
                 self.getGoods()
               })
             }

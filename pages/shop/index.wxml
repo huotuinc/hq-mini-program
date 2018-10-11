@@ -1,7 +1,9 @@
 <import src="../template/backTop/backTop" />
-
+<import src="../template/loading/loading.wxml" />
 <import src="../template/scope/scope" />
+<template is="loading" wx:if="{{loading && !items.Products}}" />
 <template is="scope" wx:if="{{!userInfo}}" />
+
 
 <view wx:else>
   <view class='no-shopping' wx:if="{{!items.Products}}">
@@ -13,7 +15,7 @@
 
   <view wx:else>
     <view class='shopping'>
-    
+      <template is="loading" wx:if="{{loading}}" />
       <view class="{{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items.Products}}" wx:key="item">
         <view class='merchant' wx:if='{{items.Products[index].shopName !== items.Products[index-1].shopName}}'>
           <view class='merchant-left'>
@@ -52,7 +54,7 @@
                   <view class='goods-edit' wx:if="{{edit}}">
                     <view class='btn-minus' data-index="{{index}}" catchtap='minus'>-</view>
                     <view class='btn-input'>
-                      <input value='{{item.Nums}}'></input>
+                      <input value='{{item.Nums}}' disabled></input>
                     </view>
                     <view class='btn-plus' data-index="{{index}}" catchtap='addnus'>+</view>
                     <view class='btn-del' catchtap="del" data-index="{{index}}">删除</view>

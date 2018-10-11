@@ -151,13 +151,14 @@
 .add_minu-edit {
   margin-top: 6rpx;
   display: flex;
-  height: 60rpx;
+  height: 80rpx;
 }
 
 .btn-minus, .btn-plus {
   flex: 1;
   text-align: center;
-  line-height: 48rpx;
+  line-height: 80rpx;
+  min-width: 80rpx;
   border: 1px solid #ddd;
   color: #000;
 }
@@ -175,13 +176,16 @@
   text-align: center;
   outline: 0;
   border: none;
+  height: 80rpx;
+  line-height: 80rpx;
 }
 
 .btn-del {
   flex: 4;
   text-align: right;
-  line-height: 48rpx;
+  line-height: 80rpx;
   color: #000;
+  margin-left: 80rpx;
 }
 
 .item-other {

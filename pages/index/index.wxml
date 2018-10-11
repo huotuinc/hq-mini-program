@@ -27,7 +27,7 @@
         <swiper indicator-dots="true" circular="true" autoplay="true" interval="4000" duration="500" style='height:{{imgHeight}}rpx;'>
           <block wx:for="{{bannerItems}}" wx:key="item">
             <swiper-item>
-              <view class="swiper-item" catchtap='_goodsDetilList' data-index='{{index}}'>
+              <view class="swiper-item" catchtap='' data-index='{{index}}'>
                 <image lazy-load='true' src='{{item.pictureUrl}}' bindload="imageLoad" mode='widthFix'></image>
               </view>
             </swiper-item>

@@ -245,13 +245,20 @@ Page({
       })
       return;
     }
-
+    
     if (self.data.specData.productid == 0 && self.data.goodsItem.Base.SpecDesc.length > 0) {
       wx.showToast({
         title: "请选择规格",
         icon: "none"
       })
     } else {
+      if (this.data.goodsItem.Base.DownShelfStatus !== 1) {
+        wx.showToast({
+          title: '商品未到上架时间或已下架',
+          icon: "none"
+        })
+        return
+      }
 
       if (self.data.specData.productid == 0) {
         var pdt = self.data.goodsItem.Base.PdtDesc
@@ -262,8 +269,6 @@ Page({
         })
       }
       if (userInfo) {
-
-
         if (self.data.btnBuy == 'true') {
           var traItems = self.data.goodsItem.Base.GoodsId + "_" + self.data.specData.productid + "_" + self.data.shopNum
           //跳转订单确认页      
