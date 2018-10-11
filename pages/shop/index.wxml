@@ -14,7 +14,7 @@
   <view wx:else>
     <view class='shopping'>
     
-      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items.Products}}" wx:key="item">
+      <view class="{{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items.Products}}" wx:key="item">
         <view class='merchant' wx:if='{{items.Products[index].shopName !== items.Products[index-1].shopName}}'>
           <view class='merchant-left'>
             <!-- <icon class="icon iconfont {{shopIsSelect?'icon-xuanzhong':'icon-ico2'}}"></icon> -->

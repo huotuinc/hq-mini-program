@@ -441,13 +441,10 @@ Page({
     var data = []
     var num = 0
     if (closeTitle == '结算') {
-      console.log(1)
       for (let idx in _items) {
         console.log(_items[idx])
         if (_items[idx].IsChecked) {
-          console.log(_items[idx].IsChecked)
           if (!_items[idx].AvaliableStore == 0) {
-            console.log(_items[idx].AvaliableStore)
             traItems.push(_items[idx].GoodsId+'_'+_items[idx].ProductId+'_'+_items[idx].Nums)
             num++
           }
