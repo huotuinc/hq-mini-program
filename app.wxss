@@ -93,8 +93,8 @@ page {
   font-size: 45rpx;
 }
 
-.touch-item {
-  width: 100%;
+.item-del{
+   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -126,6 +126,7 @@ page {
   padding: 30rpx;
   background-color: #fff;
   border-bottom: 1px solid #f0eff5;
+  box-sizing: border-box;
   margin-right: 0;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;

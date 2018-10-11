@@ -150,13 +150,17 @@ Page({
               noNum++
             }
           }
-          console.log(num,noNum)
-          if (num < (cartGoods.Products.length - noNum)) {
+          if (num !== cartGoods.Products.length ) {
             self.setData({
               isSelect: false,
               shopIsSelect: false
             })
-          } 
+          } else{
+            self.setData({
+              isSelect: true,
+              shopIsSelect: true
+            })
+          }
           self.setData({
             items: cartGoods,
             edit: false,
@@ -239,7 +243,6 @@ Page({
   delCart: function(data) {
     var that = this
     cart.removeCart(data, function(res) {
-      // console.log(res)
       that.getGoods()
     })
   },
