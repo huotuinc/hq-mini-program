@@ -4,7 +4,7 @@
 <template is="scope" wx:if="{{!userInfo}}" />
 
 <view wx:else>
-  <view class='no-shopping' wx:if="{{!items.length}}">
+  <view class='no-shopping' wx:if="{{!items.Products}}">
     <view class='shopping-cart'>
       <icon class='icon iconfont icon-03'></icon>
       <view class='text'>您的购物车空空如也</view>
@@ -13,14 +13,16 @@
 
   <view wx:else>
     <view class='shopping'>
-      <view class='merchant'>
-        <view class='merchant-left' catchtap='shopIsSelect'>
-          <icon class="icon iconfont {{shopIsSelect?'icon-xuanzhong':'icon-ico2'}}"></icon>
-          <text class=''>商场自营</text>
+    
+      <view class="{{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items.Products}}" wx:key="item">
+        <view class='merchant' wx:if='{{items.Products[index].shopName !== items.Products[index-1].shopName}}'>
+          <view class='merchant-left'>
+            <!-- <icon class="icon iconfont {{shopIsSelect?'icon-xuanzhong':'icon-ico2'}}"></icon> -->
+            <text class=''>{{item.shopName}}</text>
+          </view>
+          <view class='merchant-right' catchtap='_editHandle' data-editTile='{{editTitle}}'>{{editTitle}}</view>
         </view>
-        <view class='merchant-right' catchtap='_editHandle' data-editTile='{{editTitle}}'>{{editTitle}}</view>
-      </view>
-      <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items.Products}}" wx:key="item">
+        <view class='item-del'>
         <view class="item  {{item.AvaliableStore == 0?'item-clear':''}}">
           <view class='avaliable-store' wx:if="{{item.AvaliableStore<10}}">
             <text wx:if="{{item.AvaliableStore>0}}">商品库存不足，请即时处理！</text>
@@ -61,9 +63,10 @@
           </view>
           <!-- <view class='item-other' wx:if="{{!edit}}">
            <text>活动：觅方66节下单就返3-8元随机无门槛优惠券</text> 
-        </view> -->
+           </view> -->
         </view>
         <view class="del" catchtap="del" data-index="{{index}}">删除</view>
+        </view>
       </view>
     </view>
 

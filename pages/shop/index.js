@@ -5,7 +5,7 @@ var app = getApp()
 Page({
   data: {
     backTopValue: false,
-    items: [],
+    items: {},
     startX: 0,
     startY: 0,
     edit: false,
@@ -134,35 +134,40 @@ Page({
     cart.getCartGoods(function(res) {
       var num = 0
       var noNum = 0
+     
       if (res.data.code == 200) {
-        var cartGoods = res.data.data
-        if (!cartGoods) {
+        var cartGoods = res.data.data == null ? {} : res.data.data 
+        if (!res.data.data) {
+          self.setData({
+            items: cartGoods
+          })
           return
-        }
-        for (let idx in cartGoods.Products) {
-          if (cartGoods.Products[idx].IsChecked) {
-            num++
-          } else {
-            noNum++
+        }else{
+          for (let idx in cartGoods.Products) {
+            if (cartGoods.Products[idx].IsChecked) {
+              num++
+            } else {
+              noNum++
+            }
           }
-        }
-        if (num < (cartGoods.Products.length - noNum)) {
+          if (num !== cartGoods.Products.length ) {
+            self.setData({
+              isSelect: false,
+              shopIsSelect: false
+            })
+          } else{
+            self.setData({
+              isSelect: true,
+              shopIsSelect: true
+            })
+          }
           self.setData({
-            isSelect: false,
-            shopIsSelect: false
-          })
-        } else {
-          self.setData({
-            isSelect: true,
-            shopIsSelect: true
+            items: cartGoods,
+            edit: false,
+            editTitle: '编辑',
+            closeTitle: '结算'
           })
         }
-        self.setData({
-          items: cartGoods,
-          edit: false,
-          editTitle: '编辑',
-          closeTitle: '结算'
-        })
       }
 
     })
@@ -172,8 +177,8 @@ Page({
     var self = this
     var _items = self.data.items.Products
     cart.updateCart(data, function(res) {
-      console.log(res)
-      // self.getGoods()
+      // console.log(res)
+      self.getGoods()
     })
   },
   //减少购买数量
@@ -236,8 +241,9 @@ Page({
   },
   // 购物车删除
   delCart: function(data) {
+    var that = this
     cart.removeCart(data, function(res) {
-      console.log(res)
+      that.getGoods()
     })
   },
   //某商店商品全选/全不选
@@ -274,6 +280,7 @@ Page({
   isSelect: function(e) {
     var isSelect = this.data.isSelect
     var _items = this.data.items
+    var self = this
     var data = this.removeHandle(isSelect, _items.Products)
     if (isSelect) {
       cart.batchcheck({
@@ -435,13 +442,15 @@ Page({
     var num = 0
     if (closeTitle == '结算') {
       for (let idx in _items) {
+        console.log(_items[idx])
         if (_items[idx].IsChecked) {
           if (!_items[idx].AvaliableStore == 0) {
-            traItems.push(_items[idx].GoodsId__items[idx].ProductId__items[idx].Nums)
+            traItems.push(_items[idx].GoodsId+'_'+_items[idx].ProductId+'_'+_items[idx].Nums)
             num++
           }
         }
       }
+     
       //判断结算的商品数量是否大于0
       if (num) {
         wx.navigateTo({
