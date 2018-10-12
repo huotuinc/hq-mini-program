@@ -13,7 +13,7 @@ Page({
     closeTitle: '结算',
     isSelect: false, //商品是否全选
     shopIsSelect: false ,//某供应商的商品是否全选
-    loading:true,
+    loading:false,
     lock:true //商品数量修改限制锁
   },
 
