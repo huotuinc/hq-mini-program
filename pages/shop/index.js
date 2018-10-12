@@ -174,8 +174,15 @@ Page({
             // closeTitle: '结算'
           })
         }
+      }else {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+        self.setData({
+          loading: false
+        })
       }
-
     })
   },
   //购物车修改
