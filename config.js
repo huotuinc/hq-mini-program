@@ -3,7 +3,7 @@
  */
 // var host = 'http://yapi.demo.qunar.com/mock/11987/api'
 //var host = "https://mfapi.mifang8.com"
-var host ="http://mfapi.hqys.ie-goal.cn"
+var host ="https://mfapi.hqys.ie-goal.cn"
 
 var config = {
   host,

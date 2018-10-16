@@ -16,7 +16,7 @@ App({
     osVersion: '',
     userId: 0,
     userToken: '',
-    customerId: 4886
+    customerId: 7800
   },
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
@@ -195,7 +195,8 @@ App({
         mobileType: self.globalData.mobileType,
         osType: self.globalData.osType,
         userId: self.globalData.userId,
-        userToken: self.globalData.userToken
+        userToken: self.globalData.userToken,
+        customerId: self.globalData.customerId
       },
       method: options.method || 'post',
       success: function(res) {
