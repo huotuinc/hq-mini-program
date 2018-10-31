@@ -120,7 +120,7 @@ Page({
         }
         if (data.Base.PicUrl.indexOf('http://') < 0)
           data.Base.PicUrl = data.Base.resourcesUrl + data.Base.PicUrl;
-
+      
         viewDataResponsity.init(data);
         var _specCount = 0;
         //用于判断每组规格的选中状态
@@ -439,10 +439,13 @@ Page({
     if (!_specData.descName)
       _specData.descName = item.SpecValue
 
-    _item.Base.PicUrl = item.GoodsImageIds[0]
+    // _item.Base.PicUrl = item.GoodsImageIds[0]
+    // console.log(_item,_item.Base.PicUrl === undefined)
 
-    if (_item.Base.PicUrl.indexOf('http://') < 0)
-      _item.Base.PicUrl = _item.Base.resourcesUrl + _item.Base.PicUrl;
+    // // if (_item.Base.PicUrl === 'undefined')
+    // _item.Base.PicUrl =
+    // // if (_item.Base.PicUrl.indexOf('http://') < 0)
+    //   _item.Base.PicUrl = _item.Base.resourcesUrl + _item.Base.PicUrl;
 
     if (_specData.step < _specData.specCount) {
       _specData.step++

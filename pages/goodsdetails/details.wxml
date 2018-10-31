@@ -177,7 +177,7 @@
       <view class='buy-select'>
         <view class='select-title'>
           <text>{{item}}</text>
-        </view>
+        </view> 
         <view class='select_size'>
           <block wx:for="{{goodsItem.Base.SpecDesc}}" wx:key="item">
             <text wx:if="{{item.SpecId==key}}" catchtap='spec_selected' data-item='{{item}}' class="{{specData.specStatus[item.SpecId][item.SpecValueId]}}">{{item.SpecValue}}</text>

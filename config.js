@@ -2,7 +2,7 @@
  * 小程序配置文件
  */
 // var host = 'http://yapi.demo.qunar.com/mock/11987/api'
-//var host = "https://mfapi.mifang8.com"
+// var host = "https://mfapi.mifang8.com"
 var host ="https://mfapi.hqys.ie-goal.cn"
 
 var config = {

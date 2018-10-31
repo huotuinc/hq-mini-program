@@ -1,6 +1,6 @@
 <template name="scope">
   <view class='mifang_icon'>
-    <icon class='icon iconfont icon-tubiaozhizuomoban1'></icon>
+     <image src='../../images/logo.png' style='width:160rpx;height:160rpx;vertical-align:middle'></image>
   </view>
   <view class='watch_more' catchtap='_goLogin'>
     <text>登录查看更多</text>
