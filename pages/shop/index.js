@@ -153,6 +153,9 @@ Page({
             } else {
               noNum++
             }
+            if (cartGoods.Products[idx].ThumbnailPic.indexOf('http://'<0)){
+              cartGoods.Products[idx].ThumbnailPic = config.host + cartGoods.Products[idx].ThumbnailPic
+            }
           }
           if (num !== cartGoods.Products.length ) {
             self.setData({

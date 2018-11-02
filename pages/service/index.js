@@ -36,7 +36,7 @@ Page({
     var goodsId = options.goodsId||''
     var orderId = options.orderId||''
     this.setData({
-      serviceUrl: config.host + "/service?userid=" + userId + "&title=" + title + "&price=" + price + "&goodsId=" + goodsId + "&orderId=" + orderId
+      serviceUrl: config.host + "/service?userid=" + userId + "&title=" + title + "&price=" + price + "&goodsId=" + goodsId + "&orderId=" + orderId 
     })
   }
 })

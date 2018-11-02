@@ -120,7 +120,7 @@ Page({
         }
         if (data.Base.PicUrl.indexOf('http://') < 0)
           data.Base.PicUrl = data.Base.resourcesUrl + data.Base.PicUrl;
-      
+
         viewDataResponsity.init(data);
         var _specCount = 0;
         //用于判断每组规格的选中状态
@@ -245,7 +245,7 @@ Page({
       })
       return;
     }
-    
+
     if (self.data.specData.productid == 0 && self.data.goodsItem.Base.SpecDesc.length > 0) {
       wx.showToast({
         title: "请选择规格",
@@ -270,6 +270,9 @@ Page({
       }
       if (userInfo) {
         if (self.data.btnBuy == 'true') {
+          self.setData({
+            showModalStatus: false
+          })
           var traItems = self.data.goodsItem.Base.GoodsId + "_" + self.data.specData.productid + "_" + self.data.shopNum
           //跳转订单确认页      
           wx.navigateTo({
