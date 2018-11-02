@@ -441,7 +441,7 @@ Page({
 
     _item.Base.PicUrl = item.GoodsImageIds[0]
 
-    if (_item.Base.PicUrl.indexOf('http://') < 0)
+    if (_item.Base.PicUrl&&_item.Base.PicUrl.indexOf('http://') < 0)
       _item.Base.PicUrl = _item.Base.resourcesUrl + _item.Base.PicUrl;
 
     if (_specData.step < _specData.specCount) {
