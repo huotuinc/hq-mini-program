@@ -383,6 +383,11 @@ Page({
         self.setData({
           loading: false
         })
+        setTimeout(function(){
+          wx.redirectTo({
+            url: '../order/order-list'
+          })
+        },1000)
       }
     });
   },

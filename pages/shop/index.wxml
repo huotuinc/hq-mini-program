@@ -41,7 +41,7 @@
               <view class='goods-content'>
                 <view class='goods_title'>
                   <view class='title_con'>
-                    <text class='shop_title'>{{item.Name}}</text>
+                    <text class='shop_title'>{{item.Name}}</text> 
                     <!-- <text style='color:#000;'>规格 ：F4A1蓝色，L</text> -->
                   </view>
                   <view class='price_num'>

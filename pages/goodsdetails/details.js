@@ -245,7 +245,7 @@ Page({
       })
       return;
     }
-    
+
     if (self.data.specData.productid == 0 && self.data.goodsItem.Base.SpecDesc.length > 0) {
       wx.showToast({
         title: "请选择规格",
@@ -270,6 +270,9 @@ Page({
       }
       if (userInfo) {
         if (self.data.btnBuy == 'true') {
+          self.setData({
+            showModalStatus: false
+          })
           var traItems = self.data.goodsItem.Base.GoodsId + "_" + self.data.specData.productid + "_" + self.data.shopNum
           //跳转订单确认页      
           wx.navigateTo({
@@ -439,10 +442,18 @@ Page({
     if (!_specData.descName)
       _specData.descName = item.SpecValue
 
-    _item.Base.PicUrl = item.GoodsImageIds[0]
+    // _item.Base.PicUrl = item.GoodsImageIds[0]
+    // console.log(_item,_item.Base.PicUrl === undefined)
+
 
     if (_item.Base.PicUrl&&_item.Base.PicUrl.indexOf('http://') < 0)
       _item.Base.PicUrl = _item.Base.resourcesUrl + _item.Base.PicUrl;
+
+    // // if (_item.Base.PicUrl === 'undefined')
+    // _item.Base.PicUrl =
+    // // if (_item.Base.PicUrl.indexOf('http://') < 0)
+    //   _item.Base.PicUrl = _item.Base.resourcesUrl + _item.Base.PicUrl;
+
 
     if (_specData.step < _specData.specCount) {
       _specData.step++

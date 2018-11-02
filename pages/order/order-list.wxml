@@ -46,7 +46,7 @@
                 </view>
               </block>
             </view>
-          </block>
+          </block> 
           <view class='separator3'></view>
           <view class='item-info-3'>
             <text style='color:#ccc;'>{{item.createTime}}</text>

@@ -1,10 +1,7 @@
 /**
  * 小程序配置文件
  */
-// var host = 'http://yapi.demo.qunar.com/mock/11987/api'
-//var host = "https://mfapi.mifang8.com"
 var host ="https://mfapi.haoqu.com.cn"
-
 var config = {
   host,
   // 登录地址

@@ -2,7 +2,8 @@
   <view class=''>
     <view class='index_header'>
       <view class='header_left'>
-        <icon class='icon iconfont icon-tubiaozhizuomoban1' style='font-size:56rpx;margin-top:4rpx;'></icon>
+        <!-- <icon class='icon iconfont icon-tubiaozhizuomoban1' style='font-size:56rpx;margin-top:4rpx;'></icon> -->
+        <image src='../../images/logo.png' style='width:56rpx;height:56rpx;vertical-align:middle'></image>
       </view>
       <view class='index_search' catchtap='searchShop'>
         <icon class="icon iconfont icon-sousuo"></icon>
